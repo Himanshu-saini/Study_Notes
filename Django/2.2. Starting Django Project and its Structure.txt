@@ -1,0 +1,42 @@
+Starting Django Project
+=========================
+
+- Install Djnago 
+  $ pip install django[==1.1.11]
+
+- Check version:
+  $ django-admin –version
+  Or 
+  $ python -m django --version
+
+- Creating a project
+  $ django-admin startproject mysite
+
+Let’s look at what startproject created:
+========================================
+  mysite/
+    manage.py
+    mysite/
+        __init__.py
+        settings.py
+        urls.py
+        asgi.py
+        wsgi.py
+- outer mysite/ 
+  root directory is a container for your project.
+- inner mysite/ 
+  directory is the actual Python package for your project
+- manage.py: 
+  A command-line utility that lets you interact with this Django project
+- mysite/settings.py: 
+  Settings/configuration for this Django project
+- mysite/urls.py: 
+  The URL declarations for this Django project
+- mysite/wsgi.py: 
+  An entry-point for WSGI-compatible web servers to serve your project.
+- The development server
+  $ python manage.py runserver
+
+- You’ve started the Django development server, a lightweight Web server written purely in Python
+- Don’t use this server in anything resembling a production environment.
+

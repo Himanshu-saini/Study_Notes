@@ -1,0 +1,62 @@
+About
+================
+- Materialized Views are essentially standard CQL tables that are maintained automatically by the Cassandra server,
+  as opposed to needing to manually write to many denormalized tables containing the same data
+- server taking the responsibility for maintaining the various data structures.
+
+Create Materialized View:
+=========================
+$CREATE MATERIALIZED VIEW hospital_users AS 
+  SELECT (User_Name,MaritalStatusID,GenderID,Zip,DOB,Sex,MaritalDesc,Age,Height,Weight,BMI,user_type1,user_type2) 
+  FROM minorDB.user_profile 
+  WHERE user_type2=1 
+  AND User_Name IS NOT NULL AND DOB IS NOT NULL AND zip IS NOT NULL AND user_type1 IS NOT NULL AND user_type2 IS NOT NULL 
+  PRIMARY KEY (User_Name,DOB,zip,user_type1,user_type2);
+
+List All Materialized View 
+---------------------------
+- $ select * from system_schema.views;
+- $ select * from system_schema.views 
+  where keyspace_name = 'minordb';  // from particular keyspace
+
+Behind the scenes
+==================
+- Cassandra will create “standard” table, and any mutation / access will go through the usual write and read paths.
+- we should expect to find two separate subdirectories, containing SSTables for the base table and the Materialized View:
+
+Functional limitations
+======================
+- A primary key of a Materialized View must contain all columns from the primary key of the base table
+- A primary key of a Materialized View can contain at most one other column
+- Advanced WHERE filtering criteria on columns 
+  that are not part of the base table’s primary key are only supported in Cassandra 3.10
+  Like - CREATE MATERIALIZED VIEW suspicious_transactions AS
+    	 SELECT userid, year, month, day, id, amount, card, status
+    	 FROM cc_transactions
+    	 WHERE userid IS NOT NULL AND year IS NOT NULL AND month IS NOT NULL AND day IS NOT NULL AND id IS NOT NULL 
+    	    AND amount > 1000
+    	 PRIMARY KEY ((userid, year), month, day, id);
+  // Filtering on amount
+
+Performance considerations
+===========================
+- In a realistic situation you would execute two writes on the client side,
+  one to the base table and another to the Materialized View
+- According to DataStax performance tests,the built-in Materialized Views perform better 
+  than the manual denormalization (with batching), especially for single-row partitions.
+
+Deleting and mutating data
+==========================
+- Deletes and updates generally work the way you would expect
+
+Tombstones when updating
+-------------------------
+- When updating a column that is made part of a Materialized View’s primary key, 
+  Cassandra will execute a DELETE and an INSERT statement to get the View into the correct state
+- can result in having a lot of tombstones
+- Instead of using a Materialized View, a SASI index is a much better choice for this particular case.
+
+Creating a Materialized View on existing datasets
+=================================================
+- Cassandra will create a View that has all the necessary data
+- take a significant amount of time depending on the amount of data held in the base table

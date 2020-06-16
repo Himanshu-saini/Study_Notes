@@ -1,0 +1,25 @@
+==========================
+Kubernetes vs docker swarm
+==========================
+- Both are Orchestration system to handle the containers.
+
+- Auto Scaling 
+  kubernetes can analyse server load based on that it can scale up or scale down
+- Load balancing – 
+  - Kubernetes: Sometimes we have the manually configure load balancing 
+    because in kubernetes multiple containers can server as a single pod 
+    and each service can be defined as a group of pods.
+  - Docker swarm does auto load balancing.
+- Rolling updates – 
+  - It is the process of progressively and gradually deploying updates to the existing application in all containers.
+  - Both can use rolling update.
+  - In case of failure kubernetes does auto roll back to previous update 
+  - docker swarm does not automatically roll back.
+- Shared volumes – 
+  - Docker swarm allows sharing volumes with any other containers.
+    Swarm uses 3rd party app for logging and monitoring. 
+  - kubernetes allows sharing volumes with containers in same pod 
+    kebernetes allow to mount the storage locally or on cloud like AWS. 
+    It also provide inbuild logging and monitoring.
+    - Logging helps in finding the problem in case of failure.
+    - Monitoring helps master node to analyse the health of the nodes and services containerized.

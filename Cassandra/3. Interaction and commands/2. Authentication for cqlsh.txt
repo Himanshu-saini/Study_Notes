@@ -1,0 +1,82 @@
+Internal authentication
+==========================
+- validating user connection.
+- The user is authenticated with login and password. 
+- All the user accounts are managed in Cassandra internally.
+- Authentication can also be controlled externally with 
+  1. Kerberos (Kerberos is used to manage credentials securely) 
+  2. LDAP (LDAP is used for holding authoritative information about the accounts, such as what they're allowed to access).
+- Apache Cassandra does not support external authentication.
+  Only datastax enterprise supports external authentication with Kerberos and LDAP.
+
+Internal authorization 
+========================
+- It deals with what actions user can be performed.
+- such as which user has only data read permission, 
+  which user has data write permission 
+  and which user has data delete permission.
+
+Configure Authentication and Authorization
+===========================================
+- In Cassandra, by default authentication and authorization options are disabled.
+- configure Cassandra.yaml file for enabling authentication and authorization.
+- Edit lines that deals with internal authentication and authorization.
+  # Authentication backend, implementing IAuthenticator; used to identify users
+  # Out of the box, Cassandra provides org.apache.cassandra.auth.{AllowAllAuthenticator,PasswordAuthenticator}.
+  authenticator: AllowAllAuthenticator
+  # Authorization backend, implementing IAuthorizer; used to limit access/provide permissions
+  # Out of the box, Cassandra provides org.apache.cassandra.auth.{AllowAllAuthorizer,CassandraAuthorizer}.
+  authorizer: AllowAllAuthorizer
+  # Part of the Authentication & Authorization backend, implementing IRoleManager; used
+  # to maintain grants and memberships between roles.
+  role_manager: CassandraRoleManager
+  
+Logging in
+===========
+- By default, Cassandra provides the super account with user name 'cassandra' and password 'cassandra'. 
+- By logging in to 'Cassandra' account, you can do whatever you want.
+- It is recommended to change the password from the default.
+- for libin use:
+  $ ./cqlsh -3 localhost -u cassandra -p cassandra
+  
+Alter Password
+----------------
+- cqlsh> alter user cassandra with password 'newpassword';
+
+Create New User
+----------------
+-  Only Super user can create new users.
+- cqlsh> create user robin with password 'manager' superuser;
+  cqlsh> create user robin with password 'newhire';
+
+List User:
+----------
+- cqlsh> list users;\
+
+Drop User:
+----------
+- cqlsh> drop user himanshu;
+
+Authorization
+=============
+- assigning permission to users that what action a particular user can perform.
+- generic syntax:
+  cqlsh> GRANT permission ON resource TO user
+- examples :
+  cqlsh> grant all on dev.emp to laura;
+  cqlsh> revoke all on dev.emp to laura;
+  cqlsh> grant select on dev.emp to laura;
+
+Types of Permission:
+---------------------
+  ALL	 			ALTER
+  AUTHORIZIZE 		CREATE 
+  DROP	 			MODIFY 
+  SELECT
+
+List All Permissions:
+-----------------------
+- cqlsh> list all permissions of laura;
+- cqlsh> list all permissions on dev.emp;
+
+

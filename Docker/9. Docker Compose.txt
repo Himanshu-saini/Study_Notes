@@ -1,0 +1,87 @@
+Running Multiple Images
+==========================
+- To run multiple images on the machine and and can link them using –link option.
+- Better way if to use docker compose. 
+
+Installing Docker Compose:
+==========================
+- download the current stable release of Docker Compose:
+  $ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+- Apply executable permissions to the binary:
+  $ sudo chmod +x /usr/local/bin/docker-compose
+
+- Test the installation.
+  $ docker-compose --version
+
+Docker compose:
+========================
+- To run multiple application in an image, it is better to use docker-compose.
+- With docker compose we can create a configuration file in yml format called docker-compose.yml 
+  and put together different services and options specific to run them 
+- It is easy to implement, run, and make changes as all changes are save in the docker-compose.yml file
+
+- There are many versions of docker compose and have slight variation in their syntax.
+
+Docker compose: Version 1
+----------------------------
+[ docker-compose.yml ]
+	
+	<container name>:
+		Image: <image  name>
+		Ports:
+			- 5000:80
+		Links:
+			- redis
+			- db 	// db:db can be written as – db
+	<container name>: …
+
+- Run docker compose as:
+  $ docker-compose up 	// to bring up the entire application stack
+
+- Option “image:<image name>” uses the image already build or available in docker hub
+- If we want the docker-compose to build a docker image when launching, 
+  use option “build:<docker file location>”  instead of image
+
+- Limitation:
+	- Version 1 attach all containers to the default bridge network
+	- There is no order in with the application in installed
+
+Docker compose: Version 2
+-----------------------------
+	Version: 2		// for version 2 and more important to specify which version
+	Services:
+		<same as all application as created in version 1>
+
+- In version 2 docker automatically creates dedicated bridge network for these applications then attaches all container to it. 
+  All containers will be able to communicate to each other using each other using service name. 
+  Therefore there is no need to use links.
+
+- There is a “depends_on” option in version 2 which is use to define the order in which the applications are launched 
+  i.e., tells that a service depends on another which should be launched before it.
+
+- Like:
+	version: "2"
+	services:
+		Redis:
+			Image:redis
+			Network:
+				-backend
+		Vote:
+			Image:voting-app
+			Ports:
+				-5000:80
+			Network:
+				-frontend
+				-backend
+			Depends_on:
+				-redis
+	Networks:
+		-frontend
+		-backend
+
+- “Networks” option is used to create separate networks for the applications 
+  and “network” in services is used to specify which network is that service connected to.
+
+- Version 3 is the latest, similar to version 2 with the support for docker swarm
+

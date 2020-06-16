@@ -1,0 +1,133 @@
+===============
+Database setup
+===============
+- By default, the configuration uses SQLite.
+- Following keys in the DATABASES 'default' item to match your database connection settings::
+- ENGINE 
+  – Either 'django.db.backends.sqlite3', 'django.db.backends.postgresql'
+- NAME 
+  should be the full absolute path, including filename, of that file. 
+  The default value, os.path.join(BASE_DIR, 'db.sqlite3'), 
+- If you are not using SQLite as your database, 
+  additional settings such as USER, PASSWORD, and HOST must be added.
+
+- set TIME_ZONE to your time zone :  
+  Default: 'America/Chicago'
+
+===============
+MODELS
+================
+- Defined as your database layout, with additional metadata.
+
+- polls/models.py
+  ---------------
+  from django.db import models
+  
+  class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+
+  class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE) 
+    choice_text = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, help_text=”enter name”)
+    votes = models.IntegerField(default=0)
+	// other field: EmailField, UUID,  DateTimeField ,..
+	def __str__(self):
+		Return self.name   // display name in Admin panel
+	class Meta: 
+       	verbose_name="choice"
+       	verbose_name_plural="choices"
+    def save(self, *args, **kwargs):
+            self.slug=slugify(self.name)
+            super(Courses, self).save(*args, **kwargs)
+
+
+Admin.py
+===============
+- To Make the poll app modifiable in the admin dashboard
+  register model in app/admin.py.
+- from .models import Students
+  admin.site.register(Students)
+
+Implement Changes
+===================
+- By running makemigrations, you’re telling Django 
+  that you’ve made some changes to your models (in this case, you’ve made new ones) 
+  and that you’d like the changes to be stored as a migration.
+  $ python manage.py makemigrations polls
+- The migrate command looks at the INSTALLED_APPS setting 
+  and creates any necessary database tables
+  $ python manage.py migrate
+
+To change a field name in django 1.7+
+========================================
+- Edit the field name in the model (but remember the old field name: you need it for step 3!)
+- Create an empty migration
+  $ python manage.py makemigrations --empty myApp
+- Edit the empty migration (it's in the migrations folder in your app folder, and will be the most recent migration) by adding
+  migrations.RenameField('MyModel', 'old_field_name', 'new_field_name'),
+  to the operations list.
+- Apply the migration  
+  $ python manage.py migrate myApp
+
+Accessing data:
+=================
+- Question.objects.all()
+- Students.objects.get(name = “himansuh”)
+- Question.objects.filter(id=1)
+- shortcut: get_object_or_404()¶
+  It’s a very common idiom to use get() and raise Http404 if the object doesn’t exist.
+
+- polls/views.py
+  --------------
+  from django.shortcuts import get_object_or_404, render
+  from .models import Question
+  # ...
+  def detail(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/detail.html', {'question': question})
+
+- There’s also a get_list_or_404() function, 
+  which works just as get_object_or_404() – except using filter() instead of get().
+
+- Insert value:
+  Sudents.objects.create(name=”Himanshu”,….)
+
+Creating an admin/super user
+========================
+- $ python manage.py createsuperuser
+  Enter your desired username and press enter. 
+- $ python manage.py changepassword username
+
+- Go to url "localhost/admin" to see the admin panel
+
+=========
+Fixture
+=========
+- A fixture is a collection of files that contain the serialized contents of the database. 
+- Each fixture has a unique name.
+
+- Django will search in three locations for fixtures:
+  - In the fixtures directory of every installed application
+  - In any directory named in the FIXTURE_DIRS setting
+  - In the literal path named by the fixture
+- Example:
+  $ django-admin loaddata foo/bar/mydata.json   
+  - would search <app_label>/fixtures/foo/bar/mydata.json for each installed application, 
+  - <dirname>/foo/bar/mydata.json for each directory in FIXTURE_DIRS, 
+  - the literal path foo/bar/mydata.json.
+
+- load only JSON fixtures called mydata.
+  $ django-admin loaddata mydata.json 
+- look for any fixture of any fixture type called mydata.
+  $ django-admin loaddata mydata 
+
+- fixtures may be compressed in zip, gz, or bz2 format. 
+  look for any of mydata.json, mydata.json.zip, mydata.json.gz, or mydata.json.bz2. 
+  - The first file contained within a zip-compressed archive is used.
+- if two fixtures with the same name but different fixture type are discovered , 
+  fixture installation will be aborted, and data deleted
+
+- Database-specific fixtures:
+  For ‘master’ database defined, name the fixture mydata.master.json

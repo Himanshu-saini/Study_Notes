@@ -1,0 +1,156 @@
+=============
+Django Admin
+=============
+- django-admin is Django’s command-line utility for administrative tasks
+- manage.py or python -m django (v > 1.9) does the same thing as django-admin 
+
+- Run django-admin help to display usage information and a list of the commands provided by each application.
+- Run django-admin help --commands to display a list of all available commands.
+- Run django-admin help <command> to display a description of the given command and a list of its available options.
+
+Available commands
+=======================
+
+check:
+----------------------------
+- $ django-admin check [app_label [app_label ...]]
+- By default, all apps
+- --tag TAGS, -t TAGS
+  tags to restrict the checks performed to just those in a particular category
+  $ django-admin check --tag models --tag compatibility
+- --list-tags
+  Lists all available tags.
+- --deploy
+  Activates some additional checks that are only relevant in a deployment setting
+  $ django-admin check --deploy --settings=production_settings		# for production setting
+
+createcachetable
+----------------------------
+- $ django-admin createcachetable
+- Creates the cache tables for use with the database cache backend
+  Specifies the database : --database DATABASE
+
+dbshell
+---------------------
+- $ django-admin dbshell
+- Runs the command-line client for the database engine specified in your ENGINE setting
+- Specifies the database : --database DATABASE
+
+dumpdata
+--------------
+- $ django-admin dumpdata [app_label[.ModelName] [app_label[.ModelName] ...]]
+- Outputs to standard output all data in the database associated with the named application(s).
+- --format FORMAT
+  Specifies the serialization format. Defaults to JSON.othre: xml,yaml
+- --exclude EXCLUDE, -e EXCLUDE¶
+  Prevents specific applications or models from being dumped
+- --database DATABASE¶
+  Specifies the database
+- --output OUTPUT, -o OUTPUT¶
+  Specifies a file to write the serialized data to. default : standard output
+
+loaddata
+---------------------
+- $ django-admin loaddata fixture [fixture ...]
+- Searches for and loads the contents of the named fixture into the database.
+- --database DATABASE¶
+  Specifies the database 
+- --ignorenonexistent, -i
+  Ignores fields and models that may have been removed since the fixture was originally generated.
+- --app APP_LABEL
+  Specifies a single app to look for fixtures
+
+makemigrations
+---------------------
+- $ django-admin makemigrations [app_label [app_label ...]]
+- Creates new migrations based on the changes detected to your models.
+- --noinput, --no-input¶
+  Suppresses all user prompts
+- --merge¶
+  Enables fixing of migration conflicts.
+
+migrate
+--------------------------
+- $ django-admin migrate [app_label] [migration_name]
+- Synchronizes the database state with the current set of models and migrations
+- --database DATABASE¶
+  Specifies the database to migrate.
+
+showmigrations
+-------------------------
+- $ django-admin showmigrations [app_label [app_label ...]]
+- Shows all migrations in a project. 
+- Lists all: --list, -l
+- Shows the migration plan : 
+  --plan, -p 
+
+runserver
+------------------
+- $ django-admin runserver [addrport]
+- Starts a lightweight development Web server on the local machine. 
+- default: port 8000 on the IP address 127.0.0.1.
+- can pass in an IP address and port number explicitly.
+- This server uses the WSGI application object specified by the WSGI_APPLICATION setting
+- You can provide an IPv6 address surrounded by brackets (e.g. [200a::1]:8000). 
+  This will automatically enable IPv6 support.
+- --ipv6, -6
+  Uses IPv6 for the development server. This changes the default IP address from 127.0.0.1 to ::1.
+- $ django-admin runserver 1.2.3.4:8000
+
+
+startapp
+------------------------
+- django-admin startapp name [directory]
+- Creates a Django app directory structure for the given app name in the current directory or the given destination.
+- Provides the path to a directory with a custom app template file ( alredy created app)
+  --template TEMPLATE
+
+startproject
+-------------------------
+- $ django-admin startproject name [directory]
+- Creates a Django project directory structure for the given project name in the current directory or the given destination.
+
+===================================
+Commands provided by applications:
+=====================================
+- when the django.contrib application that implements them has been enabled.
+
+changepassword
+--------------------
+- $ django-admin changepassword [<username>]
+- Allows changing a user’s password.
+
+createsuperuser
+----------------------
+- $ django-admin createsuperuser
+- Creates a superuser account (a user who has all permissions)
+- The username and email address for the new account can be supplied 
+  --username USERNAME
+  --email EMAIL
+
+django.contrib.staticfiles
+---------------------------
+- collectstatic
+- findstatic
+
+
+Running management commands from your code
+-----------------------------------------------
+- django.core.management.call_command(name, *args, **options)
+  To call a management command from code use call_command.
+
+- Examples:
+  from django.core import management
+  from django.core.management.commands import loaddata
+  management.call_command('flush', '--verbosity=0').
+  management.call_command('flush', verbosity=0, interactive=False)
+  management.call_command('loaddata', 'test_data', verbosity=0)
+  management.call_command(loaddata.Command(), 'test_data', verbosity=0)
+
+- Output redirection
+  Note that you can redirect standard output and error streams as all commands support the stdout and stderr options. 
+  - For example, you could write:
+    with open('/path/to/command_output') as f:
+    management.call_command('dumpdata', stdout=f)
+
+

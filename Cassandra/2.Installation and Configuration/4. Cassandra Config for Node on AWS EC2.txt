@@ -1,0 +1,42 @@
+Public IP : IP given by AWS for external connection
+Private IP: IP on the Remote Machine
+
+Settings for setup cassandra on AWS EC2
+========================================
+
+** Method 1
+-----------
+- cluser_name: "name"
+- comment Listen_address
+- uncomment Listen_interface:eth0
+- broadcast_address: public IP of Node
+- rpc_address: private ip of ec2
+- seeds: 3 public IP of ec2 instances
+- endpoint_snitch: GossipingProertyFileSnitch
+- add auto_bootstrap: false 	// if starting with no data, skip if adding to existing cluster with data
+// Cassandra usees broadcast_address to connect to other node
+
+- delete database from server when changing snitch roperty:
+  $ sudo rm -r /var/lib/cassandra/data
+
+Method 2
+----------
+- cluser_name: "name"
+- seeds: “nodes public_ip address”
+- listen_address:<node public_ip address>
+- rpc_address: 0.0.0.0
+- broadcast_rpc_address:<node_private_ip_address>
+- endpoint_snitch: Ec2Snitch
+
+// Ec2MultiRegionSnitch/Ec2Snitch uses public IP designated in the broadcast_address to allow cross-region connectivity
+// Datacenter name and rack name are default to region name for Ec2MultiRegionSnitch and Ec2Snitch
+   can use dc_suffix=<name> to add suffix to datacenter name in cassandra-rackdc.properties
+   
+
+Method 3
+---------------------------------------
+- cluser_name: "name"
+- listen_address:<node_public_ip_address>
+- rpc_address: <node_private_ip_address>
+- seeds: “node publicaddress”
+- endpoint_snitch: Ec2Snitch

@@ -1,0 +1,45 @@
+Public Ports
+==========
+22		SSH port
+8888	OpsCenter Website. Browser http request.
+
+Cassandra Inter-node ports
+==========================
+7000	Cassandra inter-node cluster communication.
+7001	Cassandra SSL inter-node cluster communication.
+7199	Cassandra JMX monitoring port.
+
+
+Cassandra client ports
+=========================
+9042	Cassandra client port.
+9160	Cassandra client port (Thrift).
+9142	Default for native_transport_port_ssl, useful when both encrypted and unencrypted connections are required
+
+Cassandra OpsCenter ports
+==========================
+61620	OpsCenter monitoring port.
+
+61621	Opscenter agent port
+
+Allow Firewall access of port (for linux) : // Not Needed if allowed in security group of AWS EC2
+===============================
+$ sudo ufw allow 7000/tcp   // same for 9042 and 7199(for nodetool)
+$ sudo ufw enable
+$ sudo ufw status
+
+Default location on linux
+==========================
+- default location of configuration files is /etc/cassandra.
+- default location of log and data directories is /var/log/cassandra/ and /var/lib/cassandra
+- Start-up options (heap size, etc) can be configured in /etc/default/cassandra
+
+Activate cassandra and check status:
+=======================================
+$ systemctl enable cassandra 
+$ systemctl start cassandra
+$ systemctl -l status cassandra
+
+$ sudo service cassandra start
+$ sudo service cassandra stop
+

@@ -1,0 +1,44 @@
+Docker on Windows:
+=====================
+TO use dockekr on windows, there are 2 options:
+1.	Docker toolbox
+2.	Doker Desktop For windows
+
+Docker toolbox: 
+-----------------
+- it is an applicaions contain oracle virtualbox, docker engine, docker machine, docker compose, kematics GUI.
+- It install a virtual box on widows and a lightweight linux with docker installed on it to use docker on windows.
+
+Docker desktop for windows:
+-----------------------------
+- It uses windows hyper-V virtualization instead of oracle virtual box to create linux virtual machine in which docker in installed.
+
+Both option enables to run linux container on windows host.
+With windows server 2016 microsoft launches container for windows.
+Docker desktop for windows uses both linux container and windows container.
+By default it uses linux containers option. To use windows containers, we have to explicitly configure it.
+
+Types of containers in windows:
+----------------------------------
+1.	Windows server container: just like linux container where OS kernel is shared.
+2.	Hyper-V isolation: to provide better security between containers and to allow kernels with different configuration and version to coexist.
+	Each container is run within a highly optimised virtual machine guaranteeing complete kernel isolation 
+
+There are 2 option for base images for windows containers:
+--------------------------------------------------------------------
+1.	Windows server core
+2.	Nano server
+	Nano server is a headless deployment option for windows server which runs at a fraction of size of full OS.
+
+Support for windows containers:
+-------------------------------
+-	Windows server 2016
+-	Nano server
+-	Windows 10 professional and enterprise
+
+
+Docker on mac:
+===================
+There are 2 option:
+1.	Docker on mac using Docker toolbox
+2.	Docker desktop for mac

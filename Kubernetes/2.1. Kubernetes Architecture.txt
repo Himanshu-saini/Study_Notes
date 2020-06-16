@@ -1,0 +1,64 @@
+========================
+Kubernetes architecture
+========================
+- Kubectl: 
+  cli though which we can all cluster services and work nodes.
+- Master node: 
+  API server 
+  -> control manager 
+  -> Scheduler
+  -> etcd
+- Worker nodes: 
+  Kubelet and kube-proxy 
+  -> many pods 
+    -> containers
+
+- Pods is a basic unit of kubernetes architecture. 
+- Pod can have many container images.
+
+Master node: 
+============
+- handles all administrative tasks that are responsible for managing kubernetes cluster.
+- We can have more than one master nodes.
+- One of them will be main node and other worker.
+- For managing cluster state it uses etcd to which all master nodes are connected.
+
+API server:
+------------ 
+- handles all the REST commands used to control the cluster.
+- After executing the request, resulting state of cluster is stored in distributed key-value store.
+
+Etcd: 
+------
+- distributed key-value store that stores the cluster state. 
+- Can be part of master or can be configured externally. 
+- Also used to store the configuration details such as subnets, config maps, secrets,..
+
+Scheduler: 
+----------
+- it schedule the task to the slave nodes. 
+- It stores the resources usage information for each node 
+  and then schedules the work in form of pods and services. 
+- It also takes into account the quality of service requirement, data locality, affinity and anti-affinity.
+
+Controller managers or managers: 
+-------------------------------
+- daemon which regulates the cluster. 
+- Also performs lifestyle functions like namespace creation and lifecycle,  
+  event garbage collection, terminated pod garbage collection, 
+  cascading deleted garbage collection, node garbage collection, etc.
+- It ensures that the current state of node in same as the desired state.
+
+Worker nodes:
+===============
+Kubelet 
+----------
+- is the agent that communicates with the master node and executes on the worker nodes.
+- Ensures the pods are running and healthy.
+
+Kube-proxy: 
+------------
+- runs on each nodes.
+- Deals with individual host subneting. 
+- Ensures that the services are available to the external parties. 
+- Network proxy and load balancer for single worker node and manages the network routing 
