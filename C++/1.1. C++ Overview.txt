@@ -1,0 +1,27 @@
+========================
+		C and C++
+========================
+
+C - Procedural programming language
+------------------------------------
+- A problem is keeps on divided into subproblems until we can write a function.
+- Focus is on function and procedure rather than on data.
+- It becomes difficult to write large programs
+
+C++ - Object Programming Language
+--------------------------------------
+- Also called C with classes
+- Real world is simulated using classes and objects.
+
+========================
+	C++ Language
+========================
+
+Class
+-------------
+- Collection of objects with common properties and behaviour.
+- Blueprint of a object.
+
+Objects
+--------------
+- Instance of a class.

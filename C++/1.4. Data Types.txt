@@ -1,0 +1,115 @@
+===========================
+		Data Types
+===========================
+- defines the type of variable declared.
+- defianes how much size from memry will be allocated to the varaible
+- Ex. int, char 
+
+Fundamental Data types
+=======================
+- Build-in / Primitive Data types
+
+- Boolean type - bool
+  - only have 2 value : True(1) or False(0)
+  - Size of 1 byte
+  - Range : -128 to 127
+  
+- Integer Type - int 
+  - contain whole number
+  - Size depend on OS (Size of int is equal to size of the OS)
+  - 16 bit OS have int size 2 bytes
+  - 32 bit OS have int size 4 bytes
+  - 64 bit OS have int size 8 bytes
+  - Size and range can be changed using Modifiers
+  
+- Floating Point - float, double
+  - contain decimal point numbers
+  - Number of digits after the decimal point is double in case of double type.
+  - Size of double is double to that of float type.
+  - Size of float is 4 bytes and double is 8 bytes
+
+- Character type - char, wchat_t
+  - used to store characters.
+  - char is of 1 byte
+  - wchar_t is of 2 bytes
+  - Character are converted to ASCII value to store in memory. 
+
+- void type 
+  - it is not used for variables.
+  - used with  function or pointers
+
+Range of data type 
+------------------
+- Range of data type is calculated on the basis of size of data type.
+- In memory,each bit can save 2 value and first bit is for sign.
+- Therefore, 
+  Nummber of vlues a variable can store = 2^(No of bits)
+  Range of variable = - 2^(No of bits-1) to 2^(No of bits-1) -1
+- For 4 byte float number:
+  - 32 bit 
+  - 1 for sign, 8 for exponent, 23 for mantissa (fractional part)
+  - Float number = sign * mantissa * 2^exponent
+  - Range : 3.4*e^-38 to 3.4*e^38
+  
+Qualifiers
+------------
+- short
+  - Depending on the copiler, it occupies less space or equal to int
+- long
+  - Occupies more space than int
+- unsigned: 
+  - Contain only positive values
+  - Float does not have unsigned type
+- signed: 
+  - have both negative nad positive values
+  - By Default, data types are signed
+
+Derived Data types 
+===================
+- Pointers
+- Arrays
+- Reference Types
+
+User Defined Data types
+=========================
+ 
+Type def
+--------
+- Give another name to the already defined data type.
+- Ex. 
+  typedef short unsigned int sunint;
+  sunint x,y;  
+
+Enumeration - enum
+------------------
+- Ex. 
+  enum Person {SIT, STAND, WALK};
+  - it defines a variable called "Person" which can have values SIT, STAND, WALK
+  - SIT, STAND, WALK are called enumerator
+  - SIT = 0, STAND = 1, WALK = 2
+- By default, compiler gives int value to enumerator starting from 0.
+- We can give default value to the enumerators also.
+  Ex. enum Person {SIT =2, STAND=4, WALK=1};
+- Usage 1:
+  ---------
+  enum person {SIT, STAND, WALK};    // variable can be declared here also
+  int main(){
+    person p;
+	p = SIT;			
+	// p = 1 will give error becouse 3 is int type
+	cout<<p;
+  }
+  ------------
+  Output: 0
+- Usage 2:
+  ---------
+  enum fontStyle{BOLD=1,ITALICS=2,UNDERLINE=3};
+  fontStyle fs = BOLD|ITALICS;
+  // fs have both BOLD and ITALICS value.
+- Can be used in switch
+
+Structures
+-----------
+
+Classes 
+---------

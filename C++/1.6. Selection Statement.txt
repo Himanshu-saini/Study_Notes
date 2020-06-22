@@ -1,0 +1,67 @@
+====================
+Selection Statement
+====================
+- Decision making Statement
+- Execute from a group of Statements depending on the condition
+
+IF Conditions
+=================
+- Varations:
+  - if {...}
+  - if {...} else {...}
+  - if {...} else if {...} else {...}
+
+- Syntax:
+  if (condition/statement){
+    //code lines
+  }
+  else if (condition/statement){
+    //code lines
+  }
+  else {
+    //code lines
+  }
+- else if block can be increased in case more conditions
+
+Swich statements
+=================
+- Block of condition is executed depending upon the case 
+- Case if executed on the basis of equallity comparision
+ 
+- Syntax:
+switch(a){
+  case 1:
+  // code lines 
+  break;
+  case 2:
+  // code lines 
+  break;
+  case 3:
+  // code lines 
+  break;
+  case 4:
+  // code lines 
+  break;
+  default:
+  // code lines 
+}
+
+- case <<value>>:
+  <<value>> must be a constant
+  either int, char, enum or constant expression (like 2*4)
+  
+- Switch Fall Out:
+  - if "break" statement is not used at the end of case block 
+    then the next case block will also be executed untill 
+	"break" statement comes or switch block end
+
+- "default" statement is executed when no case is matched
+- "default" statement can come also between the cases.
+- If "default" statement is not written at the end 
+  then "break" statement is must also be added at the end.
+
+- Switch is faster than if else  
+  - Switch creates a look up table ( make key:value pair)
+  - Time taken to execute any case block is contant 
+  - whereas in case of if else, all previous conditions are checked
+  

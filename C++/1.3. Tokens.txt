@@ -1,0 +1,44 @@
+==============================================
+	Token - Building Blocks of C++
+==============================================
+- Smallest element of a program that a compiler can understand.
+
+Identifier
+-----------
+- Name assigned to a program element by the user
+- Ex. Variable name, Funtion naem, Class name.
+- Rule for a valid identifier:
+  - Must begin with letter or underscare(_)
+  - Contains letters, digits or underscore
+  - Should  not be a keyword
+  - Should not contain a whitespace
+  
+Keywords
+----------
+- Have fixed meaning for a compiler
+
+Constants
+----------
+- Variable which cannot change its value.
+- It is initilized where it is declared.
+- Ex. const int n = 10;
+
+String
+-------
+- Array of character that end with '\0'
+- Declaration:
+  char str[] = "language"
+  char str1[20] = "Hello world"
+  - Null('\0') value is added by the compiler at the end of the string.
+  
+Special Symbols
+----------------
+- Symbols that have special meaning for the compiler.
+
+Operators
+-----------
+- that perform some operation on a value to give the result.
+- Urinary: Works on single operand
+- Binary: 2 operator
+- Ternary: 3 Operator
+

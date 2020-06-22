@@ -1,0 +1,266 @@
+=================
+Operators
+=================
+
+Classfication on the basis of No. of Operands
+============================================================
+- Operand is the value or variable on which the operation is performed.
+
+------------------
+Urinary Operator 
+-------------------
+- Works on 1 operand
+- Ex. ++,--,!,~
+  
+Increament Operator 
+--------------------
+- Increases the value of the operand by 1
+- Representaion: ++
+- Further divided into
+  - Prefix
+    ----------
+	- Ex.
+      a = 10;	
+	  x = ++a;
+	  // x=11, a=11
+	- 
+  - Postfix
+    ----------
+	- Ex.
+      a = 10;	
+	  x = a++;
+	  // x=10, a=11
+
+Decrement Operator
+-------------------
+- Decrease the value of the operand by 1
+- Representaion: --
+- Further divided into
+  - Prefix
+    ----------
+	- Ex.
+      a = 10;	
+	  x = --a;
+	  // x=9, a=9
+	- 
+  - Postfix
+    ----------
+	- Ex.
+      a = 10;	
+	  x = a--;
+	  // x=10, a=9
+
+Prefix operator
+-----------------
+- Operator comes before Operand
+- First value gets updated
+  then, updated value gets returned
+
+Postfix operator 
+------------------
+- Operator comes after Operand
+- First original value gets returned
+  then, value gets updated
+- The value is updated when the line ends
+
+------------------
+Binary Operator 
+-------------------
+- Works on 2 operands
+- Ex. +,-,%,&&,||,etc.
+
+------------------
+Ternary Operators
+------------------
+- Works on 3 operands
+
+- Conditional Operator (?:)
+  -------------------------
+  - Conditional Expression:
+    (condition) ? (Exp1) : (Exp2)
+  - max = x>y ? x : y;
+  - x>y ? printf(x) : printf(y);
+
+
+Classification on the basis of Operation
+============================================================
+
+-------------------
+Arithmetic 
+--------------------
+- For doing mathematical Oprations
+- Ex. +,-,*,\,%
+- Modulo (%)
+  - gives the remainer after the division
+  - a = 10%3  // a = 1
+
+----------------------
+Relational Operators
+----------------------
+- For doing comparisons
+- <,>,==,<=,>=,!=
+- returns True or False
+- Ex.
+  a = 5
+  b = 6
+  a == 5 // true
+  a <= b // true
+  a > b  // false
+  a != b // true
+
+----------------------
+Logical Operators
+-----------------------
+- Used to combine statement/operations
+- Deals with True and False and returns True or False
+- True = Non Zero value
+  False = Zero or Null (NUL is 0 in ASCII)
+  
+- logical AND
+  ------------
+  - Binary
+  - True if both operand is True else False
+  - Ex. 
+    ( a==4 ) && ( a<=10 ) // true
+  - AND Short Circuiting
+    - If first expression is False than other statement is not executed
+  
+  
+- logical OR
+  ------------
+  - Binary
+  - False if both operand is False else True
+  - OR Short Circuiting
+    - If first expression is True than other statement is not executed
+    - Ex. 
+	  a = 10
+	  b = 5 || ++a;
+	  // b = 1 and a = 10
+
+- logical NOT
+  ------------
+  - Urinary
+  - Gives Opposite Value
+  - True gives False ( Non Zero to Zero ) 
+    False gives True ( Zero to One )
+    
+----------------------
+Bitwise Operators
+-----------------------
+- Deals with Bit value
+- Operation is performaed on the BIT value representaion
+- The result is returned in decimal form
+
+- Bitwise AND (&)
+  ---------------
+  - x&y
+  - AND operation is performed to corresponding bits of the number
+  
+- Bitwise OR (|)
+  ---------------
+  - x|y
+  - OR operation is performed to corresponding bits of the number
+  
+- Bitwise excclusiveOR / XOR (^)
+  ------------------------------
+  - x&y
+  - XOR operation is performed to corresponding bits of the number
+  - Gives 1 only when one of the BIT is 1 else 0
+  
+- Left Shift (<<)
+  ---------------
+  - x << n
+  - Bits of x gets shifted to the left by n times
+  - Therefore, n bits of x is removed from left and n times 0 gets added to the right
+  - For solving,
+    x << n -> x * 2^n
+	
+- Right Shift (>>)
+  ---------------
+  - x >> n
+  - Bits of x gets shifted to the right by n times
+  - Therefore, n bits of x is removed from right and n times 0 gets added to the left
+	
+- one's Compliment (~) / Negation operator
+  ----------------------------------------
+  - ~x
+  - Return one-s compliment of the number
+  - Converts 1 to 0 and 0 to 1 in BIT reperasentaion
+
+- Ex.
+  x=10  // BIT rep   = 00001010
+  y=25  // BIT rep   = 00011001
+  x&y   // Operation = 00001000 = 8  - AND operation is performed between the correspoding Bits of x,y  
+  x|y   // Operation = 00011011 = 27 - OR operation is performed between the correspoding Bits of x,y  
+  x^y   // Operation = 00010011 = 19 - AND operation is performed between the correspoding Bits of x,y  
+  x<<2  // OPeration = 00101000 = 40 - Bits get Shifted Left by 2
+  x>>2  // Operation = 00000010 = 2  - Bits get shifted right by 2 
+  ~x    // OPeration = 11110101 = 245
+  
+--------------------
+Assignment Operators
+--------------------
+- Used to assign value to a variable 
+- Ex. =,+=,-=,*=,/=,%=,
+  x = 5   // value 5 is assigned to x 
+  x += 5  // x = x+5
+- Assignment operator returns true on successful assignment
+
+--------------------
+Size of 
+-------------------
+- gives size of varaible, data type or object
+- Ex.
+  int a = 7;
+  sizeof(a);     // return 4 for 32 bit system
+  sizeof(float)  // returns 4  
+
+====X====X====X====X====X====X====X====X====X====X====X====X====X====X====X====X====X====X====X====
+
+Precedence of Operators
+=========================
+- Determine which operation is performed first 
+  in case of multiple operaor in an expression
+
+Associativity of Operators 
+============================
+- Used when 2 operators of same precedence come in an expression
+- Ex.
+  x = 10, y = 5
+  r = x++ + ++y + y++ + ++x;
+  r = 32, x = 12, y = 7  // Right associativity
+- Ex. 
+  a = 10
+  b = a = 3;  
+  - both = 3
+  - = have Right to Left associativity
+  - First 3 is assigned to a 
+    then value off a is assigned to b
+- Ex. 
+  a = 10
+  b = 5 || ++a;   // OR short Circuit
+  // b = 1 and a = 10
+
+
+Precedence Table
+===========================================
+
+Operators		Name			Asssociativity
+---------		-----			---------------
+- (),[],.,->	    			Left to Right
+++,--,! 		Urinart 		Right to left
+*,/,%			Arithmetic		Left to Right
++,-				Arithmetic		Left to Right
+<<,>>			Shift 			left to Right 
+<,<=,>,>=		Relational		Left to Right 
+==,!=			Relational		Left to Right 
+&         		Bitwise AND		Left to Right
+^         		Bitwise XOR		Left to Right
+|         		Bitwise OR		Left to Right
+&&         		Logical AND		Left to Right
+||         		Logical OR		Left to Right
+?:         		Ternary 		Left to Right
++=,-=,*=,/=,
+&=,^=,!=   		Assignment		Right to Left
+,        		Comma    		Left to Right
+  

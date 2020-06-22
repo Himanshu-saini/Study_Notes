@@ -1,0 +1,32 @@
+=========================================
+		Common Terminologies
+=========================================
+
+Declaration 
+---------------
+- Inform compiler about a variable or fuction that we will use in program.
+- For varable:
+  - it contain its data type and name
+- For function:
+  - it contain function return type
+  - Function name 
+  - Function parameter list
+- Ex. 
+  extern int foo;
+  - memory is not allocated for extern.
+  - extern informs the compiler that the variable is declared in external file.
+  
+Defination
+------------
+- Declare a variable as well allocates a memory  to it.
+- Ex. int x;
+  
+Initialization
+----------------
+- When a value is assigned to a variable or object.
+
+ASCII table
+-----------
+- A-Z : 65-90
+- a-z : 97-122
+- 0-9 : 48-57
