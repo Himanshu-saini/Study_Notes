@@ -1,0 +1,29 @@
+========================
+Creating lists in LATEX
+========================
+
+- You can create lists using different list environments
+
+Unordered lists
+------------------
+- produced by the "itemize" environment
+- Each entry must be preceded by the control sequence \item
+- By default the individual entries are indicated with a black dot, so-called bullet
+
+- Ex. 
+  \begin{itemize}
+    \item This is item 1.
+    \item This is item 2.
+  \end{itemize}
+
+Ordered lists
+-------------
+- "enumerate" environment
+- enumerate labels consists of sequential numbers starting at one.
+
+- Ex.
+  \begin{enumerate}
+    \item This is the first entry in our list
+    \item The list numbers increase with each entry we add
+  \end{enumerate}
+

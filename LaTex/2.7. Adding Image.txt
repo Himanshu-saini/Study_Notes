@@ -1,0 +1,45 @@
+=======================
+Adding images in lATEX
+=======================
+
+- you will need to use a package -  graphicx
+  - \usepackage{graphicx}
+  
+- Add path from which image is included 
+  - \graphicspath{ {images/} }
+  - path is relative to the current directory
+  - added in Document Preamble
+  
+- Includeing image in document 
+  - \includegraphics{imageName}
+  - imageName is name of the file containing the image without the extension
+  - file name of the image should not contain white spaces nor multiple dots  
+  - file extension is allowed to be included, but it's a good idea to omit it
+  
+- caption for the figure
+  - \caption{a nice plot}
+  - can place it above or below the figure
+  
+- Adddign lable
+  - \label{fig:mesh1}
+  - refer the image within your document
+  -  label will number the image  
+  - add reference with this name 
+  
+- Add reference
+  - \ref{fig:mesh1}
+  - code will be substituted by the number corresponding to the referenced figure
+
+- If you are using captions and references on your own computer
+  you will have to compile the document twice for the references to work
+
+- Ex. 
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.25\textwidth]{mesh}
+    \caption{a nice plot}
+    \label{fig:mesh1}
+  \end{figure}
+
+- we should always put them inside a figure environment or similar 
+  so that LATEX will position the image in a way that fits in with the rest of your text

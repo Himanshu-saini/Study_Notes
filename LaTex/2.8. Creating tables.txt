@@ -1,0 +1,64 @@
+===================
+Creating tables
+===================
+- tabular environment is the default LATEX method to create tables
+- must specify a parameter to this environment, in this case {c c c}
+  - This tells LATEX that there will be three columns 
+  - and that the text inside each one of them must be centred.
+  - use r to align the text to the right and l for left alignment
+- & is used to specify the breaks in the table entries.
+- To go to the next line of your table, we use the new line command \\
+
+
+Adding borders
+---------------
+- add borders using the horizontal line command \hline and the vertical line parameter |.
+
+
+- Ex.
+  \begin{tabular}{ |c|c|c| } 
+  \hline
+   cell1 & cell2 & cell3 \\ 
+   cell4 & cell5 & cell6 \\ 
+   cell7 & cell8 & cell9 \\ 
+   \hline
+  \end{tabular}
+  - 5 verticle line will appear in th table
+  - 2 horizontal line will apear, only at start and end of the table.
+
+- { |c|c|c| }: 
+  - This declares that three columns, separated by a vertical line
+  - any number of verticle line can be inserted
+  
+- \hline: 
+  - This will insert a horizontal line
+  - no restriction on the number of times you can use \hline.
+
+Captions, labels and references
+-------------------------------
+- same way as images.
+- instead of the figure environment, you use the table environment.
+- Ex.
+  \begin{table}[h!]
+  \centering
+  \begin{tabular}{||c c c c||} 
+   \hline
+   Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
+   \hline\hline
+   1 & 6 & 87837 & 787 \\ 
+   2 & 7 & 78 & 5415 \\
+   3 & 545 & 778 & 7507 \\
+   4 & 545 & 18744 & 7560 \\
+   5 & 88 & 788 & 6344 \\ [1ex] 
+   \hline
+  \end{tabular}
+  \caption{Table to test captions and labels}
+  \label{table:data}
+  \end{table}
+
+- Add reference
+  - \ref{table:data}
+- compile the document twice for the references to work
+
+
+

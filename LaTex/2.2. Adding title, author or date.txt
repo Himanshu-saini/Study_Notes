@@ -1,0 +1,40 @@
+==============================
+Adding title,author and date 
+==============================
+
+Adding a title
+----------------
+- \title{First document}
+
+Adding a author
+----------------
+- \author{Himanshu saini}
+-  name of the Author(s) 
+
+- \thanks{funded by the Overleaf team}
+  - optional argument
+  - thank an institution in your article.
+  - added after the name of the author
+  - inside the braces of the author command
+  - add a superscript (i.e, * after auther name) and a footnote (i.e., footer) with the text inside the braces
+  
+- Ex. 
+  \author{Hubert Farnsworth \thanks{funded by the Overleaf team}}
+
+Adding a date
+-----------------
+- \date{February 2014}
+- use the command \today so the date will be updated automatically 
+  at the time you compile your document
+
+Showing title, author and date in Document 
+---------------------------------------------
+- \maketitle 
+  - print this information on the document
+  - included in the body of the document
+  - at the place you want the title to be printed.
+- Ex.
+  \begin{document}
+  \maketitle
+  We have now added a title, author and date to our first \LaTeX{} document!
+  \end{document}

@@ -1,0 +1,73 @@
+====================
+Control statement
+===================
+- used to change the flow of program execution during runtime
+
+Break Statement
+=================
+- control flow exits the current block whenever break statement is executed
+- Use case 1:
+  - termination of a loop when a condition is satisfied
+  - Ex.
+    for(i=0;i<10;i++){
+	  cin>>n;
+	  if(n==-1){
+	    break;
+	  }
+	  // statements
+	}
+	- The loop is terminated if the value of n becomes -1
+- Rest of the statements after break will not be executed 
+
+Continue statement
+====================
+- control flow skips erst of the statements in the current block 
+  and executes the next iteration of the loop 
+- Use case 1:
+  - skips oen iteration of the loop when a condition is satisfied
+  - Ex.
+    for(i=0;i<10;i++){
+	  cin>>n;
+	  if(n==-1){
+	    continue;
+	  }
+	  // statements
+	}
+	- Statements after continue is skipped and the loop executes with next iteration 
+
+Return statement 
+==================
+- Used to return a value from a function.
+- The function is terminated when the return statement is executed 
+- Ex.
+  int fun(int i){
+    if(i==-1){
+	  return 0;
+	}
+	// statements
+	return i*10;
+  }
+  - if i is -1 than the function is terminated without executing rest of the statements.
+
+Exit function
+===============
+- program is terminated when exit loop is executed 
+- included in <stdlib.h>
+- "exit" allows the C++ run-time termination processing to take place 
+  (global object destructors will be called)
+- syntax:
+  exit(value)
+- the value provided to the exit is returned to the OS as hte program's return code
+- By convention, a return code of zero means that the program completed successfully.
+- You can use the constants EXIT_FAILURE and EXIT_SUCCESS, also defined in <stdlib.h>, 
+  to indicate success or failure of your program.
+
+abort function
+==================
+- included in <stdlib.h>
+- program is terminated when exit loop is executed 
+- abort function bypasses the normal destruction process for initialized global static objects. 
+  It also bypasses any special processing that was specified using the "atexit" function.
+- Syntax:
+  abort(value);
+

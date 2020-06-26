@@ -1,0 +1,62 @@
+====================
+Reference Variables
+====================
+- reference variable is used to provide another name or alias to the existing variable.
+- any change in the reference variable is refelected in the main variable.
+- Syntax:
+  - <data type> &<ref var name> = <existing variable>;
+
+- Ex.
+  int a = 20;
+  int &b = a;
+  cout<<a<<b;  // a=20,b=20
+  b = 40;
+  cout<<a<<b;  // a=40,b=40
+
+- Points to remember
+  ------------------
+  - data type of the reference variable must be same as data type of the existing variable 
+  - reference variable must be initialized at same place it is declared.
+  - once the reference varible is created, it cannot point to other variable.
+
+- Explanation
+  ------------
+  - Every variable is assigned a memory location by the compiler during its declaration.
+  - Variable points to that memory location and save its value.
+  - referenve variable points to the memory location of the variable to which it is refered
+  - Therefore, both reference variable and refered variable make changes in the same location.
+
+===========
+Pointers
+============
+- Store address of other variable
+- Syntax:
+  - <data type> *<ptr var> = &<existing var>;
+  - <data type> *<ptr var>;
+  - <ptr var>  = &<existing var>;
+
+- Address of an variable is accessed by using ampersand operator(&).
+- The value at an address is accessed by using " * ".
+
+- Ex. 
+  int a = 20;
+  int *b = &a;
+  cout<<a<<*b;  // a=20,*b=20
+  *b = 40;
+  cout<<a<<*b;  // a=40,*b=40
+  
+- working:
+  ---------
+  - Let with int a = 20, address of a -> 1004 and value at 1004 -> 20
+  - Therefore &a retruns 1004
+  - Let with int *b = &a, address of b -> 1010 and value at b -> 1004
+  - Therefore, &b -> 1010, b -> 1004, *b -> 20
+  - Change made in *b will reflect in a as the changes are made on same memory address.
+
+- Explanation
+  ------------
+  - Every variable is assigned a memory location by the compiler during its declaration.
+  - Every memory location is assigned an address 
+  - Pointer variable is given its seperate memory unlike refernce variable 
+    but pointer variable stores the address of other variable memory as value in its memory.
+  
