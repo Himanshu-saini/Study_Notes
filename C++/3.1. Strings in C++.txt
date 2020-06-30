@@ -100,8 +100,11 @@ Manipulating Functions
 - erase() : 
   - str.erase(a,b)
     - deletes b characters at index a
+	- if b is not passed, deletes all character after position a.
+	- if a,b not passed, deletes all characters.
   - str.erase(str.begin() + 5, str.end() - 3)
     - iterator version of erase 
+	- deletes single character if second arg is not passed.
   
 Capacity Functions
 -------------------
@@ -123,12 +126,14 @@ Iterator Functions
   - returns an iterator to beginning of the string.
 - end() 
   - returns an iterator to end of the string.
+  - position after the last character
 - rbegin() 
   - returns a reverse iterator pointing at the end of string.
 - rend() 
   - returns a reverse iterator pointing at beginning of string.
 
 - Ex.
+  std::string::reverse_iterator it1;
   for (it1=str.rbegin(); it1!=str.rend(); it1++) 
     cout << *it1; 
   - Gives reverse of the string.

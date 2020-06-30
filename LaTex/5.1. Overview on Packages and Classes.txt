@@ -1,0 +1,20 @@
+================
+Classes
+================
+- Classes determine default formatting in LATEX document
+  - Extension: .cls
+- Classes control and change the look of the logical structure 
+  of a specific type of ducument
+
+==============
+Packages
+==============
+- The default look can be changed by using Packages.
+  - Extension: .sty
+- Package adds features that are independent of the type of document, 
+  i.e. can be used in books, reports, articles and so on
+
+Resource
+============
+- list of TEX and LATEX packages and class files on CTAN subpage: 
+  http://www.ctan.org/pkg/
