@@ -60,5 +60,88 @@ Captions, labels and references
   - \ref{table:data}
 - compile the document twice for the references to work
 
+Positioning tables
+===================
+- Options for table positioning are similar to those available for figures
 
+- default alignment for table is set to left
+- Default position of the tabular environment is centre.
+- The table environment is intended to automatically position tables 
+  so they fit nicely in the flow of your document.
+- A position parameter, inside brackets, can be passed to the table environment.
+
+- You can put more than one value in the parameter
+- Ex. 
+  \begin{table}[ht]
+  LATEX will try to position the figure here, 
+  but if it's not possible then the figure will appear at the top of the page. 
+- Recommended to use more than one positioning parameter to prevent unexpected results.
+
+- also the command \centering changes the alignment of the table 
+  within its container to centre instead of the default left.
+
+Available Parameters 
+--------------------  
+- h   Place the float here, i.e., approximately at the same point it occurs in the source text
+- t   Position at the top of the page.
+- b   Position at the bottom of the page.
+- p   Put on a special page for floats only.
+- !   Override internal parameters LaTeX uses for determining "good" float positions.
+- H   Places the float at precisely the location in the LATEX code. 
+      Requires the float package. 
+	  This is somewhat equivalent to h!.
+
+Wrapping text around a table
+=============================
+- package "wrapfig"
+  - text can be floated around the table
+- import the package
+  - \usepackage{wrapfig}
+- Use the environment "wraptable"
+  - takes two parameters that are passed inside braces
+  - the alignement that can be l, r, c, i or o; 
+    this letters stand for left, right, centre, inner and outer 
+	(the last two intended for two-sided documents)
+  - The second parameter is the width of the table container
+- Ex.
+  \begin{wraptable}{r}{8cm}
+  \arrayrulecolor[HTML]{DB5800}  % color column
+
+  \begin{tabular}{ |s|p{2cm}|  }  % width of 2nd column fix at 2cm.
+  \hline
+  \rowcolor{lightgray} \multicolumn{2}{|c|}{Country List} \\  % colot whole row
+  \hline
+  Country Name     or Area Name& ISO ALPHA 2 Code \\
+  \hline
+  Afghanistan & AF \\
+  \rowcolor{gray}  
+  Aland Islands & AX \\
+  Albania    &AL  \\
+  Algeria   &DZ \\
+  American Samoa & AS \\
+  Andorra & \cellcolor[HTML]{AA0044} AD   \\  
+  Angola & AO \\
+  \hline
+  \end{tabular}
+  
+  \caption{Table inside a wraptable}
+  \label{table:ta2}
+  \end{wraptable}
+  - the width of the table (8 cm) is less that the line length
+    therefore, remaining area will be used by the text.
+
+- \rowcolor 
+  ------------
+  - ser color for the current row 
+- \multicolumn 
+  --------------
+  - \multicolumn{2}{|c|}{Country List}
+    - First parameter: number of cell 
+	- Second parameter: arrangement and line border 
+	- third parameter: column text 
+  - merge columns in a row 
+- \cellcolor 
+  ------------
+  - \cellcolor[HTML]{AA0044}
+  - set color of the current cell 
 

@@ -1,4 +1,92 @@
 ===================
 Multiple columns
 ===================
-- https://www.overleaf.com/learn/latex/Multiple_columns#Inserting_vertical_rulers
+- https://www.overleaf.com/learn/latex/Multiple_columns
+
+- Two-column documents can be easily created by passing 
+  the parameter \twocolumn to the document class statement.
+  
+Package "multicol"
+==================== 
+- provides more flexibility in the column layout, 
+- create a document with multiple columns 
+
+- environment multicols takes two parameters:
+  - Number of columns, passed inside braces
+  - "Header text"
+    - inserted in between square brackets.
+    - optional and will be displayed on top of the multicolumn text
+	- Any LATEX command, except for floating elements 
+
+- Ex. 
+  \usepackage{multicol}  % import package
+
+  \begin{document}
+  \begin{multicols}{3}  % use package to create 3 columns
+  [
+  \section{First Section}  % Header text, Second parameter to the environment
+  All human things are subject to decay. And when fate summons, Monarchs must obey. 
+  ]
+  ...... Sample Text .......... More
+  \end{multicols}
+  \end{document}
+
+Some Parameters
+================
+- \columnsep
+  -----------
+  - Determines Column Seperation
+- \setlength{\columnsep}{1cm} 
+  -----------------------------
+  - sets the column separation to 1cm
+- \columnbreak
+  ------------
+  - inserts a column breakpoint i.e., move to next column
+  - the paragraphs before the breakpoint are evenly distributed to fill all available space.
+
+
+Unbalanced columns
+===================
+- By default, in multicols environment the columns are balanced
+  so each one contains the same amount of text.
+- This default format can be changed by the stared environment multicols*
+- Ex.
+  \begin{multicols*}{3}
+  ......
+  \end{multicols*}
+  - In this case the text is printed in a column 
+    till the end of the page is reached, 
+	then the in continues in the next column and so on.
+
+Inserting floating elements
+============================
+- Floating elements: tables and figures
+  can be inserted using "wrapfig" and "wraptable"
+- environment "wrapfigure" will insert a figure wrapped in the text
+- environment "wraptible" is the equivalent to wrapfigure but for tables
+
+- Elements inserted with the conventional figure* and table* environments 
+  will show up only at the top or bottom of the next page after they are inserted, 
+  and will break the layout. 
+
+- Ex.
+  \begin{wrapfigure}{l}{0.7\linewidth}
+  \includegraphics[width=\linewidth]{./lion-logo.jpg}
+  \caption{This is the former Share\LaTeX{} logo}
+  \end{wrapfigure}
+
+Inserting vertical rulers
+==========================
+- Ex.
+  \setlength{\columnseprule}{1pt}
+  \def\columnseprulecolor{\color{blue}}
+
+- \setlength{\columnseprule}{1pt}
+  -  determines the width of the ruler to be used as column separator
+  -  set to 0 by default
+- \def\columnseprulecolor{\color{blue}}
+  - The colour of the separator ruler is set to blue.
+
+
+
+

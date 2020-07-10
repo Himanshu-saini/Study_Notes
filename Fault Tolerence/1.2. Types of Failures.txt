@@ -4,9 +4,9 @@ Types:
 - Availability Zone 
 - Region
 
-Materless cassandra:
+Masterless cassandra:
 ==============
-- CAssandra is able to handle these failures 
+- Cassandra is able to handle these failures 
   because all the nodes in cassandra are considered equal (i.e, no master node)
   
 Cassandra:
@@ -26,7 +26,7 @@ Cassandra:
 - Protect against region outage:
   use multiple hysical data centers or regions.
   
-COnsistency level:
+Consistency level:
 =================
 - can be configured at statement level or entire application
 - number of replicas that need to acknowledge the read or write operation success
