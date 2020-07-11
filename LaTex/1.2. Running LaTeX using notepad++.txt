@@ -1,0 +1,76 @@
+============================
+Running LaTeX in Notepad++
+============================
+
+- Install MiKTeX ( LaTeX engine for windows)
+- Install Notepad++
+- Create a ".bat" file
+  - For convinience create file as "miktex_latex.bat" 
+    in notepadd++ intalled location
+  - Code:
+  ------------------------------------------------------------
+  :: Called from Notepad++ Run
+  :: [path_to_bat_file] "$(CURRENT_DIRECTORY)" "$(NAME_PART)"
+  :: Change Drive and  to File Directory
+  %~d1
+  cd %1
+ 
+  :: Run Cleanup
+  call:cleanup
+ 
+  :: Run pdflatex -&gt; bibtex -&gt; pdflatex -&gt; pdflatex
+  pdflatex %2
+  bibtex  %2
+  :: If you are using multibib the following will run bibtex on all aux files
+  :: FOR /R . %%G IN (*.aux) DO bibtex %%G
+  pdflatex %2
+  pdflatex %2
+ 
+  :: Run Cleanup
+  call:cleanup
+ 
+  :: Open PDF (Script updated based on comments by 'menfeser'
+  :: START "" "C:\Program Files\Adobe\Reader 9.0\Reader\AcroRd32.exe" %2.pdf
+  START "" %2.pdf
+ 
+  :: (Alternative) Open PDF with Sumatra PDF
+  :: START "" "C:\Progra~2\SumatraPDF\SumatraPDF.exe" %2.pdf -reuse-instance 
+ 
+  :: Cleanup Function
+  :cleanup
+  :: del *.log
+  del *.dvi
+  del *.aux
+  del *.bbl
+  del *.blg
+  del *.brf
+  del *.out
+  goto:eof
+  ------------------------------------------------------------------
+  - The code will run the command written in the CMD.
+  - All lines beginning with double colon :: are comments
+  - %<num> denotes the parameter passed while runing the file 
+  - START commend is to open pdf file created
+    - if a program is not specified than pdf is opened in default program 
+	- SumatraPDF is used in second comment which will update pdf without closing and reopening
+	- Make sure there are NO spaces in the path (Use Progra~2, not Program Files (X86))
+	- The -reuse-instance allows us to edit and recompile without quitting the PDF
+  - multiple 'pdflatex" is used for cases where references are used ini the document.
+  - "del" command is used to delete the temprary files created during "pdflatex"
+    - remember that there is no other important files with same extentions which will be deleted
+
+- Go To Notepad++ -> Run and paste the following in the prompt:
+  "<PATH_TO_BAT_FILE>" “$(CURRENT_DIRECTORY)” “$(NAME_PART)”
+  - <PATH_TO_BAT_FILE> will be replaced with the actual path of miktex_latex.bat file.
+  - rest of the parameter passed will be used by the BAT file.
+- Create a keyboard shortcut when asked
+  - like "Ctrl + L"
+- Now create a LaTeX file in Notepad++, Save and Run (using the short key defined)
+
+NOTE
+-----
+- MiKTex should be added automatically to Windows “path” 
+  when it is installed else add manualy "WHERE_MIKTEX_INSTALLED\miktex\bin"
+
+
+
