@@ -263,4 +263,8 @@ Operators		Name			Asssociativity
 +=,-=,*=,/=,
 &=,^=,!=   		Assignment		Right to Left
 ,        		Comma    		Left to Right
-  
+
+
+- postfix increament/decrement have higher priority than prefix
+- prefix increament/decrement and dereference(*) operator have 
+  same priority which associativity rtl.

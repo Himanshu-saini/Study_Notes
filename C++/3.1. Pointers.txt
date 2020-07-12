@@ -1,0 +1,192 @@
+===========
+Pointers
+============
+- Store memory address of other variable
+- Syntax:
+  - <data type> *<ptr var> = &<existing var>;
+  - <data type> *<ptr var>;
+  - <ptr var>  = &<existing var>;
+
+- Data type of pointer variable is the data type of variable 
+  whose memory address it wants to store.
+- As the memory address is numeric in value, therefore, data type of 
+  all pointer is interger.
+- Value of memory address range from 1 to 2^n -1
+  where n in number of bits in OS.
+
+- Address of an variable is accessed by using ampersand operator(&) - "Address of" Operator
+- The value at an address is accessed by using asterisk(*) - Indirection or Dereferencing Operator .
+
+- Ex. 
+  int a = 20;
+  int *b = &a;
+  cout<<a<<*b;  // a=20,*b=20
+  *b = 40;
+  cout<<a<<*b;  // a=40,*b=40
+  
+- working:
+  ---------
+  - Let with int a = 20, address of a -> 1004 and value at 1004 -> 20
+  - Therefore &a retruns 1004
+  - Let with int *b = &a, address of b -> 1010 and value at b -> 1004
+  - Therefore, &b -> 1010, b -> 1004, *b -> 20
+  - Change made in *b will reflect in a as the changes are made on same memory address.
+
+- Explanation
+  ------------
+  - Every variable is assigned a memory location by the compiler during its declaration.
+  - Every memory location is assigned an address 
+  - Pointer variable is given its seperate memory unlike refernce variable 
+    but pointer variable stores the address of other variable memory as value in its memory.
+
+Operations on Pointers 
+======================
+
+- Increament/Decrement operation
+  -------------------------------
+  - increment and decrement happens by the size of data type.
+  - moves to the next or previous memory address of the data type.
+  - Ex.
+    int* ptr = &a;  // let the address of "a" be 1004
+	ptr++;          // gives result as 1008 because size of int is 4 bytes 
+
+    char* ptr = &a;  // let theaddress of "a" be 1004
+    ptr++;           // gives 1005 because size of char is 1 byte	
+
+- Addition/Subtraction of constant to a pointer 
+  ---------------------------------------------
+  - the pointer points to new address which is "constant" times ahead or behind.
+  - The constant gets multiplied with the data type size and then added to teh pointer.
+  - Ex.
+  - Ex.
+    int* ptr = &a;  // let the address of "a" be 1004
+	ptr + 3;          // gives result as 1016 because size of int is 4 bytes 
+
+    char* ptr = &a;  // let theaddress of "a" be 1004
+    ptr - 2;           // gives 1002 because size of char is 1 byte	
+
+- Subtraction of 2 pointers
+  -------------------------
+  - both pointerss should of same type.
+  - it gives the number of type of elements that can be present 
+    of its data type.
+  - Ex.
+    int *ptr1 = &a;  // let address of "a" be 1004
+	int *ptr2 = &b;  // let address of "b" be 1024
+	ptr2 - ptr1      // it gives value 5 as size of int is 4 [ (1024-1004)/4 ]
+  
+- Comparison of 2 pointers
+  ------------------------
+  - pointers should have same data type.
+   
+Pointers and constants
+========================
+- there are 2 ways in which we can use "const" with pointer.
+
+- Use the variable the pointer of pointing to as constant
+  -------------------------------------------------------
+  - when "const" and pointer name are not together 
+    then this will happen.
+  - Ex.
+    const int *ptr = &x;
+	OR
+	int const *ptr = &x;
+  - Declare non-constant pointer to const int.
+  - In both cases, we can use pointer to change the value of "x".
+    i.e., *ptr = 20; is invalid but ptr = &y; is valid.
+  - We can change the value by using "x",i.e., x=20;  is still valid
+    if x is not declared as constant.
+  
+- Make pointer variable constant 
+  -------------------------------
+  - when "const" and pointer name are together this will happen.
+  - It will prevent the change of address stored in pointer variable.
+  - Ex.
+    int *const ptr = &x;
+  - Declare constant pointer to non-constant variable 
+  - In this case value of "ptr" cannot be changed.
+    i.e., ptr = &y; is invalid but *ptr = 20; is valid.
+
+- Declaring constant pointer to constant variable 
+  ------------------------------------------------
+  - when both above cases are used together.
+  - Ex.
+    const int *const ptr = &x;
+  - Here, both ptr = &y and *ptr = 20; are invalid.
+
+Null Pointer 
+=============
+- when pointer is not pointing to any address.
+- Dereferencing null pointer will give STATUS_ACCESS_VOILATION exception
+- Ex.
+  int *ptr = 0;
+  OR 
+  int *ptr = NULL;
+  - Both will create null pointer.
+  - *ptr will give STATUS_ACCESS_VOILATION error.
+
+Uninitialised Pointers 
+=======================
+- If pointer is not declared with any value it will point to 
+  some random memory location
+- To prevent this case null pointers are used.
+- Ex.
+  int *ptr;  // it will get some random/garbage address location
+  *ptr = 30;  // mab be valid
+  
+- It should be prevented because random address is assigned to 
+  the pointer which could affect the functioning on the program unintentially.
+
+Void Pointers 
+=============
+- used to store the address of the "void" type variable.
+- void *vptr;
+- can store the address of any type of value
+  Ex.
+  int x;
+  double y;
+  vptr = &x;  // valid
+  vptr = &y;  // valid 
+  
+- But we cannot access the value at that address using void pointer.
+  because compiler does able to determine how many bytes is to 
+  accessed the value at that address.
+  *vptr; will give error.
+
+- To access the value using void pointer it must be type case 
+  Ex.
+  vprt = &x;
+  *(int *)vprt; // gives value of x
+  int *iprt = (int *)vptr;  // assign void pointer to other pointer 
+
+- Similarly, we cannot do arithmetic operations on void pointer,
+  as the compiler does not know by hor much byte does the address 
+  is increamented or decremented.
+  Therefore, vptr++; is invalid 
+
+Double Pointer 
+===============
+- Pointer variable to another pointer
+- Declared using double asterisk(**)
+- Ex.
+  int x = 10;      // let the address of "x" be 1000
+  int *ptr = &x;   // let the address of "ptr" be 1050
+  int **pptr = &ptr;
+  *pptr;   // will give value of ptr -> 1000
+  **pptr;  // will give value of x -> 10
+  
+Near ,Far and Huge Pointers
+============================
+- NEAR=2, FAR=4 AND HUGE=4 POINTERS EXIST ONLY UNDER DOS. 
+- UNDER WINDOWS AND LINUX EVERY POINTERS IS 4 BYTES LONG OR 8 BYTES LONG DEPENDING UPON THE OS.
+
+- NEAR POINTER IS USED TO STORE 16 BIT ADDRESSES MEANS WITHIN CURRENT SEGMENT ON A 16 BIT MACHINE. 
+  THE LIMITATION IS THAT WE CAN ONLY ACCESS 64KB OF DATA AT A TIME.
+
+- A FAR POINTER IS TYPICALLY 32 BIT THAT CAN ACCESS MEMORY OUTSIDE CURRENT SEGMENT. 
+  TO USE THIS, COMPILER ALLOCATES A SEGMENT REGISTER TO STORE SEGMENT ADDRESS, 
+  THEN ANOTHER REGISTER TO STORE OFFSET WITHIN CURRENT SEGMENT.
+
+- LIKE FAR POINTER, HUGE POINTER IS ALSO TYPICALLY 32 BIT AND CAN ACCESS OUTSIDE SEGMENT. 
+  IN CASE OF FAR POINTERS, A SEGMENT IS FIXED. 
+  IN FAR POINTER, THE SEGMENT PART CANNOT BE MODIFIED, BUT IN HUGE IT CAN BE CHANGED.
