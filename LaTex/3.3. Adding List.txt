@@ -27,3 +27,26 @@ Ordered lists
     \item The list numbers increase with each entry we add
   \end{enumerate}
 
+Adding List without Bulltes
+==============================
+
+Using Empty lable
+------------------
+- Ex.
+  \begin{itemize}
+    \item[] This is item 1.
+    \item[] This is item 2.
+  \end{itemize}
+  
+using enumitem package
+------------------------
+
+- Ex.
+  \usepackage{enumitem}
+  
+  \begin{itemize}[label={}]
+    \item First.
+    \item Second.
+  \end{itemize}
+
+

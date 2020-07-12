@@ -5,7 +5,8 @@ Multiple columns
 
 - Two-column documents can be easily created by passing 
   the parameter \twocolumn to the document class statement.
-  
+
+====================
 Package "multicol"
 ==================== 
 - provides more flexibility in the column layout, 
@@ -41,8 +42,13 @@ Some Parameters
   - sets the column separation to 1cm
 - \columnbreak
   ------------
-  - inserts a column breakpoint i.e., move to next column
-  - the paragraphs before the breakpoint are evenly distributed to fill all available space.
+  - inserts a column breakpoint i.e., force move to next column
+  - the paragraphs before the breakpoint are evenly distributed 
+    to fill all available space.
+  - To prevent this irregular distribution use 
+    \vfill\null before \columnbreak
+  - To jump to next page skiping column on current page use 
+    \vfill\eject before \columnbreak
 
 
 Unbalanced columns
@@ -87,6 +93,46 @@ Inserting vertical rulers
 - \def\columnseprulecolor{\color{blue}}
   - The colour of the separator ruler is set to blue.
 
+Variable length multi columns
+==============================
 
+vwcol Package 
+--------------
+- For a single page use the package "vwcol" 
+- \usepackage{vwcol}
+- Ex.
+  \begin{vwcol}[widths={0.6,0.4},
+  sep=.8cm, justify=flush,rule=0pt,indent=1em] 
+  ..... Text ........ 
+  \end{vwcol} 
 
+- Ex.
+  \vwcolsetup{widths={0.4,0.6},siderule,rule=2pt,rulecolor=red,lines=auto}
+  \begin{vwcol} 
+  ..... Text ........ 
+  \end{vwcol} 
 
+flowfram Package 
+-----------------
+- For multiple pages use the package "flowfram"
+- columns (frames) of different heights and places but the same width
+- width of a paragraph cannot be changed when jump to a column of different width
+  so it must be simulate a paragraph break with \framebreak
+  or with \newpage or pagebrak[4] or \finishthispage in the last column
+  
+- Ex.
+  \usepackage{flowfram}
+  \newflowframe[1-5]
+  {0.60\textwidth}{\textheight}
+  {0pt}{0pt}[leftcolumn]
+
+  \newflowframe[1-5]{0.30\textwidth}{\textheight}
+  {0.65\textwidth}{0pt}[rightcolumn]
+  
+  \begin{document}
+  \lipsum[1-5]
+  \newpage 
+  \lipsum[6-8]
+  \newpage
+  \lipsum[9-12]
+  \end{document}

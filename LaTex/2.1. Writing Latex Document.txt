@@ -19,6 +19,7 @@ Environments in LaTex Document
   and end with an \end{...} command.
 - Ex.
   \begin{center} environment align the content inside in center of the page
+
 Adding comments
 =================
 - To make a comment, simply write a % symbol at the beginning of the line
