@@ -1,0 +1,37 @@
+=====================================
+Tips to keep in mind while Designing
+=====================================
+- Always focus on functionality of the design.
+  Design which does not fulfill its function is useless
+
+- Only use 2 typefaces
+  --------------------
+  - Too any font typefaces creates confusion
+  - One interesting, for heading
+  - One which is transparent, for background or explanation
+  - Can Use contrast fonts
+
+- Dont be scared of whitespace
+  -----------------------------
+  - Utilize white space effectively
+  - Do not try to cover it with umiportant designs
+  
+- Don't warp your image
+  ----------------------
+  - wrapping is distorting the actual aspect ration of the image.
+  - Always resize image while keeping its aspect ration intact.
+  
+- Pixellation
+  -------------
+  - Pixellation happens when expanding low resolution image
+  - The pixels of image becoms visible
+
+- Contrast is key
+  -----------------
+  
+- By size or color
+  ----------------
+
+- Website for free image download
+  - freepik
+  - Pixabay 
