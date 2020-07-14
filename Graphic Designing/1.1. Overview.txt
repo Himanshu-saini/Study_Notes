@@ -31,3 +31,6 @@ Overview of Graphic Designing
   
 - Using Element and principle of design together is the key to good Graphic Design.
 
+Visual Hierarchy
+------------------
+- Elements + Principle
