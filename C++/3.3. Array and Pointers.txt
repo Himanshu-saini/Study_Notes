@@ -1,0 +1,42 @@
+===================
+Arrays and Pointer
+===================
+- C++ interpret as array as the address of its first element - Base address.
+
+- Array name act as a pointer which points to first element of array.
+- We can access the elements of array using this pointer.
+- Cannot perform arithmetic operation on the array name.
+
+- Ex.
+  int arr[10];
+  cout<<arr;    // it will give the address of arr[0]
+  cout<<arr+1   // it will give address of arr[1]
+  
+  cout<<*arr;      // give the value arr[0]
+  cout<<*(arr+1);  // give the value arr[1]
+  cout<<*(arr+i);  // give the value arr[i]
+  cout<<*(i+arr);  // same as *(arr+i)
+
+  int * p = arr;
+  
+  sizeof(arr);  // give result as 40 ( sizeof(int) * n0. of elements)
+  sizeof(p)     // gives result as 4
+  
+  cout<<&arr;  // gives address of arr[0]
+  cout<<&p;    // gice address of p which is different from &arr[0]
+  
+  cout<<arr++;  // gives error as we cannot change the base address of array
+  cout<<p++;    // valid, gives location of arr[1]
+  
+  arr = p;     // gives error
+
+==================
+Array of pointers
+==================
+- create array to store list of addresses
+- Ex.
+  int *ptr[10];
+  int a =10;
+  ptr[2] = &a;
+  cout<<ptr[2];   // gives address of a
+  cout<<*ptr[2];  // gives value of a

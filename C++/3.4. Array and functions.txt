@@ -1,0 +1,32 @@
+===================
+Array and Function
+===================
+
+Pass array as function parameter
+--------------------------------
+- when we pass array as parameter base address of array is passed.
+- Cannot pass arrays by value since address of array is passed.
+  changes in array in called function will change actual array in main function
+
+- Ex.
+  int main(){
+    ..
+	sum(arr1, 10);  // base address of array is passed
+  }
+  int sum(int [],int )  // Declaration
+  int sum(int arr2[], int size){  // arr2 will get the base address of array
+    int total = 0;
+	for(int i=0;i<size;i++){
+	  total += arr2[i];
+	}
+	return total;
+  }
+  OR
+  int sum(int *,int)  // Declaration
+  int sum(int * ptr, int size){  // ptr will get the base address of array
+    int total = 0;
+	for(int i=0;i<size;i++){
+	  total += ptr[i];          // or *(ptr+i)
+	}
+	return total;
+  }

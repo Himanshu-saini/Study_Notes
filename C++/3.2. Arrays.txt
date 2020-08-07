@@ -1,0 +1,45 @@
+=========
+Arrays
+=========
+- data stucture that stores collection of values of same data type 
+  store in continuous memory location
+
+- Declation:
+  <data type> <array name>[<no. of elemants>];
+  - <Number of elements> can be a variable in C++
+  - <Number of eleemnts> must be a constant in C
+  
+- Accessing:
+  <array name>[<index>]
+  - array index is initialized from 0 to N-1 (N is size)
+  - index of ith element is i-1
+  
+- Initialize:
+  <array name>[<index>] = <value>
+  - set inidividual elements.
+  <data type> <array name>[] = {<list of values>};
+  - initialize whole array.
+
+- Ex
+  int marks[100];
+  - Create array of size 100 having "Garbage value"
+  
+  int imarks[] = {10,20,30,40,50};
+  - it creates array of size 5 with initial values provided.
+  - size of array is not needed when array is initialized during declaration
+  
+- Size of array cannot be changed after declaration.
+- Accessing array out og index will give runtime error
+
+- Iteration Array 
+  for(int i=0;i<10;i++)
+    cout<<arr[i];
+
+-arr, &arr, &arr[0]
+
+- arr++
+ARRAY NAME IN C++ IS IMPLEMENTED BY A CONSTANT POINTER. IT IS NOT POSSIBLE TO APPLY INCREMENT AND DECREMENT ON CONSTANT TYPES.
+
+NAME OF ARRAY IN C++ GIVES THE ADDRESS(EXCEPT IN SIZEOF OPERATOR) OF THE FIRST ELEMENT. ADDING 1 TO THIS ADDRESS GIVES THE ADDRESS PLUS THE SIZEOF TYPE THE ARRAY HAS. APPLYING THE ADDRESS-OF OPERATOR BEFORE THE ARRAY NAME GIVES THE ADDRESS OF THE WHOLE ARRAY. ADDING 1 TO THIS ADDRESS GIVES THE ADDRESS PLUS THE SIZEOF WHOLE ARRAY.
+
+IN C++, ARRAY PARAMETERS ARE TREATED AS POINTERS. SO THE EXPRESSION SIZEOF(ARR)/SIZEOF(ARR[0]) BECOMES SIZEOF(INT *)/SIZEOF(INT) WHICH RESULTS IN 2 (SIZE OF INT IS 4 BYTES AND INT * IS 8 BYTES) AND THE FOR LOOP INSIDE FUN() IS EXECUTED ONLY ONCE IRRESPECTIVE OF THE SIZE OF THE ARRAY.

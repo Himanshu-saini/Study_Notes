@@ -1,0 +1,50 @@
+=========================
+Mojority Element in Array 
+=========================
+- Element with frequency > n/2
+
+- Method 1
+  ---------
+  - Iterate Array element and chech frequency of each element in nested loop 
+  - If max frequency > n/2 then it is majority element 
+  - Time Complexity: O(n*n)
+
+- Method 2:
+  ----------
+  - Sort the array.
+  - If frequency of id element > n/2 then it is majority element.
+  - Time complexity: O(nlogn + n) 
+
+- Method 3: Moore's Voting Algo 
+  -----------------------------
+  - Using the idea that freq(mojiroty) - freq(all non majority) > 0
+  - To determine which candidate element for majority element initially
+    - Iterate the array using first element as majority, majority = arr[0]
+	- freq++ if it repeats else freq-- 
+	- If freq==0 then update the majority as current elemnet, majority=arr[i]
+	- Use the element which remain as majority at last to check the freq using below method.
+  - Iterate the array if the majority element comes freq++ else freq--
+  - If freq>0 then the element is majority element.
+  - Program: 
+  int calc_majority_eleemnt(int n,int arr[]){
+    int majority = arr[0],freq=0;
+    for(i=0i<n;i++){
+	  if(majority == arr[i])
+	    freq++;
+	  else 
+	    freq--;
+	  if freq == 0
+	    majority = arr[i];
+	}
+	 freq=0;
+	 for(i=0;i<n;i++)
+	   if(majority == arr[i])
+	    freq++;
+	  else 
+	    freq--;
+	}
+	 if freq > 0
+	   cout<<majority<<" is majority element";
+	 else 
+	   cout<<"No majority element";
+  }
