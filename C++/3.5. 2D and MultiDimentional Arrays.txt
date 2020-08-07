@@ -14,6 +14,7 @@
   Ex. 
   int a[10][5];
   int a[][3] = { {1,2,3}, {4,5,6} };
+  int (*ptr)[10];  // ptr is a pointer to an array of 10 integers
   
 - 2D array is represented by double pointer.
   - Ex.
@@ -22,30 +23,60 @@
 	*(*a+1)  // equilent to a[1][0]
 	*(*a+1)+2 // equilent to a[1][2]
 
-IF YOU ARE PASSING A TWO-DIMENSIONAL ARRAY TO A FUNCTION:
+========================================
+Passing 2D array as Function Paramenter
+========================================
+- Function paramenter can be defined as:
+  Type 1 : Both rows and columns are defined
+  -------
+  int fun(int a[3][3]) 
+  { ... }
+  
+  Type 2 : Only Columns are defined
+  ------
+  int fun(int a[][3])
+  { ... }
+  
+  Type 3 : Paramenter is defined as pointer to array
+  ------
+  int fun(int (*a)[3])
+  { ... }
+  
+  - In type 2 declaration, compiler implicitly rewrite parameter 
+    from "Array of Array" to "Pointer to Array"
+  - In Type 3 declaration, parameter is already as "Pointer to Array"
+  - Since the called function does not allocate space for teh array, 
+    it does not know the overall size of the array, So Number of rows is omited.
+	Width of the array is still important, so Number of columns is mentioned.
 
-INT ARRAY[NROWS][NCOLUMNS];
-F(ARRAY);
-THE FUNCTION'S DECLARATION MUST MATCH:
-VOID F(INT A[][NCOLUMNS])
-{ ... }
-OR
-VOID F(INT (*AP)[NCOLUMNS]) /* AP IS A POINTER TO AN ARRAY */
-{ ... }
-
-IN THE FIRST DECLARATION, THE COMPILER PERFORMS THE USUAL IMPLICIT PARAMETER REWRITING OF ARRAY OF ARRAY'' TO POINTER TO ARRAY'' (SEE QUESTIONS 6.3 AND 6.4); IN THE SECOND FORM THE POINTER DECLARATION IS EXPLICIT. SINCE THE CALLED FUNCTION DOES NOT ALLOCATE SPACE FOR THE ARRAY, IT DOES NOT NEED TO KNOW THE OVERALL SIZE, SO THE NUMBER OF ROWS, NROWS, CAN BE OMITTED. THE WIDTH OF THE ARRAY IS STILL IMPORTANT, SO THE COLUMN DIMENSION NCOLUMNS (AND, FOR THREE- OR MORE DIMENSIONAL ARRAYS, THE INTERVENING ONES) MUST BE RETAINED.
-
-int (*ptr)[10];
-ptr is a pointer to an array of 10 integers
 ========================
 Multi Dimentional Array 
 ========================
 - Array can have multiple dimentions according to our needs
 - Numbre of dimentions is set during the array declaration 
   by ading new [<size] 
+- multidimensional array must have bounds for all dimensions except the first
 
 - Syntax 
   <Data type> <var>[<size1>][<size2>][<size3>]...
   
 - Ex.
-  int a[2][3][5]  // 3D Array 
+  int a[2][3][5];  // 3D Array 
+
+- While passing multiple dimentional array to function,
+  the intervening sizes are mentioned.
+  Ex.
+  Type 1 : Both rows and columns are defined
+  -------
+  int fun(int a[3][3][3]) 
+  { ... }
+  
+  Type 2 : Only Columns are defined
+  ------
+  int fun(int a[][3][3])
+  { ... }
+  
+  Type 3 : Paramenter is defined as pointer to array
+  ------
+  int fun(int (*a)[3][3])
+  { ... }

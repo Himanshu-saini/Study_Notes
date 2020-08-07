@@ -30,3 +30,19 @@ Pass array as function parameter
 	}
 	return total;
   }
+
+- In C++ array paramenter is treated as pointers,
+  so using sizeof(arr) where arr is function parameter array becomes sizeof(<pointer>)
+  which will give result 8 and not the actual size of array. 
+  Ex.
+  int fun(int arr[]){
+    cout<<sizeof(arr);  // print 8
+	return 1;
+  }
+  int main(){
+    int arr[]={1,2,3,4,5};
+	cout<<sizeof(arr);  // print 20
+	fun(arr);
+	reutrn 1;
+  }
+

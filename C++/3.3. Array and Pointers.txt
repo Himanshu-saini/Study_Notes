@@ -9,17 +9,32 @@ Arrays and Pointer
 
 - Ex.
   int arr[10];
-  cout<<arr;    // it will give the address of arr[0]
-  cout<<arr+1   // it will give address of arr[1]
   
+  - Array name act as constant pointer to the base address (except in sizeof operator)
+  cout<<arr;      // it will give the address of arr[0]
+  cout<<arr+1     // it will give address of arr[1] (base address + sizeof(<array type)*1 )
+  cout<<*arr[0]+1;  // it will give address of arr[1]
+  
+  - Cannot change the base address value given by array name like other pointers 
+    i.e., increament or decrement on array name is not allowed 
+	because array name is implemented as "constant pointer"
+  arr++;       // Not allowed
+  
+  - Address operator on array name will give address of whole array 
+    Increaemnt is done by times the size of array
+  cout<<&arr;   // it will give the base address of array
+  cout<<&arr+1; // it will give address of arr[0] + sizeof(arr)*1 i.e., &arr[0] + 40
+  cout<<&arr+4; // it will give address of arr[0] + sizeof(arr)*4 i.e., &arr[0] + 160
+  
+  - Array value can be accessed using array name as pointer 
   cout<<*arr;      // give the value arr[0]
   cout<<*(arr+1);  // give the value arr[1]
   cout<<*(arr+i);  // give the value arr[i]
   cout<<*(i+arr);  // same as *(arr+i)
-
+  
   int * p = arr;
   
-  sizeof(arr);  // give result as 40 ( sizeof(int) * n0. of elements)
+  sizeof(arr);  // give result as 40 ( sizeof(int) * No. of elements)
   sizeof(p)     // gives result as 4
   
   cout<<&arr;  // gives address of arr[0]
@@ -28,7 +43,7 @@ Arrays and Pointer
   cout<<arr++;  // gives error as we cannot change the base address of array
   cout<<p++;    // valid, gives location of arr[1]
   
-  arr = p;     // gives error
+  arr = p;     // gives error because array name is constant pointer
 
 ==================
 Array of pointers
