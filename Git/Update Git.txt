@@ -1,0 +1,13 @@
+Update Git
+===========
+
+For windows 
+-----------
+- Method 1
+  --------
+  - Download latest version and install it
+
+- Method 2
+  --------
+  - Run this command in CMD
+  $ git update-git-for-windows

@@ -1,0 +1,40 @@
+Operations on Pointers 
+======================
+
+- Increament/Decrement operation
+  -------------------------------
+  - increment and decrement happens by the size of data type.
+  - moves to the next or previous memory address of the data type.
+  - Ex.
+    int* ptr = &a;  // let the address of "a" be 1004
+	ptr++;          // gives result as 1008 because size of int is 4 bytes 
+
+    char* ptr = &a;  // let theaddress of "a" be 1004
+    ptr++;           // gives 1005 because size of char is 1 byte	
+
+- Addition/Subtraction of constant to a pointer 
+  ---------------------------------------------
+  - the pointer points to new address which is "constant" times ahead or behind.
+  - The constant gets multiplied with the data type size and then added to teh pointer.
+  - Ex.
+  - Ex.
+    int* ptr = &a;  // let the address of "a" be 1004
+	ptr + 3;          // gives result as 1016 because size of int is 4 bytes 
+
+    char* ptr = &a;  // let theaddress of "a" be 1004
+    ptr - 2;           // gives 1002 because size of char is 1 byte	
+
+- Subtraction of 2 pointers
+  -------------------------
+  - both pointerss should of same type.
+  - it gives the number of type of elements that can be present 
+    of its data type.
+  - Ex.
+    int *ptr1 = &a;  // let address of "a" be 1004
+	int *ptr2 = &b;  // let address of "b" be 1024
+	ptr2 - ptr1      // it gives value 5 as size of int is 4 [ (1024-1004)/4 ]
+  
+- Comparison of 2 pointers
+  ------------------------
+  - pointers should have same data type.
+   
