@@ -1,0 +1,95 @@
+===========================
+Reverse resolution of URLs
+===========================
+- Django provides tools for performing URL reversing 
+  that match the different layers where URLs are needed:
+- In templates: Using the url template tag.
+- In Python code: Using the reverse() function.
+- In higher level code related to handling of URLs of Django model instances: The get_absolute_url() method.
+
+- Exaple URLconf entry:
+  from django.urls import path
+  from . import views
+
+  urlpatterns = [
+    #...
+    path('articles/<int:year>/', views.year_archive, name='news-year-archive'),
+    #...
+  ]
+
+- You can obtain these in template code by using:
+  <a href="{% url 'news-year-archive' 2012 %}">2012 Archive</a>
+  OR
+  {# Or with the year in a template context variable: #}
+  <ul>
+  {% for yearvar in year_list %}
+  <li><a href="{% url 'news-year-archive' yearvar %}">{{ yearvar }} Archive</a></li>
+  {% endfor %}
+  </ul>
+
+- Using in Python code:
+  from django.http import HttpResponseRedirect
+  from django.urls import reverse
+
+  def redirect_to_year(request):
+    # ...
+    year = 2006
+    # ...
+    return HttpResponseRedirect(reverse('news-year-archive', args=(year,)))
+
+URL namespaces
+================
+- A URL namespace comes in two parts, both of which are strings: 
+  - application namespace
+    This describes the name of the application that is being deployed.
+  - instance namespace
+    This identifies a specific instance of an application
+
+- Namespaced URLs are specified using the ':' 
+- For example 
+  the main index page of the admin application is referenced using 'admin:index'. 
+  This indicates a namespace of 'admin', and a named URL of 'index'.
+- Namespaces can also be nested. The named URL 'sports:polls:index'
+
+Method 1
+------------
+- you can set an app_name attribute in the included URLconf module, 
+  at the same level as the urlpatterns attribute.
+
+  polls/urls.py
+  -------------
+  from django.urls import path
+  from . import views
+
+  app_name = 'polls'
+  urlpatterns = [
+    path('', views.IndexView.as_view(), name='index'),
+    path('<int:pk>/', views.DetailView.as_view(), name='detail'),
+    ...
+  ]
+
+- Match using polls:index or polls:detail
+
+Method 2:
+----------
+- urls.py
+  --------
+  from django.urls import include, path
+
+  urlpatterns = [
+    path('author-polls/', include('polls.urls', namespace='author-polls')),
+    path('publisher-polls/', include('polls.urls', namespace='publisher-polls')),
+  ]
+
+- polls/urls.py
+  --------------
+  from django.urls import path
+  from . import views
+
+  app_name = 'polls'
+  urlpatterns = [
+    path('', views.IndexView.as_view(), name='index'),
+    path('<int:pk>/', views.DetailView.as_view(), name='detail'),
+    ...
+  ]
+- Match using aurther-polls:index

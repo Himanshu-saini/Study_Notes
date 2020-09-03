@@ -1,4 +1,5 @@
-development server
+===================
+Development server
 ====================
 - By default, the development server doesn’t serve any static files for your site
   (such as CSS files, images, things under MEDIA_URL and so forth).

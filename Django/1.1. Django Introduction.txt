@@ -7,6 +7,7 @@ DJANGO
   - Controller is the middleman,  one passing data from the model to the view.
 
 - Model-View-Template (MVT):
+  ---------------------------
   - Django itself takes care of the Controller part
   - view is used to execute the business logic and interact with a model 
     to carry data and renders a template. 

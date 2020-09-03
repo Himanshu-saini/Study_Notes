@@ -1,0 +1,46 @@
+================
+MODELS in Django
+================
+- Defined as your database layout, with additional metadata.
+
+- polls/models.py
+  ---------------
+  from django.db import models
+  
+  class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+
+  class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE) 
+    choice_text = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, help_text=”enter name”)
+    votes = models.IntegerField(default=0)
+	// other field: EmailField, UUID,  DateTimeField ,..
+	def __str__(self):
+		Return self.name   // display name in Admin panel
+	class Meta: 
+       	verbose_name="choice"
+       	verbose_name_plural="choices"
+    def save(self, *args, **kwargs):  // Make chages in a field on new submission
+            self.slug=slugify(self.name)
+            super(Courses, self).save(*args, **kwargs)
+
+
+Admin.py
+===============
+- To Make the poll app modifiable in the admin dashboard
+  register model in app/admin.py.
+- from .models import Students
+  admin.site.register(Students)
+
+Implement Changes
+===================
+- By running makemigrations, you’re telling Django 
+  that you’ve made some changes to your models (in this case, you’ve made new ones) 
+  and that you’d like the changes to be stored as a migration.
+  $ python manage.py makemigrations polls
+
+- The migrate command looks at the INSTALLED_APPS setting 
+  and creates any necessary database tables
+  $ python manage.py migrate

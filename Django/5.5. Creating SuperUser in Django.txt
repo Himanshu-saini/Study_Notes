@@ -1,0 +1,8 @@
+Creating an admin/super user
+========================
+- $ python manage.py createsuperuser
+  Enter your desired username and press enter. 
+- $ python manage.py changepassword username
+
+- Go to url "localhost/admin" to see the admin panel
+

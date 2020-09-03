@@ -14,6 +14,10 @@ Creating the Polls app
     tests.py
     views.py
 
-- other optional files: urls.py, templates, static
+- other optional files: 
+  - urls.py
+  - templates
+  - static
+
 - Added created app in INSTALLED_APPS in settings.py
 - And include url path to in in urls.py of main project

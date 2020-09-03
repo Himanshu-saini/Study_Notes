@@ -1,0 +1,24 @@
+========================
+Accessing data in Django
+========================
+
+- Question.objects.all()
+- Students.objects.get(name = “himansuh”)
+- Question.objects.filter(id=1)
+- shortcut: get_object_or_404()¶
+  It’s a very common idiom to use get() and raise Http404 if the object doesn’t exist.
+
+- polls/views.py
+  --------------
+  from django.shortcuts import get_object_or_404, render
+  from .models import Question
+  # ...
+  def detail(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/detail.html', {'question': question})
+
+- There’s also a get_list_or_404() function, 
+  which works just as get_object_or_404() – except using filter() instead of get().
+
+- Insert value:
+  Sudents.objects.create(name=”Himanshu”,….)
