@@ -1,0 +1,15 @@
+=================
+Storage Services
+=================
+
+S3 - Simple Storage Service 
+============================
+- Flat storage System 
+
+Bucket
+----------
+- Container for storing data 
+- Logical sergreation of Data 
+- Bucket is named as DNS Complied
+- No 2 buckets can have same name 
+  

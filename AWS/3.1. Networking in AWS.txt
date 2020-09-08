@@ -1,0 +1,49 @@
+==================
+Networking in AWS
+==================
+
+- Explore 
+  - https://aws.amazon.com/products/networking/
+  - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html
+  
+
+VPC - Virtual PRivate Cloud
+-----------------------------
+- Isolate A cloud netword from the internet
+- VPC is spaned over 1 region and contain multiple AZs
+- VPC Peering?
+
+Subnet
+------ 
+- Subnet is spaned over 1 AZ 
+
+Internet Gateway
+-----------------
+- Allow sebnet to communicate from the internet
+
+VPC NAT Gateway 
+------------------
+- Allow private Subnet to download resources from internet 
+  using Public Subnet's Gateway
+
+Virtual Private Gateway 
+-----------------------
+
+Route Tables
+------------
+- https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html
+
+
+Security Group
+-------------
+- Define inbound and outbound rules
+- Work like Firewall around the instances
+- It is Statefull
+  - Inbound rules are by default included in Outbound
+  
+Network access control lists (ACLs)
+----------------------------------
+- FIrewall around the Subnets
+- It  is Stateless 
+  - Inbound rules are not included in Outbound rules 
+  
