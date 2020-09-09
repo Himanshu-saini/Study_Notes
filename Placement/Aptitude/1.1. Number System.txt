@@ -1,0 +1,80 @@
+===============
+Number System
+===============
+
+Classification
+===============
+- Complex Numebr
+- Real number
+  - Rational Numbers
+    - Integers
+	  - Whole Number 
+	  - Natural Number 
+	- Fractions
+  - Irrational numbers
+
+- Natural Numbers 
+  - Prime and Composite
+  - Odd and Even
+
+Box Function:
+-------------
+- Greatest integer function 
+- [x] = greatest integer less than or equal to x.
+
+
+Divisibility
+==============
+
+- Divisibility by 2 or 5
+  -----------------------
+  - last digit of number is divisible by 2 or 5
+- Divisible by 3 or 9
+  ---------------------
+  - sum of digits of whole digits should be divisible by 3 (or 9)
+- Divisible by 4
+  ---------------
+  - last 2 digits are divisible by 4
+- Divisible by 8
+  --------------
+  - last 3 digits are divisible by 8 
+- Divisibility by 6
+  -----------------
+  - simultaneously divisible by 2 and 3
+- Divisibility by 11
+  -------------------
+  - difference of (sum of digits in odd places) and 
+    (sum of digits in even places) is 0 or divisible by 11
+- Divisibility by 12
+  -------------------
+  - simultaneously divisible by 3 and 4
+
+Standard form of a Number 
+===========================
+- Any composite number written in form of a product of its prime factors
+- If N can be written as (p^x)*(q^y)*(r^z)...
+  - Sum of the factors of the number is 
+    (p^0 + p^1 + p^2 ... + p^x)((q^0 + q^1 + q^2 ... + q^y)((r^0 + r^1 + r^2 ... + r^z)
+  - Number of factors
+    (x+1)(y+1)(z+1)
+
+Common Questions
+==================
+- Find last digit of number 81*82*84*85
+  - check if the expression container 2 and 5 as factor 
+  - if the number is divisible  by 2 and 5 last digit is 0.
+
+- To find the last 'n' digit of the expression (a*b*c*d..):
+  each number in expression is written in form of (10^n + x)
+  - last n digit = (x1*x2*x3...)
+  
+- Find last 2 digit of teh expression 101*102*103:
+  - Number = (100+1)(100+2)(100+3)
+  - Last 2 digit = 1*2*3 = 06
+
+- Extract teh maximum power of 3 from 24! i.e., maximum power of 3 in 24!
+  - use box function 
+  - [ 24/(3^1) ] + [ 24/(3^2) ] + [ 24/(3^3) ] + [ 24/(3^4) ]...
+    = [ 24/3 ] + [ 24/9 ] + [24/27 ] + ...
+	= 8 + 2 + 0 ...
+	= 10
