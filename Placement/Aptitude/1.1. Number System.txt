@@ -17,6 +17,8 @@ Classification
   - Prime and Composite
   - Odd and Even
 
+- Fact: 1 is not a prime number
+
 Box Function:
 -------------
 - Greatest integer function 
@@ -54,7 +56,7 @@ Standard form of a Number
 - Any composite number written in form of a product of its prime factors
 - If N can be written as (p^x)*(q^y)*(r^z)...
   - Sum of the factors of the number is 
-    (p^0 + p^1 + p^2 ... + p^x)((q^0 + q^1 + q^2 ... + q^y)((r^0 + r^1 + r^2 ... + r^z)
+    (p^0 + p^1 + p^2 ... + p^x)(q^0 + q^1 + q^2 ... + q^y)(r^0 + r^1 + r^2 ... + r^z)
   - Number of factors
     (x+1)(y+1)(z+1)
 
@@ -72,9 +74,20 @@ Common Questions
   - Number = (100+1)(100+2)(100+3)
   - Last 2 digit = 1*2*3 = 06
 
-- Extract teh maximum power of 3 from 24! i.e., maximum power of 3 in 24!
+- Extract the maximum power of 3 from 24! i.e., maximum power of 3 in 24!
   - use box function 
   - [ 24/(3^1) ] + [ 24/(3^2) ] + [ 24/(3^3) ] + [ 24/(3^4) ]...
     = [ 24/3 ] + [ 24/9 ] + [24/27 ] + ...
 	= 8 + 2 + 0 ...
 	= 10
+
+- Find the reminder if ( a + b + c + d ...) if divided by x 
+  - write each number in form of ( p*x + r )
+  - then find sum of all r 
+  - then find reminder when the sum is divided by x.
+
+- Find the reminder if ( a * b * c * d ...) if divided by x 
+  - write each number in form of ( p*x + r )
+  - then find product of all r 
+  - then find reminder when the product is divided by x.
+  
