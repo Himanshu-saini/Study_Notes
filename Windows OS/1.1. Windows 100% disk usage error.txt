@@ -108,6 +108,21 @@ Solution 5
   
   - Also, Disable Flash in Google chrome 
   
+  - Enable or Disable “Prefetch” in Google Chrome via Registry(windows)
+    - Open RUN 
+    - Enter "regedit"
+    - Note: You may have to create the “Google” and “Chrome” folders.
+    - Navigate to:
+      HKEY_LOCAL_MACHINE \ Software \ Policies \ Google \ Chrome
+      or
+      HKEY_LOCAL_MACHINE \ Software \ Google \ Chrome
+    - Right-click “Chrome” and select “New” > “DWORD 32-bit value“
+    - Give the value a name of “NetworkPredictionOptions“. Set the value data to:
+      0 = Prefetch always enabled
+      1 = Prefetch enabled on any network that is not cellular
+      2 = Disable prefetch
+    - Restart the computer, and the setting will stick.
+
 - For Skype
   ---------
   - Open Skype 
