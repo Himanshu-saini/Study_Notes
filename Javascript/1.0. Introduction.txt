@@ -3,43 +3,19 @@ Introduction to JavaScript
 ===========================
 - Programming Language
 
-JS Engine
-=============
-- JavaScript "Compiler"
-- Standalone application to convert JS code to Machine understandable code 
-- Browser comes with this compiler to run JS code
-- Ex. V8, Spider Monkey, etc.
+ECMAscript (ES)
+===============
+- ECMA - European Computer Manufacturing Association
+- ECMAScript is a general-purpose programming language, 
+  standardized by Ecma International 
+- It is a JavaScript standard meant to ensure 
+  the interoperability of Web pages across different Web browsers.
+ 
+- Languages following it:
+  - JavaScript, ActionScript, Nashorn.
 
-Web Engines
------------
-- Run JS code that is attached with HTML in browser
-
-- Ex.
-  - V8
-    ----
-    - High Performance JS web engine
-	- Used in chromium based browsers
-	- Like: Google chrome, Microsoft Edge, Opera, Brave,...
-  - Spider Monkey 
-    --------------
-    - The Mozila JavaScript Runtime
-    - Mozila version of JS engine
-	- written in C/C++
-
-JS Runtime 
------------
-- Run JS stand alone code to machine code without attaching it with HTML 
-
-- EX.
-  - NodeJS
-    ------
-    - JavaScript runtime built on Chrome's V8 JavaScript engine
-	- asynchronous event-driven JavaScript runtime
-	- presents an event loop as a runtime construct instead of as a library.
-	
-  - Deno
-    ----
-	- Secure Runtime for JavaScript and TypeScript
-
-
-
+- After ES%/ES6 versions javascript become much powerful
+   
+- Explore
+  - https://kangax.github.io/compat-table/es6/
+    - For which feature supported by which version 
