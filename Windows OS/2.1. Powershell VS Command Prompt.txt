@@ -1,0 +1,51 @@
+============================
+PowerShell VS Command Prompt
+=============================
+
+- Windows 7 added PowerShell, a more powerful command-line shell 
+  and scripting language than the Command Prompt.
+- PowerShell is more complicated than the traditional Command Prompt, 
+  but it’s also much more powerful.
+- The Command Prompt is dramatically inferior to shells available 
+  for Linux and other Unix-like systems, but PowerShell competes favorably.
+
+Command Prompt 
+=================
+- The Command Prompt is essentially just a legacy environment carried forward in Windows
+  — an environment that copies all of the various DOS commands you would find on a DOS system.
+
+PowerShell
+===========
+- PowerShell is a new environment for Windows system administrators that 
+  allows them to use a more modern command-line environment to manage Windows.
+- It uses different commands, known as cmdlets in PowerShell. 
+- you can use multiple cmdlets in sequence to manipulate the same data.
+- Unlike Unix-like systems—which can only pipe streams of characters (text) —
+  PowerShell pipes objects between cmdlets.
+- pretty much everything in PowerShell is an object, including every response you get from a cmdlet.
+  - This allows PowerShell to share more complex data between cmdlets, 
+    operating more like a programming language.
+- It’s a powerful scripting environment you can use to create complex scripts 
+  for managing Windows systems much more easily than you could with the Command Prompt.
+
+Commands
+----------
+- PowerShell contains “aliases” that point to the old commands at the appropriate new cmdlets, 
+  running the new cmdlets when you type the old commands.
+- To see if a DOS command has an alias, you can use the Get-Alias cmdlet.
+  - Ex.
+    > Get-Alias cd 
+
+- Change a Directory
+  - DOS:  cd
+  - PowerShell:  Set-Location
+- List Files in a Directory
+  - DOS:  dir
+  - PowerShell:  Get-ChildItem
+- Rename a File
+  - DOS:  rename
+  - PowerShell:  Rename-Item
+
+Explore More 
+--------------
+- https://www.howtogeek.com/137803/geek-school-learn-how-to-automate-windows-with-powershell/
