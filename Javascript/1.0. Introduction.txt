@@ -5,5 +5,41 @@ Introduction to JavaScript
 
 JS Engine
 =============
+- JavaScript "Compiler"
+- Standalone application to convert JS code to Machine understandable code 
+- Browser comes with this compiler to run JS code
+- Ex. V8, Spider Monkey, etc.
+
+Web Engines
+-----------
+- Run JS code that is attached with HTML in browser
+
+- Ex.
+  - V8
+    ----
+    - High Performance JS web engine
+	- Used in chromium based browsers
+	- Like: Google chrome, Microsoft Edge, Opera, Brave,...
+  - Spider Monkey 
+    --------------
+    - The Mozila JavaScript Runtime
+    - Mozila version of JS engine
+	- written in C/C++
+
+JS Runtime 
+-----------
+- Run JS stand alone code to machine code without attaching it with HTML 
+
+- EX.
+  - NodeJS
+    ------
+    - JavaScript runtime built on Chrome's V8 JavaScript engine
+	- asynchronous event-driven JavaScript runtime
+	- presents an event loop as a runtime construct instead of as a library.
+	
+  - Deno
+    ----
+	- Secure Runtime for JavaScript and TypeScript
+
 
 
