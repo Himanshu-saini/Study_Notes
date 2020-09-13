@@ -2,7 +2,7 @@
 Variables and DataTypes
 ========================
 - Reserve space in memory
-- JavaScript is Dynamically Types Language
+- JavaScript is loosely typed and Dynamically Types Language
   - it does not require to define the data type of variable
 
 - Declaration:
@@ -38,13 +38,40 @@ Variables and DataTypes
 
 Data Types in JavaScript 
 =========================
+
+Primitive Data type 
+--------------------
+- undefined : no value is stored in the variable
 - numbers : integers or float
 - strings 
-- Boolean : true (1) / false (0)
-- objects 
-- undefined : no value is stored in the variable
-
+- BigInt
+- Symbol
+  - symbol value is created by invoking the function Symbol
+  - dynamically produces an anonymous, unique value
+  - A symbol may be used as an object property.
+  - let Sym1 = Symbol("Sym")
+    let Sym2 = Symbol("Sym")
+    console.log(Sym1 === Sym2) // returns "false"
+	- Symbols are unique 
+  - Symbols don't "Auto-Convert" to strings
+  - alert(Sym.toString())  // Symbol(Sym), now it works
   
+- Boolean : true (1) / false (0)
 
+Structural Type 
+---------------
+- objects 
+  - new Object, new Array, new Map, new Set, new WeakMap, 
+    new WeakSet, new Date and almost everything made with new keyword;
+  
+- Function 
+  - This is merely a special shorthand for Functions
+  - though every Function constructor is derived from Object constructor.
 
-
+Structural Root Primitive 
+--------------------------
+- null 
+  - nonexistent or invalid object or address.
+  - Every Object is derived from null value,
+    therefore, typeof operator returns object for it:
+  - typeof null === 'object' // true
