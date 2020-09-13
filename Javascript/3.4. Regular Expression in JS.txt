@@ -1,0 +1,29 @@
+=========================
+Regular Expression in JS
+=========================
+- Regular expressions are patterns used to match character combinations in strings
+- In JavaScript, regular expressions are also objects.
+- These patterns are used with the exec() and test() methods of RegExp, 
+  and with the match(), matchAll(), replace(), replaceAll(), search(), 
+  and split() methods of String. 
+
+- Explore
+  - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+
+Creating a regular expression
+==============================
+- Using a regular expression literal
+  -----------------------------------
+  - pattern enclosed between slashes
+  - compilation of the regular expression when the script is loaded
+  - let re = /ab+c/;
+  - use when regular expression remains constant
+  
+- calling the constructor function of the RegExp object,
+  ------------------------------------------------------
+  - let re = new RegExp('ab+c');
+  - provides runtime compilation of the regular expression
+  - Use the constructor function when you know 
+    the regular expression pattern will be changing
+	like user input
+

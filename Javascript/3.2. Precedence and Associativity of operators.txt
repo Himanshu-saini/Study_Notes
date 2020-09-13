@@ -1,0 +1,19 @@
+=============================
+Precedence and Associativity
+=============================
+
+Operator Precedence
+======================
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+
+- determines how operators are parsed concerning each other
+
+Asssociativity
+==============
+- Left-associativity (left-to-right) means that it is processed as (a OP1 b) OP2 c,
+  while right-associativity (right-to-left) means it is interpreted as a OP1 (b OP2 c).
+- Assignment operators are right-associative
+  - a = b = 5; // same as writing a = (b = 5);
+  - assignment operator returns the value that is assigned
+
+- Remember that precedence comes before associativity.
