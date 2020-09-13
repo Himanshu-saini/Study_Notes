@@ -19,3 +19,8 @@ ECMAscript (ES)
 - Explore
   - https://kangax.github.io/compat-table/es6/
     - For which feature supported by which version 
+
+Comments in JavaScript 
+=======================
+- Single line comment : //
+- Multi line comment : /* ... */

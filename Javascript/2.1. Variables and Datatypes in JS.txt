@@ -1,3 +1,50 @@
 ========================
 Variables and DataTypes
 ========================
+- Reserve space in memory
+- JavaScript is Dynamically Types Language
+  - it does not require to define the data type of variable
+
+- Declaration:
+  ------------
+  - var 
+    - declare variable with program scope 
+	- Memory is reserved by varible during whole program.
+	- var variables are initialized with "undefined"
+	- we can access variable with var from window object 
+	  if it is defined globally.
+	- variable with var can be redeclared to some other value
+      var a = 'hello';
+      var a = 'world'; // No problem, 'hello' is replaced.
+    - var firstName = "Himanshu";  // declaration and initialization
+	- var firstName;			// Declaration
+	  firstName = "Himanshu"; 	// Initialization
+  
+  - let 
+    - declare varible with block scope
+	- memory reserved is released when the compiler comes out of the block
+	- variable with let also do not get added with global window object 
+	  even if it get declared outside of any block
+	- variable could not be redeclared if it is defined with let.
+      let b = 'hello';
+      let b = 'world'; // SyntaxError: Identifier 'b' has already been declared
+
+  - const 
+    - declare constant variable
+	- block scoped.
+	- const must be initialized during declaration.
+	- const variables can neither be updated nor re-declared.
+	- const uid = "1234";
+
+Data Types in JavaScript 
+=========================
+- numbers : integers or float
+- strings 
+- Boolean : true (1) / false (0)
+- objects 
+- undefined : no value is stored in the variable
+
+  
+
+
+
