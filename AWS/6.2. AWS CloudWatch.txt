@@ -1,0 +1,14 @@
+===============
+AWS CloudWatch
+===============
+- Monitoring and Management Services of AWS 
+- Create logs
+- Collect data using "Metrics"
+  - AWS metrics
+  - Custom Metrics 
+- Alarms
+  - Trigger events like Email, Auto-Scaling
+
+
+  
+	

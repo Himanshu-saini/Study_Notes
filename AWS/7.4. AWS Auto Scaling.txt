@@ -1,0 +1,12 @@
+========================
+Amazon EC2 Auto Scaling 
+========================
+- create launch template
+- create auto-scaling Group
+  - Set Min,Max,Desired instances 
+- Horizontal scaling 
+  - instances of same application on multiple servers
+- Can work across multiple AZs
+- Monitor the health of running instances 
+  - remove bad instalces
+  - replace with new instances if necessary

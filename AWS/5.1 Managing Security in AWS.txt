@@ -1,0 +1,28 @@
+===============
+Security in AWS
+===============
+Shared Responsibility
+---------------------
+https://aws.amazon.com/compliance/shared-responsibility-model/
+
+Security, identity and Compliance products
+=======================================
+- AWS certification manager
+  - SSL certificates
+
+- Amazon Guard Duty
+  - To check any threats that comes to a service
+
+- AWS Identity and Access Management
+
+- Amazon Inspector
+  - Threat accessment service
+
+- AWS shield
+  - DDos protection service
+  - Shield Standard - free
+  - Shield Advances - Paid
+    - Advanced attack mitigation
+  - Explore
+    - https://aws.amazon.com/shield/getting-started/
+

@@ -1,0 +1,13 @@
+=========
+Route 53
+=========
+- high available and scalable DNS 
+- Register Domain Name
+- Route internet traffic to your resources
+- Perform Health checks
+- Can act as Global load balancer
+  - If Fail Over Routing in activated
+- Routing Policies
+  - https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html
+- Pricing
+  - https://aws.amazon.com/route53/pricing/

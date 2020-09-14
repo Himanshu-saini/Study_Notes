@@ -1,7 +1,4 @@
-=====================
-Foundation Services
-=====================
-
+==============================
 EC2 - Elastic Cloud Computing
 ==============================
 
@@ -34,9 +31,16 @@ Create EC2
 Amozon EC2 families
 -------------------
 - General Purpose
-- GPU optimised 
+- Compute-Optimized
+  - high performance compute, data lakes, network appiances
+- Memory-Optimized
+  - high performance databases, in-memory databases 
+- Accelerated Computing
+  - GPU intensive workloads (ML, 3D rendering)
+- Storage optimised 
+  - High IOPS at low cost 
 
-Choosing right INstances 
+Choosing right Instances 
 -------------------------
 - Windows server is chargedas per hour basis 
 - Linux server is charged on per second basis
@@ -52,4 +56,18 @@ Accessing Meta-data
 
 Writing User Data
 ------------------
-
+- In Linux 
+  --------
+  - Start with "#! <path to interpreter>"
+    Ex. #! /bin/sh/
+  - Write commands required
+- in windows
+  ------------
+  - Ex.
+    <powershell>
+	Import-Module ServerManager
+	
+	Install-WindowFeature web-server, web-webserver
+	Install-WindowFeature web-mgmt-tools
+	</powershell>
+	

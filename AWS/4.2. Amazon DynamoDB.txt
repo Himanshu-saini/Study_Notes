@@ -15,29 +15,6 @@ Introduction
 - Provides fine-grained access control
 - Integrates with other AWS services
 
-
-AWS Purpose-built Database Seervices
-========================================
-
-
-Transactional Databases
---------------------------
-- RDS - Amazon Relational Databse Service
-  - SQL database service 
-
-- Amazon DynamoDB 
-  - NoSQL 
-
-Data Analytics 
---------------
-- Amazon Redshift
-
-
-In-Memory Data store and cache
---------------------------------
-- Amazon Elasticache
-  - NoSQL
-
 Serverless Service
 ====================
 - Underlying Architecture is handled by Amazon 
@@ -100,16 +77,22 @@ Basic Item Requests
 Write
 ---------
 - PutItem
-- 
-- The maximum item size in DynamoDB is 400 KB, which includes both attribute name binary length (UTF-8 length) and attribute value lengths (again binary length). The attribute name counts towards the size limit.
-
+ 
+- The maximum item size in DynamoDB is 400 KB, 
+  which includes both attribute name binary length (UTF-8 length) 
+  and attribute value lengths (again binary length). 
+  The attribute name counts towards the size limit.
 
 Read 
 -----
 - GetItem
+  - get item associated with specified primary key
 - BatchGetItem
-- Query - For specific partition key, retrieve items 
-- Scan - Give eveny item 
+  - get item associated with bunch of specified primary key
+- Query 
+  - For specific partition key, retrieve items matching sort key expression
+- Scan 
+  - Give every item in table  
 
 Secondary Indexes
 ==================
