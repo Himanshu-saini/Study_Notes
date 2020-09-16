@@ -15,5 +15,37 @@ LCM - least common Multiple
 ============================
 - "x" is LCM of n1 and n2 when x is lowest number
   that is exacly divisible by n1 and n2.
+- The LCM of 2 co-prime numbers is the product of both number.
 
-  
+Common Exapmles
+=================
+
+- Two alarm clocks ring at regular interval of 15 and 20 seconds.
+  If they first beep together as 6:00 PM than what time they will 
+  beep together again.
+  - Find the LCM of 15 and 20 that is 60 seconds.
+  - Therefore, after 60 secnds the clock will beep together.
+  - Time they will beep together again is 6:01 PM.
+
+- What is the smallest number when increased by 6 is divisible by 36,63 and 108.
+  - Find LCM of 36,63, 108 = 756
+  - Then subtract 6 from 756 = 750
+  - 750 is required number.
+
+HCF and LCM of fractions
+========================
+- Reduce fraction to thier lowest form.
+
+- HCF of two fractions 
+  --------------------
+  - HCF of Numerators / LCM of Denominators
+
+- LCM of two fractions 
+  --------------------
+  - LCM of Numerators / HCF of Denominators
+
+Points to remember
+===================
+- Product of HCF and LCM of 2 numbers = Product of the 2 numbers.
+  - HCF(n1.n2) * LCM(n1,n2) = n1 * n2
+  - Only applicable to 2 numbers.
