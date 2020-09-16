@@ -1,0 +1,19 @@
+============
+HCF and LCM
+============
+
+HCF - Heighest Common Divisor
+===============================
+- Also GCD - Greatest Common Divisor 
+- "x" is the GCD of n1 and n2 such that x is the 
+  heightest number which divide both n1 and n2 
+
+- If HCF of n1 and n2 is 1, then n1 and n2 are 
+  Co-prime number or relatively prime to each other.
+
+LCM - least common Multiple
+============================
+- "x" is LCM of n1 and n2 when x is lowest number
+  that is exacly divisible by n1 and n2.
+
+  
