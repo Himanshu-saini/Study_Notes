@@ -1,0 +1,14 @@
+===================
+Important Formulas
+===================
+- Sum of First N natural Numbers
+  ------------------------------
+  - S = N*(N+1)/2
+
+- Sum of Square of First N natural Numbers 
+  -----------------------------------------
+  - S = [N*(N+1)*(2N+1)] / 6
+
+- Sum of the cube of first N natural numbers
+  ------------------------------------------
+  - S = [ [N*(N+1)]/2 ]^2

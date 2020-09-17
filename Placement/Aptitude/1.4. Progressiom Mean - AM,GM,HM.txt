@@ -1,0 +1,58 @@
+=================
+Progression Mean
+=================
+
+Arithmetic Mean 
+===============
+- A = (a+b)/2
+ 
+- For any AP, the average of any pair of corresponding term 
+  will also be the average of the AP.
+  - Corresponding terms:
+    - First and Last
+	- Second and Second Last 
+	- Third and Third Last 
+  - Ex. 1,2,3,4,5,6
+    - Mean of AP = A = (1+6)/2 = (2+5)/2 = (3+4)/2
+
+- Insert "n" numbers between 2 terms such that
+  the sequence become AP.
+  - 2 terms = a ,b
+    Total terms = n+2
+	b = (n+2)th term of AP 
+	b = a+((n+2)-1)*d = a+(n+1)d
+	d = (b-a)/(n+1)
+  - These inserted numbers are called means.
+
+Geometric Mean 
+==============
+- G = Sqrt(a*b)
+
+- Inster GM between 2 numbers 
+  - Two numbers = a, b 
+    Total terms = n+2
+	b = (n+2)th term 
+	b = a*(r^((n+2)-1)) = a*(r^(n+1))
+	r = (b/a)^(1/(n+1))
+	Required means = ar, ar^2,..., ar^n
+
+Harmonic Mean
+==============
+- If a and b are 2 numbers and H is harmonic mean 
+  then 1/a,1/H,1/b are in Harmonic Progression 
+  
+- 2/H = 1/a+1/b 
+  H = 2ab/(a+b)
+
+Relationship Betweeen AM, GM, HM
+================================
+- G is heametric mean between A and H 
+  - G = SQRT(AH)
+- For any given quantity,
+  A>G>H always.
+
+Common Question
+================
+- AS A, B AND C ARE IN GP => 2LOGB = LOGA + LOGC
+  Therefore, log A,Log B,log C are in AP
+  

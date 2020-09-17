@@ -1,0 +1,48 @@
+=============
+Prograssions
+=============
+
+Arithmetic Progression 
+======================
+- Sequence of numbers such that the difference between 
+  the consecutive terms is constant.
+  - Ex. 1,3,5,7,9...
+- Common Difference = d = subracting consecutive terms
+- AP = a, a+d, a+2d, ... , a+(n-1)d
+
+- Nth term = a+(n-1)d 
+- Sum of given terms in AP = S
+  - S = [n(a+L)/2]
+    - L is last term
+  - S = n/2 * [2a + (n-1)d]
+
+Geometric Progression
+======================
+- Sequence where number increase/decrease by a constant factor
+  - Ex. 2,4,8,16,...
+
+- Common ration = r
+- GP = a, ar, a (r^2), ...
+- Nth Term = a*(r^(n-1))
+
+- If we have to choose 3 numbers in GP,
+  select { a/r ,a ,a*r }
+
+- Sum of GP = Sn
+  - Sn = [a((r^n)-1)]/[r-1]
+  
+- Sum of Infinite term of GP 
+  - Sn = a/(1-r) where 0<r<1
+
+Harmonic Progression 
+======================
+- If a,b,c,d,... is in AP 
+  then 1/a, 1/b, 1/c, 1/d,... is in Harmonic Progression 
+  
+- 3 numbers p,q,r, is said to be in Harmonic progression
+  if p/r = [p-q)/(q-r)
+
+- No general formula
+  - Question is solved by inverting term and solving as AP 
+
+
