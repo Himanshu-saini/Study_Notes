@@ -1,0 +1,22 @@
+===============================
+string Class vs Character Array
+===============================
+
+Character Array
+------------------
+- character array is simply an array of characters can terminated by a null character
+- character array has to allocated statically
+- more memory cannot be allocated at run time if required
+- Unused allocated memory is wasted 
+- threat of array decay in case of character array. 
+- Implementation of character array is faster
+- do not offer much inbuilt functions to manipulate strings
+
+string
+--------
+- A string is a class which defines objects that be represented as stream of characters.
+- memory is allocated dynamically
+- More memory can be allocated at run time 
+- As strings are represented as objects, no array decay occurs.
+- Strings are slower when compared to implementation than character array.
+- defines a number of functionalities which allow manifold operations on strings.

@@ -1,0 +1,43 @@
+=============
+Stings in C++
+===============
+- present in class std:: string
+- stores the characters as a sequence of bytes 
+  with a functionality of allowing access to single byte character.
+- memory is allocated dynamically
+
+Initializations
+================
+- initialization by raw string 
+  string str1("first string"); 
+
+- initialization by another string 
+  string str2(str1);   
+
+- initialization by character with number of occurrence 
+  string str3(5, '#');   // str2 = "#####"
+
+- initialization by part of another string 
+  string str4(str1, 6, 3);   // 3 characters from 6th index of str1  
+
+- initialization by part of another string : iteartor version 
+  string str5(str2.begin(), str2.begin() + 5); 
+
+- using constructor
+  string str1 = string(str2.begin(), str2.begin() + 5);
+
+- c_str() : char* charstr = str6.c_str()
+  - returns null terminated char array version of string
+  
+Other functions 
+===================
+- clear() : str.clear()
+  - deletes all character from string 
+- empty(): str.empty()
+  - Tests whether the string is empty.
+- at() : str.at(3)
+  - str6.at(2); //  Same as "ch = str6[2];"
+- front() : str.front()
+  - returns first character
+- back() : str.back()
+  - returns last character in string 
