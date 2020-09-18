@@ -5,7 +5,7 @@ Sliding WIndow Approach
 
 - FInd the sum of first "K" elements, i.e, from 0 to k
 - To find the sum of 1 to k+1 eleemnts, subtrtact a[0] from previous sum and add a[k+1] in it.
-- Store teh maximun sum in another element.
+- Store the maximun sum in another element.
 
 - Prgram:
 

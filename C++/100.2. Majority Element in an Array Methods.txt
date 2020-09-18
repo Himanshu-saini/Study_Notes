@@ -12,7 +12,7 @@ Mojority Element in Array
 - Method 2:
   ----------
   - Sort the array.
-  - If frequency of id element > n/2 then it is majority element.
+  - If frequency of mid element > n/2 then it is majority element.
   - Time complexity: O(nlogn + n) 
 
 - Method 3: Moore's Voting Algo 
