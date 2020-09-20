@@ -77,6 +77,17 @@ Lexical Environment
     outer: <outer lexical environemt>  // null in case of global 
   }
 
+- So when a variable is used in a program, 
+  the JavaScript engine will try to find the variable in 
+  the current lexical environment and if it could not find 
+  the variable there, it looks inside the outer 
+  lexical environment to find the variable. 
+  So that’s how the JavaScript engine performs variable lookups.
+  
 lexical scope
 -------------
 - a scope that is determined at compile time
+
+this Keyword
+==============
+- give access to global scope 
