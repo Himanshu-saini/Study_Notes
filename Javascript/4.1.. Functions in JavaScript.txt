@@ -1,0 +1,38 @@
+========================
+Functions in JavaScript
+========================
+- Basic building blocks of javascript
+- wrapping up of few common lines of code into one block
+
+- JavaScript supports many concepts of functional programming
+
+Creating a function
+====================
+- Syntax:
+  -------
+  function <name>(<parameters>){
+    ... Code ...
+    return value;	
+  }
+- Functions in a varaible
+  ------------------------
+  var <name> = function (<parameters>){
+    .. code  ..
+  }
+  - Useage is same as function above
+  - calling is same as before
+    Ex. func_name(var1,var2);
+  - It cannot be used before its declaration
+   due to variable hoisting different than function hoisting ( Ref: 2.4)
+
+Calling a function 
+===================
+- Syntax:
+  function_name();
+  
+Referencing a function 
+=======================
+- Syntax 
+  function_name;  // without parenthesis
+
+

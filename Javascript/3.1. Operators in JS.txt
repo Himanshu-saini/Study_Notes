@@ -21,6 +21,12 @@ Arithmetic operator
   - Exponentiation, on the other hand, is right-associative, 
     so 2 ** 3 ** 2 is the same as 2 ** (3 ** 2)
 
+- Adding number with string :
+  - JavaScript assumes the number to be string also
+  - Ex.
+    a = "2" + 2 // value of a = "22"
+	a = 2 + "2" // value of a = "22"
+	
 Unary operators
 ==================
 - delete
@@ -75,6 +81,20 @@ Relational operators
     myString  instanceof String  // returns true
     myString  instanceof Object  // returns true
 
+Equality Operators 
+======================
+- Equality Operator (==)
+  - Check 2 operands are equal or not 
+  - tries to convery oprands of different into same type 
+- Inquality Operator (!=)
+  - Check inquality
+  - performs type coercion
+- Identity Operator (===)
+  - checks equality
+  - treats operands of different type as different 
+- Non identity Operator (!==)
+  - Checks inquality 
+  - does not perform type coercion 
 
 Optional Chaining operator (?.)
 ================================
@@ -106,7 +126,7 @@ Binary logical operators
     expr1 || expr2
   - If expr1 can be converted to true, returns expr1; 
     else, returns expr2.
-  - False Values:
+  - False/Falsy Values:
     - null, NaN, 0, empty string ("" or '' or ``), undefined.
 
 - Nullish coalescing operator (??)
