@@ -18,5 +18,7 @@ string
 - memory is allocated dynamically
 - More memory can be allocated at run time 
 - As strings are represented as objects, no array decay occurs.
-- Strings are slower when compared to implementation than character array.
+- Strings are slower than c-strings (character array)
+  - behind the implementation, the string is converted into 
+    character array.
 - defines a number of functionalities which allow manifold operations on strings.

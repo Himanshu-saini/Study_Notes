@@ -5,6 +5,10 @@ Stings in C++
 - stores the characters as a sequence of bytes 
   with a functionality of allowing access to single byte character.
 - memory is allocated dynamically
+- Slower than c-strings (character array)
+  - behind the implementation, the string is converted into 
+    character array.
+
 
 Initializations
 ================
@@ -29,15 +33,3 @@ Initializations
 - c_str() : char* charstr = str6.c_str()
   - returns null terminated char array version of string
   
-Other functions 
-===================
-- clear() : str.clear()
-  - deletes all character from string 
-- empty(): str.empty()
-  - Tests whether the string is empty.
-- at() : str.at(3)
-  - str6.at(2); //  Same as "ch = str6[2];"
-- front() : str.front()
-  - returns first character
-- back() : str.back()
-  - returns last character in string 

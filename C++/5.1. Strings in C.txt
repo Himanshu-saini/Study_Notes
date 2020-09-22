@@ -2,7 +2,7 @@ Strings in C
 =============
 - We use One dimentional charachter array as String in C.
 - Sequence of character treated as single data item
-- Terminated by null character
+- Terminated by null character '\0'.
 
 - Ex.
   char ch[5]="asdf"  // compiler add NULL at the end at the empty location
@@ -35,8 +35,9 @@ String Library in C
 - Pergorm function in the string in C
 - For NULL terminating charachter array 
 
-- To use there function in C++ 
-  use <cstring>
+- <cstring>
+  - To use there function in C++ 
+  
 
 Functions
 ------------
@@ -44,4 +45,3 @@ Functions
 - strcmp(str1,str2) // str1<str2 gives -ve, = gives 0, > gives +ve
 - str3 = strcat(str1,str2) // concatinate strings
 - strcpy(str1,str2);  // str2 copied to str1 
-- 
