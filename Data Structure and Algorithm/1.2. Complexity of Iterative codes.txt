@@ -1,0 +1,72 @@
+=============================
+Complexity - Iterative Codes
+=============================
+
+- for(i=0;i<n;i++){
+    for(j=0;j<=i;j++){
+	  ...
+	}
+  }
+  
+  - For i=0, inner loop will run 1 time
+  - For i=1, inner loop will run 2 time
+  - For i=2, inner loop will run 3 time
+  - For i=3, inner loop will run 4 time
+  ...
+  
+  - For n,
+    - The outer loop will run n times
+	- The inner loop will run (1+2+3+4+...n) 
+	  = sum of N natutal numbers
+	  = n*(n+1)/2 = (n^2 + n)/2
+	- Total = n + (n*n + n)/2
+	  = 0(n^2)
+
+- for(i=1;i<=n;i=i*2){
+    ...
+  }
+  
+  - i in increaemnted as 1,2,4,8,...
+    or 2^0, 2^1, 2^2, 2^3, 2^4, ...
+  - loop will stop when 2^k > n 
+  - taking log2 both sides
+  - k > log2(n)
+  - Complexity = log2(n) = O(log2(n)) // logarithmic time complexity
+  
+- for(i=1;i<=n;i++){
+    for(j=1;i<=i;j++){
+	  for(k=1;k<=100;k++){
+	    ...
+	  }
+	}
+  }
+  - loop-i will execute n times 
+  - loop-j will execute (n*n + n)/2 times 
+  - look-k will execute (100+200+300+...) times 
+    = 100*(n*n + n)/2 times 
+  - Total complexity = O(n^2)
+  
+- for(i=1;i<=n;i++){
+    for(j=1;i<=i^2;j++){
+	  for(k=1;k<=n/2;k++){
+	    ...
+	  }
+	}
+  }
+  - For i=1,
+    - loop-i will execute 1 times 
+    - loop-j will execute 1 times 
+    - look-k will execute n/2 times
+  - For i=2,
+    - loop-i will execute 2 times 
+    - loop-j will execute 4 times 
+    - look-k will execute 4 * n/2 times
+  - For i=n,
+    - loop-i will execute 1 times 
+    - loop-j will execute n^2 times 
+    - look-k will execute n^2 * n/2 times 
+  - For n,
+    - loop-k will execute (n/2 + 4*n/2 + ... + n^2 * n/2) times 
+	  = n/2 * (1+4+...+n^2)
+	  = n/2 * (n(n+1)(2n+1))/6
+	- Complexity = O(n^4)  // polynomial time complexity
