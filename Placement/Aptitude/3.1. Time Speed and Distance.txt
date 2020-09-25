@@ -1,0 +1,73 @@
+========================
+Time Speed and Distance
+========================
+- Distance = Speed * Time 
+
+- Conversion of speed
+  - km/hr to m/s 
+    - multiply by 5/18
+  - m/s to km/hr
+    - multiply by 18/5
+
+- Relative Speed 
+  - Opposite direction
+    - New speed = S1 + S2
+  - Same direction 
+    - New speed = S1 - S2
+  
+- Problems on Trains
+  ------------------
+  - Time taken by train to cross an object
+    Speed of train = S1, Speed of Object = S2 
+	Length of train = L1, Length of onject = L2
+	Time = T
+    - Stationary object, S2 = 0
+	  - No Object length, L2 = 0
+	    - S1 * T = L1 
+	  - Object length = L2 
+	    - S1 * T = ( L1 + L2 )
+	    - Train has to cross Object length and its length 
+	- Moving Object, S2 
+	  - No Object length, L2 = 0
+	    - Same direction 
+		  - (S1 - S2) * T = L1
+	    - Opposite direction 
+		  - (S1 + S2) * T = L1
+	  - Object length = L2 
+	    - Same direction 
+		  - (S1 - S2) * T = (L1 + L2)
+	    - Opposite direction 
+		  - (S1 + S2) * T = (L1 + L2)
+
+- Problems on Boat and River
+  --------------------------
+  Speed og Boat = S1, Speed of Stream/River = S2 
+  - Boat moving upstream
+    - New Speed = S1 - S2 
+  - Boat Moving Downstream
+    - Net Speed = S1 + S2 
+
+- Circular motion
+  ----------------
+  - Objects are moving in Circular Track
+  - The objects starts from one point
+    when the objects meet again is called "overlapping"
+  - Case 1 : When A,B,C starts moving in circle from point P 
+    in same direction, When will they meet again.
+	S1,S2,S3 are speed of A,B,C where S1>S2>S3.
+	T1,T2,T3 are time taken by A,B,C to complete the circle
+	- Time after which They meet again at P = LCM(T1, T2, T3)
+	
+	- Time after which they meet again at any point = LCM(T12, T13)
+	  - T12 = Time taken by A to overlap B 
+	  - T13 = Time taken by A to overlap C 
+
+- Clocks
+  -------
+  - Number of right angles in an hour = 2
+    - Right angles are formed when time between 
+	  hour and minute hand is 15 minutes ( +15 and -15)
+  - Number of Strainght lines in an hour = 2
+    - Strainght lines are formed when time between 
+	  hour and minute hand is 30 min or 0 min
+	
