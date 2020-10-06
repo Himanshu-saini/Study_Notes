@@ -145,12 +145,28 @@ COUNTIF
   =COUNTIF(C4:C10,"<10")
   // count number of cells having value < 10
 
+SUMIF formula 
+==============
+- Sum based on the  given criteria 
+- Checks the value in criteria in teh  given range 
+  if teh  value is matched then the value 
+  in the corresponding sum range cell is added to the result
+
+- Syntax:
+  - =SUMIF(<range>,<criteria>,<sun range>)
+  - range which contains the criteria
+  - criterai:
+    - condition for the counting cell 
+	- perform equality operation for string and numbers 
+	- perform <,>,>=,...
+  - sum range :
+    - range which is to be added corresponding to the matching critera
+
+- Ex 
+  =sumif(C2:C22,B1,D2:D22)
+
 VLOOKUP
 ========
 - finds the 
 
-DROPDOWN list
-=============
 
-SUMIF formula 
-==============

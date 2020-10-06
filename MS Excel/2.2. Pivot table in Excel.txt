@@ -1,0 +1,72 @@
+====================
+Pivot Table in Excel
+=====================
+- Pivot table is flexible
+- It gives summarize data or subtotal of each record 
+- For creating Pivot table
+  - data should not have any blank records (blank row/column)
+
+- When we click on any cell in Pivot table,we get 
+  - Pivot Table Fields panel
+  - Pivot Table Tools
+    - Analyse
+	- Design 
+- Double click on any value to check all the recoords 
+  that resulted in that value
+  - create a table in new worksheet having records 
+    corresponding to the data
+
+Steps for creating Pivot table
+==============================
+- Go to insert tab 
+- Select Pivot Table 
+- Under source option
+  - select the range of data 
+- Under destination option 
+  - can seelct new worksheet or existing worksheet 
+  - for existing worksheet\, 
+    enter the cell number where table is created
+- Press OK
+- We get an empty talbe with Pivot table fields panel
+
+Pivot table Fields Panel
+-------------------------
+- used to configure the table
+- It contains the list of column headings of the selected table
+- It has 4 fields used to configure the table
+  - Filter
+    - gives a dropdown list of distict values of the  selected table column
+	- Used to filter the values used in calulations in the table
+  - Columns
+	- Display distinct value from the selected table column 
+	  as its values
+  - Rows
+	- Display distinct value from the selected table column 
+	  as its values
+  - Values
+	- generally contain only Number fields
+- Drag and drop the column name from list in the respective 
+  field options
+
+Pivot Table Tools
+-----------------
+- Tools to customize the pivot table 
+- Design option
+  -------------
+  - Options for changing appearence of the table 
+    - color
+	- layout
+  - Grand total 
+    - to select which grand total field is shown or not
+	
+- Analyze option
+  --------------
+  - options to change the configuration of the table 
+  - Field Settings
+    - the type of calulation done for summarization of data 
+	  - Ex. sum, count, min, max, product,...
+  - Change Source
+  - Move pivot table 
+  - PivotTable chart 
+    - create chart based on the values of the Pivot table 
+	

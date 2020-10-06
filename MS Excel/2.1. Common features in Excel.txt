@@ -1,0 +1,15 @@
+========================
+Common features in Excel
+========================
+
+Creating Dropdown list
+======================
+
+- Click on a cell
+- Go to the following option
+  - Data > Data validation
+- Under Allow field select "List"
+- Under source option 
+  - Click in the text field 
+  - select the range of cells from the excel sheet
+- Press "OK"
