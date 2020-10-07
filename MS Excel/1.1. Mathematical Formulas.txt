@@ -167,6 +167,28 @@ SUMIF formula
 
 VLOOKUP
 ========
-- finds the 
-
-
+- V is for vertical
+- finds a value corresponding to the loopup value 
+  from the list of values in table organized vertically.
+  - take the look up value and search it in the list of value
+  - For each value found, it takes teh corresponding value 
+    from another column
+- VLOOKUP supports approximate and exact matching, 
+  and wildcards (* ?) for partial matches
+- Lookup values must appear in the first column 
+  of the table passed into VLOOKUP table_array. 
+  
+- Syntax:
+  - =VLOOKUP (lookup_value, table_array, col_index, [range_lookup])
+  - lookup_value 
+    - The value to look for in the first column of a table.
+  - table_array
+    - The table from which to retrieve a value.
+  - col_index 
+    - The column in the table from which to retrieve a value.
+	- The index should start from the first column 
+	  of the selected portion of the table
+  - range_lookup 
+    - optional 
+	- TRUE = approximate match (default). 
+	- FALSE = exact match.
