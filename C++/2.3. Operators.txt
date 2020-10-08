@@ -159,8 +159,6 @@ Bitwise Operators
 - Bitwise OR (|)
   ---------------
   - x|y
-  - Different from normal OR
-  - Gives 0 when both bits are 0 otherwise 1.
   - OR operation is performed to corresponding bits of the number
   
 - Bitwise excclusiveOR / XOR (^)
