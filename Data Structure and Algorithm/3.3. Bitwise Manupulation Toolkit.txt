@@ -7,8 +7,8 @@ Bit Manupulation Toolkit
 - Set bit means converting that bit to 1
 - Here i-th bit is counted from 0 from right to left
 
-- lowest set-bit = leftmost set-bit 
-  - because the value contributing by leftmost bit 
+- lowest set-bit = rightmost set-bit 
+  - because the value contributing by rightmost bit 
     is lowest among all other 1
 
 - Set i-th Bit
@@ -62,14 +62,14 @@ Bit Manupulation Toolkit
 	- Threfore, answer = 10010011 ^ (1<<4)
 
 - Reverse each bit of the number after the 
-  leftmost set-bit including the set-bit
+  rightmost set-bit including the set-bit
   -----------------------------------------
   - Answer = A-1
   - Ex.
     - Let number = 11001100
     - 11001100 - 1 = 110010111 = Answer
 
-- Un-set the leftmost set-bit 
+- Un-set the rightmost set-bit 
   ----------------------------
   - Answer = A & (A-1)
   - Ex.
@@ -87,7 +87,7 @@ Bit Manupulation Toolkit
 	  until number != 0
 	- Less complexity from above
   - Solution 3:
-    - unset the leftmost set-bit until there is no set-bit 
+    - unset the rightmost set-bit until there is no set-bit 
 	  i.e., number becomes 0
 	- lowet complexity 
 	- Program:
@@ -98,14 +98,14 @@ Bit Manupulation Toolkit
 	  }
 
 - Create a mask with 1 only at 
-  leftmost set-bit of the number
+  rightmost set-bit of the number
   --------------------------------
   - Ex. 
     - For A = 00110100
 	- Mask = 00000100
   - Solution 1
     - Rigth shift by 1 until we get 1 at 0-th bit of the number 
-	  to get the position of the leftmost bit 
+	  to get the position of the rightmost bit 
 	- then, do 1 << i to get the mask 
   
   - Solution 2:
