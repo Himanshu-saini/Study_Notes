@@ -9,6 +9,15 @@ Stings in C++
   - behind the implementation, the string is converted into 
     character array.
 
+- While conparing a character in c++ with a constant char,
+  use single quotes
+  Ex.
+  - char ch = 'A';
+    cout<<(ch=='A')  // correct
+    cout<<(ch=="A")  // gives error
+  - string str = "ABC";
+    cout<<(str[2]=='C') // correct
+    cout<<(str[2]=="C") // gives error
 
 Initializations
 ================
