@@ -14,7 +14,7 @@ How To Configure Notepad++ to run C++ Programs
   cd $(CURRENT_DIRECTORY)
   D:\Installed\C++_Compiler\mingw-w64\mingw64\bin\g++.exe $(FILE_NAME) -o $(NAME_PART).exe
   if $(EXITCODE) != 0 goto Done
-  NPP_RUN cmd /C $(NAME_PART).exe && pause
+  NPP_RUN cmd /C $(NAME_PART).exe ^&& pause
   :Done
 
   - Replace the lcation of g++ compiler accordingly
