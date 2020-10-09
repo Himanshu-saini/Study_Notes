@@ -1,0 +1,66 @@
+===============
+Classes in C++
+===============
+
+- Class is a user defined data type.
+- Class is a blueprint, it does not exist
+  i.e., no memory is allocated to it.
+- Class encapsulates variables (properties) and functions
+
+- Class contains:
+  - Data members
+    - variables of class
+  - Member function 
+    - function of class
+  - Access Modifiers:
+    - how the members of the class are accessed 
+	  outside the class
+    - Types:
+      - Public
+	    - members can be accessed outside the class
+	  - Private
+	    - default
+		- members cannot be accessed outside the class
+		- members can be accessed by the inherited class
+	  - Protected
+		- members cannot be accessed outside the class
+		- members can not be accessed by the inherited class
+
+- Ex
+  class Person{
+    private:    // Access Modifiers
+	  string name;
+	  int age;
+	
+	public:
+	  string get_name();
+	  void print_details();
+  };
+
+- Ways of defineing the member function
+  -------------------------------------
+  - Inside class 
+    - when class is defined inside the class 
+	- It is treated as inline function
+	- Removes overhead of calling teh function 
+	- usually used for small functions 
+	- Ex.
+	  class Person{
+	    ...
+		void print_details(){
+		  cout<<name<<" "<<age;
+		}
+      };
+  - Outside class
+    - function declaration must be done inside the class
+	- Function name, return type and parameter list 
+	  is declared inside the class.
+	- Ex
+	  class person{
+	    ...
+		void print_details();
+	  };
+	  void Person::print_details(){
+	    cout<<name<<" "<<age;
+	  }
+
