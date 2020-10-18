@@ -1,28 +1,42 @@
 Requirements:
-•	Install Nodejs
-•	Install Ganache : used to run personal blockchain network
-•	Install truffle  : used to develop etherium smart contract. Tool to develop, test and deploy smart contract. It gives development console and allow us to develop client side applications.
-$npn install –g tuffle@5.0.5
-•	Install metamask: to access blockchain network
-•	Install other project dependencies:
-$npn install
-•	Web3: main javascript library to communicating with the blockchiain
-Initialize project directory:
-$truffle init
+--------------
+- Install Nodejs
+- Install Ganache 
+  - used to run personal blockchain test network
+- Install truffle  
+  - used to deploy etherium smart contract. 
+  - Tool to develop, test and deploy smart contract. 
+  - It gives development console and allow us to 
+    develop client side applications.
+  - $ npn install –g tuffle@5.0.5
+- Install metamask (chrome Extension)
+  - to access blockchain network
+- Install other project dependencies
+  - $ npn install
+- Web3
+  - javascript library to communicating with the blockchiain
 
-Note: Use contract name same as file name
-Compile smart contract:
-$truffle compile
+Steps to create new Project
+-----------------------------
+- Initialize project directory:
+  - $ truffle init
+- Write a smart contract 
+  - Note: Use contract name same as file name
+- Compile smart contract:
+  $ truffle compile
 
-Migrate smart contract to blockchian:
- Create a migrate script before it inside project/migrations
-2_deploy_contract.js		
-Note : the migration files are numbered so that Truffle knows which order to run them in.
-const Marketplace = artifacts.require("Marketplace");	//import contract
+- Migrate smart contract to blockchian:
+  - Create a migrate script before it inside 
+    project/migrations
+    - Note : the migration files are numbered so that 
+      Truffle knows which order to run them in.
+    - 2_deploy_contract.js	
+	------------------------
+    const Marketplace = artifacts.require("Marketplace");	//import contract
+    module.exports = function(deployer) {
+      deployer.deploy(Marketplace);				//deploy contract
+    };
 
-module.exports = function(deployer) {
-  deployer.deploy(Marketplace);				//deploy contract
-};
 //migrating the blockchain from one state to another 
 •	$ truffle migrate
  We can re-run our migrations with the --reset flag to migrate the smart contracts to the network. It will create a new copy of the smart contract on the blockchain:

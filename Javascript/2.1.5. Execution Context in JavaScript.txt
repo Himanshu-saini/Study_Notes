@@ -21,7 +21,6 @@ Featues of Excution context
 
 - this keyword
 
-
 Execution context stack (ECS):
 ===============================
 - stack data structure to store all the execution stacks 
