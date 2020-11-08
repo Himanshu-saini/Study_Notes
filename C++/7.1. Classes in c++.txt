@@ -10,21 +10,34 @@ Classes in C++
 - Class contains:
   - Data members
     - variables of class
+	
   - Member function 
     - function of class
+	
   - Access Modifiers:
+    ------------------
     - how the members of the class are accessed 
 	  outside the class
     - Types:
-      - Public
+      ------
+	  - Public
+	    --------
 	    - members can be accessed outside the class
+	    - Use this for members or features which are needed to 
+	      be accessed outside  the class 
+	  
 	  - Private
+	    --------
 	    - default
-		- members cannot be accessed outside the class
-		- members can be accessed by the inherited class
+	    - members cannot be accessed outside the class 
+	      or inherited/child class
+	    - Used to restrict usage of member of class (Data Hiding)
+	    - Recommended to declare data members (varaibles) as private.
+	  
 	  - Protected
+	    ----------
 		- members cannot be accessed outside the class
-		- members can not be accessed by the inherited class
+	    - members can be accessed by the inherited/child class
 
 - Ex
   class Person{
@@ -40,10 +53,11 @@ Classes in C++
 - Ways of defineing the member function
   -------------------------------------
   - Inside class 
-    - when class is defined inside the class 
-	- It is treated as inline function
-	- Removes overhead of calling teh function 
+    - function defined inside the class 
+	- treated as inline function  // Doubt
+	- Removes overhead of calling the function 
 	- usually used for small functions 
+	- More readable
 	- Ex.
 	  class Person{
 	    ...
@@ -51,6 +65,7 @@ Classes in C++
 		  cout<<name<<" "<<age;
 		}
       };
+	  
   - Outside class
     - function declaration must be done inside the class
 	- Function name, return type and parameter list 
