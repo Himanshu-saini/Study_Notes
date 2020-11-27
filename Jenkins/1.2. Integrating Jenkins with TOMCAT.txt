@@ -1,0 +1,44 @@
+=============================
+Integrate Jenkins with TOMCAT
+=============================
+
+Containers for Jenkins 
+=======================
+- Defoult Servlet Jetty/WINSTONE
+- Glassfish
+- TOMCAT 
+- Apache Geronime 3.0
+- Jonas
+- Weblogic
+- JBoss
+- IBM WebSphere
+
+Apache TOMCAT 
+==============
+- open source java Servlet Container 
+- Developed by Apache Software Foundation
+
+- inplemints several Java EE :
+  - Java Servlet
+  - Java Server Pages (JSP)
+  - Java EL and Web sockets
+  - Provide "pure Java" HTTP web server 
+    environment to run java code
+
+Download TOMCAT 
+================
+- Download TOMCAT zip from tomcat.apache.org
+- Unzip the file and place it at desired location
+- Set Enviromnet variable "JAVA_HOME" to Java JDK bin file
+  - $ set JAVA_HOME <JDK location>
+  - Go to THIS PC > properties > advance properties 
+    > Environment variable > Set "JAVA_HOME"
+
+Run Jenkins using TOMCAT
+========================
+- Copy jenkins.war file to Tomcat/webapps dir
+- Open CMD and Move to Tomcat/bin dir 
+- Run $ startup.bat
+  - Tomcat will start and run jenkins
+- Open browser and run localhost:8080/jenkins 
+
