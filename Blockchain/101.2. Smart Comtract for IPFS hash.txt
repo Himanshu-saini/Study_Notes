@@ -1,0 +1,70 @@
+=======================================
+Smart contract for IPFS and blockchain
+=======================================
+
+Requirements
+=============
+- truffle 
+  - chai
+
+- Smart contract code 
+  --------------------
+  pragma solidity ^0.5.0;
+  
+  contract File {
+    // variable to store data
+	string fileHash;
+	
+	// Write Funstion
+	function set(string memory _fileHash) public {
+	  fileHash = _fileHash;
+	}
+	// Read Function
+	function get() public view returns(string memory){
+	  return fileHash;
+	}
+  }
+
+- Create Tests for smart contract 
+  -------------------------------
+  File.test.js
+  ------------
+  const file = artifact.require("File")
+  require('chai')
+    .use(require('chai-as-promised')
+	.should()
+
+  contract('File',(accounts) => {
+    let file;
+	before( () => {
+	  file = await File.deployed();
+	});
+	
+	describe('deployment',async () => {
+	  it('deploys successfully', async () => {
+	    const addr = file.address;
+		assert.notEqual(addr,0x0);
+		assert.notEqual(addr,'');
+		assert.notEqual(addr,null);
+		assert.notEqual(addr,undefined);
+	  });
+	});
+	describe('Storage',async () => {
+	  it('Write file successfull', async () => {
+	    let fileHash='abc123';
+		await file.set(fileHash);
+		const result = await file.get();
+		assert.equal(fileHash,result);
+	  });
+	});
+  })
+
+- Complie code 
+  -------------
+  - $ truffle compile
+  
+- Migrate Smart Contract
+  -----------------------
+  - Create a migration file 
+  - Run command:
+    - $ truffle migrate

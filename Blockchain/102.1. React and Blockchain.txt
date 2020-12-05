@@ -1,0 +1,57 @@
+=====================
+React and Blockchain
+=====================
+
+Requirement
+============
+- web3
+
+- App.js
+  ------
+  import Web3 from 'web3';
+  
+  // inside component 
+  
+  async compountWillMount() { // lifecycle method in react
+    await this.loadWeb3();
+	await this/loadBlockchainData();
+  }  // call this function whenever the component mount to the DOM
+  
+  async loadWeb3(){  
+    if(window.etherium){
+	  window.web3 = new Web3(window.ethereum)  // create new instance
+	  await window.ethereum.enable()  // 
+	}
+	if(window.web3){
+	  window.web3 = new Web3(window.wen3.currentProvider)
+	}
+	else{
+	  window.alert("Metamask not installed");
+	}
+  }
+  
+  // Get the account 
+  import File from '../abis/File.json';
+  
+  async loadBlockchianData(){
+    const web3 = window.web3;
+	const accounts = await web3.eth.getAccounts();
+	this.setState({ account:accounts[0] });
+    
+	const networdID = await web3.eth.net.getId();
+	const networkData = File.netwoks[networkId]
+	if(networkData){
+	  const abi = File.abi;  // get contract ABI from local file 
+	  const contractAddress = networkData.address;  // get contract address from local file
+	  // Get contract from network
+	  const contract = web3.eth.Contract(abi,contractAddress);
+	  this.setState({ contract:contract })
+	  // Call Contract function 
+	  const fileHash = await contract.methods.get().call();
+	  this.setState({ fileHash })
+	}
+	else{
+	  windows.alert("Smart Contract not deployed on this network");
+	}
+  }
+  
