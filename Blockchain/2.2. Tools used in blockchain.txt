@@ -1,0 +1,10 @@
+Tools used in Blockchain
+========================
+
+Remix IDE (remix.etherium.org)
+-------------------------------
+- web Browser based IDE
+- integrated compiler and Solidity runtime environment 
+  without server-side components
+- allows you to write Solidity code, deploy and run 
+  the smart contracts
