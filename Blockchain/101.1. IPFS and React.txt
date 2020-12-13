@@ -92,7 +92,7 @@ Connect React and IPFS
 	  // store file on blockchain 
 	  // URL: https://ipfs.infura.io/ipfs/<HASH>
 	  const fileHash = result[0].hash;
-	  this.state.contract.methods.set(filehHash).send({from:this.state.account}).then((res) => {
+	  this.state.contract.methods.set(fileHash).send({from:this.state.account}).then((res) => {
 	    this.setState({ fileHash })
 	    this.setState({ fileURL = 'https://ipfs.infura.io/ipfs/'+result[0].hash })
 	  });

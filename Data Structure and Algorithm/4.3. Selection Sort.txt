@@ -1,0 +1,35 @@
+================
+Selection Sort
+================
+
+Steps
+------
+- Traverse the array and find the minimum element.
+- Place it at the first place of the array.
+- In teh next iteration, Start traversing the array from the 2nd 
+  element and find the minimum element.
+- Place it at the 2nd position
+- Repeat the process by moving the starting position of the traversal by 1.
+
+Code
+-----
+void selectionSort(int arr[], int n){
+  int i, min;
+  for(i=0;i<n-1;i++){
+    min=i;
+	for(int j=i+1;j<n;j++){
+	  if(arr[j]<arr[min]){
+	    min=j;
+      }
+	swap(arr[min],arr[i]);
+  }
+}
+
+Complexity
+----------
+- Time Complexity:
+  - Loop will run n(n+1)/2 times
+  - Worst case complexity = Best case Complexity = O(n^2)
+
+- Space complexity = O(1)
+

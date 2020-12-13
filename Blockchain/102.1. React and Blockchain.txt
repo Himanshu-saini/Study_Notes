@@ -14,7 +14,7 @@ Requirement
   
   async compountWillMount() { // lifecycle method in react
     await this.loadWeb3();
-	await this/loadBlockchainData();
+	await this.loadBlockchainData();
   }  // call this function whenever the component mount to the DOM
   
   async loadWeb3(){  
@@ -23,7 +23,7 @@ Requirement
 	  await window.ethereum.enable()  // 
 	}
 	if(window.web3){
-	  window.web3 = new Web3(window.wen3.currentProvider)
+	  window.web3 = new Web3(window.web3.currentProvider)
 	}
 	else{
 	  window.alert("Metamask not installed");
@@ -38,7 +38,7 @@ Requirement
 	const accounts = await web3.eth.getAccounts();
 	this.setState({ account:accounts[0] });
     
-	const networdID = await web3.eth.net.getId();
+	const networkId = await web3.eth.net.getId();
 	const networkData = File.netwoks[networkId]
 	if(networkData){
 	  const abi = File.abi;  // get contract ABI from local file 
