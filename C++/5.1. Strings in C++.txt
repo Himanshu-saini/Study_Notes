@@ -1,0 +1,155 @@
+=============
+Stings in C++
+===============
+- present in class std:: string
+- stores the characters as a sequence of bytes 
+  with a functionality of allowing access to single byte character.
+  
+===========================
+string vs Character Array
+===========================
+
+Character Array
+------------------
+- character array is simply an array of characters can terminated by a null character
+- character array has to allocated statically
+- more memory cannot be allocated at run time if required
+- Unused allocated memory is wasted 
+- threat of array decay in case of character array. 
+- Implementation of character array is faster
+- do not offer much inbuilt functions to manipulate strings
+
+string
+--------
+- A string is a class which defines objects that be represented as stream of characters.
+- memory is allocated dynamically
+- More memory can be allocated at run time 
+- As strings are represented as objects, no array decay occurs.
+- Strings are slower when compared to implementation than character array.
+- defines a number of functionalities which allow manifold operations on strings.
+
+========================
+Operations on strings
+========================
+
+Initializations
+-----------------
+- initialization by raw string 
+  string str1("first string"); 
+
+- initialization by another string 
+  string str2(str1);   
+
+- initialization by character with number of occurrence 
+  string str3(5, '#');   // str2 = "#####"
+
+- initialization by part of another string 
+  string str4(str1, 6, 3);   // 3 characters from 6th index of str1  
+
+- initialization by part of another string : iteartor version 
+  string str5(str2.begin(), str2.begin() + 5); 
+
+- using constructor
+  string str1 = string(str2.begin(), str2.begin() + 5);
+
+- c_str() : char* charstr = str6.c_str()
+  - returns null terminated char array version of string
+  
+Other functions 
+------------------
+- clear() : str.clear()
+  - deletes all character from string 
+- empty(): str.empty()
+  - Tests whether the string is empty.
+- at() : str.at(3)
+  - str6.at(2); //  Same as "ch = str6[2];"
+- front() : str.front()
+  - returns first character
+- back() : str.back()
+  - returns last character in string 
+
+Input Functions
+----------------
+- getline()
+  - used to store a stream of characters as entered by the user in the object memory.
+- push_back()
+  - input a character at the end of the string.
+- pop_back()
+  - delete the last character from the string.
+- append() : 
+  - str.append(" extension")
+    - add the argument string at the end
+  - str.append(str2, 2, 6) 
+    - appends part of other string 
+	- 6 characters from 2nd position of str2
+- insert() : str.insert(pos_to_begin,string_to_insert)
+  - inserts the given substring in the string
+
+Manipulating Functions
+------------------------
+- copy(“char array”, len, pos)
+  - copies the substring in target character array
+  - target char array, length to be copied and starting position in string to start copying.
+- replace() : str.replace(a, b, "test")
+  - replaces b characters from a index by str 
+- swap()
+  - swaps one string with other  
+- substr() : str.substr(a,b)
+  - returns a substring of b length starting from index a
+  - if b is not passed, returns substring till end.
+- erase() : 
+  - str.erase(a,b)
+    - deletes b characters at index a
+	- if b is not passed, deletes all character after position a.
+	- if a,b not passed, deletes all characters.
+  - str.erase(str.begin() + 5, str.end() - 3)
+    - iterator version of erase 
+	- deletes single character if second arg is not passed.
+  
+Capacity Functions
+-------------------
+- capacity()
+  - returns the capacity allocated to the string
+  - equal to or more than the size of the string.
+  - Additional space is allocated so that when the new characters are added to the string
+- resize() 
+  -changes the size of string (increase or decrease).
+- length() or size() 
+  - finds the length of the string
+- shrink_to_fit()
+  - decreases the capacity of the string and makes it equal to its size.
+  - useful to save additional memory
+
+Iterator Functions
+---------------------
+- begin()
+  - returns an iterator to beginning of the string.
+- end() 
+  - returns an iterator to end of the string.
+  - position after the last character
+- rbegin() 
+  - returns a reverse iterator pointing at the end of string.
+- rend() 
+  - returns a reverse iterator pointing at beginning of string.
+
+- Ex.
+  std::string::reverse_iterator it1;
+  for (it1=str.rbegin(); it1!=str.rend(); it1++) 
+    cout << *it1; 
+  - Gives reverse of the string.
+  
+Searching functions 
+----------------------
+- find() : str.find("asdf") 
+  - returns index where pattern is found
+  - of not found it returns predefined constant string::npos whose value is -1
+- rfind() : str.rfind(“string”)
+  - returns the position of last occurrence of the substring specified
+- find_first_of() : str.find_first_of("asdf")
+  - returns the position of first character that matches any of the characters in argument. 
+- find_last_of() : str.find_last_of("asdf")
+  - returns the position of last character that matches any of the characters in argument. 
+- compare() : str.compare(str2)
+  - compare two strings
+  - returns the difference of second string and first string in integer.  
+  - return 0 if equal.

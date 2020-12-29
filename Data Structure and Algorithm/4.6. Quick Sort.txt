@@ -1,0 +1,6 @@
+============
+Quick Sort
+============
+
+- Divide and Conquer Algo
+- Recursive

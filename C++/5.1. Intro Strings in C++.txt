@@ -1,0 +1,47 @@
+Strings in C
+=============
+- We use One dimentional charachter array as String in C.
+- Sequence of character treated as single data item
+- Terminated by null character
+
+- Ex.
+  char ch[5]="asdf"  // compiler add NULL at the end at the empty location
+  char ch[5]="hello"  // Error as there is no space for the NULL character 
+  
+  char ch[5]={'a','b','c','d','\0'}  // NULL character added explicitly, compiler treat it as a string
+  char ch[5]={'a','b','c','d','e'}  // No NULL character, compiler treat it as a normal array 
+
+Input/Output
+-------------
+- printf and scanf in <stdio.h>
+  ------------------------------
+  - Ex.
+    char ch[10];
+	scanf("%s",ch);   // read string upto space or newline
+	printf("%s",ch);
+	
+	scanf("%[^\n]s",ch);  // Takes space seperated string as input
+
+- gets() and puts() in <stdio.h>
+  ------------------------------
+  - Ex.
+    char ch[10];
+	gets(ch);
+	puts(ch);
+
+String Library in C
+===================
+- <string.h>
+- Pergorm function in the string in C
+- For NULL terminating charachter array 
+
+- To use there function in C++ 
+  use <cstring>
+
+Functions
+------------
+- strlen(str)
+- strcmp(str1,str2) // str1<str2 gives -ve, = gives 0, > gives +ve
+- str3 = strcat(str1,str2) // concatinate strings
+- strcpy(str1,str2);  // str2 copied to str1 
+- 
