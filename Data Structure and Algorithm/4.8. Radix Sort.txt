@@ -1,0 +1,65 @@
+============
+Radix Sort
+============
+
+- Sort the numbers iteratively for each signifigant digit
+
+Steps
+------
+- For an arr[] having d digits number
+- First sort the arr[] for least significant digit (one's place)
+- Then sort for second least significant digit (ten's place)
+- So on ..
+
+- Use count sort for sorting to make sorting stable 
+  i.e., sort maintaining original order
+
+Example
+-------
+- Input: 222, 002, 031, 315, 400
+- Step1: 400, 031, 222, 002, 315
+- Step2: 400, 002, 315, 222, 031
+- Step3: 002, 031, 222, 315, 400
+
+Code
+-------
+
+void countSort(int arr[], int n, int exp) { 
+  int output[n]; // output array 
+  int i, count[10] = { 0 }; 
+  
+  // Store count of occurrences in count[] 
+  for (i = 0; i < n; i++) 
+    count[(arr[i] / exp) % 10]++; 
+ 
+  for (i = 1; i < 10; i++) 
+    count[i] += count[i - 1]; 
+  
+  // Build the output array 
+  for (i = n - 1; i >= 0; i--) { 
+    output[count[(arr[i] / exp) % 10] - 1] = arr[i]; 
+    count[(arr[i] / exp) % 10]--; 
+  } 
+  
+  for (i = 0; i < n; i++) 
+      arr[i] = output[i]; 
+} 
+
+// get maximum value in arr[] 
+int getMax(int arr[], int n) { 
+  int mx = arr[0]; 
+  for (int i = 1; i < n; i++) 
+    if (arr[i] > mx) 
+      mx = arr[i]; 
+  return mx; 
+}
+
+// Radix Sort 
+void radixSort(int arr[], int n){ 
+  // Find the maximum number to know number of digits 
+  int m = getMax(arr, n); 
+  
+  // exp = 10^i ,i is current digit number 
+  for (int exp = 1; m / exp > 0; exp *= 10) 
+    countSort(arr, n, exp); 
+}
