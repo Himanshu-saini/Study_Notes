@@ -1,0 +1,68 @@
+============
+Linked List
+============
+
+- A list of nodes connected to each other
+- The node contain value and address of next node.
+- Each nodes are at random address and is accessed using the 
+  pointer stored in previous node.
+- A HEAD pointer is used to point to first node of linked list
+- Last node contain NULL as next adress
+- Linked list size is dynamic.
+
+Example
+--------
+- 23 -> 34 -> 45 -> 12
+
+Array vs Linked List
+----------------------
+- Size:
+  - Array : fixed
+  - Linked LIst : Dynamic
+
+- Accessing an element 
+  - Array: O(1)
+  - linked List: O(n)
+
+- Inserting/Deleting element in middle:
+  - Array: O(n)
+    - Every element after the index is moved
+  - Linked list: 
+    - O(1), for creating new node and linking it
+	- O(n), for reaching the location
+
+Node Structure
+==============
+
+struct node{
+  int data;
+  struct node* next;
+};
+
+HEAD pointer 
+-------------
+struct node* HEAD = nullptr;  // Store first element of Linked list
+
+Creating/Deleting Node
+==========================
+
+In C
+-----
+- struct node* newNode 
+  = (struct node*)malloc(sizeof(struct node));  
+- free(newNode);
+
+In C++
+-------
+- node* newNode = new node();
+- delete(newNode);
+
+Function:
+----------
+
+struct node* createNode(int data){
+  struct node* newNode = (struct node*)malloc(sizeof(struct node));
+  newNode->data = data;
+  newNode->next = nullptr;
+  return newNode;
+}

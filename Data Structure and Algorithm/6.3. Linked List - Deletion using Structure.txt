@@ -1,0 +1,90 @@
+========================
+Deletion in Linked List
+========================
+
+Deletion at Begining of list
+-------------------------------
+void deleteAtBegining(struct node* HEAD){
+  if(HEAD){
+    struct node* deleteNode = HEAD;
+    HEAD = HEAD->next;
+	free(deleteNode);
+	return;
+  }
+  cout<<"List is Empty";
+}
+
+Deletion at End of list
+-------------------------
+void deleteAtEnd(struct node* HEAD){
+  if(HEAD){
+    if(HEAD->next == nullptr){
+      struct node* deleteNode = HEAD;
+	  HEAD = nullptr;
+	  free(deleteNode);
+	  return;
+	}
+	
+    struct node* currPtr = HEAD;
+	while(currPtr->next->next)
+	  currPtr = currPtr->next;
+	  
+    struct node* deleteNode = currPtr->next;
+	currPtr->next = nullptr;
+	free(deleteNode);
+	return;
+  }
+  cout<<"List is Empty";
+}
+
+Deleting at an Index of list
+-------------------------------
+void deleteAtIndex(struct node* HEAD, int index){
+  if(HEAD){
+    if(index==1){
+      struct node* deleteNode = HEAD;
+	  HEAD = HEAD->next;
+	  free(deleteNode);
+	  return;
+	}
+	
+    struct node* currPtr = HEAD;
+    int i=1;
+    while(currPtr->next){
+	  if(i+1==index){
+        struct node* deleteNode = currPtr->next;
+	    currPtr->next = currPtr->next->next;
+		free(deleteNode);
+	    return;
+	  }
+	  currPtr = currPtr->next;
+	  ++i;
+    }
+	cout<<"Index out of range";
+  }
+}
+
+Deleting a value in list
+-------------------------------
+void deleteValue(struct node* HEAD, int value){
+  if(HEAD){
+	if(HEAD->data == value){
+      struct node* deleteNode = HEAD;
+	  HEAD = HEAD->next;
+	  free(deleteNode);
+	  return;
+	}
+	
+    struct node *currPtr = HEAD;
+    while(currPtr->next){
+	  if(currPtr->next->data==value){
+        struct node* deleteNode = currPtr->next;
+	    currPtr->next = currPtr->next->next;
+		free(deleteNode);
+		return;
+	  }
+	  currPtr = currPtr->next;
+    }
+	cout<<"Value not found";
+  }
+}

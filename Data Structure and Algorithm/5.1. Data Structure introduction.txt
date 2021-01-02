@@ -1,0 +1,13 @@
+===============
+Data Structure
+===============
+- way of collecting and organising data.
+
+Example
+========
+- Array
+- Linked List
+- Stack
+- Queue
+- Tree
+- Hash table
