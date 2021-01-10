@@ -1,0 +1,16 @@
+============================
+Reverse a Doubly Linked List
+============================
+
+void reverse(struct node** HEAD){
+  struct node* currPtr = *HEAD;
+  struct node* tempPtr = nullptr;
+  while(currPtr){
+    tempPtr = currPtr->prev;
+	currPtr->prev = curr->next;
+	curr->next = tempPtr;
+	currPtr = currPtr->prev;
+  }
+  if(tempPtr)
+    *HEAD = tempPtr->prev;
+}

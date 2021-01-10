@@ -10,6 +10,17 @@ Linked List
 - Last node contain NULL as next adress
 - Linked list size is dynamic.
 
+- Note:
+  Either use douoble pointer for HEAD if you want to update 
+  HEAD pointer in function and pass HEAD as reference like
+  - void addNode(struct node** HEAD,int data);
+    addNode(&HEAD, 5);
+  OR
+  Return a node pointer that will contain HEAD address 
+  and update HEAD using function return value like 
+  - struct node* addNode(struct node* HEAD, int value);
+    HEAD = addNode(HEAD, 5);
+
 Example
 --------
 - 23 -> 34 -> 45 -> 12
@@ -39,30 +50,44 @@ struct node{
   struct node* next;
 };
 
-HEAD pointer 
--------------
-struct node* HEAD = nullptr;  // Store first element of Linked list
-
 Creating/Deleting Node
 ==========================
 
 In C
 -----
-- struct node* newNode 
-  = (struct node*)malloc(sizeof(struct node));  
-- free(newNode);
+- Get dynamic space for node:
+  ---------------------------
+  struct node* newNode 
+  = (struct node*)malloc(sizeof(struct node)); 
+  
+- Delete Node Space:
+  ------------------
+  free(newNode);
+
+- Initialise a NULL pointer
+  ---------------------------
+  struct node* HEAD = NULL;  // Store address of first element of Linked list
 
 In C++
 -------
-- node* newNode = new node();
-- delete(newNode);
+- Get dynamic space for node:
+  ---------------------------
+  node* newNode = new node();
+
+- Delete Node Space:
+  ------------------
+  delete(newNode);
+
+- Initialise a NULL pointer
+  ---------------------------
+  struct node* HEAD = nullptr;  // Store address of first element of Linked list
 
 Function:
 ----------
 
-struct node* createNode(int data){
-  struct node* newNode = (struct node*)malloc(sizeof(struct node));
+node* createNode(int data){
+  node* newNode = new node();
   newNode->data = data;
   newNode->next = nullptr;
   return newNode;
-}
+};

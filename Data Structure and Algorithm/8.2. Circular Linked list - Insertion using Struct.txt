@@ -1,0 +1,102 @@
+=================================
+Insertion in Circular Linked List
+=================================
+
+Creating New Node
+-----------------
+node* createNode(int data){
+  node* newNode = (struct node*)malloc(sizeof(struct node));
+  newNode->data = data;
+  newNode->next = nullptr;
+  return newNode;
+}
+
+node* HEAD = nullptr;  // Store address of first element of Linked list
+node* TAIL = nullptr;  // Store address of last element of Linked list
+
+
+Inserting at Begining of list
+-------------------------------
+void insertAtBegining(node** HEAD,node** TAIL, int data){
+  node* newNode = createNode(data);
+  if(*HEAD == nullptr){
+    *HEAD = newNode;
+    *TAIL = newNode;
+  }
+  else{
+    *TAIL->next = newNode;
+    newNode->Next = *HEAD;
+	*HEAD = newNode;
+  }
+}
+
+Method 2: No HEAD
+------------------
+void insertAtBegining(node** TAIL, int data){
+  node* newNode = createNode(data);
+  if(*TAIL == nullptr){
+    *TAIL = newNode;
+    *TAIL->next = *TAIL;
+  }
+  else{
+    newNode->next = *TAIL->next;
+    *TAIL->next = newNode;
+  }
+}
+
+Inserting at End of list
+-------------------------------
+void insertAtEnd(node** HEAD,node** TAIL, int data){
+  node* newNode = createNode(data);
+  if(*HEAD == nullptr){
+    *HEAD = newNode;
+  }
+  else{
+	*TAIL->next = newNode;
+	newNode->next = *HEAD;
+	*TAIL = newNode;
+  }
+}
+
+Method 2: No HEAD
+------------------
+void insertAtEnd(node** TAIL, int data){
+  node* newNode = createNode(data);
+  if(*TAIL == nullptr){
+    *TAIL = newNode;
+    *TAIL->next = TAIL;
+  }
+  else{
+    newNode->next = *TAIL->next;
+    *TAIL->next = newNode;
+	*TAIL = newNode;
+  }
+}
+
+Inserting at an Index of list
+-------------------------------
+void insertAtIndex(node** TAIL, int data, int index){
+  node* newNode = createNode(data);
+  if(*TAIL==nullptr){
+    *TAIL = newPtr;
+    *TAIL->next = *TAIL;
+  }
+  else{
+    node* currPtr = *TAIL->next;
+    int i=1;
+    while(i<index && currPtr->next != *TAIL){
+	  currPtr = currPtr->next;
+	  i++;
+    }
+	if(currPtr->next == *TAIL){
+	  *TAIL->next = newNode;
+	  newNode->next = *TAIL;
+	  *TAIL = newNode;
+	  return;
+	}
+	else{
+	  newNode->next = currPtr->next;
+	  currPtr->next = newNode;
+	}
+  }
+}

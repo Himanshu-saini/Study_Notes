@@ -1,0 +1,40 @@
+======================
+Floyd Cycle Detection
+======================
+
+- Detect whether a cycle is present in a linked list
+
+Algorithm
+=========
+- There are 2 pointers
+  - Slow pointer 
+    - Move by 1 step
+  - Fast Pointer
+    - Move by 2 steps
+
+- If there is cycle present then after some time while traversing
+  slow pointer becomes equal to fast pointer
+
+Proof
+------
+- With every iteration, difference between both pointer should 
+  increase by 1.
+- When the pointer enters a loop
+- when the difference between the pointer (or diff % size) becomes
+  equal to the size of the loop then both pointer will be at 
+  same location
+
+Code
+======
+
+bool isCyclePresent(node* HEAD){
+  node* slowPtr = HEAD;
+  node* fastPtr = HEAD;
+  while(slowPtr && fastPtr && fastPtr->next){
+    slowPtr = slowPtr->next;
+	fastPtr = fastPtr->next->next;
+	if(slowPtr == fastPtr)
+	  return True;
+  }
+  return False;
+}

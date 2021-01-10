@@ -1,6 +1,6 @@
-========================
-Deletion in Linked List
-========================
+==============================
+Deletion in Doubly Linked List
+==============================
 
 Deletion at Begining of list
 -------------------------------
@@ -8,6 +8,7 @@ void deleteAtBegining(node** HEAD){
   if(*HEAD){
     node* deleteNode = *HEAD;
     *HEAD = *HEAD->next;
+    *HEAD->prev = nullptr;
 	delete(deleteNode);
 	return;
   }
@@ -18,7 +19,7 @@ Deletion at End of list
 -------------------------
 void deleteAtEnd(node** HEAD){
   if(*HEAD){
-    if(HEAD->next == nullptr){
+    if(*HEAD->next == nullptr){
       node* deleteNode = *HEAD;
 	  *HEAD = nullptr;
 	  delete(deleteNode);
@@ -44,6 +45,7 @@ void deleteAtIndex(node** HEAD, int index){
     if(index==1){
       node* deleteNode = *HEAD;
 	  *HEAD = *HEAD->next;
+	  *HEAD->prev = nullptr;
 	  delete(deleteNode);
 	  return;
 	}
@@ -53,7 +55,10 @@ void deleteAtIndex(node** HEAD, int index){
     while(currPtr->next){
 	  if(i+1==index){
         node* deleteNode = currPtr->next;
-	    currPtr->next = currPtr->next->next;
+	    currPtr->next = deleteNode->next;
+		if(deleteNode->next){
+		  deleteNode->next->prev = currPtr;
+		}
 		delete(deleteNode);
 	    return;
 	  }
@@ -71,6 +76,7 @@ void deleteValue(node** HEAD, int value){
 	if(*HEAD->data == value){
       node* deleteNode = *HEAD;
 	  *HEAD = *HEAD->next;
+	  *HEAD->prev = nullptr;
 	  delete(deleteNode);
 	  return;
 	}
@@ -79,7 +85,10 @@ void deleteValue(node** HEAD, int value){
     while(currPtr->next){
 	  if(currPtr->next->data==value){
         node* deleteNode = currPtr->next;
-	    currPtr->next = currPtr->next->next;
+	    currPtr->next = deleteNode->next;
+		if(deleteNode->next){
+		  deleteNode->next->prev = currPtr;
+		}
 		delete(deleteNode);
 		return;
 	  }

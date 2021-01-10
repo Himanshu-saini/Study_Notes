@@ -27,7 +27,7 @@ class Sll{
 
   void insertAtEnd(int data){
     SllNode* newNode = new SllNode(data);
-    if(HEAD == NULL){
+    if(HEAD == nullptr){
       HEAD = newNode;
     }
     else{
@@ -40,7 +40,7 @@ class Sll{
 
   void insertAtIndex(int data, int index){
     SllNode* newNode = new SllNode(data);
-    if(HEAD == NULL){
+    if(HEAD == nullptr){
       HEAD = newNode;
     }
     else{

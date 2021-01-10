@@ -1,20 +1,22 @@
-========================
-Insertion in Linked List
-========================
+================================
+Insertion in Doubly Linked List
+================================
 
 Creating New Node
 -----------------
 node* createNode(int data){
   node* newNode = new node();
   newNode->data = data;
+  newNode->prev = nullptr;
   newNode->next = nullptr;
   return newNode;
-};
+}
 
 Inserting at Begining of list
 -------------------------------
 void insertAtBegining(node** HEAD, int data){
-  struct node* newNode = createNode(data);
+  node* newNode = createNode(data);
+  *HEAD->prev = newNode;
   newNode->Next = *HEAD;
   *HEAD = newNode;
 }
@@ -27,10 +29,11 @@ void insertAtEnd(node** HEAD, int data){
     *HEAD = newNode;
   }
   else{
-    struct node* currPtr = *HEAD;
+    node* currPtr = *HEAD;
 	while(currPtr->next)
 	  currPtr = currPtr->next;
 	currPtr->next = newNode;
+	newNode->prev = currPtr;
   }
 }
 
@@ -40,16 +43,20 @@ void insertAtIndex(node** HEAD, int data, int index){
   node* newNode = createNode(data);
   if(*HEAD){
     if(i==1){
-      newNode->next = HEAD;
+      newNode->next = *HEAD;
+	  *HEAD->prev = newNode;
 	  *HEAD = newNode;
 	  return;
 	}
+	  
     node* currPtr = *HEAD;
     int i=1;
     while(currPtr->next){
 	  if(i+1==index){
         newNode->next = currPtr->next;
+		newNode->prev = currPtr;
 	    currPtr->next = newNode;
+		currPtr->next->prev = newNode;
 	    return;
 	  }
 	  currPtr = currPtr->next;
