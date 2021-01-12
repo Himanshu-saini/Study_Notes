@@ -5,6 +5,13 @@
 - defianes how much size from memry will be allocated to the varaible
 - Ex. int, char 
 
+- Abstract Data Type 
+  ------------------
+  - Data type whose behavious is predefined by set of values
+    or set of operations
+  - user is least interested in implementation of its features
+  - Ex. int, float, stack, queue
+
 Fundamental Data types
 =======================
 - Build-in / Primitive Data types
@@ -38,19 +45,6 @@ Fundamental Data types
   - it is not used for variables.
   - used with  function or pointers
 
-Range of data type 
-------------------
-- Range of data type is calculated on the basis of size of data type.
-- In memory,each bit can save 2 value and first bit is for sign.
-- Therefore, 
-  Nummber of vlues a variable can store = 2^(No of bits)
-  Range of variable = - 2^(No of bits-1) to 2^(No of bits-1) -1
-- For 4 byte float number:
-  - 32 bit 
-  - 1 for sign, 8 for exponent, 23 for mantissa (fractional part)
-  - Float number = sign * mantissa * 2^exponent
-  - Range : 3.4*e^-38 to 3.4*e^38
-  
 Qualifiers
 ------------
 - short
@@ -66,50 +60,22 @@ Qualifiers
 
 Derived Data types 
 ===================
+- Derieved from Fundamental Data Type
+
 - Pointers
 - Arrays
 - Reference Types
 
 User Defined Data types
 =========================
- 
-Type def
---------
-- Give another name to the already defined data type.
-- Ex. 
-  typedef short unsigned int sunint;
-  sunint x,y;  
+- Defined by user
 
-Enumeration - enum
-------------------
-- Ex. 
-  enum Person {SIT, STAND, WALK};
-  - it defines a variable called "Person" which can have values SIT, STAND, WALK
-  - SIT, STAND, WALK are called enumerator
-  - SIT = 0, STAND = 1, WALK = 2
-- By default, compiler gives int value to enumerator starting from 0.
-- We can give default value to the enumerators also.
-  Ex. enum Person {SIT =2, STAND=4, WALK=1};
-- Usage 1:
-  ---------
-  enum person {SIT, STAND, WALK};    // variable can be declared here also
-  int main(){
-    person p;
-	p = SIT;			
-	// p = 1 will give error becouse 3 is int type
-	cout<<p;
-  }
-  ------------
-  Output: 0
-- Usage 2:
-  ---------
-  enum fontStyle{BOLD=1,ITALICS=2,UNDERLINE=3};
-  fontStyle fs = BOLD|ITALICS;
-  // fs have both BOLD and ITALICS value.
-- Can be used in switch
+- Type def
+  - Give another name to the already defined data type.
+  - Ex. 
+    typedef short unsigned int sunint;
+    sunint x,y;  
 
-Structures
------------
-
-Classes 
----------
+- Enumeration (enum)
+- Structures
+- Classes 
