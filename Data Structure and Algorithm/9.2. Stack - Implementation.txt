@@ -1,0 +1,42 @@
+======================
+Stack - Implementation
+=======================
+
+- using Array
+  -----------
+  - Maintain an array (say int stack[size]) and a top variable
+  
+- Using Linked List
+  -----------------
+  - HEAD pointer act as top variable in stack
+  - Inserting element 
+    - Add new element at the beginning of linked list
+  - Deleting element 
+    - Remove element from the beginning of linked list
+  - Stack Overflow condition
+    - if a new node is not null
+      it means that new memory cannot ne allocated by the program
+
+- Errors in stack
+  -----------------
+  - Stack overflow
+    - if we try to enter a new element in stack when it is full
+  - Stack Underflow
+    - if we try to remove an element from stack when it is empty
+
+Operations 
+===========
+- pop
+  - remove element from stack and return it 
+- push
+  - add element in stack 
+- top
+  - gives topmost element of stack
+- size
+  - gives number of elements in stack 
+- isEmptyStack()
+  - Check if there is any element in stack 
+- isFullStack()
+  - check is number of elements in stack is equal to its max size
+- peek()
+  - gives topmost element of stack

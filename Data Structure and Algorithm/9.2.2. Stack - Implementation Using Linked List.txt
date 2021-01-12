@@ -1,0 +1,130 @@
+========================
+Implemention using Array
+========================
+
+- Time Complexity
+  - push : O(1)
+  - pop: O(1)
+
+Implemention using Structure
+-----------------------------
+
+struct Node{
+  int data;
+  Node* next;
+};
+
+Node* HEAD = nullptr;
+int size=0;
+
+bool isStackEmpty(){
+  return HEAD==nullptr;
+}
+
+int stackSize(){
+  return size;
+}
+
+void push(int data){
+  node* newNode = createNode(data);
+  if(newNode==NULL){  // check if system memory is full
+    cout<<"Stack Overflow";
+	return;
+  }
+  newNode->Next = HEAD;
+  HEAD = newNode;
+  size++;
+}
+
+int pop(){
+  if(isStackEmpty()){
+    cout<<"Stack Underflow";
+	return INT_MIN;
+  }
+  else{
+    node* popNode = HEAD;
+	int popData = popNode->Data;
+    HEAD = HEAD->next;
+	delete(popNode);
+	size--;
+	return popData;
+  }
+}
+
+int peek(){
+  if(isStackEmpty()){
+    cout<<"Stack Underflow";
+	return INT_MIN;
+  }
+  else{
+	return HEAD->Data;
+  }
+}
+
+Implemention using Class
+-----------------------------
+
+class Node{
+  public:
+  int data;
+  Node* next;
+  Node(int data){
+    this->data = data;
+	next=nullptr;
+  }
+};
+
+Node* HEAD = nullptr;
+int size=0;
+
+class Stack{
+  Node* HEAD;
+  public:
+  Stack(){
+    HEAD=nullptr;
+  }
+  
+  bool isStackEmpty(){
+    return HEAD==nullptr;
+  }
+
+  int stackSize(){
+    return size;
+  }
+
+  void push(int data){
+    Node* newNode = new Node(data);
+    if(newNode==NULL){  // check if system memory is full
+      cout<<"Stack Overflow";
+	  return;
+    }
+    newNode->Next = HEAD;
+    HEAD = newNode;
+    size++;
+  }
+
+  int pop(){
+    if(isStackEmpty()){
+      cout<<"Stack Underflow";
+	  return INT_MIN;
+    }
+    else{
+      Node* popNode = HEAD;
+	  int popData = popNode->Data;
+      HEAD = HEAD->next;
+	  delete(popNode);
+	  size--;
+	  return popData;
+    }
+  }
+
+  int peek(){
+    if(isStackEmpty()){
+      cout<<"Stack Underflow";
+	  return INT_MIN;
+    }
+    else{
+	  return HEAD->Data;
+    }
+  }
+};
