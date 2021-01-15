@@ -1,0 +1,156 @@
+========================================
+Queue -  Implementaion using Linked List
+========================================
+
+Using Structure
+---------------
+struct node{
+  int data;
+  node* next;
+};
+
+struct Queue{
+  node *front,*rear;
+};
+
+Queue* createQueue(int capacity){
+  Queue* qu = new Queue();
+  qu->front= nullptr;
+  qu->rear = nullptr;
+}
+
+bool isQueueEmpty(Queue* qu){
+  return qu->front==nullptr;
+}
+
+void enqueue(Queue* qu, int data){
+  node* newNode = new node();
+  if(newNode==nullptr){
+    cout<<"Queue overflow";
+	return;
+  }
+  newNode->data = data;
+  newNode->next = nullptr;
+  if(isQueueEmpty(qu){
+    qu->front = newNode;
+	qu->rear = newNode;
+  }
+  else{
+    qu->rear->next = newNode;
+    qu->rear = newNode;
+  }
+}
+
+int dequeue(Queue* qu){
+  if(isQueueEmpty()){
+    cout<<"Queue underflow";
+	return INT_MIN;
+  }
+  if(qu->front==qu->rear){
+	qu->rear = nullptr;
+  }
+  node* deleteNode = qu->front;
+  int output = deleteNode->data;
+  qu->front = qu->front->next;
+  delete(deleteNode);
+  return output;
+}
+
+int queueFront(Queue* qu){
+  if(isQueueEmpty(qu))
+    return INT_MIN;
+  return qu->front->data;
+}
+
+int queueRear(Queue* qu){
+  if(isQueueEmpty(qu))
+    return INT_MIN;
+  return qu->rear->data;
+}
+
+int printQueue(Queue* qu){
+  node* currNode = qu->front;
+  while(currNode){
+    cout<<currNode->data<<" ";
+	currNode = currNode->next;
+  }
+}
+
+Using Class
+---------------
+class Node{
+  public:
+    int data;
+	Node* next;
+	Node(int data){
+	  this->data = data;
+	  next=nullptr;
+	}
+};
+
+class Queue{
+  Node* front,rear;
+  
+  public:
+
+  Queue(){
+    front = nullptr;
+    rear = nullptr;
+  }
+
+  bool isQueueEmpty(){
+    return front==nullptr;
+  }
+
+  void enqueue(int data){
+    Node* newNode = new Node(data);
+    if(newNode == nullptr){
+      cout<<"Queue overflow";
+	  return;
+    }
+	if(front==rear){
+	  front = newNode;
+	  rear = newNode
+	}
+	else{
+	  rear->next = newNode;
+	  rear = newNode;
+	}
+  }
+
+  int dequeue(){
+    if(isQueueEmpty()){
+      cout<<"Queue underflow";
+	  return INT_MIN;
+    }
+    if(front==rear){
+	  rear = nullptr;
+    }
+    Node* deleteNode = front;
+    int output = deleteNode->data;
+	front = front->next;
+	delete(deleteNode);
+    return output;
+  }
+
+  int queueFront(){
+    if(isQueueEmpty())
+      return INT_MIN;
+    return front->data;
+  }
+
+  int queueRear(){
+    if(isQueueEmpty())
+      return INT_MIN;
+    return rear->data;
+  }
+
+  int printQueue(){
+    Node* currNode = front;
+    while(currNode){
+      cout<<currNode->data<<" ";
+	  currNode = currNode->next;
+    }
+  }
+}
+  

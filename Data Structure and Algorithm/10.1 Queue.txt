@@ -1,0 +1,31 @@
+======
+Queue
+======
+
+- Data Sructure which follows FIFO principle
+- FIFO : First In First Out
+  - item which is stored in first is removed first
+
+- Insertion is done from back and deletion is done from front
+- No changes can be done from between the stack
+
+- It is an ABSTRACT DATA TYPE
+
+Operations
+-----------
+- front
+  - variable to store location of first queue element
+- rear
+  - variable to store location of last queue element
+- enqueue()
+  - function to add element in a queue
+- dequeue()
+  - function to remove element in a queue and return its value
+- isQueueEmpty()
+  - check if queue is empty
+- isQueueFull()
+  - check if queue is full (only for array implementation)
+- queueFront()
+  - return value at queue front
+- queueRear()
+  - return value at queue rear
