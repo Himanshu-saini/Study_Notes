@@ -26,3 +26,19 @@ Example
 - Queue
 - Tree
 - Hash table
+
+
+Searching Complexity in DS
+-----------------------------
+- Unsorted Array : O(n)
+- Sorted Array : O(log n)
+- Linked List : O(n)
+- Binary Tree : O(n)
+- BST : 
+  - Average : O(log n)
+  - worst case: O(n)
+- Balanced BST : O(log n)
+- Heap :
+  - Max/Min : O(1)
+  - Other Number : O(n)
+- Hashing : O(1)
