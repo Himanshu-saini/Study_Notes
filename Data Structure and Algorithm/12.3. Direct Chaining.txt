@@ -1,0 +1,45 @@
+================
+Direct Chaining
+================
+
+- Singly Linked list is used to store values 
+- No data is lost
+
+- Hash Map is created to store the HEAD of a linked list 
+- When a value is mapped to a slot, that value is added 
+  to the corresponding linked list (at beginning of linked list)
+
+- Advantages
+  - Deletion is simple
+- Disadvantages 
+  - Uses extra memory outside Hash Table 
+
+- Complexity:
+  ------------
+  - Insertion : O(1)
+  - Searching 
+    - Worst case : O(n)
+	  - when all values are mapped to a single slot 
+	  - A good hash function is used to prevent it 
+	- Average case: O(1)
+  - Deletion
+    - Worst case: O(n)
+	  - when all values are stored to same slot 
+	- Average case : O(1)
+
+- N : Number of elements
+- S : size of hash table
+- Load Factor(alpha), α  : N/S 
+
+- Proof : Searching Complexity 
+  - if all values are evenly distributed in Hash Map
+    then, each linked contain N/S elements
+  - Seaching in Hash Map : O(1+N/S)
+    - 1 for searching hash slot 
+	- N/S for searching in Linked List
+
+  - Choosing N as multiple of S 
+    - N = k*S 
+      - k = constant
+  - α = N/S = k*S/S = k = constant 
+  - Seaching = O(1+k) = O(1)

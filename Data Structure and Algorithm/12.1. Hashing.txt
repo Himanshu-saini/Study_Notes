@@ -1,0 +1,52 @@
+========
+Hashing
+========
+
+- Data structure to provide optimize searching operation
+  - Searching Complexity : O(1)
+  - Lowest searching time provided by other DS is O(log n)
+
+- Hash Table/Hash Map
+  --------------------
+  - Data Structure of Store keys and associated values 
+  - Each position in hash table is called slot/bucket
+  
+- Hash Function
+  --------------
+  - function required to map a key to corresponding 
+    slot index of hash table
+  - ideally, a hash function should map each hash key to a 
+    unique slot
+  - Simple Hash Function 
+    ---------------------
+    - does not able to deal with collisions
+    - overwrites previous data
+  - Perfect Hash Function 
+    ---------------------
+    - Fucntion that maps each item to a unique slot
+	- Practically, it is immpossible to have it
+
+Implementation : Simple hash funciton
+======================================
+- Let hash function be mod 10
+
+int hashFunction(int key){
+  return key%10;
+}
+
+int* createHashMap(int* values){
+  int* hash = new int(10)
+  for(int i=0;i<10;i++)
+    hash[i]=-1;
+  
+  for(int i=0;values[i];i++)
+    hash[hashFunction(values[i])] = values[i];
+  
+  return hash;
+}
+
+bool searchHash(int* hash,int value){
+  if(hash[hashFunction(value)] != -1)
+    return True;
+  return False;
+}

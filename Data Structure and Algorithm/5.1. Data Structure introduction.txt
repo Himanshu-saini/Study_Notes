@@ -24,8 +24,8 @@ Example
   - Circular Linked List
 - Stack
 - Queue
+- Hash table / Hash Map
 - Tree
-- Hash table
 
 
 Searching Complexity in DS

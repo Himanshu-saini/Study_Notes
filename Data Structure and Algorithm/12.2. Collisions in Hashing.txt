@@ -1,0 +1,26 @@
+======================
+Collisions in Hashing
+======================
+
+- Collisions occur when more than one value corresponds to 
+  same slot index of Hash Map.
+  
+- Properties of good hash function 
+  - values should be distributes uniformly
+  - Computes quickly
+  - Returns value within the range
+  - Minimizes collision
+  - Chose alternative index in case of collision
+
+- Ex.
+  - mod <Prime number> to hash integers from 0 to 999
+    - is better hash function over mod 10
+    - mod 11, mod 13 etc..
+  
+Collisio Resolution Techniques
+-------------------------------
+- Direct Chaining
+- Open Addressing
+  - Linear probing
+  - Quadratic Probing
+  
