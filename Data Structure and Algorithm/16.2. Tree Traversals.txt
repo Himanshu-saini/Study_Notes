@@ -1,0 +1,71 @@
+===============
+Tree Traversals
+===============
+
+- Types
+  ------
+  - Pre-Order Traversal
+	- Root | Left | Right
+  - In-Order Traversal
+	- Left | Root | Right
+  - Post-Order Traversal
+	- Left | Right | Root
+  - Level Order Traversal
+    - Node is processed level wise
+
+- Ex:
+     1
+   __|__
+   |   |
+   2   3
+  _|_ _|_
+  | | |  | 
+  4 5 6  7
+  
+  - Pre-Order : 1,2,4,5,3,6,7
+  - In-Order : 4,2,5,1,6,3,7
+  - Post-Order : 4,5,2,6,7,3,1
+  - Level Order : 1,2,3,4,5,6,7
+  
+Implementation
+===============
+
+void preorder(Tree* root){
+  if(root==nullptr)
+    return;
+  cout<<root->data<<" ";
+  preorder(root->left);
+  preorder(root->right);
+}
+
+void inorder(Tree* root){
+  if(root==nullptr)
+    return;
+  inorder(root->left);
+  cout<<root->data<<" ";
+  inorder(root->right);
+}
+
+void postorder(Tree* root){
+  if(root==nullptr)
+    return;
+  postorder(root->left);
+  postorder(root->right);
+  cout<<root->data<<" ";
+}
+
+void levelOrder(Tree* root){
+  queue<Node*> q;
+  if(root==nullptr)
+    return;
+  q.push(root);
+  while(!q.isEmply()){
+    int currNode = q.pop();
+	cout<<currNode->data;
+	if(currNode->left)
+	  q.push(currNode->left);
+	if(currNode->right)
+	  q.push(currNode->right);
+  }
+}
+	 
