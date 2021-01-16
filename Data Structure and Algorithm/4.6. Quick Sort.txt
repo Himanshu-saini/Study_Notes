@@ -25,17 +25,17 @@ int swap(int* a, int* b){
 
 // find pivot and divide array
 int partition(int arr[], int start, int end){
-  int pivot = arr[high];
-  int i = start-1, temp;
+  int pivot = arr[end];
+  int i = start;
   
   for(int j=start; j<=end-1; j++){
     if(arr[j]<=pivot){
-	  i++;
 	  swap(&arr[i] ,&arr[j]);
+	  i++;
 	}
   }
   swap(&arr[i] ,&arr[end]);
-  return i+1;
+  return i;
 }
 
 void quiskSort(int arr[],int start, int end){
