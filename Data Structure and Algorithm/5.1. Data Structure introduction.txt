@@ -15,17 +15,22 @@ Data Structure
 - Ex. 
   - Search optimization : Hashing
 
-Example
+Types
 ========
-- Array
-- Linked List
-  - Singly Linked list
-  - Doubly Linked List
-  - Circular Linked List
-- Stack
-- Queue
-- Hash table / Hash Map
-- Tree
+- Linear DS
+  -----------
+  - Array
+  - Linked List
+    - Singly Linked list
+    - Doubly Linked List
+    - Circular Linked List
+  - Stack
+  - Queue
+  - Hash table / Hash Map
+  
+- Non-Linear DS
+  --------------
+  - Tree
 
 
 Searching Complexity in DS

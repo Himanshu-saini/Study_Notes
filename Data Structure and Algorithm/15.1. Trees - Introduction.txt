@@ -1,0 +1,44 @@
+=======
+Trees
+======
+- Non linear data structure
+- A node can points to n nodes
+
+Terminology
+-----------
+- Root Node
+  - 1st node / Topmost node of tree
+  - Have no parent
+- Leaf node 
+  - nodes having no child
+- Parent Node 
+  - node from which 1 or more nodes emerges
+- Child node 
+  - immediate next node of another node
+- Sibling nodes 
+  - child nodes of same parent node
+- Ansester nodes
+  - All nodes that comes in path from root to given node 
+  - parent, parent of parent, ...., root
+- Edge
+  - link between parent and child node
+- Sub-tree
+  - tree present at one edge of a node
+
+- Height
+  ------
+  - Distance from the bottom
+  - Height of Node
+    - distance of node from the deepest node (deepest leaf)
+  - Height of Tree
+    - height of root node 
+	- maximum height among all node 
+- Level
+  -----
+  - Distance from the top
+  - Level of Node
+    - distance between node and root
+	- level of root node = 0
+  - Level/Depth of Tree
+	- level of deepest node
+    - Maximum level among all nodes
