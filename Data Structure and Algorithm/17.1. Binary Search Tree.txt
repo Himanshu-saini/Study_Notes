@@ -18,6 +18,8 @@ Binary Search Tree
   - difference between height of left subtree and right subtree
   - For AVL tree, balance factor = 0 or 1
 
+- InOder traversal of BST will give a sorted list of numbers
+
 Implementation
 ================
 struct BSTNode{
