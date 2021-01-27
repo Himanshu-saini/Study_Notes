@@ -1,0 +1,25 @@
+============================
+Find Minimum Element in BST 
+============================
+
+Minimum Value 
+--------------
+int findMin(BSTNode* root){
+  if(root == nullptr)
+    return nullptr;
+  if(root->left == nullptr)
+    return root->data;
+  else 
+    return findMin(root->left);
+}
+
+Maximum Value
+-------------
+int findMax(BSTNode* root){
+  if(root == nullptr)
+    return nullptr;
+  if(root->right == nullptr)
+    return root->data;
+  else 
+    return findMax(root->right);
+}
