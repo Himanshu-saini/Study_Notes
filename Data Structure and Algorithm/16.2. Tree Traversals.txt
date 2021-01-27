@@ -30,27 +30,27 @@ Tree Traversals
 Implementation
 ===============
 
-void preorder(Tree* root){
+void preOrder(Tree* root){
   if(root==nullptr)
     return;
   cout<<root->data<<" ";
-  preorder(root->left);
-  preorder(root->right);
+  preOrder(root->left);
+  preOrder(root->right);
 }
 
-void inorder(Tree* root){
+void inOrder(Tree* root){
   if(root==nullptr)
     return;
-  inorder(root->left);
+  inOrder(root->left);
   cout<<root->data<<" ";
-  inorder(root->right);
+  inOrder(root->right);
 }
 
-void postorder(Tree* root){
+void postOrder(Tree* root){
   if(root==nullptr)
     return;
-  postorder(root->left);
-  postorder(root->right);
+  postOrder(root->left);
+  postOrder(root->right);
   cout<<root->data<<" ";
 }
 
@@ -59,8 +59,9 @@ void levelOrder(Tree* root){
   if(root==nullptr)
     return;
   q.push(root);
-  while(!q.isEmply()){
-    int currNode = q.pop();
+  while(!q.emply()){
+    Node* currNode = q.front();
+	q.pop();
 	cout<<currNode->data;
 	if(currNode->left)
 	  q.push(currNode->left);
