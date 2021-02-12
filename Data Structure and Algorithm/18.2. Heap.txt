@@ -1,0 +1,31 @@
+=======
+Heap
+=======
+
+- Tree with special properties
+  - All child elements are smaller/greater than the parent element
+  - It should be a balanced tree 
+    - all leaf nodes should be at height H or H-2
+
+- Heap structure change depending upon inserting elements approach
+  - Bottom up Approach
+    - Convert array, representing complete Binary Tree into heap
+	  using "build-heap" approach
+  - Top-down Approach
+    - insert element one-by-one and take care of heap property
+
+- We can get different heap from these 2 approaches
+
+Operations
+----------
+- Insertion
+  - Bottom up 
+    - complexity: O(n) for all element
+  - Top-down 
+    - Complexity: O(log n) for each element
+- Deletion
+  - Extract-min / Extract-max
+  - complexity : O(log n)
+- Updation
+  - Decrease key / insrease key 
+  - complexity : O(log n)

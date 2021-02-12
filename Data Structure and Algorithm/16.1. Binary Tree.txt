@@ -28,6 +28,19 @@ Types
 
 Implementation
 ================
+
+Uing Array
+----------
+int BinaryTree[maxCap];
+
+- Parent of an element at index i 
+  - floor[(i-1)/2] index
+- Child index of an element at index i 
+  - Left child: (2*i + 1) 
+  - Right child: (2*i + 2)
+
+Using Structure
+----------------
 struct BinaryTreeNode{
   int data;
   BinaryTreeNode* left;

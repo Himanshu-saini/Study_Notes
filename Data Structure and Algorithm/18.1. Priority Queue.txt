@@ -1,0 +1,26 @@
+===============
+Priority Queue
+===============
+
+- Data stucture that gives maximum/minimum element in O(1)
+
+- Priority Queue can be implemented using 
+  - Array
+    - Insertion: O(1)
+	- Finding max/min: O(n)
+  - Linked List
+    - Insertion: O(1)
+	- Finding max/min: O(n)
+  - BST
+    - Insertion: O(log n)
+	- Finding max/min: O(log n)
+  - Heap 
+    - Insertion: O(log n)
+	- Finding max/min: O(1)
+
+- Operations of Priority Queue 
+  - Insertion
+  - Find max/min element 
+  - Deleting max/min element 
+
+
