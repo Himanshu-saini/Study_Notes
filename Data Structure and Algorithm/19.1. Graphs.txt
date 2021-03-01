@@ -1,0 +1,74 @@
+=======
+Graphs
+=======
+
+- Non-Linear Data Structure
+- It contains nodes connected to one another viw edges
+- Represented By G(V,E)
+  - V : Number of vertices (nodes)
+  - E : Number of Edges
+
+Store a Graph
+==============
+- Adjacency Matrix
+- Adjacency Lists
+
+Terminology
+===========
+- Vertives
+  - Nodes of Graph 
+- Edges 
+  - Link between two vertices 
+  - Types
+    - Undirected 
+	  - There is a 2 way link between vertices
+	    i.e., both A->B and B->A path exist
+	- Directed
+	  - There is only 1 way link between 2 nodes 
+	    i.e., Only A->B exist 
+	- Weighted
+	  - value of edge representing length/cost of path
+	- Non-weighted
+	  - There is no weight of path 
+	    or all path have same weight 
+- Path
+  - Set of adjecent vertices to reach from A to B.
+- Connected Vertices
+  - 2 vertices are connected if there exist a path 
+    between these 2 vertices.
+- Cycle in graph
+  - a path in graph where 1st and last vertices are same.
+- Incident 
+  - If there is an edge E1 exist betwenn A and B 
+    then E1 is incident on A and B-
+- Degree of a vertex
+  - Number of edges incident on a vertex 
+
+Types of Graph
+================
+
+- Undirected
+  - All Edges in the Graph is Undirected i.e., 2-way
+- Directed
+  - All Edges in the Graph is Uni-Directed 
+
+- Cyclics Graph
+  - Graph in which there exist atleast one cycle
+- Acyclics Graph
+  - Graph in which no cycle exist.
+- Directed Acyclic Graph (DAG)
+  - There is no cycle in a graph when graph is Directed
+
+- Connected Graph
+  - Graph where all pair of vertices are connected veritces
+    i.e., Given a vertex we can reach all other vertices.
+
+Tree vs Graph 
+-------------
+- Tree is an Acyclic connected Graph
+
+Applications
+=============
+- Flight network / Transpotation Network
+- LAN / WAN
+- ER Diagram

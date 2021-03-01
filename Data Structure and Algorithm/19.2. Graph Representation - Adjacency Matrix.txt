@@ -1,0 +1,64 @@
+================
+Adjacency Matrix
+================
+
+- Created using 2D array
+- Initialize an array having rows = columns = number of vertices
+- Set adj[u][v] = 1 if there exist a edge u->v
+  otherwise set adj[u][v] = 0
+- All Diagonal values of the matrix is 0
+- For undirected graph, matrix is symmetric
+  i.e., all values are same on both side of main disgonal
+
+- Used when graph is Dense
+  - There is large number of Edges
+  - Generally, E > V*log(V)
+
+Complexity
+----------
+- Initialization
+  - Time Complexity : O(V^2)
+  - Space Complexity : O(V^2)
+
+- Access an Edge 
+  - Time Complexity : O(1) 
+  
+Implementation 
+==============
+
+Structure Implementation
+------------------------
+
+struct Graph{
+  int V;
+  int E;
+  int ** Adj;
+};
+
+Class implementation
+---------------------
+class Graph{
+  int ** adjMat;
+  int V;
+  public:
+  Graph(int nodes){
+    V = nodes;
+	adjMat = new int*[V];
+	for(int i=0;i<V;i++){
+	  adjMat[i] = new int[V];
+	  for(int j=0;j<V;j++)
+	    adjMat[i][j] = 0;
+	}
+  }
+  void addEdge(int u, int v){
+    adjMat[u][v] = 1;
+    adjMat[v][u] = 1;
+  }
+  void printGraph(){
+    for(int i=0;i<V;i++){
+	  for(int j=0;j<V;j++)
+	    cout<<adjMat[i][j]<<" ";
+	  cout<<"\n";
+	}
+  }
+};

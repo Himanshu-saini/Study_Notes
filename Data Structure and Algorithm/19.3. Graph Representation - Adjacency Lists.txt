@@ -1,0 +1,75 @@
+===============
+Adjacency Lists
+===============
+
+- Created using 1D array and linked list
+- We use 1D array where each column stored the 
+  HEAD pointer to a linked list
+- The linked list contains the list of all nodes connected 
+  to that vertex
+
+- Used when Graph is sparse
+  - Generally, E < V*log(v)
+  
+Complexity 
+----------
+- Initialization 
+  - Space Complexity : O(V + E)
+
+- Access an Edge
+  - Time complexity: O(V)
+
+Implementation
+==============
+
+Class Implementation
+---------------------
+
+class Graph{
+  int V;
+  list<int> * adjList;
+  public:
+  Graph(int nodes){
+    V = nodes;
+	adjList = new list<int>[V];
+  }
+  void addEdge(int u, int v){
+    adjList[u].push_back(v);
+    adjList[v].push_back(u);
+  }
+  void printGraph(){
+    for(iny i=0;i<V;i++){
+	  cout<<i<<": ";
+	  for(auto node:adjList[i])
+	    cout<<node<<" ";
+	}
+  }
+};
+
+Vector Implementation 
+---------------------
+void addEdge(vactor<int> adjList[],int u, int v){
+  adjList[u].push_back(v);
+  adjList[v].push_back(u);
+}
+
+void printGraph(vactor<int> adjList[],int n){
+  for(iny i=0;i<n;i++){
+	cout<<i<<": ";
+	for(auto node:adjList[i])
+	  cout<<node<<" ";
+  }
+}
+
+int main(){
+  int V,E;
+  cin>>V>>E;
+  vector<int> adjList[V];
+  for(int i=0;i<E;i++){
+    int u,v;
+	cin>>u>>v;
+	addEdge(adjList,u,v)
+  }
+  printGraph(adjList,V);
+  return 0;
+}
