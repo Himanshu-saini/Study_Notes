@@ -1,0 +1,37 @@
+================================
+Django’s logging extensions
+================================
+
+Loggers
+-------------
+- Django provides several built-in loggers.
+- django : catch-all logger for messages in the django hierarchy.
+- django.request
+- django.server
+- django.template
+- django.db.backends
+- django.security.*
+  - django.security.DisallowedHost
+  - django.security.csrf
+- django.db.backends.schema
+
+Handlers
+--------------
+- Django provides one log handler in addition to those provided by the Python logging module.
+- django.utils.log.AdminEmailHandler
+- Example:
+'handlers': {
+    'mail_admins': {
+        'level': 'ERROR',
+        'class': 'django.utils.log.AdminEmailHandler',
+        'include_html': True,
+    }
+},
+
+Filters
+------------
+- Django provides some log filters in addition to those provided by the Python logging module.
+- django.utils.log.CallbackFilter
+- django.utils.log.RequireDebugFalse
+- django.utils.log.RequireDebugTrue
+

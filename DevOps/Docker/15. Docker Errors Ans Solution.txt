@@ -1,0 +1,9 @@
+Docker Permission Error:
+=========================
+- run docker command as sudo
+- if not solve, use
+  $ sudo chmod 666 /var/run/docker.sock
+
+Avoiding user interaction with tzdata when installing packages in a docker container:
+======================================================================================
+- Set an environmant variable, DEBIAN_FRONTEND=noninteractive in Dockerfile

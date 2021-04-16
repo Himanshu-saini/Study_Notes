@@ -1,0 +1,59 @@
+become policy ninja in 60 min
+
+================
+Security posture
+================
+
+Policies:
+===============
+
+- JSON files fo rcreating policies
+PARC model
+- Policy
+- Access
+- Resource
+- Condition
+
+Policy is divided into 2:
+- From IAM
+- Policy on resource
+
+- IN case of conflic, whichever is more restrictive will win
+
+Monitoring
+===========
+- AWS Cloudwatch
+- AWS cloudwatch Alarm
+- AWS Trusted Advisor
+
+Logging
+=========
+- CloudTrail
+- All the action will be logged and delivered to S3 bucket
+
+Encryption
+============
+- AWS KMS (key Management Services)
+  - Keys are stored in AWS KMS cloud
+  - Auditing in inbuild with cloudTrail
+  
+- Protection in Transit
+  - TSL or IPsec
+  - ACM to get the certificate for security
+  - Enforce security in transit by allowing on HTTPS
+  
+Data Path
+===============
+- AWS VPC
+  - logical isolation
+  - Layers
+    - subnet routing
+	- Network ACLs (NACL - Network Access Control List)
+	- Security group
+	  - Stateful firewall
+	  - Define Inbound group (IP and port)
+
+
+
+- Security Specility Certification
+

@@ -1,0 +1,10 @@
+========================================
+Amazon Simple Notification Service (SNS)
+========================================
+- fully managed publisher/subscriber messagin for distributed or serverless application
+- SNS Topics are created which have subscribers list
+  - Email, Mobile Numbers, Endpoints,...
+
+- When message is send to a topic it is broadcasted to all subscribers 
+- Explore:
+  - https://docs.aws.amazon.com/sns/latest/dg/welcome.html

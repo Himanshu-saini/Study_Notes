@@ -1,0 +1,179 @@
+==============
+Classes
+=============
+- Sometimes the best option to customize a document 
+  is to write a new class from scratch. 
+
+
+==================
+General Stucture
+==================
+- Identification
+- Preliminary declarations
+- Options
+- More declarations
+
+
+Identification
+================
+- file declares itself as a class written with the LATEX2ε syntax
+
+- \NeedsTeXFormat{LaTeX2e}
+  ------------------------
+  - sets the LATEX version for the class to work
+  - Additionally, a date can be added within brackets 
+    to specify the minimal release date required
+- ProvidesClass{exampleclass}[2014/08/16 Example LaTeX class] 
+  ------------------------------------------------------------
+  - identifies this class as "exampleclass"
+  - inside the brackets, the release date 
+    and some additional information is included
+
+Preliminary declarations
+==========================
+- Here the external packages and classes needed are imported. 
+  Also,the file the commands and definitions needed by the declared options are coded.
+- Most of the classes extends and customize existing ones
+  and also need some external packages to work
+- this part either initialize some parameters that 
+  latter will be used to manage the options, or import external files.
+
+- Ex.
+  \newcommand{\headlinecolor}{\normalcolor}
+  \LoadClass[twocolumn]{article}
+  \RequirePackage{xcolor}
+  \definecolor{slcolor}{HTML}{882B21}
+
+- \LoadClass[twocolumn]{article}
+  ------------------------------
+  - loads the class article with the additional parameter twocolumn
+  - all the commands in the standard article class 
+    will be automatically available in the example class
+  - document will be printed in a two-column format
+  
+- \RequirePackage
+  ----------------
+  - very similar to the well-known \usepackage but
+    \usepackage can not be used before \documentclass command.
+  - import external files
+  - strongly recommended to use \RequirePackage when writing new packages or classes.
+  
+Options
+==========
+- The package declares and processes the options.
+- handles the parameters passed to the package-importing statement.
+- moved \LoadClass to after the options are processed, 
+  so that options set in the .tex file can be passed to the base class
+  
+- \DeclareOption{}{}
+  --------------------
+  - handles a given option
+  - takes two parameters
+    - the name of the option 
+	- the code to execute if the option is passed
+- \OptionNotUsed
+  --------------------
+  - print a message in the compiler and the logs, the option won't be used
+- \Declareoption*{}
+  --------------------
+  - handles every option not explicitly defined
+  - parameter: the code to execute when an unknown option is passed.
+- \PassOptionsToClass{}{}
+  -------------------------
+  - Passes the option inside the first pair of braces 
+    to the document class set inside the second pair of braces
+  - 
+- \PackageWarning{}{}
+  --------------------
+  - see error hanndling
+- \CurrentOption
+  --------------------
+  - stores  the name of the class option being handled at a determined moment
+- \ProcessOptions\relax 
+  --------------------
+  - executes the code for each option
+  - must be inserted after all the option-handling commands were typed
+
+- Ex.
+  \DeclareOption{onecolumn}{\OptionNotUsed}
+  \DeclareOption{green}{\renewcommand{\headlinecolor}{\color{green}}}
+  \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+  \ProcessOptions\relax
+  \LoadClass[twocolumn]{article}
+  - In the example, all unknown options will be passed to the article document class.
+
+
+More declarations
+===================
+- The main body of the package.
+- Almost everything a package does is defined here.
+
+- Ex.
+  \renewcommand{\maketitle}{%
+    \twocolumn[%
+        \fontsize{50}{60}\fontfamily{phv}\fontseries{b}%
+        \fontshape{sl}\selectfont\headlinecolor
+        \@title
+        \medskip
+        ]%
+  }
+
+  \renewcommand{\section}{%
+    \@startsection
+    {section}{1}{0pt}{-1.5ex plus -1ex minus -.2ex}%
+    {1ex plus .2ex}{\large\sffamily\slshape\headlinecolor}%
+  }
+
+  \renewcommand{\normalsize}{\fontsize{9}{10}\selectfont}
+  \setlength{\textwidth}{17.5cm}
+  \setlength{\textheight}{22cm}
+  \setcounter{secnumdepth}{0}
+
+- last four commands in the example show the four things that all classes must contain:
+  - The definition of normalsize. Sets the default font size.
+  - A default value for textwidth
+  - A default value for textheight
+  - The specifications for the page numbering.
+
+=========================================================
+List of commands commonly used in packages and classes
+=========================================================
+- \newcommand{name}{definition}
+  --------------------
+  - Defines a new command, 
+  - the first parameter is the name of the new command, 
+  - the second parameter is what the command will do.
+- \renewcommand{}{}
+  --------------------
+  - The same as \newcommand 
+  - but will overite an existing command.
+- \providecommand{}{}
+  --------------------
+  - Works just as \newcommand 
+  - but if the command is already defined this one will be silently ignored.
+- \CheckCommand{}{}
+  --------------------
+  - The syntax is the same as \newcommand,
+  - but instead it will check whether the command exists and has the expected definition, 
+  - LATEX will show a warning if the command is now what \CheckCommand expected.
+- \setlength{}{}
+  --------------------
+  - Sets the length of the element passed as first parameter
+    to the value written as second parameter.
+- \mbox{}
+  --------------------
+  - Creates a box that contains the elements written inside the braces.
+- \fbox{}
+  --------------------
+  - The same as \mbox, 
+  - but a box is actually printed around the contents.
+
+===================
+Handling errors
+===================
+- it's important to handle possible errors
+
+- \ClassError{class-name}{error-text}{help-text}
+- \ClassWarning{class-name}{warning-text}.
+- \ClassWarningNoLine{class-name}{warning-text}
+- \ClassInfo{class name}{info-text}

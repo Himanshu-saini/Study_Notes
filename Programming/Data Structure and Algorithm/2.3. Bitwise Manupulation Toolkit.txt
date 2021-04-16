@@ -1,0 +1,123 @@
+========================
+Bit Manupulation Toolkit
+========================
+- Explore More:
+  https://en.m.wikipedia.org/wiki/Bit_manipulation_instruction_set
+  
+- Set bit means converting that bit to 1
+- Here i-th bit is counted from 0 from right to left
+
+- lowest set-bit = rightmost set-bit 
+  - because the value contributing by rightmost bit 
+    is lowest among all other 1
+
+- Set i-th Bit
+  -------------
+  - Answer = A|( 1 << i)
+    - A = number 
+	- i = position of bit to be set
+  - Set 3rd bit of a number
+    - let number be 10010011
+    - as we know A|1 = 1 and A|0 = A
+	- 10010011 | 00001000 witll gives the answer
+	- 00001000 results from using 1<<3
+	  - It is also called Mask
+	- Threfore, answer = 10010011 | (1<<3)
+	  
+- Un-Set i-th Bit
+  ---------------
+  - Answer = A & ~( 1 << i)
+    - A = number 
+	- i = position of bit to be unset
+  - Un-Set 4th bit of a number
+    - let number be 10010011
+    - as we know A&0 = 0 and A&1 = A
+	- 10010011 & 11101111 witll gives the answer
+	- 11101111 results from using ~(1<<4)
+	- Threfore, answer = 10010011 & ~(1<<4)
+
+- Toggle i-th Bit
+  ---------------
+  - Answer = A ^ ( 1 << i)
+    - A = number 
+	- i = position of bit to be toggles
+  - Toggle 4th bit of a number
+    - let number be 10010011
+    - as we know A^1 = ~A (toggle A)
+	- 10010011 ^ 00010000 witll gives the answer
+	- 00010000 results from using (1<<4)
+	- Threfore, answer = 10010011 ^ (1<<4)
+
+- Identify the i-th Bit 
+  ---------------------
+  - if A & ( 1 << i) == 0 
+    then i-th bit is 0 otherwise 1
+    - A = number 
+	- i = position of bit to be identified
+  - Identify 4th bit of a number
+    - let number be 10010011
+    - as we know A^1 = ~A (toggle A)
+	- 10010011 ^ 00010000 witll gives the answer
+	- 00010000 results from using (1<<4)
+	- Threfore, answer = 10010011 ^ (1<<4)
+
+- Reverse each bit of the number after the 
+  rightmost set-bit including the set-bit
+  -----------------------------------------
+  - Answer = A-1
+  - Ex.
+    - Let number = 11001100
+    - 11001100 - 1 = 110010111 = Answer
+
+- Un-set the rightmost set-bit 
+  ----------------------------
+  - Answer = A & (A-1)
+  - Ex.
+    - Let number = 11001100
+    - 11001100 - 1 = 110010111
+	- 11001100 & 110010111 = 110010000 = Answer
+
+- Find number of set bits 
+  -------------------------
+  - Solution 1:
+    - identify every 32 bit of the number
+	- Most complexity
+  - Solution 2:
+    - right shift the number by 1 and checks the 0-th bit 
+	  until number != 0
+	- Less complexity from above
+  - Solution 3:
+    - unset the rightmost set-bit until there is no set-bit 
+	  i.e., number becomes 0
+	- lowet complexity 
+	- Program:
+	  int set_count - 0
+	  while(A){
+	    A = A&(A-1);
+	    set_count++;
+	  }
+
+- Create a mask with 1 only at 
+  rightmost set-bit of the number
+  --------------------------------
+  - Ex. 
+    - For A = 00110100
+	- Mask = 00000100
+  - Solution 1
+    - Rigth shift by 1 until we get 1 at 0-th bit of the number 
+	  to get the position of the rightmost bit 
+	- then, do 1 << i to get the mask 
+  
+  - Solution 2:
+    - Answer = A ^ (A&(A-1))
+	- Explanation:
+      - A = 00110100
+	  - A&(A-1) = 00110000
+	  - 00110100 ^ 00110000 = 00000100 = Mask
+	
+  - Solution 3:
+    - Answer = A & -A = A & (~A + 1)
+	- Explanation:
+	  - A = 00110100
+	  - -A = ~A + 1 = 11001011 + 1 = 11001100
+	  - A & -A = 00110100 & 11001100 = 00000100 = Mask

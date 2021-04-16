@@ -1,0 +1,22 @@
+=====================
+Useful Linux Commands
+=====================
+
+Remove installed library deb achives (/var/cache/apt/archives)
+------------------------------------
+- $ sudo apt clean
+
+Remove unwanted packages
+------------------------
+- $ sudo apt autoremove
+
+======================
+Useful locations/files
+======================
+
+- All installed/removes packages history
+  /var/log/apt/history.log
+
+- Repository list for downloading packages
+  /etc/apt/source.list
+

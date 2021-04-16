@@ -1,0 +1,81 @@
+===========================
+		Data Types
+===========================
+- defines the type of variable declared.
+- defianes how much size from memry will be allocated to the varaible
+- Ex. int, char 
+
+- Abstract Data Type 
+  ------------------
+  - Data type whose behavious is predefined by set of values
+    or set of operations
+  - user is least interested in implementation of its features
+  - Ex. int, float, stack, queue
+
+Fundamental Data types
+=======================
+- Build-in / Primitive Data types
+
+- Boolean type - bool
+  - only have 2 value : True(1) or False(0)
+  - Size of 1 byte
+  - Range : -128 to 127
+  
+- Integer Type - int 
+  - contain whole number
+  - Size depend on OS (Size of int is equal to size of the OS)
+  - 16 bit OS have int size 2 bytes
+  - 32 bit OS have int size 4 bytes
+  - 64 bit OS have int size 8 bytes
+  - Size and range can be changed using Modifiers
+  
+- Floating Point - float, double
+  - contain decimal point numbers
+  - Number of digits after the decimal point is double in case of double type.
+  - Size of double is double to that of float type.
+  - Size of float is 4 bytes and double is 8 bytes
+
+- Character type - char, wchat_t
+  - used to store characters.
+  - char is of 1 byte
+  - wchar_t is of 2 bytes
+  - Character are converted to ASCII value to store in memory. 
+
+- void type 
+  - it is not used for variables.
+  - used with  function or pointers
+
+Qualifiers
+------------
+- short
+  - Depending on the copiler, it occupies less space or equal to int
+- long
+  - Occupies more space than int
+- unsigned: 
+  - Contain only positive values
+  - Float does not have unsigned type
+- signed: 
+  - have both negative nad positive values
+  - By Default, data types are signed
+
+Derived Data types 
+===================
+- Derieved from Fundamental Data Type
+
+- Pointers
+- Arrays
+- Reference Types
+
+User Defined Data types
+=========================
+- Defined by user
+
+- Type def
+  - Give another name to the already defined data type.
+  - Ex. 
+    typedef short unsigned int sunint;
+    sunint x,y;  
+
+- Enumeration (enum)
+- Structures
+- Classes 

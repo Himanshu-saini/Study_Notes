@@ -1,0 +1,59 @@
+==========
+Recursion
+==========
+- Function calls itself again and again.
+- Base condition
+  - exit condition for the recursive function
+  - condition which will stop the recursive function 
+
+- Recurence Equation
+  - Equation having a recursive pattern
+  - Ex 
+    f(n) = n + f(n-1) , for n>1
+	     = 1 , for n=1  // base condition 
+  - it helps in writing recursive function 
+
+- Build Recursive function 
+  - build recursive tree 
+  - indentify base condition 
+  - find variable parameters
+    - variable that need to be tracked
+  - Draw recursion stack to check the working of the function 
+  
+- Few things to take care of
+  - Keep track of parameters
+  - keep track of what value is returned and to whom
+  - From where the function will resume after 
+    called function finishes execution.
+
+Recursion and stack
+===================
+- when the function is called 
+  its variables are stored in a memory stack.
+- The memory is freed when the function exits.
+- When a recursive function is called 
+  each function will have a seperate memory space
+  in the stack.
+- All the memory gets occupied until the last recursive call.
+- If there is no base condition(exit condition) 
+  in the recursive function, the stack memory gets 
+  occupied until the stack is full.
+  In such case, no further function  is called 
+  and the program returns StackOverflow error.
+
+Recursion vs Iteration
+=========================
+- Every problem that can be solved using recursion 
+  can be solved using iteration
+
+- Each resursive call require extra space in memory
+  - Therefore, loops are prefered
+- Solution to some problems are easier to formulate recursively
+  - when there are many possibilities
+
+- Loops exit when text condition becomes false
+  - gets *infinite loop* when test condition in not there 
+- Recursion exits when base condition gets true
+  - gets *StackOverflow error* when base condition is not there.
+
+

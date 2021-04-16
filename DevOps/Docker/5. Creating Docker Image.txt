@@ -1,0 +1,91 @@
+Setting up your own image:
+==============================
+- Dockerfiles describe how to assemble a private filesystem for a container, 
+  and can also contain some metadata describing how to run a container based on this image.
+  
+Steps
+-----------------------
+1.	Create a file as Dockerfile which contain instruction for setting up your application in it.
+	Ex. Dockerfile:
+	FROM Ubuntu
+
+	RUN apt-get update
+	RUN apt-get install python
+
+	RUN pip install flask
+	RUN pip install flask-mysql
+
+	COPY . /opt/source-code
+	ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run
+
+2.	Build docker image using:
+	$ docker build Dockerfile –t my-custom-app  // -t or --tag use for specifying tag name for the image
+	// it creates a docker image locally 
+	You use the -f flag with docker build to point to a Dockerfile anywhere in your file system.
+	$ docker build -f /path/to/a/Dockerfile .
+
+3.	To make the image available on Docker Hub use:
+	$ docker push <tag name>  
+
+Writing Dockerfile:
+=========================
+- Dockerfile is a text file written in a specific format that docker can understand. 
+- Format: INSTRUCTION ARGUMENT
+  Instructions on left like: FROM, RUN, COPY, ENTRYPOINT
+
+Instruction:
+-----------------
+FROM <arg>  // contain base image which is used by the App. All dockefile muct start from “FROM” instruction
+RUN <arg> // run specific commands on the images like install dependencies
+COPY <from arg> <to arg>  // Copy files from the local system on to the docker image 
+ENTRYPOINT <arg>  // specifies the command that will be run when image will be run as a container
+CMD [“program”]  // defined the program which will be run within the container when it starts  
+EXPOSE 8080		// Inform Docker that the container is listening on the specified port at runtime.
+WORKDIR /usr/src/app	// Set the working directory in the image
+
+Different ways of specifying argument to the command (CMD):
+-----------------------------------------------------------------
+CMD command param1		//shell form
+CMD [“command”,”param1”]	//JSON array format
+
+Changing default functioning of docker image:
+==================================================
+- To specify different command to run in the container, append the docker run command which overrides the default command specifies within the image. 
+  $ docker run <image name> [command]
+  Ex. $ docker run Ubuntu sleep 5  
+       It adds sleep 5 for that particular container instance
+
+To make changes permanent: 
+----------------------------
+- Make your own image with the base image that you want to change and Add CMD instruction .
+- Like;
+  FROM Ubuntu
+  CMD [“sleep”,”5”]
+
+Difference between CMD and ENTRYPOINT:
+========================================
+- When we provide command argument to the instance of the container during its launch like in $docker run Ubuntu sleep 5.
+- The default instruction to run gets overwritten in case of CMD.
+
+ENTRYPOINT 
+--------------
+- instruction is like CMD instruction. 
+- It specifies the program to run when the container starts but whatever we specifies in the command line as argument, 
+  it will get appended (not overwrite) to the command.
+- Like:
+  FROM Ubuntu
+  ENTRYPOINT[“sleep”]
+  $ docker run Ubuntu-sleeper 10		// container starts with sleep 10.
+
+- To use default value for the ENTRYPOINT use CMD.
+  Like:
+  FROM Ubuntu
+  ENTRYPOINT[“sleep”]
+  CMD[“5”]
+  If parameter is not provided in the command line it executes with sleep 5 command.
+  
+** always use JSON format for this.
+
+- To modify the ENTRYPOINT command during run time use:
+  $ docker run --entrypoint sleep2.0 ubuntu-sleeper 10	// new ENTRYPOINT is “sleep2.0”
+

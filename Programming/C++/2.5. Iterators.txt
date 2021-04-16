@@ -1,0 +1,50 @@
+====================
+Iteration Statements
+=====================
+- Do do a task repeated number of times depending upon the condition
+
+While loop
+=============
+- Condition is checked before the block is executed
+
+- Syntax:
+  while(condition){
+    // statements
+	// changing loop control variable
+  }
+  
+Do-While loop
+=============
+- Condition is checked after the block is executed
+- The loop block is executed at least one time even if the condition is false
+
+- Syntax:
+  do{
+    // statements
+	// changing loop control variable
+  }while(condition);
+  
+For loop 
+==========
+
+- Syntax:
+  for(initialization;condition;update control variable){
+    // statements 
+  }
+- Execution:
+  - First the variable initilization block is executed 
+  - condition is checked 
+  - loop block gets executed 
+  - update statement gets executed
+
+- Variations:
+  - varaible can be declared during initialization 
+  - initialize statement can be skipped is the variable is initialized earlier
+  - more than one one varianble can be initialized in initialization block seperated by comma 
+  - update statement can be skipped, 
+    condition variable must be updated inside the block otherwise the loop will execute infinitely
+  - More than one variable can be updated in update block seperated by comma 
+  - Condition statement can be skipped,
+    loop is stopped inside the loop block using "break".
+	
+

@@ -1,0 +1,85 @@
+Fault Tolerence Approches:
+==========================
+(sciencedirect.com/science/article/pii/S1319157818306438)
+
+Reactive Fault Tolerence:
+============================
+- decrease the influence of failure in the cloud system 
+  after the failures/faults have actually occurred.
+
+Reactive Fault Tolerance Techniques
+-------------------------------------
+- Check-pointing
+  Used to save the system's state periodically. In case of a constituent task’s failure, 
+  the job is restarted from the last checked pointed state rather than from the beginning. 
+  It prevents the loss of useful computation
+- Job Migration
+  If a job cannot complete its execution on some specific physical machine 
+  due to some reason and fails, then it is migrated to some other machine
+- Replication 
+  Used to create multiple copies of tasks and store replicas at different locations. 
+  A task can continue execution in presence of malfunction or failures until all 
+  replicas are destroyed
+- S-Guard
+  It depends on rollback and recovery process
+- Retry 
+  In this approach, a task is executed repeatedly until it succeeds. 
+  The same resource is used to retry the unsuccessful/failed task
+- Task Resubmission
+  In this method, the failed task is again submitted/resubmitted to the identical resource 
+  and/or to a diverse machine for execution
+- Rescue workflow
+  It enables a system to continue working after the failure of the task/job 
+  till it will not be able to proceed without amending the fault
+
+Proactive fault-tolerance: 
+==============================
+- predicts the faults proactively and substitute the suspected component by some running components, 
+  i.e., it avoids recovery from faults and errors
+
+Proactive Fault Tolerance Techniques
+-------------------------------------
+- Self-Healing
+  divide and conquers technique
+  a large task is decomposed into multiple chunks. 
+  When numerous instances of the same application run on various VMs (virtual machines), 
+  then the failure of application's instances are handled automatically.
+- Software Rejuvenation
+  In this approach, the system undergoes periodic reboots and begins from a new state every time
+- Pre-emptive Migration
+  In this approach, an application is observed and analysed constantly and thus, 
+  depends upon a feedback-loop control method
+- Load Balancing
+  This approach is used to balance the load of memory 
+  and CPU when it exceeds a maximum/certain limit. 
+  The load of exceeded CPU is transferred to some other CPU 
+  that does not exceed its maximum limit
+
+
+Parameters Used for Fault tolerance in Cloud Computing:
+===========================================================
+
+Parameters/Metrics
+===================
+- Adaptive	
+  All processes are automatically executed according to the conditions
+- Performance	
+  Used to ensure an efficiency of the system
+- Response Time	
+  Total time that is taken to respond/reply to a specific algorithm
+- Throughput	
+  It computes the number of tasks whose implementation has been completed successfully
+- Reliability	
+  Its main motive is to provide accurate or acceptable result in a certain time period
+- Availability	
+  It is described as probability i.e. the system is functioning properly 
+  after it is requested/intended for use
+- Usability	
+  a user can make use of an invention/a product to accomplish the target with efficiency, effectiveness, and satisfaction
+- Overhead Associated	
+  determine the total overhead involved while executing a fault-tolerance (FT) algorithm
+- Cost-effectiveness	
+  It is a description of the system monetarily
+
+
+

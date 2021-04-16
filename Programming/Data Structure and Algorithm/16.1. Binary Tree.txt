@@ -1,0 +1,63 @@
+============
+Binary Tree
+============
+
+- Each node of tree have maximum of 2 children
+  - left child and right child
+
+Types
+=======
+- Strict Binary Tree 
+  -------------------
+  - each node have either 2 childern or no child 
+
+- Full Binary Tree 
+  -----------------
+  - each node have either 2 childern or no child 
+  - all leaf nodes should be at same level
+  - Number of Leaf nodes : 2^H
+  - Total number of nodes : (2^(H+1)) - 1
+
+- Complete Binary Tree 
+  --------------------
+  - All levels except last should be completely filled
+    - all leaf should be at H or H-1 level ( 0 or 1 height)
+  - At last level, all nodes ahould be as left as possible
+  - Total number of nodes : (2^H) to (2^(H+1)) - 1
+    - Last level can have 1 to 2^H
+
+Implementation
+================
+
+Uing Array
+----------
+int BinaryTree[maxCap];
+
+- Parent of an element at index i 
+  - floor[(i-1)/2] index
+- Child index of an element at index i 
+  - Left child: (2*i + 1) 
+  - Right child: (2*i + 2)
+
+Using Structure
+----------------
+struct BinaryTreeNode{
+  int data;
+  BinaryTreeNode* left;
+  BinaryTreeNode* right;
+};
+
+Operations on Tree 
+===================
+
+- Basic Operations
+  -----------------
+  - Inserting an Element
+  - Deleting an Element
+  - Searching an Element
+  - Traversing the tree 
+
+- Auxilary Operation 
+  -------------------
+  - Size of tree : Total number of nodes
+  - Height of tree 

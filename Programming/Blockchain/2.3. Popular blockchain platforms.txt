@@ -1,0 +1,18 @@
+Popular Blockchain Programming Platforms
+==========================================
+- Hyperledger
+  - umbrella project of open source blockchains
+  - provide modular blockchain technology
+  - rich, easy to use application programming interface (API)
+  - Hyperledger reduces the security risks and ensures that 
+     only the parties that want to transact are the ones 
+	 that are part of the transaction.
+- Etherium
+  - open source blockchain platform'
+  - for developing decentralized apps or DApps
+  - facilitates scripting or smart contracts which are run 
+    through the nodes in the network
+  - programming choices:
+    - C++, Go, Python, Java and more.
+  - Smart contracts are built using Solidity, 
+    - a contract-oriented, high-level programming language.

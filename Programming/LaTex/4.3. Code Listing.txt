@@ -1,0 +1,231 @@
+================
+Code Listing
+==================
+- https://www.overleaf.com/learn/latex/Code_listing
+- tool that properly displays code
+
+verbatim environment
+=====================
+- default tool to display code in LATEX 
+- generates an output in monospaced font.
+- all text is printed keeping line breaks and white spaces.
+- Ex.
+  \begin{verbatim}
+  Text enclosed inside \texttt{verbatim} environment 
+  is printed directly 
+  and all \LaTeX{} commands are ignored.
+  \end{verbatim}
+  - All text inside the environment is printed as it is.
+
+- verbatim*
+  ---------
+  - In this case white spaces are emphasized with a special symbol.
+  - White space is replaced with a special symbol.
+
+- \verb command
+  --------------
+  - Verbatim-like text can also be used in a paragraph 
+  - command \verb|C:\Windows\system32| prints the text 
+    inside the delimiters | in verbatim format
+  - Any character, except letters and *, can be used as delimiter.
+  - Ex. \verb+\ldots+ uses + as delimiter.
+
+listings Package
+================
+- Using listings to highlight code
+- "lstlisting" environment from the "listings" package
+- outupt ignores all LATEX commands 
+- text is printed keeping all the line breaks and white spaces typed
+- Ex.
+  \usepackage{listings}
+  \begin{lstlisting}
+    Code Here...
+  \end{lstlisting}
+
+- Ex.
+  \usepackage{listings}
+  \begin{lstlisting}[language=Python]
+     Python Code Here...
+  \end{lstlisting}
+  - additional parameter inside brackets [language=Python] 
+    enables code highlighting for this particular programming language
+  - special words are in boldface font
+  - comments are italicized
+  
+Importing code from a file
+--------------------------
+- command that automatically pulls code from a file
+- \lstinputlisting[language=Octave]{ BitXorMatrix.m }
+  - imports the code from the file BitXorMatrix.m
+- additional parameter in between brackets enables language highlighting
+
+- import only part of the file
+  - specify two comma-separated parameters inside the brackets.
+  - Ex.
+    \lstinputlisting[language=Octave, firstline=2, lastline=12]{BitXorMatrix.m}
+	- import the code from the line 2 to the line 12
+  - If firstline or lastline is omitted, it's assumed that the values are 
+    the beginning of the file, or the bottom of the file, respectively.
+
+
+Code styles and colours
+------------------------
+- Code formatting with the "listing" package is highly customisable
+- \lstdefinestyle{mystyle}{...}
+  - Defines a new code listing style called "mystyle"
+  - Inside the second pair of braces the options that define this style are passed
+  - Defined before beginning the document
+
+- \lstset{style=mystyle}
+  - Enables the style "mystyle".
+  - can be used within your document to switch to a different style
+  
+Options to customize code listing styles
+-----------------------------------------
+- backgroundcolor - colour for the background. External color or xcolor package needed.
+- commentstyle - style of comments in source language.
+- basicstyle - font size/family/etc. for source (e.g. basicstyle=\ttfamily\small)
+- keywordstyle - style of keywords in source language (e.g. keywordstyle=\color{red})
+- numberstyle - style used for line-numbers
+- numbersep - distance of line-numbers from the code
+- stringstyle - style of strings in source language
+- showspaces - emphasize spaces in code (true/false)
+- showstringspaces - emphasize spaces in strings (true/false)
+- showtabs - emphasize tabulators in code (true/false)
+- numbers - position of line numbers (left/right/none, i.e. no line numbers)
+- prebreak - displaying mark on the end of breaking line 
+  (e.g. prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}})
+- captionpos - position of caption (t/b)
+- frame - showing frame outside code (none/leftline/topline/bottomline/lines/single/shadowbox)
+- breakwhitespace - sets if automatic breaks should only happen at whitespaces
+- breaklines - automatic line-breaking
+- keepspaces - keep spaces in the code, useful for indetation
+- tabsize - default tabsize
+- escapeinside - specify characters to escape from source code to LATEX (e.g. escapeinside={\%*}{*)})
+- rulecolor - Specify the colour of the frame-box
+
+- Ex.
+  \lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+  }
+
+Captions and the list of Listings
+---------------------------------
+- captions can be added to a listing for a more clear presentation
+- Ex.
+  \begin{lstlisting}[language=Python, caption=Python example]
+
+- This caption can be later used in the list of Listings.
+
+- \lstlistoflistings
+  - Gives all the index list of listings(code)
+
+
+Code Highlighting with minted package
+======================================
+- "Minted" is a package that allows formatting and highlighting source code in LATEX
+- For minted to work with you local LaTeX distribution 
+  an additional program called "Pygments" must be installed
+
+- package is imported by
+  \usepackage{minted}
+- tags \begin{minted}{python} and \end{minted} delimit an environment
+- print the text verbatim in monospaced fonts and also 
+  colour comments, keywords and functions.
+
+- minted supports over 150 programming and markup languages 
+  as well as configuration files. 
+- Reference :
+  https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted#Reference_guide
+
+options in the minted environment
+-----------------------------------
+- \begin{minted}[...]{python}
+- Inside the brackets several comma-separated parameters 
+  in the form key=value are set
+
+- frame=lines
+  -----------
+  - Draws two lines, one on top and one at the bottom of the code to frame it
+  - Other possible values are leftline, topline, bottomline and single
+- framesep=2mm
+  -------------
+  - The frame separation is set to 2mm
+- baselinestretch=1.2
+  -------------------
+  - Interlining of the code set to 1.2.
+- bgcolor=LightGray
+  ------------------
+  - Background colour set to light grey.
+  - need to import xcolor for this to work
+- fontsize=\footnotesize
+  -----------------------
+  - Font size set to footnotesize
+- linenos
+  --------
+  - Enables line numbers.
+- mathescape
+  ----------- 
+  - Enables math mode in code comments.
+- rulecolor
+  ---------
+  - Changes the colour of the frame.
+- showspaces
+  -----------
+  - Enables a special character to make spaces visible.
+
+
+Including code from a file
+----------------------------
+- \inputminted{octave}{BitXorMatrix.m}
+- imports the code from the file BitXorMatrix.m
+- command can take two extra parameters to import only part of the file
+- Ex.
+  \inputminted[firstline=2, lastline=12]{octave}{BitXorMatrix.m}
+
+One-line code
+---------------
+- command \mint
+- Ex.
+  \mint{html}|<h2>Something <b>here</b></h2>|
+  - delimited by the character |
+  - Any Delemiter can be set 
+
+Colours and style sheets
+-------------------------
+- You can create your own or use one already available in your LATEX distribution
+
+- command \usemintedstyle{borland} 
+  - uses the colour theme borland to format the source code
+- Reference :
+  https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted#Reference_guide
+  
+Captions, labels and the list of listings
+-------------------------------------------
+- Captions and labels can be assigned to code listings, 
+  and then later be referenced and included in a "List of listings".
+- included in a float element, just like figures and tables
+- Ex.
+  \begin{listing}[ht]
+  \inputminted{octave}{BitXorMatrix.m}
+  \caption{Example from external file}
+  \label{listing:3}
+  \end{listing}
+
+- To print the list with all listing elements 
+  use \listoflistings

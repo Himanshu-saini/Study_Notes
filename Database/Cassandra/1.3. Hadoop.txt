@@ -1,0 +1,58 @@
+Hadoop
+=======
+- open source framework for distributed storage 
+and distributed processing of huge amounts of data on cluster
+
+How it works
+==============
+- breaks data into pieces and assigns each piece to specific cluster node fo ranalysis
+- data deos not need to be uniform as each piece is handled by seperate process 
+
+Hadoop modules
+================
+- hadoop common : core software
+- HDFS (Hadoop Distributed file system)
+- Hadoop YARN : Yet Another Resource Negotiator
+- Hadoop MopReduce
+
+Hadoop Ecosystem
+==================
+Different software packages to install and run alongside hadoop
+
+Apache pig : For analysing large data sets
+------------------------------------------
+- Ease of programming
+- optimisation
+- Extensibility
+
+Apache hive
+------------
+data warehouse infraceture to provide
+- data summarization
+- analytics
+- Querying (HiveQL)
+
+YARN : Yet Another Resource Negotiator
+=======================================
+- packages resource management to be used by new engines
+- manages CPU and Memory
+- Streamline MapReduce to process data 
+- Allows for running multiple apps in hadoop 
+
+HDFS : Hadoop Distributed file system 
+======================================
+- Scalable, Portable 
+- written in java
+- Uses TCP/IP for communication
+- stores lagre fiels across multiple machines 
+- Relablily comes form replication
+
+Hadoop-Cassandra Advantages
+=============================
+- Preserves data locality: Data processing where data is stored to prevent network congestion
+- Use DC1 for transaction and DC2 for analytics
+- Replication is automatic and simplified
+- Fault tolerance 
+- MapReduce implementation 
+- High tech analytics 
+

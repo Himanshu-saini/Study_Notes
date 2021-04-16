@@ -1,0 +1,165 @@
+===============
+Packages
+==============
+
+==================
+General Stucture
+==================
+- Identification
+- Preliminary declarations
+- Options
+- More declarations
+
+Identification
+===============
+- The file declares itself as a package written with the LATEX2ε syntax
+
+- two simple commands that all packages must have:
+  - \NeedsTeXFormat{LaTeX2e}
+    -------------------------
+    - sets the LATEX version for the package to work
+	- Additionally, a date can be added within brackets 
+	  to specify the minimal release date required
+  - \ProvidesPackage{examplepackage}[2014/08/24 Example LaTeX package]
+    ------------------------------------------------------------------
+    - identifies this package as "examplepackage"
+	- inside the brackets, the release date and some additional information is included
+	
+Preliminary declarations
+==========================
+- Here the external packages needed are imported. 
+  Also,the file the commands and definitions needed by the declared options are coded.
+- Most of the packages extends and customize existing ones
+  and also need some external packages to work
+- this part either initialize some parameters that 
+  latter will be used to manage the options, or import external files.
+  
+- Ex.
+  \RequirePackage{imakeidx}
+  \RequirePackage{xcolor}
+  \definecolor{greycolour}{HTML}{525252}
+  \newcommand{\wordcolour}{greycolour}
+
+- \RequirePackage
+  ----------------
+  - very similar to the well-known \usepackage but
+    \usepackage can not be used before \documentclass command.
+  - import external files
+  - strongly recommended to use \RequirePackage when writing new packages or classes.
+  
+- initialize parameters
+  - \definecolor{greycolour}{HTML}{525252}
+  - \newcommand{\wordcolour}{greycolour}
+
+Options
+==========
+- The package declares and processes the options.
+- handles the parameters passed to the package-importing statement.
+- \DeclareOption{}{}
+  --------------------
+  - handles a given option
+  - takes two parameters
+    - the name of the option 
+	- the code to execute if the option is passed
+- \OptionNotUsed
+  --------------------
+  - print a message in the compiler and the logs, the option won't be used
+- \Declareoption*{}
+  --------------------
+  - handles every option not explicitly defined
+  - parameter: the code to execute when an unknown option is passed.
+- \PackageWarning{}{}
+  --------------------
+  - see error hanndling
+- \CurrentOption
+  --------------------
+  - name of the package option being handled at a determined moment
+- \ProcessOptions\relax 
+  --------------------
+  - executes the code for each option
+  - must be inserted after all the option-handling commands were typed
+
+- Ex.
+  \DeclareOption{red}{\renewcommand{\wordcolour}{sharelatexcolour}}
+  \DeclareOption{blue}{\renewcommand{\wordcolour}{mybluecolour}}
+  \DeclareOption*{\PackageWarning{examplepackage}{Unknown ‘\CurrentOption’}}
+  \ProcessOptions\relax
+
+More declarations
+===================
+- The main body of the package.
+- Almost everything a package does is defined here.
+
+- Ex.
+  %%Numbered environment
+  \newcounter{example}[section]
+  \newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
+  \noindent \textbf{My~environment~\theexample. #1} \rmfamily}{\medskip}
+
+  %%Important words are added to the index and printed in different colour
+  \newcommand{\important}[1]
+  {\IfSubStr{#1}{!}
+    {\textcolor{\wordcolour}{\textbf{\StrBefore{#1}{!}~\StrBehind{#1}{!}}}\index{#1}}
+    {\textcolor{\wordcolour}{\textbf{#1}}\index{#1}\kern-1pt}
+  }
+
+=========================================================
+List of commands commonly used in packages and classes
+=========================================================
+- \newcommand{name}{definition}
+  --------------------
+  - Defines a new command, 
+  - the first parameter is the name of the new command, 
+  - the second parameter is what the command will do.
+- \renewcommand{}{}
+  --------------------
+  - The same as \newcommand 
+  - but will overite an existing command.
+- \providecommand{}{}
+  --------------------
+  - Works just as \newcommand 
+  - but if the command is already defined this one will be silently ignored.
+- \CheckCommand{}{}
+  --------------------
+  - The syntax is the same as \newcommand,
+  - but instead it will check whether the command exists and has the expected definition, 
+  - LATEX will show a warning if the command is now what \CheckCommand expected.
+- \setlength{}{}
+  --------------------
+  - Sets the length of the element passed as first parameter
+    to the value written as second parameter.
+- \mbox{}
+  --------------------
+  - Creates a box that contains the elements written inside the braces.
+- \fbox{}
+  --------------------
+  - The same as \mbox, 
+  - but a box is actually printed around the contents.
+
+================
+Handling errors
+================
+- to develop new packages it's important to handle possible errors
+  to let know the user that something went wrong.
+  
+- \PackageError{package-name}{error-text}{help-text}
+  --------------------
+  - error text which is going to be displayed (the compilation process will be paused)
+  - help text that will be printed if the user press "h" 
+    when the compilation pauses because of the error.
+- \PackageWarning{package-name}{warning-text}
+  --------------------
+  -  text is displayed but the compilation process won't stop
+  - show the line number where the warning occurred
+- \PackageWarningNoLine{package-name}{warning-text}
+  --------------------
+  - like PackageWarning
+  - won't show the line where the warning occurred
+- \PackageInfo{package-name}{info-text}
+  --------------------
+  - information will only be printed in the transcript file, including the line number.
+
+
+
+
+

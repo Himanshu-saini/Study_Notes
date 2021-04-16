@@ -1,0 +1,194 @@
+======================
+Mathematical Formulas
+======================
+- The formuls having cell addresses changes value 
+  dynamically as the value in teh selected range/cells change.
+
+SUM
+====
+- Syntax:
+  - =SUM(<cells address> or <Numbers>)
+- Ex. =sum(2+10+189)
+
+- Method 1 (using Shortcut):
+  ---------------------------
+  - Go to the last cell( or cell after that) of the column/row
+  - Press "Alt and ="
+  - It will sum all the numbers present in continuous 
+    cells of the column/row before the current cell
+
+- Method 2:
+  ---------
+  - Go to any cell 
+  - Type "=sum(" 
+  - Select the cells yuo want to add
+    - select cells individually 
+	  - Typing cell numbers seperated by ","
+	    like =sum(A4,A10,B5,C10)
+	  - Select one cell then add "," then another cell and repeat.
+	  - By pressing Ctrl
+	- Select range of cell
+	  - typing range of cells as <start cell>:<end cell>
+	    like =sum(C4:C10)
+	  - By clicking and dragging to select range from mouse
+	- Can use teh combinating of both 
+
+AVERAGE
+========
+- Syntax:
+  - =AVERAGE(<cells address> or <Numbers>)
+- Ex. =AVERAGE(2,10,189)
+
+- Method 1:
+  ---------
+  - Go to any cell 
+  - Type "=average(" 
+  - Select the cells yuo want to add
+    - select cells individually 
+	  - Typing cell numbers seperated by ","
+	    like =average(A4,A10,B5,C10)
+	  - Select one cell then add "," then another cell and repeat.
+	  - By pressing Ctrl
+	- Select range of cell
+	  - typing range of cells as <start cell>:<end cell>
+	    like =average(C4:C10)
+	  - By clicking and dragging to select range from mouse
+	- Can use teh combinating of both
+
+COUNT
+=====
+- Count the number of cells containing numbers(or date) 
+  in a range.
+  
+- Syntax:
+  - =COUNT(<cells address range>)
+- Ex. =COUNT(C12:C189)
+
+- Method 1:
+  ---------
+  - Go to any cell 
+  - Type "=count(" 
+  - Select the cells yuo want to add
+    - select cells individually 
+	  - Typing cell numbers seperated by ","
+	    like =count(A4,A10,B5,C10)
+	  - Select one cell then add "," then another cell and repeat.
+	  - By pressing Ctrl
+	- Select range of cell
+	  - typing range of cells as <start cell>:<end cell>
+	    like =count(C4:C10)
+	  - By clicking and dragging to select range from mouse
+	- Can use teh combinating of both
+
+COUNTA
+=======
+- count number of non empty cells in the range 
+
+- Syntax:
+  - =COUNTA(<cells address range>)
+- Ex. =COUNTA(C12:C189)
+
+CONCATENATE
+===========
+- add 2 or more strings
+
+- Syntax:
+  - =CONCATENATE(<cells address>,...)
+  OR
+  - =CONCAT(<cells address>,...)
+- Ex. =CONCAT(C12,C18," ",C11)
+
+- Method 1:
+  ---------
+  - Go to any cell 
+  - Type "=concat(" 
+  - Select the cells yuo want to add
+    - select cells individually 
+	  - Typing cell numbers seperated by ","
+	    like =concat(A4," ",A10)
+	  - Select one cell then add "," then another cell and repeat.
+	  - By pressing Ctrl
+
+IF formula
+==========
+- checks if logically condition is true or not
+
+- Syntax:
+  - =IF(<condition>,<True value>,<False value>)
+  - True value
+    - value shown when the condition is true 
+    - Mandatory
+  - False value:
+    - value shown when the condition is true 
+    - Defalut= "FALSE"
+- Ex. 
+  =IF(D4="Himanshu","Admin","User")
+  =IF(A1<=200,"Average")
+
+COUNTIF
+========
+- count the number of cells which meet the given criteria
+  in the given range
+
+- Syntax:
+  - =COUNTIF(<range>,<criteria>)
+  - criterai:
+    - condition for the counting cell 
+	- perform equality operation for string and numbers 
+	- perform <,>,>=,...
+	
+- Ex. 
+  =COUNTIF(C4:C10,"Himanshu")  
+  // count number of cells containing string "himanshu"
+  =COUNTIF(C4:C10,10)
+  // count number of cells having value = 10
+  =COUNTIF(C4:C10,"<10")
+  // count number of cells having value < 10
+
+SUMIF formula 
+==============
+- Sum based on the  given criteria 
+- Checks the value in criteria in teh  given range 
+  if teh  value is matched then the value 
+  in the corresponding sum range cell is added to the result
+
+- Syntax:
+  - =SUMIF(<range>,<criteria>,<sun range>)
+  - range which contains the criteria
+  - criterai:
+    - condition for the counting cell 
+	- perform equality operation for string and numbers 
+	- perform <,>,>=,...
+  - sum range :
+    - range which is to be added corresponding to the matching critera
+
+- Ex 
+  =sumif(C2:C22,B1,D2:D22)
+
+VLOOKUP
+========
+- V is for vertical
+- finds a value corresponding to the loopup value 
+  from the list of values in table organized vertically.
+  - take the look up value and search it in the list of value
+  - For each value found, it takes teh corresponding value 
+    from another column
+- VLOOKUP supports approximate and exact matching, 
+  and wildcards (* ?) for partial matches
+- Lookup values must appear in the first column 
+  of the table passed into VLOOKUP table_array. 
+  
+- Syntax:
+  - =VLOOKUP (lookup_value, table_array, col_index, [range_lookup])
+  - lookup_value 
+    - The value to look for in the first column of a table.
+  - table_array
+    - The table from which to retrieve a value.
+  - col_index 
+    - The column in the table from which to retrieve a value.
+	- The index should start from the first column 
+	  of the selected portion of the table
+  - range_lookup 
+    - optional 
+	- TRUE = approximate match (default). 
+	- FALSE = exact match.

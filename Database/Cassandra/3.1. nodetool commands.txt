@@ -1,0 +1,22 @@
+Check the status of the Cassandra cluster:
+=============================
+$ nodetool status
+
+Nodetool Commands:
+===================
+
+- nodetool -h 127.0.0.2 -p 7188 <command> 
+  Change the ip and port for nodetool command:
+
+- $ nodetool drain
+  Use this on the node before killing Cassandra so that client connections/ongoing operations have a chance to gracefully complete
+
+- $ nodetool repair -full
+
+- $ nodetool getendpoints <keyspace> <column> <value> 127.0.0.1
+  Check whether the column in present on the node
+
+- nodetool status <ketspace>
+- nodetool getendpoints <ks> <table> <value>
+
+

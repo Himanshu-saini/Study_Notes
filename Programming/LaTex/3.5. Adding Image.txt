@@ -1,0 +1,135 @@
+=======================
+Adding images in lATEX
+=======================
+
+- you will need to use a package -  graphicx
+  - \usepackage{graphicx}
+  
+- Add path from which image is included 
+  - \graphicspath{ {images/} }
+  - path is relative to the current directory
+  - added in Document Preamble
+  
+- Includeing image in document 
+  - \includegraphics{imageName}
+  - imageName is name of the file containing the image without the extension
+  - file name of the image should not contain white spaces nor multiple dots  
+  - file extension is allowed to be included, but it's a good idea to omit it
+  
+- caption for the figure
+  - \caption{a nice plot}
+  - can place it above or below the figure
+  
+- Adddign lable
+  - \label{fig:mesh1}
+  - refer the image within your document
+  -  label will number the image  
+  - add reference with this name 
+  
+- Add reference
+  - \ref{fig:mesh1}
+  - code will be substituted by the number corresponding to the referenced figure
+
+- If you are using captions and references on your own computer
+  you will have to compile the document twice for the references to work
+
+- Ex. 
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.25\textwidth]{mesh}
+    \caption{a nice plot}
+    \label{fig:mesh1}
+  \end{figure}
+
+- we should always put them inside a figure environment or similar 
+  so that LATEX will position the image in a way that fits in with the rest of your text
+
+====================
+Positioning images
+====================
+- default alignment for images is set to left
+
+Using package "adjustbox"
+=========================
+- \usepackage[export]{adjustbox}
+- enables an additional option in the \includegraphics command
+  to change the default alignment of the image.
+  \includegraphics[width=0.5\textwidth, right]{exampleImage}
+- available values are: left, right, center, outer and inner
+  the last two are intended for two-sided documents.
+
+Using The figure environment
+=============================
+- intended to provide automatic positioning.
+- This environment uses a positioning parameter passed inside brackets
+- Ex.
+  \begin{figure}[h]
+  \includegraphics[width=0.5\textwidth, inner]{lion-logo}
+  \caption{Caption}
+  \label{fig:figure2}
+  \end{figure}
+
+- You can put more than one value in the parameter
+- Ex. 
+  \begin{figure}[ht]
+  LATEX will try to position the figure here, 
+  but if it's not possible then the figure will appear at the top of the page. 
+- Recommended to use more than one positioning parameter to prevent unexpected results.
+
+Available Parameters 
+--------------------  
+- h   Place the float here, i.e., approximately at the same point it occurs in the source text
+- t   Position at the top of the page.
+- b   Position at the bottom of the page.
+- p   Put on a special page for floats only.
+- !   Override internal parameters LaTeX uses for determining "good" float positions.
+- H   Places the float at precisely the location in the LATEX code. 
+      Requires the float package. 
+	  This is somewhat equivalent to h!.
+
+Multiple images in one figure
+===============================
+- import the package subcaption
+  \usepackage{subcaption}
+- use the environment \subfigure
+  - used inside a figure environment, 
+  - takes one parameter: the width of the figure.
+  - captions and labels can be set to each subfigure.
+
+- Ex 
+  \begin{figure}[h]
+
+  \begin{subfigure}{0.5\textwidth}  % Sub Figure 1
+  \includegraphics[width=0.9\linewidth, height=5cm]{lion-logo} 
+  \caption{Caption1}
+  \label{fig:subim1}
+  \end{subfigure}
+
+  \begin{subfigure}{0.5\textwidth}  % Sub Figure 2
+  \includegraphics[width=0.9\linewidth, height=5cm]{mesh}
+  \caption{Caption 2}
+  \label{fig:subim2}
+  \end{subfigure}
+
+  \caption{Caption for this figure with two images}  % Caption for both figures
+  \label{fig:image2}
+  \end{figure}
+
+Wrapping text around a figure
+===============================
+- package "wrapfig"
+  - text can be floated around the images
+- import the package
+  - \usepackage{wrapfig}
+- Use the environment wrapfig
+  - takes two parameters that are passed inside braces
+  - the alignement that can be l, r, c, i or o; 
+    this letters stand for left, right, centre, inner and outer 
+	(the last two intended for two-sided documents)
+  - The second parameter is the width of the figure
+- Ex. 
+  \begin{wrapfigure}{l}{0.25\textwidth}
+  \includegraphics[width=0.9\linewidth]{lion-logo} 
+  \caption{Caption1}
+  \label{fig:wrapfig}
+  \end{wrapfigure}

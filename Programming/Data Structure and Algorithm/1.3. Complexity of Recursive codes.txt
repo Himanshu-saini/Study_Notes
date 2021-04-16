@@ -1,0 +1,131 @@
+=============================
+Complexity - Recursive Codes 
+=============================
+- Methods:
+  --------
+  - Back Substitution 
+  - Recursive tree 
+  - Master's theorem
+
+
+- func(n){
+    if(n>1){
+	  return func(n-1);
+	}
+	return n;
+  }
+  - Let T(n) be the time complexity 
+  - For n=1, T(n) = 1
+  - For n>1, T(n) = 1 + T(n-1)
+  
+  - Back Substitution
+    ------------------
+	- Tries to expand the equation
+	- For T(n) = 1 + T(n-1)
+	  - T(n-1) = 1 + T(n-2)
+	  - T(n-2) = 1 + T(n-3)
+	  - T(n-3) = 1 + T(n-4)
+	  - T(n) = 1+1+1+...k times + T(n-k)
+	    = k + T(n-k) , k will go upto n-1 
+	  - T(n) = (n-1) + T(1)
+	    = n-1 + 1 = n
+	  - T(n) = O(n)
+	  
+- func(n){
+    if(n>1){
+	  for(i=0;i<n;i++){
+	    ...
+	  }
+	  func(n-1);
+	}
+	return n;
+  }
+  - Let T(n) be the time complexity 
+  - For n=1, T(n) = 1
+  - For n>1, T(n) = n + T(n-1)
+  
+  - Back Substitution Method
+    -------------------------
+	- Tries to expand the equation
+	- For T(n) = n + T(n-1)
+	  - T(n-1) = n-1 + T(n-2)
+	  - T(n-2) = n-2 + T(n-3)
+	  - T(n-3) = n-3 + T(n-4)
+	  - T(n) = n+n-1+n-2...+n-k times + T(n-(k+1))
+	    , k will go upto n-2
+	  - T(n) = n+n-1+n-2+....+2+1
+	    = n(n+1)/2
+	  - T(n) = O(n^2)
+  
+- func(n){
+    if(n>1){
+	  for(i=0;i<n;i++){
+	    ...
+	  }
+	  l = func(n/2) + func(n/2;
+	}
+	return n;
+  }
+  
+  - For n=1, T(n) = 1
+  - For n>1, T(n) = n + 2*T(n/2)
+  - Recursion Tree Method
+    ---------------------
+	- we try to make a tree for the iterations
+	- T(n) 
+	  = n 
+	    |- T(n/2)
+	    |- T(n/2)
+	  = n 
+	    |- n/2
+		   |- T(n/4)
+		   |- T(n/4)
+	    |- n/2
+		   |- T(n/4)
+		   |- T(n/4)
+	  ...
+	  = n + n + n + ... (Times the recursive calls)  // Complexity
+	  = n + n*k , where k = number of recursive calls
+        - extra n is completixy when 
+		  function is called first time
+          Then, k times the recursive call is made.	  
+	- The recursion will run until 
+	  n/(2^k) = 1
+	  n = 2^k
+	  log2(n) = k
+	- T(n) = n+n*log2(n) = O(n*(log2(n)+1))
+
+- Master's theorem
+  =================
+  - T(n) = a*T(n/b) + θ(n^k * (log(n))^p)
+    - Where, a>1, b>1, k>=0 and p ϵ Real number 
+  - if a > b^k
+    - then, T(n) = θ( n^(logB(a)) )
+  - if a = b^k
+    - if p > -1,
+	  - then, T(n) = θ( n^(logB(a)) * (log(n))^(p+1) )
+    - if p = -1,
+	  - then, T(n) = θ( n^(logB(a)) * log(log(n)) )
+    - if p < -1,
+	  - then, T(n) = θ( n^(logB(a)) )
+  - if a < b^k
+    - if p >= 0
+	  - then, T(n) = θ( n^k * (log(n))^b )
+    - if p < 0
+	  - then, T(n) = θ( n^k )
+
+  - Example 
+    -------
+	- T(n) = 3*T(n/2) + n^2 
+	  - a=3, b=2, k=2, p=0
+	  - a < b^k
+	  - T(n) = θ( n^2 * (log(n))^2)
+	  
+	- T(n) = 4*T(n/2) + n^2 
+	  - a=4, b=2, k=2, p=0
+	  - a = b^k
+	  - T(n) = θ( n^(log2(4)) * log(n) )
+	    = θ( n^2 * log(n) )
+	
+	- T(n) = (2^n)*T(n/2) + n^4 
+	  - Cannot apply Master's theorem as a is not constant

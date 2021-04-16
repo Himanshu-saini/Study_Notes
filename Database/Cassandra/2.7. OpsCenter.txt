@@ -1,0 +1,16 @@
+Datastax Agent
+================
+- First of all, you need to install Datastax agent on each node.
+- For installing datastax agent, go to the datastax-agent directory in the dse directory and run the below command.
+- Datastax DevCenter & OpsCenter Installation Complete Guide
+- After running this command, datastax-agent will be installed on the node. Do the same procedure for all the nodes in the cluster.
+
+Run Opscenter
+=============
+- For running OpsCenter, run the below command
+- Datastax DevCenter & OpsCenter Installation Complete Guide
+- After running the above command, OpsCenter will run successfully.
+
+Use OpsCenter
+==============
+- For watching OpsCenter user interface, go to web browser and type in URL http://localhost:8888.

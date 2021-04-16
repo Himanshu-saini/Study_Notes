@@ -1,0 +1,29 @@
+Container orchestration:
+=============================
+- Application which launch the containers on a host,manage them, 
+  make sure they are distributed and also keeps them healthy. 
+- If the load on application increase we have to run multiple instances of the application the host.
+  We have to manually monitor the health of the containers to deploy new container in case one crashes 
+  and also monitor the health of the host.
+- Container orchestration provide the set of tools and scripts that can help host containers in a production environment.
+- It consists of multiple host that run the container.
+- It allows to deploy 100s or 1000s of instances with a single command.
+
+Dockers swarm:
+================================
+- Lacks advance autoscaling features for complex production grade application.
+- Better option: Kubernates or mesos.
+- Docker swarm combine multiple docker machines in a single clustering. 
+  It distributes the services on separate hosts for better availability and load balancing .
+- All the host must have docker installed in them.
+- Designate One of the host as manager/master/swarm manager and other as workers/slaves. 
+  Run: 
+  $ docker swarm init on the swarm manager.
+- Output will provide the command that will be run on the workers $docker swarm join –taken <token>
+- After joining the swarm the workers are known as nodes.
+- Now we can deploy services on them.
+- Docker services are one or more instances of a single application/service that runs across the nodes of the cluster.
+- To create service use:  //on docker manager node
+  $ docker service create –replication=3 my-web-server		//replication = number of instances I like to run 
+  // docker service command is similar to the docker run command for specifying the option like –p or --network
+

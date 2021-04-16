@@ -1,0 +1,11 @@
+================================
+Important Features of Javasrcipt
+=================================
+
+- Type Coercion
+- Hoisting
+- Scope of chain
+- Lexical Environment
+  - Lexical scope  
+- Execution Context 
+- this keyword

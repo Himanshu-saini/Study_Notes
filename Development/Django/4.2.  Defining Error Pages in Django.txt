@@ -1,0 +1,25 @@
+Raising a 404 error
+======================
+- Old method:
+  return HttpResponseNotFound('<h1>Page not found</h1>') 
+- New Method:
+  from django.http import Http404
+  raise Http404("Question does not exist")
+
+- In order to show customized HTML when Django returns a 404, 
+  you can create an HTML template named 404.html 
+  and place it in the top level of your template tree. 
+  This template will then be served when DEBUG is set to False.
+
+Customizing error views
+=========================
+- Specify the handlers as seen below in your URLconf  (mysite/url.py)
+- The page_not_found() view is overridden by handler404:
+  handler404 = 'mysite.views.my_custom_page_not_found_view'
+- The server_error() view is overridden by handler500:
+  handler500 = 'mysite.views.my_custom_error_view'
+- The permission_denied() view is overridden by handler403:
+  handler403 = 'mysite.views.my_custom_permission_denied_view'
+- The bad_request() view is overridden by handler400:
+  handler400 = 'mysite.views.my_custom_bad_request_view'
+

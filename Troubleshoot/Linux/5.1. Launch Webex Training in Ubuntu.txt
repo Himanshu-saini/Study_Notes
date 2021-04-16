@@ -1,0 +1,54 @@
+** Use 32 Bit libraries even if 64 Bit OS ** 
+
+Download JRE 32bit version
+---------------------------
+- Website: https://www.java.com/en/download/manual.jsp
+  - Download Linux Version
+- $ sudo mv jre-8u281-linux-i586.tar.gz /usr/local/java
+  $ cd /usr/local/java
+  $ sudo tar zxvf jre-8u281-linux-i586.tar.gz
+  
+- $ sudo ln -s /usr/local/java/jre1.8.0_281/bin/java /usr/bin/java
+OR
+- $ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/local/java/jre1.8.0_281/bin/java" 1
+  // In case of multiple java installation use above method having alternative preferences
+  
+- $ sudo ln -s /usr/local/java/jre1.8.0_151/bin/javaws /usr/bin/javaws
+
+- $ java -version
+- $ javaws -version
+
+- Check all java versions
+  - $ sudo update-alternatives --config java
+
+javaws: error while loading shared libraries: libX11.so.6: 
+cannot open shared object file: No such file or directory
+------------------------------------------------------------
+- Install other java dependencies for i386 architecture (32bit)
+
+32-bit libraries needind for Webex
+-----------------------------------
+- $ sudo apt-get install libasound2:i386 libatk1.0-0:i386 libc6:i386 libcairo2:i386 libdatrie1:i386 libexpat1:i386 libffi7:i386 libfontconfig1:i386 libfreetype6:i386 libgcc1:i386 libgdk-pixbuf2.0-0:i386 libglib2.0-0:i386 libgraphite2-3:i386 libgtk2.0-0:i386 libharfbuzz0b:i386 libice6:i386 libpango-1.0-0:i386 libpangocairo-1.0-0:i386 libpangoft2-1.0-0:i386 libpangoxft-1.0-0:i386 libpcre3:i386 libpixman-1-0:i386 libpng12-0:i386 libselinux1:i386 libsm6:i386 libstdc++6:i386 libthai0:i386 libuuid1:i386 libx11-6:i386 libxau6:i386 libxcb1:i386 libxcb-render0:i386 libxcb-shm0:i386 libxcomposite1:i386 libxcursor1:i386 libxdamage1:i386 libxdmcp6:i386 libxext6:i386 libxfixes3:i386 libxft2:i386 libxi6:i386 libxinerama1:i386 libxmu6:i386 libxrandr2:i386 libxrender1:i386 libxt6:i386 libxtst6:i386 libxv1:i386 zlib1g:i386
+
+
+Unable to locate theme engine in module_path: "pixmap"
+-----------------------------------------------------
+- $ sudo apt-get install gtk2-engines-pixbuf:i386
+
+Unable to locate theme engine in module_path: "murrine"
+------------------------------------------------------
+- $ sudo apt-get install gtk2-engines-murrine:i386
+
+Failed to load module "canberra-gtk-module"
+-------------------------------------------
+- $ sudo apt-get install libcanberra-gtk-module:i386
+
+Launch Session
+---------------
+- Start Training Session from browser
+- A pop-up window will download "CiscoWebExServlet" file
+- Open Terminal at the downlaoded location and run
+  $ javaws CiscoWebExServlet
+
+- Note: Only use recent downloaded "CiscoWebExServlet" file
+  Old file will show "Unable to download Client data" error

@@ -1,5 +1,0 @@
-Django’s Session Framework:
-This session framework lets you store and retrieve arbitrary data on a per-site visitor basis.
-Enabling Sessions
-1.Edit your MIDDLEWARE_CLASSES setting and make sure MIDDLEWARE_CLASSES contains 'django.contrib.sessions.middleware.SessionMiddleware'.
-2.Make sure 'django.contrib.sessions' is in your INSTALLED_APPS setting (and run manage.py syncdb if you have to add it).

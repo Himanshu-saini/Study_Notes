@@ -1,0 +1,10 @@
+Docker engine:
+====================
+- Docker engine compose of 3 components:
+- Docker CLI <-> REST API <-> Docker Daemon
+
+- Docker daemon is the background process that manages the docker objects such as images,volumes,networks,..
+- REST API is the api interface that program uses to provide instruction to the Daemon
+- Docker CLI is the command line interface that we uses to perform actions.
+- Docker CLI can be at the different host from the API and can interact with remote API like:
+  $ docker –H=remote-docker-engine:2375		// provide address to the remote engine

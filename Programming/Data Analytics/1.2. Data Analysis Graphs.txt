@@ -1,0 +1,32 @@
+Data Analysis Graph
+=====================
+
+- Frequency distribution / Histograms
+  ------------------------------------
+  - Graph platting value od distribution on x-axis with a bar showing 
+    freqeuncy of data on y-axis.
+  - Normal Distribution
+    --------------------
+	- Bell shaped graph
+	- Symmetrical around center
+	- The edges of graph is known as tail.
+  - Properties
+    -----------
+	- Skew
+	  -----
+	  - Symmetry of distribution
+	  - Positive skew
+	    - lower values on x-axis have higher frequency
+		- tail of graph pointing at higher values 
+	  - Negative skew
+	    - higher values on x-axis have higher frequency
+		- tail of graph pointing at lower values 
+	- Kurtosis
+	  ---------
+	  - "heaviness" of tail 
+	  - Leptokurtic 
+        - heavy tails.
+		- Smooth slope
+      - Platykurtic 
+	    - light tails.
+		- Steep Slope

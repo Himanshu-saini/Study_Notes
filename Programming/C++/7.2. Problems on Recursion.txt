@@ -1,0 +1,59 @@
+====================
+Recursive problems
+====================
+- For a given number N, print all binary number of length N
+  hiving no consecutinve 1 in lexographical order i.e.,
+  No 2 consecutive digit as 1.
+  - Program:
+    #include<iostream>
+    #include<string.h>
+    using namespace std;
+
+    void print_binary(int N,int index,string binaryNum){
+	  if(index < N-1){
+		if(binaryNum[index]=='0'){
+			print_binary(N,index+1,binaryNum+"0");
+			print_binary(N,index+1,binaryNum+"1");
+		}
+		else
+			print_binary(N,index+1,binaryNum+"0");
+	  }
+	  else{
+		cout<<binaryNum<<endl;
+	  }
+    }
+
+    int main(){
+      int N =4;
+	  print_binary(N,0,string("0"));
+	  print_binary(N,0,string("1"));
+      return 1;
+    }
+
+- For an ginven array of length N, find all sunsequences 
+  of length K
+  - Program:
+    void print_subsequences(int N,int*arr,int K,int index=0,string subSeq=""){
+	  if(K==0){
+		cout<<subSeq<<endl;
+	  }
+	  else if(index == N){
+		return;
+	  }
+	  else{
+		print_subsequences(N,arr,K,index+1,subSeq);
+		print_subsequences(N,arr,K-1,index+1,subSeq+to_string(arr[index])+' ');
+	  }
+    }
+    OR
+    void print_subsequences(int N,int *arr,int K,int index=0,string subSeq=""){
+	  if(K==0){
+		cout<<subSeq<<endl;
+	  }
+	  for(int j=index;j<N;j++){
+		print_subseq(N,arr,K-1,j+1,subSeq+to_string(arr[j])+' ');
+	  }
+    }
+
+  
+

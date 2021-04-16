@@ -1,0 +1,32 @@
+=========
+Heap Sort
+=========
+
+- Min-heap sort array in descending order
+- Mex- heap sort array in ascending order 
+
+Steps
+-----
+- convert array into heap uding build_heap (Bottom-up Appraoch)
+- run loop from size to 0
+  - swap heap[0] and heap[size]
+  - call heapify_down() for index 0
+  - size--  // because after each iteration one lement is sorted
+
+Implementation
+----------------
+void heapSort(int heap[], int size){
+  build_heap(heap, size);
+  for(int i=size-1;i>=0;i--){
+    swap(heap[i],heap[0]);
+	heapify_down(heap,i,0);
+  }
+}
+
+Complexity
+----------
+- Time complexity
+  - O(n) for build_heap + O(n) for sorting
+    = O(n)
+- Space complexity 
+  - O(1)

@@ -1,6 +1,0 @@
-=============
-Extensions:
-=============
-- python
-- solidity
-- C/C++ from Microsoft

@@ -1,0 +1,30 @@
+===================
+Enumeration - enum
+===================
+- Ex. 
+  enum Person {SIT, STAND, WALK};
+  - it defines a variable called "Person" which can have values SIT, STAND, WALK
+  - SIT, STAND, WALK are called enumerator
+  - SIT = 0, STAND = 1, WALK = 2
+- By default, compiler gives int value to enumerator starting from 0.
+- We can give default value to the enumerators also.
+  Ex. enum Person {SIT =2, STAND=4, WALK=1};
+
+- Usage 1:
+  ---------
+  enum person {SIT, STAND, WALK};    // variable can be declared here also
+  int main(){
+    person p;
+	p = SIT;			
+	// p = 1 will give error becouse 3 is int type
+	cout<<p;
+  }
+  ------------
+  Output: 0
+
+- Usage 2:
+  ---------
+  enum fontStyle{BOLD=1,ITALICS=2,UNDERLINE=3};
+  fontStyle fs = BOLD|ITALICS;
+  // fs have both BOLD and ITALICS value.
+- Can be used in switch

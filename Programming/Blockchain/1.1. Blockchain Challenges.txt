@@ -1,0 +1,34 @@
+Challenges in digital payment
+==============================
+
+Double-spending problem
+-------------------------
+- When userA pay userB Rs.10
+- In case of physical cash
+  userA does not have cash after payment 
+- But in case of digital money
+  the value can be copied
+  - If userA send a copy of file of value Rs 10 
+  - userB can not be sure if userA delete its copy file 
+  - userA can reuse its copy to make another payment
+  - it reduces user trust on platform
+    and devalue teh currency
+- Most popular solution is to use 3rd party
+  - bank
+    - single point of failure
+	  - for availability as well as trust
+  - Public-key cryptography
+    - encryption scheme
+	- uses pair keys
+	  - public
+	    - shared
+		- used to encrypt 
+		- used to authenticate the user
+	  - private / asymmetric key 
+	    - used to decrypt
+	- Functions
+	  - authentication 
+	    - verifies teh sender
+	  - encryption
+	    - only private key can decrypt th emessage
+	

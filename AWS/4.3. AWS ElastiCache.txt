@@ -1,9 +1,0 @@
-===================
-Amaxon ElastiCache
-===================
-- Chaching Solution for Databses
-- In-Memory Datastore
-- Types
-  - Redis
-  - MemCached
-  - https://aws.amazon.com/elasticache/redis-vs-memcached/

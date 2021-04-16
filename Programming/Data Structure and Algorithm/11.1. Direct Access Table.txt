@@ -1,0 +1,16 @@
+====================
+Direct Access Table
+====================
+
+- A table used to store the key:value pair
+- Represented by an array
+- array index becomes the key and corresponding values are stored
+- Required O(1) time to perform insertion/deletion/searching
+
+- Useful to store value having continuous keys
+  - like frequency of each digit in a number
+
+- Dissadvantage:
+  - require large space in case of storing large keys
+  - Ex. 100001:ABC, 100004: EFG, 100006: HIJ
+    - It required array size of 2^5 + 1 	

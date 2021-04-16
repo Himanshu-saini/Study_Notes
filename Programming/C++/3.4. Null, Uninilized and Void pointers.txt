@@ -1,0 +1,49 @@
+Null Pointer 
+=============
+- when pointer is not pointing to any address.
+- Dereferencing null pointer will give STATUS_ACCESS_VOILATION exception
+- Ex.
+  int *ptr = 0;
+  OR 
+  int *ptr = NULL;
+  - Both will create null pointer.
+  - *ptr will give STATUS_ACCESS_VOILATION error.
+
+Uninitialised Pointers 
+=======================
+- If pointer is not declared with any value it will point to 
+  some random memory location
+- To prevent this case null pointers are used.
+- Ex.
+  int *ptr;  // it will get some random/garbage address location
+  *ptr = 30;  // mab be valid
+  
+- It should be prevented because random address is assigned to 
+  the pointer which could affect the functioning on the program unintentially.
+
+Void Pointers 
+=============
+- used to store the address of the "void" type variable.
+- void *vptr;
+- can store the address of any type of value
+  Ex.
+  int x;
+  double y;
+  vptr = &x;  // valid
+  vptr = &y;  // valid 
+  
+- But we cannot access the value at that address using void pointer.
+  because compiler does able to determine how many bytes is to 
+  accessed the value at that address.
+  *vptr; will give error.
+
+- To access the value using void pointer it must be type case 
+  Ex.
+  vprt = &x;
+  *(int *)vprt; // gives value of x
+  int *iprt = (int *)vptr;  // assign void pointer to other pointer 
+
+- Similarly, we cannot do arithmetic operations on void pointer,
+  as the compiler does not know by hor much byte does the address 
+  is increamented or decremented.
+  Therefore, vptr++; is invalid 

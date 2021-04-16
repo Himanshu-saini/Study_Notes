@@ -1,0 +1,50 @@
+======================
+Insert Element in BST 
+======================
+
+Recursive
+------------
+BSTNode* addBSTNode(BSTNode* root,int data){
+  if(root == nullptr){
+    BSTNode* newNode = new BSTNode();
+	if(newNode == nullptr)
+	  return nullptr;
+    newNode->data = data;
+    newNode->left=nullptr;
+    newNode->right=nullptr;
+	root = newNode;
+  }
+  else if(data < root->data)
+    root->left = addBSTNode(root->left,data);
+  else if(data > root->data)
+    root->right = addBSTNode(root->right,data);
+  return root;
+}
+
+Iterative
+-----------
+BSTNode* addBSTNode(BSTNode* root,int data){
+  BSTNode* newNode = new BSTNode();
+  newNode->data = data;
+  newNode->left=nullptr;
+  newNode->right=nullptr;
+  if(root == nullptr){
+    root = newNode;
+  }
+  else{
+    BSTNode* currNode = root;
+	BSTNode** prevNodeAddr = &root;
+	while(currNode){
+	  if(data < currNode->data){
+	    prevNodeAddr = &currNode->left;
+	    currNode = currNode->left;
+	  }
+	  else if(data > currNode->data){
+	    prevNodeAddr = &currNode->right;
+	    currNode = currNode->right;
+	  }
+	}
+	*prevNodeAddr = newNode;
+  }
+  return root;
+}

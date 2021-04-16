@@ -1,0 +1,90 @@
+================================
+Execution Context in JavaScript
+================================
+
+- environment in which the JavaScript code is executed.
+- By environment, I mean the value of this, variables, objects, and 
+  functions JavaScript code has access to at a particular time.
+
+Rules of Execution context 
+--------------------------
+- Function declarations are scanned and made available 
+  - So that function can be accessed from anywhere 
+- Variable declarations are scanned and made undefined
+  - Refer "Hoisting" for details
+
+Featues of Excution context 
+===========================
+- Variable Object 
+  - Ref: Hoisting of variables 
+- Scope Chain
+
+- this keyword
+
+Execution context stack (ECS):
+===============================
+- stack data structure to store all the execution stacks 
+  created during the life cycle of the script
+- Global execution context is present by default
+- JS engine executes the function whose execution context 
+  is at the top of the execution context stack.
+
+===========================
+Types of Execution context
+===========================
+
+Global execution context (GEC): 
+================================
+- default execution context in which JS code start its execution 
+  when the file first loads
+- All of the global code i.e. code which is not inside any function 
+  or object is executed inside the global execution context.
+- GEC cannot be more than one as the JS engine is single threaded
+
+- Global context is named different in different environment
+  - In browser JS
+    - Global context is called window
+- Ex.
+  myFunc();
+  
+  var myFunc(){
+    console.log("hello");
+  }
+  - Here, function call is happening before function defination
+  - It gives no error
+  - function is already registered in the javascript global context
+    so function can be called fron anywhere during execution
+
+- If the function is in a varibles,
+  then, function cannot be used befores its declaration 
+  as the variable is undefined until 
+  its defination line is not executed 
+  - Ex 
+    console.log(function_var);  // print undefined, due to hoisting
+	var function_var = function(){
+	  console.log("INside function");
+	  return "Return value"
+	}
+
+- When there is a need to access local storage,
+  the global context of browser i.e., window object is used 
+  to check whether a property is available or not.
+
+Functional execution context (FEC): 
+===================================
+- context created by the JS engine whenever 
+  it finds any function call or a line of code.
+- Each function has its own execution context.
+- FEC has access to all the code of the global execution context
+- While executing the global execution context code, 
+  if JS engine finds a function call, 
+  it creates a new functional execution context for that function.
+- In the browser context, 
+  if the code is executing in strict mode 
+  value of "this" keyword is undefined 
+  else it is window object in the function execution context.
+
+Eval Function Execution Context :
+=================================
+- Execution context inside "eval" function.
+- "eval" isn’t usually used by JavaScript developers

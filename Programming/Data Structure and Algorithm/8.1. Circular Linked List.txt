@@ -1,0 +1,28 @@
+=====================
+Circular Linked List
+=====================
+
+- Next pointer of last node in both SLL or DLL points to 
+  first node of the list
+- The previous pointer of 1st node in DLL points to last node.
+- Generally implemented using SLL.
+
+- Here, Insertion/Deletion from beginning/end will be like 
+  insertion/deletion in the middle of list in SLL/DLL.
+
+Use Case
+----------
+- Round Robin Scheduling
+
+Count Number of Nodes
+=========================
+
+int countNodes(node** HEAD){
+  node* currPtr = *HEAD;
+  int count=0;
+  do{
+    count++;
+    currPtr = currPtr->next;
+  }while(currPtr!=*HEAD);
+  return count;
+}

@@ -1,0 +1,93 @@
+Types:
+==========
+- Instance
+- Availability Zone 
+- Region
+
+Masterless cassandra:
+==============
+- Cassandra is able to handle these failures 
+  because all the nodes in cassandra are considered equal (i.e, no master node)
+  
+Cassandra:
+===========
+- Data distribution is defined at the time of kayspace creation.
+- Cassandra uses token to evenly distribute replicas across teh logical racks in each data center.
+- 3 nodes in a rack and replication factor = 3 means one replica in each node.
+- allocate_tokens_for_local_replication_factor
+  decides automatic generation machanism to allocate efficiently tokens
+  which results in much more even data distibution
+  
+- Protection against single node failure: 
+  multiple replicas.
+- protection against availability zone outage: 
+  distributie data across multiple racks or AZ.
+
+- Protect against region outage:
+  use multiple hysical data centers or regions.
+  
+Consistency level:
+=================
+- can be configured at statement level or entire application
+- number of replicas that need to acknowledge the read or write operation success
+  in order to consider the operation a success.
+- if node unavailable, return failure msg
+- Tunable consistency model
+  - trade-off between availability (how many node needed to there for request to be successfol)
+	and data consistency.
+
+casssandra concept:
+====================
+- Best practice : To pin drive instances to a single data center using
+  DCAwareRoundRobinPolicy.builder().withLocalDc("us-east-1")
+  This affect the coordinator selection by the driver in the group of nodes 
+  needed to respond for local consistency level (LOCAL_ONE, LOCAL_QUORUM)
+  Driver is going to create connection pools to every nodes in local datacenter 
+  and does not create connection to other datacenter by default.
+  
+consitency level: LOCAL_ONE 
+============================
+- Only one local node required to confirm the write or read
+- It doed not wait for the confirmation from other nodes to the client
+  but it continues the process in the background (eventual consistency) 
+  
+consitency level: LOCAL_QUORUM
+============================
+- most common, good balance between availability and consistency.
+- mojority of replicas in the DC hove to acknowledge the write in order to consider it success.
+- if RF=3 : 2 replicas needed to acknowledge 
+  if RF=5 : 3 replicas needed to acknowledge
+- Privide good consistency as majority nodes is required.
+  Have good tolerence as some node failure can be tolerated
+  
+consitency level: EACH_QUORUM
+============================
+- needed majority of replica from each DataCenter 
+  to acknowledge the write in order to consider it successfull
+- Great case for multi DC and multi region consistency
+  but performace cost in case of large number of replicas or large geographic region distance 
+- Node failure tolerence goes down
+
+DC_aware policy to only needed to talk to single dc
+
+Exapmle:
+========
+- Seperate application instances and database instances across availability zones
+- AWS elastic load balancer to load balance across the AV in same region
+- Region Outage - AWS glocabal accelerator - for load balancing across the region
+- Inter region VPC peering to allow database instances talk to one another for mulit DC replication.
+- AZ and region failure withouut any downtime.
+
+
+- https://locust.io - An open source load testing tool
+  - Shows total requests made 
+    responce time and latency for the request.
+  
+
+Failure Recovery:
+====================
+- if HITs are expired and node comes back up,
+  add node will generate hashes and compare hashes to check if the data is sync to all nodes or not
+- read repair:   
+  
+  

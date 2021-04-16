@@ -1,0 +1,42 @@
+=============================
+DFS using IPFS vs Blockchain
+=============================
+
+What is IPFS
+=============
+- Interplanetary File System
+- originally created by Juan Benet, founder of Protocol Labs.
+- Distributed file storage system
+- Create file hash to locate the file location
+- keeps track of files and their respective versions 
+  from everyone in a network.
+
+- Security
+  --------
+  - When uploading and accessing files on IPFS, 
+    we can grant access to certain users by encrypting the file itself 
+    with the public key of our recipient.
+
+Storaging File directly on Blockchain 
+======================================
+- Storage on the blockchain is extremely expensive. 
+- According to estimates* it costs $100 per GB of storage
+  in which we can but 500GB HHD
+
+Blockchain and IPFS 
+===================
+- IPFS stores a file in the network and creates its hash.
+- IPFS simply stores the hashes to files on the blockchain.
+- These hashes can then be used to find the actual location of the file.
+
+- Use cases
+  ----------
+  - no “servers” hosting websites
+  - You won’t have to “sign up” for accounts.
+    Your private key will grant permission and access 
+	to your identity to websites/providers.
+  - Direct communication with another party without middle man
+    Truly secure, private and censorship free communication applications.
+  - Social Networks
+
+

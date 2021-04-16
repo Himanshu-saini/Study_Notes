@@ -1,0 +1,25 @@
+=====================
+Lexical Environment
+=====================
+
+- structure that holds identifier-variable mapping
+  - place where variables and references to the objects are stored.
+- A new lexical environment is created for each lexical scope 
+  but only when the code in that scope is executed.
+- Ex. 
+  lexicalEnvironment = {
+    a: 25,
+    obj: <ref. to the object>
+    outer: <outer lexical environemt>  // null in case of global 
+  }
+
+- So when a variable is used in a program, 
+  the JavaScript engine will try to find the variable in 
+  the current lexical environment and if it could not find 
+  the variable there, it looks inside the outer 
+  lexical environment to find the variable. 
+  So that’s how the JavaScript engine performs variable lookups.
+  
+lexical scope
+-------------
+- a scope that is determined at compile time

@@ -1,0 +1,63 @@
+==========================
+Ignoring Files form Commit
+==========================
+- if there are some files that you never want to commit 
+  That's where a .gitignore file comes in handy. 
+- It lets Git know that it should ignore certain files and not track them.
+- You can get an idea for what sort of files to ignore on "gitignore.io"
+
+gitignore File 
+=================
+- FILENAME: .gitignore
+- A .gitignore file is a plain text file where each line contains a pattern for files/directories to ignore.
+- Generally, placed in the root folder of the repository
+- you can put it in any folder in the repository 
+  and you can also have multiple .gitignore files.
+- patterns in the files are relative to the location of that .gitignore file.
+
+Patterns
+==========
+- The * matches 0 or more characters (except the /)
+  example, *.log matches any file ending with the .log extension.
+- the ? matches any one character except for the /.
+- use a prefix of ! to negate a file that would be ignored.
+  Ex. 
+  *.log
+  !example.log
+  - example.log is not ignored, even though all other files ending with .log are ignored.
+  - you can't negate a file inside of an ignored directory
+- ** can be used to match any number of directories.
+  Ex. **/logs matches all files or directories named logs
+  ** can also be used to match all files inside of a directory
+- Any lines that start with # are comments
+
+
+Local Repository .gitignore Rules
+===================================
+- If there are some files you want to ignore for just this repository (personal file).
+- put them in .git/info/exclude.
+- ignore only for the local repository.
+
+Global .gitignore Rules
+========================
+- If there are some files you want to ignore in all repositories on your computer
+- put them in a global .gitignore file.
+- First, you have to add a setting to Git with this command:
+  $ git config --global core.excludesFile ~/.gitignore
+
+What If I Already Have It Checked In
+=====================================
+- Git will not ignore the file if you've already committed it.
+- You'll have to untrack the file first, then it will start ignoring it.
+  $ git rm --cached FILENAME
+
+Debugging
+=========
+- you can find out why certain files are being ignored by using
+  $ git check-ignore -v example.log
+  "-v" for verbose
+  Output: rule causing ignore of the file
+
+Check if files are commited or not
+===================================  
+- $ git status

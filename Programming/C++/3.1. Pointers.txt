@@ -1,0 +1,40 @@
+===========
+Pointers
+============
+- Store memory address of other variable
+- Syntax:
+  - <data type> *<ptr var> = &<existing var>;
+  - <data type> *<ptr var>;
+  - <ptr var>  = &<existing var>;
+
+- Data type of pointer variable is the data type of variable 
+  whose memory address it wants to store.
+- As the memory address is numeric in value, therefore, data type of 
+  all pointer is interger.
+- Value of memory address range from 1 to 2^n -1
+  where n in number of bits in OS.
+
+- Address of an variable is accessed by using ampersand operator(&) - "Address of" Operator
+- The value at an address is accessed by using asterisk(*) - Indirection or Dereferencing Operator .
+
+- Ex. 
+  int a = 20;
+  int *b = &a;
+  cout<<a<<*b;  // a=20,*b=20
+  *b = 40;
+  cout<<a<<*b;  // a=40,*b=40
+  
+- working:
+  ---------
+  - Let with int a = 20, address of a -> 1004 and value at 1004 -> 20
+  - Therefore &a retruns 1004
+  - Let with int *b = &a, address of b -> 1010 and value at b -> 1004
+  - Therefore, &b -> 1010, b -> 1004, *b -> 20
+  - Change made in *b will reflect in a as the changes are made on same memory address.
+
+- Explanation
+  ------------
+  - Every variable is assigned a memory location by the compiler during its declaration.
+  - Every memory location is assigned an address 
+  - Pointer variable is given its seperate memory unlike refernce variable 
+    but pointer variable stores the address of other variable memory as value in its memory.

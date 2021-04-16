@@ -1,0 +1,60 @@
+==================
+Bitwise Operators
+==================
+- Applited on the bits of the Operands
+
+Bitwise AND(&)
+--------------
+- Results in 1 when both bits are 1 otherwise gives 0
+- Properties:
+  - A&0 = 0
+  - A&1 = A 
+
+Bitwise OR (|)
+--------------
+- Results 0 if both bits are 0 otherwise gives 1
+- Properties:
+  - A|1 = 1
+  - A|0 = A
+  
+Bitwise XOR (^)
+----------------
+- Results in 1 if both bits are different otherwise gives 0.
+- Properties:
+  - A^A = 0
+  - A^1 = ~A (reverse of A)
+  - A^0 = A
+
+Bitwise NOT (~)
+---------------
+- Reverse the Bits of number
+- gives 1's compliment of the number
+
+Left shift operator (<<)
+------------------------
+- Left shift the bits of the number by N times 
+  - Discards first N bits of the number 
+  - Add 0 N times at the end
+- Syntax:
+  - A << N
+    - A = Number
+    - N = Number of times it is shifted
+- Proprties:
+  - 1 << i = pow(2,i)  
+    // bitwise operator is faster that power function
+  - x << i = x * pow(2,i)
+
+Right shift operator (>>)
+------------------------
+- Right shift the bits of the number by N times 
+  - Discards last N bits of the number 
+  - Add 0 N times at the start
+    - Bit added is not neccessarily be 0 for right shift 
+	- Depends on the lanmguage and its compiler
+	- Usually its 0
+
+- Syntax:
+  - A >> N
+    - A = Number
+    - N = Number of times it is shifted
+

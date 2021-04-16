@@ -1,0 +1,105 @@
+===================
+Potential Failures
+===================
+
+- Murphy’s first law
+  -------------------
+  "If anything can go wrong, it will."
+
+- program experiences an unrecoverable error and crash 
+  - unhandled exceptions, 
+  - expired certificates, 
+  - memory leaks
+- component becomes unavailable 
+  - power outage, 
+  - loss of connectivity
+- data corruption or loss 
+  - hardware failure, 
+  - malicious attack
+- security 
+  - a component is compromised
+- performance 
+  - an increased latency, traffic, demand
+
+=================
+Classification
+=================
+
+FAIL-STOP BEHAVIOURS
+--------------------
+- node shuts down presenting fail-stop behaviour
+- e.g. server shuts down, loss of connectivity
+
+- Checkpoint strategy
+  --------------------
+  - restart a server and load the last good version of the system
+  
+- Replicate state and failover
+  -----------------------------
+  - start a second instance of the system and switch the traffic to it
+
+BYZANTINE FAILURES
+------------------
+- component starts to work in an incorrect, but the seemingly valid way 
+  possibly due to faulted hardware (a flipped bit) or malicious attack.
+- Ex. data gets corrupted
+
+- Turn byzantine into fail-stop behaviour
+  ------------------------------------------
+  - use checksums, assertions or timeouts. 
+    If verification fails, the system should automatically stop and recover, 
+	hopefully in a better state
+
+- Fix corrupted data in runtime
+  -----------------------------
+  - use error detection and correction algorithms
+
+
+
+===========================
+DISTRIBUTED SYSTEMS
+===========================
+- Another way to handle failures
+
+- achieve some non-functional requirements
+  - reliability: elimination of a single point of failure 
+  - performance 
+  - scaling 
+
+Problems 
+==========
+
+NETWORK PARTITION
+-------------------
+- some of the nodes of a distributed system lose connectivity 
+  but continue to run independently and end up in two or more disjoint clusters
+
+- Solutions
+  - allow clusters to continue working independently
+  - suspend the work of smaller clusters
+
+STATE CONSISTENCY
+--------------------
+- client requests a data from a node, which hasn’t received an update yet 
+  and gets outdated data and then tries to modify it.
+  It causes two nodes send conflicting change requests at the same time.
+
+- Solution 
+  - one write-only node with multiple read-only replicas
+    - cluster elects a write-only node that will be receiving change requests 
+	  and serving as a source of truth to the other nodes
+  - locking
+    - only a node, which holds a lock on an object is allowed to make changes
+  - sharding
+    -  the state is divided into disjoint sets and managed independently by different subclusters
+  - distributed voting
+    - proposed change becomes persistent only if the vast majority of nodes accept it
+  - proof of work
+    - the first node which presents to a cluster a proof that it took an effort 
+	  and did some moderately hard but feasible computation is granted the right to make a change
+  - hashgraph
+    - nodes exchange information about what each of them „thinks” happened in the system (events) 
+	  and knowing what others know they can perform an internal virtual voting if asked about a state
+
+
+

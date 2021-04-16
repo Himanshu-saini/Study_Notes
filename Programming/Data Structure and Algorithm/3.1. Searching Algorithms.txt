@@ -1,0 +1,18 @@
+=====================
+Seariching Algorithm
+=====================
+- Process of finding an item with sepcified properties 
+  among a collection of items.
+
+Types of Searcing Algorithms
+-----------------------------
+- Linear Search
+  - Unordered Linear Search
+  - Ordered Linear Search
+- Binary search
+- Hashing
+- String searching  (Tries, Suffix trees)
+  
+
+
+

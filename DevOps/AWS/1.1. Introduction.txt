@@ -1,0 +1,30 @@
+==================== 
+Introduction to AWS
+====================
+- Explore: https://aws.amazon.com/
+
+Globa Infrastructure
+=====================
+
+- https://www.infrastructure.aws
+- https://docs.aws.amazon.com/whitepapers/latest/aws-overview/global-infrastructure.html
+- https://aws.amazon.com/about-aws/global-infrastructure/
+
+- Regions
+  - Geographic Location
+  - contain Availability Zone
+
+- Availability Zones
+  - Cluster of Data Centers
+  - Isolated from failure in other AZs
+
+- Edge Location 
+  - Point of Presence (like CDN)
+  - Support Some services
+    - AWS cloudfront
+	- AWS lamda
+	- AWS S3
+	- AWS Shield
+	- AWS WAF
+
+  

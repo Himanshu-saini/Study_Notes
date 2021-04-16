@@ -1,0 +1,35 @@
+=================
+Updation in Heap
+=================
+
+- Decrease-key / Inrease-key 
+
+- Time complexity
+  - O(log n) if element index is known
+  - O(n) for searching element is index not known
+
+Algorithm - heapify_up
+----------------------
+
+- heapify_up
+  - Same as inset_heap in Top-down Approach
+
+- update element at given index
+- check the element with parent upto the index 0
+
+Implementation
+---------------
+
+void heapify_up(int heap[], int size, int index){
+  int parent = int((index-1)/2);
+  while(index != 0 && heap[index]<heap[parent]){
+    swap(heap[index],heap[parent]);
+	index = parent;
+	parent = int((index-1)/2);
+  }
+}
+
+void decreaseKey(int heap[], int size, int newVal, int index){
+  heap[index] = newVal;
+  heapify_up(heap, size, index);
+}

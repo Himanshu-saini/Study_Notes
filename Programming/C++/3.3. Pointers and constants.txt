@@ -1,0 +1,35 @@
+Pointers and constants
+========================
+- there are 2 ways in which we can use "const" with pointer.
+
+- Use the variable the pointer of pointing to as constant
+  -------------------------------------------------------
+  - when "const" and pointer name are not together 
+    then this will happen.
+  - Ex.
+    const int *ptr = &x;
+	OR
+	int const *ptr = &x;
+  - Declare non-constant pointer to const int.
+  - In both cases, we can use pointer to change the value of "x".
+    i.e., *ptr = 20; is invalid but ptr = &y; is valid.
+  - We can change the value by using "x",i.e., x=20;  is still valid
+    if x is not declared as constant.
+  
+- Make pointer variable constant 
+  -------------------------------
+  - when "const" and pointer name are together this will happen.
+  - It will prevent the change of address stored in pointer variable.
+  - Ex.
+    int *const ptr = &x;
+  - Declare constant pointer to non-constant variable 
+  - In this case value of "ptr" cannot be changed.
+    i.e., ptr = &y; is invalid but *ptr = 20; is valid.
+
+- Declaring constant pointer to constant variable 
+  ------------------------------------------------
+  - when both above cases are used together.
+  - Ex.
+    const int *const ptr = &x;
+  - Here, both ptr = &y and *ptr = 20; are invalid.
+

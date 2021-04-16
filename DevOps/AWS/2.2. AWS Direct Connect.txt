@@ -1,0 +1,6 @@
+=====================
+AWS Direct Connect
+======================
+- Direct conection to your onsite datacenters to AWS cloud
+  - Access AWS servies without internet
+- Virtual Private Gateway is created between AWS and OnSite private datacenter 

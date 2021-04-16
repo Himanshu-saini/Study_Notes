@@ -1,0 +1,51 @@
+======================
+Delete Element in BST 
+======================
+
+Case 1: 
+--------
+- Node is leaf Node
+  - Delete the node
+  
+Case 2: 
+--------
+- Node has 1 child
+  - Then that child replaces the node 
+    - if only left child is there, then, node = node->left
+    - if only right child is there, then, node = node->right
+	
+Case 3: 
+--------
+- Node has 2 Child
+  - Replace the node value with value between 
+    node->left and node->right 
+	and delete that duplicate value from the subtree
+	- Min value from right subtree 
+	  - node->data = findMin(node->right);
+	  - node->right = deleteNode(node->right,node->data);
+	- Max value from left subtree
+	  - node->data = findMax(node->left);
+	  - node->left = deleteNode(node->left,node->data);
+
+==============
+Implementation
+==============
+
+BSTNode* deleteNode(BSTNode* node, int data){
+  if(node == nullptr)
+    return nullptr;
+  else if(data < node->key)
+    node->left = deleteNode(node->left,data);
+  else if(data > node->key)
+    node->right = deleteNode(node->right,data);
+  else{
+    if(node->left==nullptr)
+	  return node->right;
+	else if(node->right==nullptr)
+	  return node->left;
+	node->data = findMin(node->right); // or findMax(node->left)
+	node->right = deleteNode(node->right,node->data);
+  }
+  return node;
+}
+

@@ -1,0 +1,33 @@
+============
+Color wheel
+============
+- 12 colors
+- Verticle line divided the color wheel into 2 parts
+  - Left part consists of warm colors 
+  - Rigth part consists of cold colors 
+- Generally, Warm color dominant
+
+Color schemes
+--------------
+- Complementary Colors
+  - When colors at the opposite side of color wheels are used together 
+- Rectangle (Tetratic)
+  - When two complementary color scheme are used in pair
+- Analogus
+  - When 3 adjcent colors in color wheel are used together 
+- Triadic
+  - When 3 color are used which form a triangle
+- Square
+  - When 4 color are used which form a swuare
+- Split Complimentary
+  - when a color and 2 color on the both side of color 
+    on its opposite side are used together.
+
+Color properties
+----------------
+- Hue
+  - Signifies color 
+- Saturation
+  - Intensity of hue
+- Value 
+  - Lightness or darkness of color 

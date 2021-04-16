@@ -1,0 +1,148 @@
+======================
+Constructors in Class
+======================
+
+- Used to initialise the data members (variables) 
+  of the class
+
+- member fuction having same name as Class name 
+- Declared as public 
+- Do not have return type
+  Do not return any value 
+- they are called automatically during object creation
+- cannot be called like normal members function
+- can be overloaded
+
+- Ex.
+  class Person{
+    private:
+	string name;
+	int age;
+	
+	public:
+	Person(){
+	  name="Himanshu";
+	  age=21;
+	}
+	...
+  }
+  
+- Types of Constructors
+  ---------------------
+  - Default constructors
+    ----------------------
+	- Do not accept any parameters
+	- If any default default constructors is not defined
+	  then compiler automatically creates a default constructor.
+	
+  - Parameterised constructors 
+    ---------------------------
+	- Parameters are passed during object creation 
+	
+	- Ex 
+	  class Person{
+	    ...
+		public:
+		Person(string pname,int page){
+		  name = pname;
+		  age = page;
+		}
+		...
+	  }
+	  
+	- implicit calling of constructor
+	  --------------------------------
+	  - Person p1("Himanshu",21);  
+	  
+	- Explicit calling of constructor
+	  --------------------------------
+	  - Person p2 = Person("Himanshu",21); 
+  
+  - Copy constructor 
+    -----------------
+	- initialize objects with values of another object 
+	- By default, conpiler creates a copy constructor 
+	  for each class which perform member-wise copy
+      i.e., shallow copy - refering to same memory location
+	- user defined copy constructor needed when 
+	  object has pointer or any runtime allocation of resources. 
+	- Ex 
+	  class Person{
+	    ...
+		public:
+		Person(const Person &p2){
+		  name = p2.name;
+		  age = p2.age;
+		}
+		...
+	  }
+	- Object creation:
+	  - Person p2(p1)
+
+- Constructor defination outside the class 
+  ---------------------------------------
+  - Ex 
+    class Person{
+	  ...
+	  public:
+	  Person(string pname,int page);
+	  ...
+	}
+	Person::Person(string pnaem, int page){
+	  name = pname;
+	  age = page;
+	}
+
+- Constructors wuth default argument
+  ----------------------------------
+  - provide defalut value to a data member of class 
+  - Ex 
+	Person::Person(string pnaem, int page=18){
+	  name = pname;
+	  age = page;
+	}
+  - object creation :
+    - Person p1("Himanshu",22);
+	- Person p2("Himanshu");  // age is initialised as 18
+
+- Initializer List
+  -----------------
+  - Different way to initialize Data members
+  - Ex 
+	class Person{
+	  ...
+	  public:
+	  Person(string pname,int page): name(pname), age(page){
+	  }
+	  ...
+	}
+
+- Constructor Overloading
+  ------------------------
+  - multiple constructors with different 
+    number/types of arguments
+  - Ex 
+    class Person{
+	  ...
+	  public:
+	  Person(string pname){
+	    name = pname;
+		age=18;
+	  }
+	  Person(string name,int age){
+	    name=pname;
+		age = page;
+	  }
+	  Person(int pCode,string pCodeName){
+	    code = pCode;
+		codeName = pCodeName;
+	  }
+	  ...
+	}
+  - Object creation:
+    - Person p1;  // Default constructor called 
+	- Person p2("Himanshu");
+	- Person p3("Himanshu",21);
+	- Person p4(101,"HS06");
+	
+

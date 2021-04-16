@@ -1,0 +1,42 @@
+=======
+Stack
+=======
+
+- Data Sructure which follows LIFO/FILO principle
+- LIFO : Last In First Out
+  - item which is stored in last is removed first
+
+- Insertion/deletion is done from only one side of stack
+- No changes can be done from between the stack
+
+- It is an ABSTRACT DATA TYPE
+
+- Abstract Data Type 
+  ------------------
+  - Data type whose behavious is predefined by set of values
+    or set of operations
+  - user is least interested in implementation of its features
+  - Ex. int, float, stack, queue
+
+Applications
+-------------
+- Balancing of Sysbols
+  - check whether the number of brackets are balanced in 
+    a math expression
+- Matching tag in HTML, XML
+
+- Infix to Postfix/Prefix
+  - Infix 
+    - Operator come between operands
+	- Ex: (a+b)*(c+d)
+  - Postfix 
+    - Operator come before operands
+	- Ex: *+ab+cd
+  - Postfix 
+    - Operator come after operands
+	- Ex: ab+cd+*
+	
+- Evaluation of Postfix
+- Implementing Function calls/Recurssion
+- Page Visited History / Back Button
+- Undo sequence of texts in word

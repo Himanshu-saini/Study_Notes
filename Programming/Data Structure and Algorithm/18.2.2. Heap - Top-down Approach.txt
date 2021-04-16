@@ -1,0 +1,35 @@
+==================
+Top-down Approach
+==================
+
+- Simpler than Bottom-up appraoch but takes more time
+
+- insert element one-by-one 
+- check if tree satisfies heap property
+
+Implementation
+---------------
+
+void insert_heap(int heap[], int index, int element){
+  heap[index] = element;
+  int parent = int((index-1)/2);
+  while(index !=0 && heap[index]<heap[parent]){
+    swap(heap[index],heap[parent]);
+	index = parent;
+	parent = int((index-1)/2);
+  }
+}
+
+int main(){
+  int heap[maxCap];
+  int size;
+  cin>>size;
+  int element;
+  while(index<size){
+	cin>>element;
+	insert_heap(heap, index, element);
+	index++;
+  }
+  return 1;
+}
+  

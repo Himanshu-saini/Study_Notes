@@ -1,0 +1,47 @@
+Caching in Django:
+
+Memcached
+To use Memcached with Django:
+
+Set BACKEND to django.core.cache.backends.memcached.MemcachedCache or django.core.cache.backends.memcached.PyLibMCCache (depending on your chosen memcached binding)
+Set LOCATION to ip:port values, where ip is the IP address of the Memcached daemon and port is the port on which Memcached is running, or to a unix:path value, where path is the path to a Memcached Unix socket file.
+
+Ex.
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': [
+            '172.19.26.240:11211',
+            '172.19.26.242:11211',
+        ]
+    }
+}
+
+
+Database chaching:
+
+To use a database table as your cache backend:
+
+Set BACKEND to django.core.cache.backends.db.DatabaseCache
+Set LOCATION to tablename, the name of the database table. This name can be whatever you want, as long as it’s a valid table name that’s not already being used in your database.
+
+Ex.
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'my_cache_table',
+    }
+}
+
+python manage.py createcachetable
+
+Filesystem caching:
+
+To use this backend set BACKEND to "django.core.cache.backends.filebased.FileBasedCache" and LOCATION to a suitable directory. For example, to store cached data in /var/tmp/django_cache, use this setting:
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+    }
+}
+

@@ -1,0 +1,99 @@
+================================
+Implementation - Open Addressing
+================================
+
+Linear Probing
+---------------
+
+struct pair{
+  int key;
+  int value;
+};
+
+struct hash_slot{
+  int flag;  // flag=1 if value present in slot else 0
+  pair* slot;
+};
+
+class Hashmap{
+  hash_slot* hash;
+  int size;
+  int maxCap;
+  public:
+  
+  Hashmap(int maxSize){
+	maxCap=maxSize;
+    hash = new hash_slot[maxCap]();
+	for(int i=0;i<maxCap;i++){
+	  hash[i].flag=0;
+	  hash[i].slot=nullptr;
+	}
+  }
+  int hashFunction(int key){
+    return key%maxCap;
+  }
+  
+  void insert(int key, int value){
+	int index = hashFunction(key);
+	int i=index;
+	
+	while(hash[i].flag==1){
+	  if(hash[i].slot->key == key){
+	    cout<<"Duplicate key not allowed";
+		return;
+	  }
+	  i = hashFunction(i+1);
+	  if(i==index){
+	    cout<<"Hash Map is full";
+		return;
+	  }
+	}
+    pair* newSlot = new pair();
+	pair->key=key;
+	pair->value=value;
+	
+	hash[i].flag=1;
+	hash[i].slot = newSlot;
+  }
+  
+  int searchElement(int key){
+	int index = hashFunction(key);
+	int i=index;
+	
+	while(hash[i].flag!=0){
+	  if(hash[i].slot->key == key)
+		return i;
+	  i = hashFunction(i+1);
+	  if(i==index)
+		return -1;
+	}
+  }
+};
+
+Quadratic Probing 
+---------------
+void insert(int key, int value){
+	int index = hashFunction(key);
+	int i=index;
+	int collision = 0;
+	while(hash[i].flag==1){
+	  if(hash[i].slot->key == key){
+	    cout<<"Duplicate key not allowed";
+		return;
+	  }
+	  collision++;
+	  i = hashFunction(index+(collision*collision));
+	  if(i==index){
+	    cout<<"Hash Map is full";
+		return;
+	  }
+	}
+    pair* newSlot = new pair();
+	pair->key=key;
+	pair->value=value;
+	
+	hash[i].flag=1;
+	hash[i].slot = newSlot;
+}
+
+- Similar change for searchElement()

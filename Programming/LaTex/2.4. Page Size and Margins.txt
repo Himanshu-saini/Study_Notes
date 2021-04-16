@@ -1,0 +1,87 @@
+=====================
+Page Size and Margins
+=====================
+- Paper size, orientation and margins are the most common page elements
+- default value for orientation is portrait
+- To set the desired values there are two ways
+  - pass them as parameters to the \includepackage or \usepackage 
+  - use a \geometry command in the preamble
+
+- Ex.
+  \usepackage[legalpaper, landscape, margin=2in]{geometry}
+  OR
+  \usepackage{geometry}
+  \geometry{legalpaper, landscape, margin=2in}
+  - paper size is set to legalpaper 
+  - page orientation is changed to landscape 
+  - each margin is set to 2 in.
+  
+- Ex.
+  \usepackage[left=2cm, right=5cm, top=2cmm,bottom=1cm]{geometry}
+  - Set all the margins for the text area
+
+List of parameters 
+==================
+- textwidth
+  ----------
+  - Corresponds to width of text area inside page.
+  - excluding margins
+- textheight
+  ------------
+  - Corresponds to height of text area inside page.
+  - excluding margins
+- total
+  ------
+  - Depends on other parameters, 
+  - by default defines the dimensions of the Body, 
+  - but can be combined with the includehead, includefoot, 
+    includeheadfoot and includemp commands to change the dimensions of 
+	Header, the Body, the Footer and the Margin Notes altogether.
+- left, lmargin, inner
+  --------------------
+  - These three parameters change the length of the left margin.
+- right, rmargin, outer
+  -----------------------
+  - These three parameters change the length of the right margin. 
+- top, tmargin
+  ------------
+  - These parameters change the length of the top margin.
+- bottom, bmargin
+  ----------------
+  - These two parameters set the bottom margin.
+- headheight
+  ----------
+  - Height of the header
+- headsep
+  --------
+  - Separation between header (baseline) and text body.
+- footnotesep
+  -----------
+  - Separation between the bottom of text body (baseline) and the top of footnote text.
+- footskip
+  ---------
+  - Distance separation between baseline of last line of text and baseline of footer.
+- marginparwidth, marginpar
+  -------------------------
+  - Width of the margin notes.
+
+Complete list of papersize:
+---------------------------
+- a0paper, a1paper, a2paper, a3paper, a4paper, a5paper, 
+  a6paper,b0paper, b1paper, b2paper, b3paper, b4paper, 
+  b5paper, b6paper,c0paper, c1paper, c2paper, c3paper, 
+  c4paper, c5paper, c6paper,b0j, b1j, b2j, b3j, b4j, b5j, 
+  b6j,ansiapaper, ansibpaper, ansicpaper, ansidpaper, ansiepaper,
+  letterpaper, executivepaper, legalpaper
+
+Change Margin of Subsections in LaTeX
+======================================
+- using \adjustwidth environment
+  - see "Useful packages and environment" for reference
+  
+- using "titlesec" package 
+  - see "Useful packages and environment" for reference
+  
+
+
+

@@ -1,0 +1,106 @@
+Cassandra server
+================
+- Apache cassandra core server
+- Nodetool : admin command line interface
+- CQLSH
+- binaries available at : cassandra.apache.org/download/
+
+Requirements: 
+--------------
+- Java 7 or 8
+- 4BG+ memory 
+
+Datastax Cassandra : Community edition (free)
+====================
+- Apache cassandra core server
+- nodetool 
+- CQLSH 
+- Windows/MacOS installer 
+- OpsCenter Community version : web app for data management
+- Sample Database
+- CQL utility
+
+OpsCenter
+----------
+- Simplified data management
+- Visual interface 
+- Centralized Dashboard 
+- Easy installation 
+- Real-time analytics 
+- Multiple Data center Support 
+- Automated management 
+- Rebalnce and repair clusters 
+- Alert and notifications
+
+Client Drivers
+---------------
+- Java 			- Go 
+- Python 		- Node.js
+- Ruby 			- Clojure
+- C#/.NET 		- C++
+
+
+Install Cassandra in Linux
+===========================
+- Install Java 7 or 8 : $ sudo apt-get install openjdk-8-jre -y
+
+Method 1
+---------
+- Go to cassandra.apache.org/download/ and downlaod the tar file for the cassandra
+- create a dir for the installing cassandra .
+- extract the cassandra files : $ tar -xvzf  <cassandra tar file>
+- go to extracted dir: apache-cassandra > bin 
+- run cassandra : $ ./cassandra 
+- check utilities: $ ./cassandra-cli 
+$connect localhost /9160;
+$create keyspace people;
+- check CQLSH utility: $ ./cqlsh
+
+Method 2 		// From terminal
+---------
+
+- Add the apache repository:
+* $ echo "deb https://downloads.apache.org/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+  OR
+  $ echo "deb https://www.apache.org/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+
+- Add the key with the following command:
+  $ curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
+- $ sudo apt-get update
+- $ sudo apt-get install cassandra -y
+
+- if GPG error: 
+  $ sudo apt-key adv --keyserver pool.sks-keyservers.net --recv-key A278B781FE4B2BDA
+
+Install OpsCenter:
+------------------
+- $ sudo apt-get install libssl0.9.8
+- Add datastax repository to the system sources list files:
+	$ sudo nano /etc/apt/sources.list 
+	paste the soure from datastax website to install OpsCenter
+	i.e. deb http://debian.datastax.com/community stable main
+- $ sudo apt-get update 
+- $ sudo apt-get install opcenter-free
+- Add IP address of machine to access Opcenter from any computer in the local network:
+	$sudo nano /etc/opcenter/opcenterd.conf 
+	put IP address under the interface 
+	$sudo service.opcenterd.stop
+	$sudo service.opcenterd.start 
+- Open browser and go to 127.0.0.1:8888 (or the IP address that is defined)
+- Create or use existing cluster 
+
+Install Cassandra in Windows:
+==============================
+- Go to cassandra.apache.org/download/
+- Go to Datastax Community edition for windows MSI installer   
+- Download the approprite installer for the system 
+- Install the downloaded software.
+
+
+
+
+	
+
+ 
+ 
+ 

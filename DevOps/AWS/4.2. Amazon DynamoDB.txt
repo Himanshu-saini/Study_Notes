@@ -1,0 +1,192 @@
+========================================
+Amazon DynamoDB Serverless Architecture
+========================================
+- https://aws.amazon.com/dynamodb/faqs/
+
+Introduction
+============
+- serverless, fully managed NoSQL
+- designed for Online Transactional Processing (OLTP) workloads
+
+- flexible schema
+- Support event-driven programming
+- Availaiblity, durability and scalability built-in
+- Scale horizontally
+- Provides fine-grained access control
+- Integrates with other AWS services
+
+Serverless Service
+====================
+- Underlying Architecture is handled by Amazon 
+- https://aws.amazon.com/serverless/
+
+Tables and Partitions
+=====================
+
+Partition Key
+---------------
+- Unique key
+- Also known as Hashed Attribute 
+- Hashed using Hashing Algo
+  and distriuted across all partitions
+  
+
+Sort Key 
+-----------
+- Optional
+- defined to store all the items with same patition key 
+  closely together and order by sort key.
+
+Primary Key 
+-----------
+- Partition key + sort key 
+- uniquely identifyies each item in the table
+- two Types
+  - Partition Primary key
+    - Does not have sort key 
+  - Partition and Sort Primary key 
+
+Items
+---------
+- ROWS
+
+Attributes 
+----------
+- COLUMNS
+
+Consistency
+-------------
+- ability to read data with the understanding that 
+  all prior writes will br reflected in the results returned.
+- Strongly COnsistent
+  - read requires latest write data
+  - read always goes to latest edited AZ node
+- Eventually Consistent (EC)
+  - Read does not necesssary have latest write data 
+  
+Read and Write Capacity Units
+----------------------------
+- RCU - read capacity units
+  - number of strongly consistent read per second of items up to 4kb in size
+  - WCU - Write Capacity Unit 
+    - number of 1kb wirtes per second 
+
+Basic Item Requests
+=====================
+
+Write
+---------
+- PutItem
+ 
+- The maximum item size in DynamoDB is 400 KB, 
+  which includes both attribute name binary length (UTF-8 length) 
+  and attribute value lengths (again binary length). 
+  The attribute name counts towards the size limit.
+
+Read 
+-----
+- GetItem
+  - get item associated with specified primary key
+- BatchGetItem
+  - get item associated with bunch of specified primary key
+- Query 
+  - For specific partition key, retrieve items matching sort key expression
+- Scan 
+  - Give every item in table  
+
+Secondary Indexes
+==================
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/best-practices.html
+- perform queries on attributed that are not part of the table's primary key 
+- Types:
+  - local
+    - created during table creation
+	- RCU and WCU is inherited from base table 
+  - global
+    - require independent RCU and WCU 
+
+- Can define upto 5 global and 5 local secondary indexes per table
+
+DynamoDB Streams
+----------------
+
+
+Operating DynamoDB 
+====================
+
+Build Resilient Client Behaviour
+-------------------------------
+- Handle 400 and 500 error codes Gracefully
+- Tune retries
+- Handle Errors in Batch Operations
+
+DynamoDB Auto Scaling 
+-----------------------
+- Dyanmically Adjust your provisioned throughput
+- By Default, it is provitioned
+
+Global Tables 
+---------------
+- Collection of one or more DynamoDB tables, all owned by single AWS account, 
+  identified as replica tables 
+- Last writter wins
+
+Accesss Control
+==============
+- tightly integrated with Indenty and Access Management(IAM)
+
+Amazon DynamoDB Accelerator (DAX)
+==================================
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.html
+- DynamoDB-compatible caching services enables you to benefit from fast in-memory performance for demanding application
+- Can reduce bills by lowering RCU and WCU consumption.
+- Not serverless Service
+- Deploy on your VPC
+
+Backup and Restore
+===================
+- All backup in DynamDB work wothout consuming any provisioned 
+
+Monitoring and Troubleshooting
+================================
+- CloudTrail - control operation and logging
+- CloudWatch metrics - monitor service 
+- Set alarms 
+
+Design Considerations
+====================
+
+Uniform Workloads
+--------------------
+- total throughput provisioned for a table is divided equally across partitions
+
+Hot and COld Data 
+------------------
+
+Manage Large Attributes 
+--------------------------
+
+Use indexes Thoughtfully
+---------------------------
+- keep size of index small
+- use indexes sparingly 
+- choose projections carefully 
+- Project only those attributes that you request frequently
+
+Use Optimistic locking with version number 
+-------------------------------------------
+
+Use one-to-many tables indested of large number of Attributes 
+-------------------------------------------------------------
+
+Store frequently accessed small attributes in a seperate table 
+---------------------------------------------------------------
+
+Options for Migrating an Existing Data to DynamoDB 
+---------------------------------------------------
+- Live migration
+  - no down time
+- AWS Data Migration Service (DMS)
+
+Serverless Architecture Pattern
+================================

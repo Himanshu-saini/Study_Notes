@@ -1,0 +1,6 @@
+====================
+Automate Deployment
+====================
+
+- AWS CloudFormation
+- AWS Elastic Beanstalk

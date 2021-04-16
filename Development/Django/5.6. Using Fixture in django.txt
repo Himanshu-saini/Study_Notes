@@ -1,0 +1,29 @@
+=========
+Fixture
+=========
+- A fixture is a collection of files that contain the serialized contents of the database. 
+- Each fixture has a unique name.
+
+- Django will search in three locations for fixtures:
+  - In the fixtures directory of every installed application
+  - In any directory named in the FIXTURE_DIRS setting
+  - In the literal path named by the fixture
+- Example:
+  $ django-admin loaddata foo/bar/mydata.json   
+  - would search <app_label>/fixtures/foo/bar/mydata.json for each installed application, 
+  - <dirname>/foo/bar/mydata.json for each directory in FIXTURE_DIRS, 
+  - the literal path foo/bar/mydata.json.
+
+- load only JSON fixtures called mydata.
+  $ django-admin loaddata mydata.json 
+- look for any fixture of any fixture type called mydata.
+  $ django-admin loaddata mydata 
+
+- fixtures may be compressed in zip, gz, or bz2 format. 
+  look for any of mydata.json, mydata.json.zip, mydata.json.gz, or mydata.json.bz2. 
+  - The first file contained within a zip-compressed archive is used.
+- if two fixtures with the same name but different fixture type are discovered , 
+  fixture installation will be aborted, and data deleted
+
+- Database-specific fixtures:
+  For ‘master’ database defined, name the fixture mydata.master.json

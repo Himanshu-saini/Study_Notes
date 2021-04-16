@@ -1,0 +1,75 @@
+=========================
+Pricing of AWS Resources
+=========================
+- Pricing Calculator
+  --------------------
+  - https://www.calculator.aws/
+
+AWS Free Tier
+===============
+- Explore
+  - https://aws.amazon.com/free/
+- Types
+  - 12 months free 
+    - Free services for 12 months from time of signup
+  - Always Free 
+    - Amazon VPC
+	- Elastic Beanstalk
+	- Auto scaling
+	- AWS cloudfront
+	- IAM
+	- etc...
+  - Trials
+    - Short term free trials 
+	- start when you first activate the service
+	
+Purchase Type of Services
+==========================
+- On-Demand Instances
+  -------------------
+  - Services are charged on 
+    - per second basis (for Linux instances)
+	- per hour basis (for windows instances) 
+  - Used for short-term use of service 
+  - Costliest plan 
+
+- Reserved Instances 
+  -------------------
+  - Used for application with steady state usage
+  - Services are reserved for 1 or 3 year
+  - Upto 75% discount price
+  - Payment con be done as
+    - Full payment advance
+	- Partial payment advance  
+	- No advance payment
+	
+- Dedicated Instances
+  --------------------
+  - The hardware in which the instance is launched 
+    is reserved for the user.
+  - Instances of other users are not hosted on this hardware.
+  - If the instance is stopped and relaunched 
+    the previous hardwaer may changed.
+  
+- Dedicated Hosts
+  ---------------- 
+  - Same as dedicated instances but the hardware 
+    remain reserved if the instance is stopped 
+	so that new instance is launched on same hardware
+  
+- Spot Instances 
+  --------------
+  - Spot Instance is an unused EC2 instance
+  - available for less than the On-Demand price. 
+  - discounted up to 90%
+  - Spot Instance runs whenever capacity is available
+  - used when you are flexible about when your applications run 
+    and if your applications can be interrupted.
+  - well-suited for data analysis, batch jobs, background processing, 
+    and optional tasks.
+  -  two-minutes of notice when EC2 reclaims the capacity.
+
+- Scheduled instances 
+  -------------------
+  - always avaliable on a specified recurring schedule
+  - 1 year term 

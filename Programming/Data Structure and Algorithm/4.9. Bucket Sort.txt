@@ -1,0 +1,43 @@
+============
+Bucket Sort
+============
+
+- useful when input is uniformly distributed over a range
+- Bucket is modified accourign to problem
+
+Code
+-----
+void bucketSort(float arr[], int n) { 
+  // 1) Create n empty buckets 
+  vector<float> b[n]; 
+  
+  // 2) Put array elements in different buckets 
+  for (int i = 0; i < n; i++) { 
+    int bi = n * arr[i]; // Index in bucket 
+    b[bi].push_back(arr[i]); 
+  } 
+  
+  // 3) Sort individual buckets 
+  for (int i = 0; i < n; i++) 
+    sort(b[i].begin(), b[i].end()); 
+  
+  // 4) Concatenate all buckets into arr[] 
+  int index = 0; 
+  for (int i = 0; i < n; i++) 
+    for (int j = 0; j < b[i].size(); j++) 
+      arr[index++] = b[i][j]; 
+}
+
+Complexity
+-----------
+
+- Time Complexity 
+  ---------------
+  - Best case = all elements goes to each bucket 
+    = O(n) // for inserting into bucket
+      + O(k.log(k)) // for sorting each bucket 
+	  + O(n) // for combining each bucket
+  - Worst case = all elements in same bucket 
+    = O(n^2)
+
+- Space Complexity = O(k) + O(n) // k = size of bucket

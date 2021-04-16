@@ -1,0 +1,59 @@
+============
+Quick Sort
+============
+
+- Divide and Conquer Algo
+- Recursive
+
+Steps
+------
+- For an array we take a random element as pivot
+  (generally first or last element)
+- We move the pivot an index such that all elements before 
+  pivot are smaller and after pivot are larger
+- Than we run the algo again in the 2 parts of array 
+  divided by pivot
+- The algo is run recursively until start > end.
+
+Code
+-----
+int swap(int* a, int* b){
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+// find pivot and divide array
+int partition(int arr[], int start, int end){
+  int pivot = arr[end];
+  int i = start;
+  
+  for(int j=start; j<=end-1; j++){
+    if(arr[j]<=pivot){
+	  swap(&arr[i] ,&arr[j]);
+	  i++;
+	}
+  }
+  swap(&arr[i] ,&arr[end]);
+  return i;
+}
+
+void quiskSort(int arr[],int start, int end){
+  if(start < end){
+    int pivot = partition(arr, start, end);
+    quickSort(arr, start, pivot-1);
+    quickSort(arr, pivot+1, end);
+  }
+}
+
+Complexity
+------------
+- Time complexity:
+  - Best case = When array is divided into 2 equal parts by pivot
+    Eq. = 2 * T(n/2) + n
+    = O(nlogn) 
+  - Worst case = when all elements are at one side of pivot 
+    Eq. = T(n-1) + n 
+	= O(n^2)
+
+- Space Complexity = O(1) 

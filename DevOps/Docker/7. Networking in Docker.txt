@@ -1,0 +1,60 @@
+Docker Networking 
+=====================
+- Docker creates 3 types of network when it is installed:
+  - Bridge (default)
+  - None
+  - Host
+
+- To attach container with other network, use:
+  $ docker run Ubuntu --network=none or --network=host
+
+Bridge:
+-----------
+- Private internal network on the host.
+- All container attached to it get an internal IP in range 172.17 series
+ -Container access each other using these internal IP.
+- User outside the docker host cannot access that container using internal IP.
+- To access these container from outside, map their port to the host machine port.
+
+Create custom bridge network using: 
+------------------------------------
+- Isolate the container on the different private network in the same host:
+- $ docker network create \
+		--driver bridge \
+		--subnet 182.18.0.0.\16
+		<network name>
+
+  $docker network ls  // to list networks 
+
+Host:
+---------
+- It removes network isolation between container and host machine.
+- Therefore container can be accessed by the outside machine using the host machine IP and same port as on container.
+- It is alternative way to access container by the outside machine by connecting to the host network.
+- Using it, we cannot have multiple container running on same port in the same host.
+
+None:
+--------
+Not connected to any network. Does not have any access to external network or other container.
+It run in isolated network.
+
+
+Docker DNS server
+=======================
+- Container can reach each other using the container name. 
+- Docker has build in DNS server that helps the container resolve each other using the container name.
+- Ex. Mysql.connect(mysql-container) 	//mysql-container is the container name in which mysql is running
+  Build in DNS server run at 127.0.0.11
+
+Linking container to each other:
+----------------------------------
+- To resolve the container using container name, we need to link the container to the required container so that the docker will know which instance to the container is to be resolve.
+- Use --name option to name the container 
+- Use --link option to link two container together as:
+  --link <container-name>:<host required by container>
+- Ex.
+  $ docker run –d –name=redis redis
+  $ docker run –d –name=vote –p 5000:80 –link redis:redis voting-app
+  $ docker run –d –name=worker –link db:db ---link redis:redis worker
+
+

@@ -1,0 +1,29 @@
+==============
+Array Rotation
+==============
+- Imagine the aray to be closed circular loop which is rotated by "d" times.
+  Get the new array.
+  
+- Method 1:
+  ---------
+  - Array is rotated one by one "d" times.
+  - Space Complexty: O(1)
+  - Time complexit: O(n*d)
+
+- Method 2:
+  ---------
+  - First "d" elements is stored in new array.
+  - Original array elements is shifted by "d".
+  - New array is copied at teh end of original array.
+  - Space Complexty: O(d)
+  - Time complexit: O(n)+O(d)
+
+- Method 3: Reverse Algo
+  ----------------------
+  - Array is virtually divided into 2 parts: 0 to n-d-1 and n-d to n-1
+  - Both parts of array are reversed
+    i.e. Array elements from 0 to n-d-1 is reversed 
+    and Array elements from n-d to n-1 is reversed 
+  - Then whole array is reversed 
+  - Space Complexty: O(1)
+  - Time complexit: O(n-d)+O(d)+O(n) = O(n)

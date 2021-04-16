@@ -1,0 +1,14 @@
+==========
+AWS lamda
+==========
+- Serverless compute engine
+- Computation must complete within 15 min
+- Memory Limit
+  - 128 MB to 3008MB
+- Upload any code on lamda 
+  - Support multiple lamgauges
+  - can bootstrap custom languages
+- Complete automated administration
+- Built in fault tolerance
+- Triggers are created for different AWS services
+- Permissions are created using IAM user

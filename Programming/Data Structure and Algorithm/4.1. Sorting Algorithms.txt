@@ -1,0 +1,49 @@
+==================
+Sorting Algorithms
+==================
+- Arranging elements in a particular order (Increasing / Decreasing)
+
+Classifications
+================
+
+- Comparison Based
+  -----------------
+  - Bubble sort
+  - Merge sort
+  - Selection Sort
+  - Insertion Sort 
+  - We do certain comparison to decide how to sort the array
+
+- Swapping 
+  ---------
+  - Judge an algorithm based on how many times swapping is happening
+  - called "Inversion Count"
+
+- Space / Inplace / In-Memory sorting
+  -------------------------
+  - Require extra space for sorting 
+  - Internal
+    - Takes place in main memory
+  - External 
+    - Takes place in external memory 
+
+- Time complexity
+  ---------------
+
+- Recursive or Iterative Sorting 
+  ------------------------------
+  - Recursive sort 
+    - Merge sort 
+	- Quick Sort 
+  - Iterative sort 
+    - Insertion sort 
+	- Bubble sort 
+	- Selection sort 
+
+- Stability
+  ---------
+  - In case of duplicate numbers in array,
+    if order of number if preserved i.e., element coming first in
+	unsorted array is coming first in sorted array 
+	then the algorithm is stable
+	

@@ -1,0 +1,147 @@
+===================
+Creating tables
+===================
+- tabular environment is the default LATEX method to create tables
+- must specify a parameter to this environment, in this case {c c c}
+  - This tells LATEX that there will be three columns 
+  - and that the text inside each one of them must be centred.
+  - use r to align the text to the right and l for left alignment
+- & is used to specify the breaks in the table entries.
+- To go to the next line of your table, we use the new line command \\
+
+
+Adding borders
+---------------
+- add borders using the horizontal line command \hline and the vertical line parameter |.
+
+
+- Ex.
+  \begin{tabular}{ |c|c|c| } 
+  \hline
+   cell1 & cell2 & cell3 \\ 
+   cell4 & cell5 & cell6 \\ 
+   cell7 & cell8 & cell9 \\ 
+   \hline
+  \end{tabular}
+  - 5 verticle line will appear in th table
+  - 2 horizontal line will apear, only at start and end of the table.
+
+- { |c|c|c| }: 
+  - This declares that three columns, separated by a vertical line
+  - any number of verticle line can be inserted
+  
+- \hline: 
+  - This will insert a horizontal line
+  - no restriction on the number of times you can use \hline.
+
+Captions, labels and references
+-------------------------------
+- same way as images.
+- instead of the figure environment, you use the table environment.
+- Ex.
+  \begin{table}[h!]
+  \centering
+  \begin{tabular}{||c c c c||} 
+   \hline
+   Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
+   \hline\hline
+   1 & 6 & 87837 & 787 \\ 
+   2 & 7 & 78 & 5415 \\
+   3 & 545 & 778 & 7507 \\
+   4 & 545 & 18744 & 7560 \\
+   5 & 88 & 788 & 6344 \\ [1ex] 
+   \hline
+  \end{tabular}
+  \caption{Table to test captions and labels}
+  \label{table:data}
+  \end{table}
+
+- Add reference
+  - \ref{table:data}
+- compile the document twice for the references to work
+
+Positioning tables
+===================
+- Options for table positioning are similar to those available for figures
+
+- default alignment for table is set to left
+- Default position of the tabular environment is centre.
+- The table environment is intended to automatically position tables 
+  so they fit nicely in the flow of your document.
+- A position parameter, inside brackets, can be passed to the table environment.
+
+- You can put more than one value in the parameter
+- Ex. 
+  \begin{table}[ht]
+  LATEX will try to position the figure here, 
+  but if it's not possible then the figure will appear at the top of the page. 
+- Recommended to use more than one positioning parameter to prevent unexpected results.
+
+- also the command \centering changes the alignment of the table 
+  within its container to centre instead of the default left.
+
+Available Parameters 
+--------------------  
+- h   Place the float here, i.e., approximately at the same point it occurs in the source text
+- t   Position at the top of the page.
+- b   Position at the bottom of the page.
+- p   Put on a special page for floats only.
+- !   Override internal parameters LaTeX uses for determining "good" float positions.
+- H   Places the float at precisely the location in the LATEX code. 
+      Requires the float package. 
+	  This is somewhat equivalent to h!.
+
+Wrapping text around a table
+=============================
+- package "wrapfig"
+  - text can be floated around the table
+- import the package
+  - \usepackage{wrapfig}
+- Use the environment "wraptable"
+  - takes two parameters that are passed inside braces
+  - the alignement that can be l, r, c, i or o; 
+    this letters stand for left, right, centre, inner and outer 
+	(the last two intended for two-sided documents)
+  - The second parameter is the width of the table container
+- Ex.
+  \begin{wraptable}{r}{8cm}
+  \arrayrulecolor[HTML]{DB5800}  % color column
+
+  \begin{tabular}{ |s|p{2cm}|  }  % width of 2nd column fix at 2cm.
+  \hline
+  \rowcolor{lightgray} \multicolumn{2}{|c|}{Country List} \\  % colot whole row
+  \hline
+  Country Name     or Area Name& ISO ALPHA 2 Code \\
+  \hline
+  Afghanistan & AF \\
+  \rowcolor{gray}  
+  Aland Islands & AX \\
+  Albania    &AL  \\
+  Algeria   &DZ \\
+  American Samoa & AS \\
+  Andorra & \cellcolor[HTML]{AA0044} AD   \\  
+  Angola & AO \\
+  \hline
+  \end{tabular}
+  
+  \caption{Table inside a wraptable}
+  \label{table:ta2}
+  \end{wraptable}
+  - the width of the table (8 cm) is less that the line length
+    therefore, remaining area will be used by the text.
+
+- \rowcolor 
+  ------------
+  - ser color for the current row 
+- \multicolumn 
+  --------------
+  - \multicolumn{2}{|c|}{Country List}
+    - First parameter: number of cell 
+	- Second parameter: arrangement and line border 
+	- third parameter: column text 
+  - merge columns in a row 
+- \cellcolor 
+  ------------
+  - \cellcolor[HTML]{AA0044}
+  - set color of the current cell 
+

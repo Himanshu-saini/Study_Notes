@@ -1,0 +1,61 @@
+==============================
+Use of diferent remote URLs 
+==============================
+- There are several ways to clone repositories available on GitHub.
+- These URLs are used for git clone, git fetch, git pull, or git push
+
+HTTPs URLs
+============
+- https://github.com/<username>/<repo name>
+- Using HTTPs urls for accessing private repository, 
+  Git will ask for your GitHub username and password.
+- But for accessing public repository git will not ask for credentials..
+
+- If you have enabled two-factor authentication, 
+  or if you are accessing an organization that uses SAML single sign-on (SSO), 
+  you must authenticate with a personal access token instead of your username and password for GitHub.
+  
+SSH URLs
+===============
+- To use these URLs, you must generate an SSH keypair on your computer and 
+  add the public key to your GitHub account.
+
+Check any existing SSH keys [Linux]
+----------------------------------------
+- $ ls -al ~/.ssh
+- By default, the filenames of the public keys are one of the following:
+  - id_rsa.pub
+  - id_ecdsa.pub
+  - id_ed25519.pub
+
+Generating a new SSH key
+---------------------------
+- ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+- Leave file path empty to save to default location when prompted.
+- Addign Paraphrase is optional
+
+- It will create 2 files: 
+  id_rsa (private key) and id_rsa.pub (public key)
+  to location ~/.ssh
+
+Adding your SSH key to the ssh-agent
+-------------------------------------
+- Start the ssh-agent in the background.
+  - $ eval "$(ssh-agent -s)"
+  (output)> Agent pid 59566
+
+- Add your SSH private key to the ssh-agent. 
+  $ ssh-add ~/.ssh/id_rsa
+  Replace id_rsa incase of different name
+  
+Add a new SSH key to your GitHub account
+-------------------------------------------
+- Copy the public key content (id_rsa.pub)
+- Go to Guthub > Settings > SSH and GPG keys
+- Click add SSH key
+  Enter Title(tag name) and paste the public key
+- Click "Add key" and enter password.
+
+Testing your SSH connection
+----------------------------
+- $ ssh -T git@github.com

@@ -1,0 +1,116 @@
+=============
+Function
+=============
+- Function is a block of statements that performs a specific task.
+
+- Types of Function
+  ------------------
+  - Pre-defined Function 
+    - That is already  degined in the libraries.
+  - User Defined Function
+    - custom defined by the user
+
+- Function Declaration/Prototype
+  ------------------------------
+  <return type> <Function name>(<data types of parameter list);
+  - declare the type and name of the function.
+  - used to tell the compiler that we are going to use this function.
+
+- Function defination
+  --------------------
+  <return type> <Function name>(<parameter list){
+    // code statements 
+	return <value>;
+  }
+  - define what operation this function will do.
+
+- Function calling
+  ----------------
+  <function name>(<parameters>)
+  - gets the operation done.
+
+- Function must be declared before function call.
+- Function defination act as both declaration and defination 
+  if the function is defined before function class.
+- A function can be declared inside a funciton but can not be defined inside another function.
+- Default return type of a function is int.
+- return statement cannot be used inside ternary operator.
+
+- Return type:
+  - Data type of the value returned by the function
+  - If the  function does not return any value, than return type is "void"
+
+- Types of Paramenters
+  ---------------------
+  - Formal parameters
+    - Parameter list in function defination.
+  - Actual Parameters
+    - Parameter list in function call.
+
+Types of Function call 
+======================
+- function parameters can be passed to function in 3 ways
+
+Pass by value
+----------------
+- The value of actual parameter from function call 
+  is copied to the formal parameters.
+- Changes done to parameters in a function is not refelected to the original parameters.
+
+- Ex.
+  void swap(int x,int y){
+    int t;
+	t=x;
+	x=y;
+	y=t;
+	cout<<x<<y;  // x=20,y=10
+  }
+  int main(){
+    int a=10,b=20;
+	swap(a,b);
+	cout<<a<<b;  // a=10,b=20
+	return 0;
+  }
+
+
+Pass by reference
+-------------------
+- variables in formal parameters list are refernce variable.
+- Changes done to formal parameters inside the function are reflected in the actual parameters
+- No new copy  is created.
+- Ex.
+  void swap(int &x,int &y){
+    int t;
+	t=x;
+	x=y;
+    y=t;
+	cout<<x<<y;  // x=20,y=10
+  }
+  int main(){
+    int a=10,b=20;
+	swap(a,b);
+	cout<<a<<b;  // a=20,b=10
+	return 0;
+  }
+  
+Pass by pointers
+------------------
+- variables in formal parameters list are refernce variable.
+- Address of actual variable is passed buring function call.
+- Changes done to formal parameters inside the function are reflected in the actual parameters
+
+- Ex.
+  void swap(int *x,int *y){
+    int t;
+	t=*x;
+	*x=*y;
+	*y=t;
+	cout<<*x<<*y;  // *x=20,*y=10
+  }
+  int main(){
+    int a=10,b=20;
+	swap(&a,&b);
+	cout<<a<<b;  // a=20,b=10
+	return 0;
+  }
+

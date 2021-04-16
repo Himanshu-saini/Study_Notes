@@ -1,0 +1,15 @@
+===================
+Range of data type 
+===================
+
+- Range of data type is calculated on the basis of size of data type.
+- In memory,each bit can save 2 value and first bit is for sign.
+- Therefore, 
+  Nummber of vlues a variable can store = 2^(No of bits)
+  Range of variable = - 2^(No of bits-1) to 2^(No of bits-1) -1
+- For 4 byte float number:
+  - 32 bit 
+  - 1 for sign, 8 for exponent, 23 for mantissa (fractional part)
+  - Float number = sign * mantissa * 2^exponent
+  - Range : 3.4*e^-38 to 3.4*e^38
+  

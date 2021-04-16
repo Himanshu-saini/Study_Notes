@@ -1,0 +1,11 @@
+=================================
+Amazon Elastic File System (EFS)
+=================================
+- simple, scalable, fully managed elastic NFS file system
+- regional service storing data within and across 
+  multiple Availability Zones (AZs) for high availability and durability
+- growing and shrinking automatically as you add and remove files
+- storage classes: 
+  - the Standard storage class, 
+  - the Infrequent Access storage class (EFS IA)
+- provide massively parallel shared access to thousands of Amazon EC2 instances

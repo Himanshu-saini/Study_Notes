@@ -1,0 +1,60 @@
+========================
+Insertion in Linked List
+========================
+
+Creating New Node
+-----------------
+node* createNode(int data){
+  node* newNode = new node();
+  newNode->data = data;
+  newNode->next = nullptr;
+  return newNode;
+};
+
+Inserting at Begining of list
+-------------------------------
+void insertAtBegining(node** HEAD, int data){
+  struct node* newNode = createNode(data);
+  newNode->Next = *HEAD;
+  *HEAD = newNode;
+}
+
+Inserting at End of list
+-------------------------------
+void insertAtEnd(node** HEAD, int data){
+  node* newNode = createNode(data);
+  if(*HEAD == nullptr){
+    *HEAD = newNode;
+  }
+  else{
+    struct node* currPtr = *HEAD;
+	while(currPtr->next)
+	  currPtr = currPtr->next;
+	currPtr->next = newNode;
+  }
+}
+
+Inserting at an Index of list
+-------------------------------
+void insertAtIndex(node** HEAD, int data, int index){
+  node* newNode = createNode(data);
+  if(*HEAD){
+    if(i==1){
+      newNode->next = HEAD;
+	  *HEAD = newNode;
+	  return;
+	}
+    node* currPtr = *HEAD;
+    int i=1;
+    while(currPtr->next){
+	  if(i+1==index){
+        newNode->next = currPtr->next;
+	    currPtr->next = newNode;
+	    return;
+	  }
+	  currPtr = currPtr->next;
+	  i++;
+    }
+  }
+  cout<<"Index Out of Range";
+}

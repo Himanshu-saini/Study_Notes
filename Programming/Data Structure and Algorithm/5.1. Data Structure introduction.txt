@@ -1,0 +1,49 @@
+===============
+Data Structure
+===============
+- way of collecting and organising data.
+
+- different data structure are used to optimize a frequently 
+  used operation
+
+- Operations
+  ----------
+  - Insertion
+  - Deletion
+  - Searching
+
+- Ex. 
+  - Search optimization : Hashing
+
+Types
+========
+- Linear DS
+  -----------
+  - Array
+  - Linked List
+    - Singly Linked list
+    - Doubly Linked List
+    - Circular Linked List
+  - Stack
+  - Queue
+  - Hash table / Hash Map
+  
+- Non-Linear DS
+  --------------
+  - Tree
+
+
+Searching Complexity in DS
+-----------------------------
+- Unsorted Array : O(n)
+- Sorted Array : O(log n)
+- Linked List : O(n)
+- Binary Tree : O(n)
+- BST : 
+  - Average : O(log n)
+  - worst case: O(n)
+- Balanced BST : O(log n)
+- Heap :
+  - Max/Min : O(1)
+  - Other Number : O(n)
+- Hashing : O(1)
