@@ -10,6 +10,12 @@ Remove unwanted packages
 ------------------------
 - $ sudo apt autoremove
 
+Run java program
+----------------
+- $ javac filename.java  
+  - it will compile file and create filename.class file
+- $ java filenmae
+
 ======================
 Useful locations/files
 ======================
