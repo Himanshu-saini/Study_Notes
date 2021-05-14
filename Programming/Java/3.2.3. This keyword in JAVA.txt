@@ -1,0 +1,47 @@
+=============
+This keyword
+=============
+
+- reference variable that refers to the current object
+
+- used to refer current class instance variable
+- used to invoke current class method
+- this() can be ised to invoke the current class constructor
+- this can be passed as an argument in the method call
+- this can be passed as an argument in teh constructor call
+- this can be used to return the current instance from the method
+
+
+- Ex
+  public class Person{
+    String name;
+    int age = 0;  
+    
+    /*  Wrong method
+    publc Person(String name, int age){
+      name = name;
+      age = age;
+    }
+    // Here, method variables are assigned to itself
+    // rather that assigning value to the class variable
+    // So class variable still have null value
+    */
+    
+    // Correct way
+    publc Person(String name, int age){
+      this.name = name;  // "this" is used to differentiate between class var and method var
+      this.age = age;
+    }
+    
+    public static printAge(){  // static method
+      System.out.println("Age is "+age);
+    }
+    
+    pubic static void main(String[] args){
+      Person.name;  // Gives error
+      Person.age;   // Correct
+      
+      Person obj1 = new Person();
+    }
+  }
+

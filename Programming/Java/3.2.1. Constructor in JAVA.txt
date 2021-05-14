@@ -1,0 +1,67 @@
+====================
+Constructor in JAVA
+====================
+
+- block of code similar to class mothods
+- called automatically when an instace of a class is created
+
+- Every java class has a constuctor
+- It is used to initialize value to the class variables
+
+- Rules for creating a constructor
+  --------------------------------
+  - Constructor name is same as class name
+  - It has no explicit return type
+  - It cannot be abstract, static, final
+
+Types of Constructors
+======================
+
+- Default Constructor
+  -------------------
+  - constructor having no parameters list
+  - If no constructor is created a inside the class 
+    then Java will automatically create a contructor 
+    inside the JVM for the class
+  - Syntax:
+    <access modifier> <Constructor name>(){
+      // body
+    }
+    
+- Parameterized constructor
+  -------------------------
+  - constuctor which has a number of paramenter
+  - Used to provide distinct values to different objects
+  - Syntax:
+    <access modifier> <Constructor name>(<paramenter list>){
+      // code
+    }
+  - we can have multiple parameterized contructor in a class 
+    with different parameter list
+
+- Ex
+  public class Person{
+    String name;
+    int age;
+    
+    public Person(){  // Default Constructor 
+      name = "P1";
+      age = 0;
+      System.out.println("This person name is"+namea+" and age is "+age);
+    }
+    public Person(String pName, int pAge){  // Parameterized constructor
+      name = pName;
+      age = pAge;
+      System.out.println("This person name is"+namea+" and age is "+age);
+    }
+    
+    public static void main(String[] args){
+      Person obj1 = new Person();  // call default constructor
+      Person obj2 = new Person("Himanshu","20");  // call parameterized constructor
+    }
+ }
+
+- Constructor overloading
+  -----------------------
+  - When we have more than one constructor in a class
+

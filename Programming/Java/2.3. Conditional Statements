@@ -1,0 +1,64 @@
+=======================
+Control Flow Statements
+=======================
+
+- If Statement
+  -------------
+  - if we want to execute a block of statements only when an condition is true
+  - Syntax
+    if(<boolean value>){  // condition/variable
+      // code
+    }
+
+- If else 
+  --------
+  - if we want to execute either of 2 block of statements depending on a condition
+  - Syntax
+    if(<boolean value>){  // condition/variable
+      // code execute when condition is true
+    } else {
+      // code execute when condition is false
+    }
+
+- Nested if else 
+  ---------------
+  - when we want to check multiple conditions
+  - if one condition is false then it moves to next condition block 
+  - Syntax
+    if (<condition 1>){
+      // code
+    } else if (<condition 2>){
+      // code
+    } else if (<condition 3>){
+      // code
+    } else {
+      // code
+    }
+    
+- Swith statement
+  ---------------
+  - similar to Nested if statements
+  - We we want to choose 1 block of statement from multiple blocks
+    depending upon equality comrision of the value of an variable
+  - We can have any number of case blocks
+  - case value must be same type as variable provided in switch expression
+  - Case value must be unique
+    - Duplicate value gives compile-time error
+  - break statements should be provided after each case
+    - if not then all statements that case will be executed
+  - we can have a "default" block (optional)
+    wihch run when non of the cases matches the variable value
+    
+  - Syntax
+    switch(<variable>){
+    case value1:
+    //code
+    break;  optional
+    case value2:
+    //code
+    break //optional
+    ....
+    default:
+    // default code
+    }
+

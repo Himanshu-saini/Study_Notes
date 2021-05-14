@@ -1,0 +1,38 @@
+======================
+Concatenation in java
+======================
+
+- Case 1
+  - String in java can be combined using "+" operator
+
+- Case 2
+  - In case of integer variables "+" operator 
+    performs arithmetic sum operation
+  
+- Case 3 
+  - If integer variable is added with a string var
+    then the output is a string variable
+  
+- Case 4 
+  - If 2 integer variable are added the then added with a string
+    then first teh arithmetic sum will be performed
+    and then string concatination is done
+
+- Case 5
+  - If 2 integer varables are added after a string
+    then whole statement is treated as string concatination 
+    and arithmetic sum is not performed
+    
+- Ex
+  String str1 = "Hello";
+  String str2 = "World";
+  
+  int num1 = 1000;
+  int num2 = 999;
+  
+  System.out.println(str1 + str2);  // HelloWorld
+  System.out.println(num1 + num2);  // 1999
+  
+  System.out.println(num1 + num2 + str1 + str2);  // 1999HelloWorld
+  System.out.println(str1 + str2 + num1 + num2);  // HelloWorld1000999
+

@@ -1,0 +1,67 @@
+====================
+Inheritence in JAVA
+====================
+
+- When one class acquires all the properties and behavour of a parent class
+- Provides code reusability
+
+- It is done using "extends" keyword
+- Syntax:
+  public class A1 extends B1{ ... }
+  - Here, class A1 is child class 
+  - class B1 is parent class
+
+- It represents a "IS-A relationship" in Java
+  - like, class student "IS-A" person
+
+- We can create the object of parent class in child class
+  and access its variables and methods
+
+Types of Inheritance
+=====================
+
+- Single inheritance
+  -------------------
+  - Only one class extends another class
+    class A <- Class B
+  - Ex.
+    class student extends person{ ... }
+  - Public/private variables and members of parent class can be 
+    called directly in child class
+
+- Multilevel inheritance
+  ----------------------
+  - One class extends an class which is already extended to another class
+    class A <- class B <- class C
+  - Ex.
+    class car extends vehicle{ ... }
+    class BMW extends cars{ ... }
+  - Can go to any level
+  - lower class can access all variables and methods 
+    present in upper classes
+    - can create objects of all upper classes
+    - can use all methods/variables of upper classes directly
+  - When object of click class is created 
+    constuctor of all upper classes is called.
+
+- Hierarchical inheritance
+  -------------------------
+  - More than one class extends to same parent class
+    class A <- class B
+    class A <- class C
+  - Ex.
+    class student extends person{ ... }
+    class teacher extends person{ ... }
+
+- Multiple Inheritance (not allowed in Java)
+  ----------------------------------------
+  - When one class extends more than one class
+    Ex. class student extends programmer, artist{ ... }
+  - Due to possibilities of coflict among methods and variables of Parent classes 
+    - Ex. 
+      if both classes have method/variabe with same name.
+      when both class are inherited and that method/variable 
+      is called inside child class
+      the conflic arises as to whom the reference is made
+    
+

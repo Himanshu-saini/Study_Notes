@@ -1,0 +1,41 @@
+====================
+OOPs concept in JAVA
+====================
+
+- Object Oriented Programming System (OOPs)
+  - methadology or paradigm to design a program 
+    using classes and objects
+
+- Java is Object Oriented Programming language
+
+OOPs concepts
+===============
+
+- Class
+  ------
+  - Collection of objects / blueprint of the object
+
+- Object
+  ------
+  - It can be defines as an instance of a class
+  - Entity that has state and behaviour
+
+- Inheritance
+  -----------
+  - When one class acquires all the properties and behavour of a parent class
+  - Provides code reusability
+
+- Polymorphism
+  ------------
+  - One task is performed by different ways
+  - Acheied using method loading and method overriding
+
+- Abstraction
+  ------------
+  - Hiding internal details and showing the functionality
+  - Achieved using abstract class and interface
+
+- Encapsulation
+  -------------
+  - Binding cade and data together into a single unit
+  - Ex. Class

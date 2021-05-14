@@ -1,0 +1,61 @@
+=====================
+Variables & Data Type
+=====================
+
+- Variable
+  --------
+  - a container to store value
+  - Syntax
+    - <Data type> <variable name>;  // variable definations
+    - <Data type> <variable name> = <value>;  // variable declaration
+    
+
+- Types of variable
+  -----------------
+  - Local Variable
+    - Declared the body of a method
+    - Scope of variable is within the body of that method
+    
+  - Instance Variable
+    - variable declared inside the class but outside all methods
+    - Scope of variable is inside entire class body
+      i.e., inside class methods also
+      
+  - Static Variable
+    - Declared using "static" keyword
+    - cannot be local variable
+      i.e., it can only be instance variable
+    - Accessable inside static methods only 
+  
+
+- Data type
+  ---------
+  - Specifies different sizes and type of values 
+    that can be stored inside a variable
+  - should be explictly defined in java
+
+- Types of Data type
+  ------------------
+  - Boolean
+    - binary value (true/false)
+  - Char
+    - Single Unicode character
+  - String
+    - set of character
+    - Ex: String name = "Himanshu";
+  - Int
+    - 32 bit integer value
+  - Long
+    - 64 bit integer value
+    - must add "L" at the end of number;
+    - Ex: long empNo = 123456789L;
+  - Double
+    - 64 bit decimal value
+    - recommended to use "D" after value
+      - will not show error without "D"
+    - Ex: double marks = 92.5;
+      or  double marks = 92.5D;
+
+
+
+

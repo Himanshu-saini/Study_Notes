@@ -1,0 +1,33 @@
+=============================
+Classees and Objects in JAVA
+=============================
+
+Classes
+=======
+- Collection of objects / blueprint of the object
+- Class variables are used to define state of the class
+- Class functions/methods are used to define the behaviour of the class
+- By default, class, class methods, class variables are private
+- Syntax:
+  <access specifier> class <class name>{
+    // code
+  }
+  - <class name>
+    - Same as the file name
+    - contain alphanumeric characters
+    - must start with apbhabets
+
+Objects
+========
+- Entity that has state and behaviour
+- It can be defines as an instance of a class
+- Syntax for creating objects:
+  <Class name> <object name> = new <class name>();
+  - Ex: Person pObj = new Person();
+- We can define multiple objects of the same class
+- Class methods and variables are accessed using objects
+  - Syntax:
+    <Obj name>.<var/func()>;
+  - Ex
+    pObj.name;  // gives the value of name attribute
+    pObj.printData();  // execute the function printData()

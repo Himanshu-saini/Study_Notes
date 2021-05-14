@@ -1,0 +1,35 @@
+================
+Write Java Code
+================
+
+- Class
+  - Nameing rules
+    - Alphanumberic
+    - Starts with alphabet
+  - Each java file must contain a class
+  - Java file is same as java class name
+
+- Method
+  - Set of instructions wihch we want to execute
+  - Declared inside a class body
+  - We cannot declare a method outside a class body
+
+  - main() method
+    - java starts execution of the program from main() method
+
+- Statement
+  - executable instuction in java
+  - ends with semi-column(;)
+  - statements are executed from left to Right
+
+- Comments 
+  - /*  lines of cade  */
+
+- Sample Class Structure
+  public class MyClass{
+    public static void main(String[] args){
+      //code
+    }
+  }
+  
+

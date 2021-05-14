@@ -1,0 +1,43 @@
+======================
+Static keyword in Java
+======================
+
+- Static is used for memory management mainly
+- We can create static methods, variables and blocks
+  - created using "static" keyword
+- Constructor can not be static
+
+- Static members of class belongs to class itself instead of class objects
+  - static members can be called/used without creating an object
+  - Ex: <Class name>.<statix var/method>;
+
+- Static variable
+  - when we declare any object as static
+  - used to refer to common property of all objects
+  - Static variable gets memory only once in the class area 
+    at the time of class loading
+    - therefore they are memory efficient
+
+- static method
+  - declare method using static keyword
+  - can be invoked without using an instance of a class
+  - static method can only call static data emmbers or static methods
+
+- Ex
+  public class Person{
+    String name;
+    static int age = 0;  // static variable
+    
+    public static printAge(){  // static method
+      System.out.println("Age is "+age);
+    }
+    
+    pubic static void main(String[] args){
+      Person.name;  // Gives error
+      Person.age;   // Correct
+      
+      Person obj1 = new Person();
+    }
+  }
+
+

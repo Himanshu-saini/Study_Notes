@@ -1,0 +1,12 @@
+=============
+Java Project
+=============
+
+- Project Architecture
+  - ProjectName
+    - bin
+      - binary files used to execute the project
+      - byte code of program files (.class files)
+    - src
+    - JRE system library
+

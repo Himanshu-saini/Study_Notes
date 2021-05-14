@@ -1,0 +1,49 @@
+==============
+Loops in Java
+==============
+
+- Loops are used to run set of intructions repetedly until a condition is satisfied
+
+- Iteration
+  - One complete run of set of instruction inside a loop
+
+Types of Loop
+=============
+
+- For loop
+  ---------
+  - Most used
+  - Used when no of iteration is fixed
+  - Syntax:
+    for(initializaton; condition; incr/decr){
+      // statements
+    }
+    - initialization
+      - optonal
+      - variable is given an initial value
+    - Condition
+      - check condition for determine if the loop will run or not
+      - the loop will run until teh condition becomes false
+    - incr/decr
+      - optional
+        - if control variable is changed inside the loop body
+      - the control variable is incremented/decremented
+
+- While loop
+  -----------
+  - When number of iteration is not fixed
+  - Syntax:
+    while(condition){
+      // statements
+    }
+    - condition
+      - the loop will run until teh condition becomes false
+  
+- Do-while
+  ---------
+  - Same as while but the condition is checked at the end
+  - So the loop will execute atleast once
+  - Syntax:
+    do{
+      // statements
+    }while(condition);

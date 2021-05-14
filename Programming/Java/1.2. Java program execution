@@ -1,0 +1,21 @@
+=======================
+Java program execution
+=======================
+
+- Process of executing java program
+  > Source code (.java)
+  |
+  (compile)
+  |
+  > Byte code (.class)
+  |
+  (Execution)
+  |
+  > JVM (Java Virtual Machine)
+  |
+  > Output
+  
+- Why java is platform independent?
+  - Java program is converted to byte code which can be run on 
+    any machine which have JVM installed on it
+
