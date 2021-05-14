@@ -22,8 +22,8 @@ Objects in C++
     using '.' operator.
   - Ex.
     pr1.name = "Himanshu";  // accessing data member
-	cout< pr1.age;
-	pr1.print_details();    // accessing member function
+    cout< pr1.age;
+    pr1.print_details();    // accessing member function
 
   - Only public members can be acessed outside 
     class.
