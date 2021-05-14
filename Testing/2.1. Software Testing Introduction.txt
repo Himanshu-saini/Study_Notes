@@ -1,0 +1,47 @@
+=============================
+Software Testing Introduction
+=============================
+
+- Needed to
+  - Assure the quality of the software
+  - reduce the risk of software failure in opreation
+
+- Software Testing ≠ Test Execution
+  Test Execution is only one part of the whole testing process
+
+Types
+=======
+- Dynamic Testing 
+  ---------------
+  - Testing while executing the software
+  - Like opening website/App and testing features
+
+- Static Testing
+  ---------------
+  - We do not execute the software
+  - Here, we review design, code, requirements, etc.
+
+Performance Types
+=================
+- Validation
+  -----------
+  - Did we build the right product
+    i.e., we build what the client asked
+    
+- Verification
+  -------------
+  - Did we built the product right
+  - It includes architecture, design, performance and security
+
+Objective of Testing
+====================
+- Work-product Evaluation
+- equiremants Fulfilment
+- Building COnfidence
+- Finding Defects
+- Preventing Defects
+- Providing Information to Stakeholders
+- Reduce Risks
+- Comlience with Laws
+
+- Objectives may vary depending on the software

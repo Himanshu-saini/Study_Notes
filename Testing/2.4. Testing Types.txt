@@ -1,0 +1,83 @@
+==============
+Testing Types
+==============
+
+Functional Testing
+------------------
+- Most dominant type
+- Test functions of a software
+  i.e., what the system does
+- Answered with Yes/No
+
+Non-functional testing
+----------------------
+- Objective way of testing
+
+- Check system performance
+  - Like reponse time, performance speed
+  - Depend upon the type of system
+  - Usually provided output in a range
+  
+- Uability testing
+  - System easy to use
+  - User interface appealing enough
+
+- Security testing
+  - Provide output against set a of vunrabilities
+  - Cannot say software is 100% secure or not
+  
+Block box Testing
+-----------------
+- A testing technique
+- Test without looking on the 
+  internal structure of the software
+- Only provide input and test output
+
+White box testing
+-----------------
+- Check the internal structure of the software
+- Provide input and test what is happening 
+  in the internal structure like APIs, Database
+  
+- More Advanced and Challenging
+- Require understanding of the software stack used
+
+Dynamic Testing
+---------------
+- Testing while executing the software
+- Ex. Run code/App/Website/hardware
+
+Static testing
+--------------
+- Testing while not executing the software
+- Ex.
+  - Reviewing requirements
+  - Reviewing the User Stories
+  - Review Protype UI
+  - Review Code
+
+Retesting (Confirmation testing)
+--------------------------------
+- When developer remove a defect
+- Produce the same steps when the defects previously occur
+  and check if the defect is there or not
+
+Regression testing
+-------------------
+- When developer made any changes to the software
+  - solving defect
+  - changing requirement
+  - adding/removing a feature
+
+- In retesting we only test the part of software that is changed
+  whereas in regression testing other part of software is also tested
+
+Smoke testing / Build verification testing
+-------------------------------------------
+- In case of large software having many functionalities
+- We have some test seniorios / test cases
+  which test the main / most basic functionalities
+
+- We perform it before other testing
+- If it passes we procide to futher testing
+  Else the software is send back for debugging 

@@ -1,0 +1,55 @@
+============
+Test Levels
+============
+
+- Groups of test activities that are 
+  organized and managed together
+
+- Each test level is an instance of a test process
+
+Major levels of testing
+========================
+
+- Unit / Component / Module Testing
+  ----------------------------------
+  - Test anythig that is seperately testable
+  - Commonly Developers write test cases for this
+  - Ex. Modules of code, classes of cade
+  
+- Intergation Testing
+  ---------------------
+  - Integrate modelues together and test
+  - Focus on integration between components and system
+  - Types
+    - Component Integration
+     ----------------------
+      - Fucuses on integration between the components
+      - Performed bt Developer
+      
+    - System Integration
+      ------------------
+      - In case of large project having different systems
+        - Ex. Web Service, Backend, frontend, database
+        - Done by Tester
+    
+- System Testing
+  ---------------
+  - Perform testing on a full system
+  - 90% software testing by tester is here
+  - Test environment should be similar to real environment
+  - Main objective to find as many defects as possible
+  
+- Acceptance Testing
+  ------------------
+  - Make sure software performs correctly
+  - Finding defects is not the main objective
+  - Done by users or stakeholders
+  - Tyoes
+    - Alpha Testing
+      -------------
+      - Bring customesr to test product in the company
+       
+    - Beta Testing
+      ------------
+      - Customers test the product at thier site/home.
+

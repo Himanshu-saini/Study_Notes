@@ -1,0 +1,52 @@
+================
+Testing Process
+================
+
+- Steps during testing softwaare
+
+- Basic Parts
+  - Plan
+  - Design
+  - Execution
+
+Test process by ISTQB (2018)
+============================
+
+- Consits of 7 Activities
+
+- Test planning
+  --------------
+  - Write test plan
+  
+- Test Monitoring & control
+  --------------------------
+  - Monitor our actual progress with the expected progress in plan
+  - In case of diffeernce, we perform control activities
+  - Control is any action we take to follow our plan
+
+- Test Analysis
+  --------------
+  - Analyse requirements and search for defects
+  - find test conditions / test senerios
+    - Ex., verify login via facebook/email
+
+- Test Design
+  ------------
+  - Write our test cases
+  - Each test senerio have one or more test cases
+
+- Test Implementation
+  -------------------
+  - Organize test cases into test suites
+  - Design our test environment where testing begin
+    - Ex. Simulator, emulator, browser, Andriod
+
+- Test Execution
+  --------------
+  - Execute tests and find defects and report them
+  - Perform retesting and regression testing
+
+- Test Completion
+  ----------------
+  - Test progress report
+  - Test summary report

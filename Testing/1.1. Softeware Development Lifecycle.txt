@@ -1,0 +1,67 @@
+=====================================
+Software Development Lifecycle (SDLC)
+=====================================
+
+- Activities performed in order to develop a software
+
+Phases of SLDC
+--------------
+- Planning 
+- Analysis
+- Design
+- Implementation
+- Testing and Integration
+- Maintainence
+
+Two Types
+===========
+
+Sequential
+----------
+- Phace of development follow linear, sequential follow
+  One phase start only after the previous phase is ended
+- In practice, phases may overlap
+- Steps
+    - Requirement
+    - Design
+    - Build 
+    - Test & fix
+    - Release
+- Examples
+  ---------
+  - Waterfall Model
+    ---------------
+    - Activities flows only downward (like waterfall)
+    - Activities
+      - Requirements
+      - Design 
+      - Implementation
+      - Testing
+      - Maintainence
+  
+  - V-Model
+    -------
+    - More imphasis on Testing
+    - Activities
+      - User Requirement  -----------------> Acceptance Testing
+      -  Software Specification  -------> System Testing
+      -   High level Design  ---------> Integration Testing
+      -    Low Level Design  -------> Unit Testing
+      -      Coding
+  
+Iterative and incremental
+--------------------------
+- Iterative Model
+  - We divide the software in parts and 
+    completely build one part in each iteraton 
+- Imcreamental Model
+  - We build software as a whole but divide it into layers of development
+
+- Examples
+  --------
+  - Scrum (Agile)
+    -------------
+    - Both iterative and increamental
+    - We divide our software into iterations (Sprints) and 
+      make some increaments (features) in each iteration
+
