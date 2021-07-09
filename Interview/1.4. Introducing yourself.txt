@@ -1,0 +1,42 @@
+====================
+Introducing Yourself
+====================
+- What cliet expect in an introduction
+- Short family overview (Optional)
+  - Number of family members
+  - Where you live
+
+- Education
+  - Mention about most recent qualification
+  - Graduation/Post Graduation
+  - Do not tell percentage/CGPA/College details
+
+- Projects/technology you worked on [Important]
+- Skills
+
+- Hobbies [optional]
+  - Confident enough about hobbies
+  - Can talk in details
+
+Introduction Snapshot
+---------------------
+- Name
+- A bit about Background
+  - Learing at academy
+- Prev projects
+  - Role played
+  - Learnings from it
+- key attributes you possess
+  - How it will benefit them
+- key skills
+- Future career plans
+  - What you look forwant to doing in your career
+
+Mock interview
+---------------
+- Name
+- Background and experience
+- Curent track and learings from academy
+- your experience, projects, certifications etc
+- What are your skills
+- What you look forward in your career

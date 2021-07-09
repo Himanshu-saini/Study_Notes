@@ -1,0 +1,46 @@
+==================
+Tips for interview
+==================
+
+- Use verbs that sound dynamic
+  - Impactful
+
+- keep sentence short and to the point
+  - Use active not passive sentences
+  - Say "I analysed and developed the code"
+    not "Code was analysed and developed by me"
+  
+  - Be Straightforward
+  - Say "I rewrote the code"
+    not "I was responsible for improving the quality of.."
+
+- Handle the question you do not know
+  ------------------------------------
+  - Do not bluff
+    - It make a bad impression
+  
+  - When you know something similar 
+    - I do not have experience with X but i know about Y which is similar ...
+  - When you have some exposure
+    - According to my knowledge about this,...
+  - When you do not know
+    - I do have experience with this.
+    - I am sorry, i do not know the answer to that question
+    - Given an opportunity i would love to learn about it 
+
+- Handling Difficumt Interview
+  -----------------------------
+  - Interviewer try to make you lose your nerve
+  - Take a deep breath do calm you down
+  - Never interupt them
+  - Never make them repeat
+    - Listen actively
+  - keep same confience in your tone as before
+    - Do not soften your tone
+  - Do not justify yourself
+
+  - Do not ask for feedback directly
+  - Ask them their expectation/role fitment
+  - End on a Positive note
+  - If you have their mail id, drop a mail thanking them for their time
+

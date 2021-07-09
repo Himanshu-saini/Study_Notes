@@ -1,0 +1,21 @@
+==============
+STAR technique
+==============
+
+- Effective Technique to describe about project
+
+- Situation
+  ----------
+  - Set the context
+  - About project
+- Task
+  ----
+  - your responsibility
+  - Problems faces
+- Action
+  -------
+  - What you do to solve the problem
+- Result
+  -------
+  - What positive outcome you got
+
