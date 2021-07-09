@@ -1,0 +1,109 @@
+Git
+----
+
+- distributed Verision control system
+- Version control systems allow to keep all the 
+  historical versions of your software for easy tracking
+- In addition, it can be used as a data center, making build automation 
+  and continous integration possible.
+
+- git keep track of changes in this folder, and subfolders 
+  by creating a .git hidden folder containing the git skeleton.
+  
+- Github
+  -------
+  - Github is a git hosting platform that provide 
+    free git repository for all opensource softwares.
+  
+Common Git Commands
+--------------------
+- To initialize a new project
+  - $ git init
+
+- Retrieve an existing repository from Github
+  - $ git clone https://github.com/<repo>
+
+- Configure Git
+  - git config --global user.name "Your Name Comes Here"
+  - git config --global user.email you@yourdomain.com``
+
+- --global option corresponds to a user-wide configuration
+  configure each git repository individually by removing this option
+  For system-wide configuration use --system
+  
+- check your configuration with:
+  - git config --list
+
+- Git maintains 3 sections on a local system
+  - Workspace/Wroking Dir
+    - where the code is created
+    - untracked files
+  - Stagging Area
+    - intermediated buffer zone of git
+    - Here files are called indexed files
+  - Local Repository
+    - location where version controlling happens
+    - Files present here are called commited files
+
+- check the status of each file in your directory 
+  - $ git status
+
+- Add files to Staged area
+  - $ git add <file name>
+  - $ git add .
+    - Track all files
+
+- Unstage file
+  - git reset HEAD <file name>
+  - git rm --cached <filename>
+
+- Commit file 
+  - $ git commit -m "MESSAGE"
+
+- look at the changes you’ve made to a modified file:
+  - git diff
+  - git diff --cached
+    - If compare files in staged area
+
+- view the history of all commits:
+  - git log
+
+- Link local repository to cloud VCS
+  - git remote add origin <github_url>
+
+- Push changes to remote repo
+  - git push origin master
+
+- Update local repo with remote repo
+  - Method 1:
+  - git fetch origin
+    - not merge those changes with your work.
+  - git merge origin/master
+  
+  - Method 2:
+  - git pull origin master
+    - both fetch and merge
+    
+- create a new branch
+  - git branch testing
+  - git checkout -b testing
+    - create and change branch
+
+- Check all branch
+  - git branch -a
+  
+- Delete branch
+  - git branch -d testing
+
+- switch branch
+  - git checkout testing
+
+- Merge changes from one branch to another
+  - Switch to branch where code is to be merged (MASTER)
+  - git merge testing
+
+- Ignore file from tracking (.gitignore)
+  - special configuration hidden file 
+  - For listing private files info
+  - Files listed in it will not be tracked by git
+

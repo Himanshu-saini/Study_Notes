@@ -1,0 +1,88 @@
+=======================
+Selenium Introduction
+=======================
+
+- Time line
+  - 2004 : Selenuim Created by ThoughtWorks 
+    - Just a JavaScript Executer
+  - 2006 - Selenium Web driver was introduced
+  - 2008 - Selenuim web driver 2
+  - 2016 - Selenuim web driver 3
+
+- Open source UI Automation tool
+  - Used to automate the web application
+- Cannot be used for Desktop Application
+
+- It is a Package to Tools
+
+Components of Selenium
+=======================
+
+- Selenium IDE
+- Selenium RC (Remote Control)
+- Selenium WebDriver
+- Selenium Grid
+
+Selenium IDE
+------------
+- Selenium Integrated Development Environment
+- Record and Play based tool
+  - It will record the steps executed 
+    and then play it afterward when required
+- Browser plugin compatible with Mozilla Firefox only
+
+- Limitation
+  - Just a browser plugin
+    - Cannot install it and use it in programming language
+  - Only compatible with Mozilla firefox
+  - Not allowed to put conditions in IDE (like if else)
+  
+
+Selenium RC
+-----------
+- First automated web testing tool that allowed user 
+  to use their prefered language
+
+- Compatible languages 
+  - Java, C#, PHP, Perl, Ruby, Python
+- Compatible Broswers
+  - Firefox, Chrome, Opera, Safari, IE
+  
+- Pros
+  - Cross browser and platform compatible
+  - Can perform loops and conditional statements
+  - Data Driven testing is possible 
+  - Faster than IDE
+  
+- Cons
+  - RC server needs to be run before executing the scripts
+  - Not as fast as webdriver
+
+Selenium WebDriver
+------------------
+
+- Compatible languages 
+  - Java, C#, PHP, Perl, Ruby, Python
+- Compatible Broswers
+  - Firefox, Chrome, Opera, Safari, IE
+  
+- Pros
+  - More stable than RC
+  - Directly interacts with the browser
+    - Does not rely on JavaScript for Automation
+  
+Selenium Grid
+-------------
+- Not used to prepare the automation script
+- Used to execute the Script
+  - Compatible tih RC or WebDriver Scripts
+- It allows to execute the scripts in parallel
+- It works as the execution engine for the selenium tests
+- Enables simultaneous execution of tests in multiple browsers 
+  and environment(Mac/Windows/linux)
+  - Same test script will be used for all browsers/enviromments
+
+- Uses Hub-and-node concept
+  - Hub act as central source of selenium commands
+  - nodes are the test machines which will perform the testing
+

@@ -1,0 +1,74 @@
+=======================================
+Setup Web Driver for Different Browsers
+=======================================
+
+- Note: Add drivername.exe at the end of path_to_driver in Windows system
+
+Libraries:
+-----------
+// Web driver libraries
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+
+// Firefox web driver libraries
+import org.openqa.selenium.firefox.FirefoxBinary;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.*;
+
+// Chrome Web Driver Libraries
+import org.openqa.selenium.chrome.ChromeDriver;
+
+// TestNG libraries
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+
+Firefox Web Driver
+==================
+
+// Set System Property for Browser
+System.setProperty("webdriver.gecko.driver",path_to_driver); 
+
+// Set Binaries
+FirefoxBinary firefoxBin = new FirefoxBinary();
+firefoxBin.addCommandLineOptions("--headless");
+
+// Set Profile
+FirefoxProfile profile = new FirefoxProfile();
+
+// Firefox Options
+FirefoxOptions firefoxOptions = new FirefoxOptions();
+firefoxOptions.setBinary(firefoxBin);
+firefoxOptions.setProfile(profile);
+
+// Create Driver
+WebDriver driver = new FirefoxDriver(firefoxOptions);
+
+Chrome Web Driver
+==================
+
+ //Setting the webdriver.chrome.driver property to its executable's location
+System.setProperty("webdriver.chrome.driver", path_to_driver);
+	
+//Instantiating driver object
+WebDriver driver = new ChromeDriver();
+
+
+Internet Explorer
+=================\
+
+//Setting the webdriver.ie.driver property to its executable's location
+System.setProperty("webdriver.ie.driver", path_to_driver);
+	
+//Instantiating driver object
+WebDriver driver = new InternetExplorerDriver();
+
+Safari Web Driver
+==================
+
+- Safari browser doesn’t require any additional configuration and can be directly launched 
+
+//Instantiating driver object with SafariDriver
+driver = new SafariDriver();

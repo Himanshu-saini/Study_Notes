@@ -1,0 +1,39 @@
+=========================================
+Download and Cofigure Selenium in Eclipse
+=========================================
+
+- Selenium comes as a multiple JAR files zip together
+
+Downloading Selenium
+====================
+- Go to seleniumhq.org/downloads
+- Download zip file under "Selenium Client and WebDrivers" for respective language
+- Unzip the downloaded file
+- Move the folder to the desired location
+- Open Eclipse and create a new java project
+- Right click on the java project and select "Properties"
+- Go to "Java Build path" then "Libraries"
+- Select "Add External JARs"
+- Browse to the Selenium JARs folder
+- Select all the JARs in the folder 
+  - Also select all JARs in "lib" folder inside the selenium folder
+- A new link folder is creaed called "Reference libraries" in our project 
+  which contains all selected JARs
+
+Download Web Drivers
+====================
+- Create a new directory inside our java project - "Drivers"
+- Go to seleniumhq.org/downloads
+- Scroll to "Third party Browser Drivers"
+- Download Drivers for desired browsers
+- Unzip the downloaded files
+- Copy the driver files to the new "Drivers" dir created in java project
+
+- Error - "Driver in not Executable" (In Mac/Linux)
+  - Change permission of web drivers files to read/write/execute 
+    by all users/groups
+
+Configure Selenium
+===================
+
+
