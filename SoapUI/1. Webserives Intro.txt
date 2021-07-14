@@ -1,0 +1,30 @@
+============
+Webservices
+============
+
+- Method of communication between 2 applications
+  or electornic device like mobile and web apps
+  over World Wide Web
+- Subset of APIs
+
+- Language Independent
+- Works on HTTP protocol
+- It contains collection of operations
+
+- Request some data from server
+- Return response in XML or JSON
+  - Soap Webservice - XML
+  - Rest API - JSON
+
+- Endpoint 
+  - Server location where webservices is hosted
+
+Types of Webserivices
+=====================
+
+- Simple Object Access Protocol (SOAP)
+  - Communicate with webservice in SOAP protocol 
+    and get response in SOAP protocol.
+- Representational State Transfer (REST)
+  - Communicate with webservice using REST architecture
+

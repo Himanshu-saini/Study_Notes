@@ -1,0 +1,15 @@
+=====
+WSDL
+=====
+
+- Web Service Definatio Language
+- XML document that describes a webservie
+
+- Also called Contract of the webservice
+- It is required by the testing tool(SoapUI) to test webservices
+
+- WSDL structure
+  ---------------
+  - <binding> tag
+    - defines operations provided by the webservice
+    - contains <opertaion> tag
