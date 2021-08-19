@@ -1,0 +1,160 @@
+======
+Maven
+======
+
+- Build toll
+  - helps developer in building their project
+
+- Setup Java Application
+  - Manage and maintain
+
+- Automated everything related to building the software project
+
+- helps in building a single executable entity
+  - downlaod all the dependencies
+  - Manage htese dependencies
+  - compile code
+  - build complete code and dependency into a single package
+
+Why maven?
+==========
+- Download ,manage and configure all the dependencies
+- List all dependencies name and verison in a single file (pom.xml)
+
+Download and configure Maven
+=============================
+- Check if maven is installed
+  - $ mvn --version
+
+- Requirements
+  - Java 7 or higher (JDK 1.7 or heigher)
+  
+- Method 1
+  --------
+  - Go to maven.apache.org/download
+  - Download Maven binaries (zip files) under "Files" column
+  - Unzip files
+  - Copy path of the maven directory containing bin, conf folders
+  - Create a system Environment variable as "M2_HOME" with value 
+    as the location opf maven directory
+  - Add this system environment variable to the user path variable
+    like "%M2_HOME%\bin"
+  
+- Method 2
+  --------
+  - Open Eclipse
+  - Go to Help > Eclipse Marketplave 
+  - Search for "maven"
+  - Install "Maven for Eclipse" 
+  - Restart Eclipse
+
+
+
+By default Maven uses the following naming conventions when looking for tests to run:
+
+    Test*
+    *Test
+    *Tests (has been added in Maven Surefire Plugin 2.20)
+    *TestCase
+
+If your test class doesn't follow these conventions you should rename it or configure Maven Surefire Plugin to use another pattern for test classes.
+
+
+Maven Cenral Repository
+========================
+- contain all the dependencies and version of projects
+  - https://mvnrepository.com/repos/central
+
+- Download dependencies
+  - Search for any depencies/project
+  - Click the desired project
+  - Click the desires version
+  - Copy the text (dependency path) Under the maven tag
+  - Paste it in tne POM.xml file of the maven project
+
+Generate Maven Project
+=======================
+
+- Method 1 : Command line
+  -----------------------
+  - Go to desired directory
+  - Open terminal/command line here
+  - Run: $ mvn archetype:generate
+    - It will Download all the templates and plugins requied
+  - Skip "Choose a number or aply filter"
+  - Skip "choose a number"
+  - For groupId, give a custom package name which 
+    you want to create inside the project
+    - com.demopackage.sample
+  - For artificateId, give a custom project name 
+    - MyDemoProject
+  - Skip "version" value
+    - It will take default value : 1.0-snapshot
+  - skip "package" <name> value
+  - Enter Y
+  
+- Method 2:
+  ---------
+  - Open Eclipse
+  - Go to New > Project > maven Project
+
+
+maven Project Structure
+-----------------------
+- src
+  - main/java
+    - dedicated to development code
+  - test/java
+    - dedicated to test code
+- pom.xml
+
+
+POM.xml
+--------
+- xml file containing info about project and its dependencies
+- <project>
+  - root tag
+
+- Project info
+  - <groupId>
+  - artificateId>
+  - <version>
+
+- <properties> tag
+
+- <dependencies> tag
+  - contain list of all project dependencies
+  - Default dependency : junit
+  - Defined as:
+    <dependency>
+      <groupId>
+      artificateId>
+      <version>
+    </dependency>
+
+- <plugins> tag
+  - cantain list of all plugins
+  - Defined as:
+    <plugin>
+      <artificateId>
+      <version>
+    </plugin>
+
+Make the project Eclipse compatible
+----------------------------------
+- All eclipse project have .project file
+  where eclipse will contain mapping of their project
+- Go inside the maven project
+- Run
+  - $ mvn eclipse:eclipse
+  - it will download some dependencies required by eclipse
+- New files were created
+  - .classpath
+  - .project
+  
+- Import project into eclipse
+  - Go to File > Import > 
+  - Select General > Existing project into worksapce
+  - Click next
+  - Browse the project location
+  - Click finish

@@ -1,0 +1,60 @@
+==============
+CSS Selectors
+==============
+
+- CSS selectors are used to "find" (or select) the HTML elements.
+
+Categories
+----------
+- Simple selectors 
+  - select elements based on tagname, id, class
+- Combinator selectors 
+  - select elements based on a specific relationship between them
+- Pseudo-class selectors 
+  - select elements based on a certain state
+- Pseudo-elements selectors 
+  - select and style a part of an element
+- Attribute selectors 
+  - select elements based on an attribute or attribute value
+  
+Universal selector
+------------------
+* - matches all elements
+ns|* - matches all elements in namespace ns
+
+
+Type selector
+-------------
+
+tagName - Selects all <tagName> elements
+
+element1.class1 - selects all element1 with class = class1
+element,element - selects both element
+element1 element2 - selects element2 inside element1
+element>element - selects eleement2 with element1 as parent
+element+element - selects element2 which comes after element1
+element1~element2 - selelcts element2 which is preceded by element1
+
+
+Class selector
+----------------
+.class1 - selects element with class = class1
+.class1.class2 - Selects all elements with both class1 and class2 set within its class attribute
+
+ID selector
+------------
+#id1 - selects element with id = id1
+
+Attribute
+---------
+[attr1] - Selects all elements with a attr1 attribute
+[strr1~=value]1 - Selects all elements with a attr1 attribute containing the word "value1"
+[attribute^=val1] - selects attribute with value starting as val1
+[attribute$=val1] - selects attribute with value ending as val1
+[attribute*=val1] - selects attribute with substring as val1
+
+Pseudo selectors
+----------------
+:active - Selects the active link
+:nth-child(n) - Selects every element1 that is the nth child of its parent
+
