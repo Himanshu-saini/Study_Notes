@@ -1,0 +1,25 @@
+==================
+Cofigure Git Bash
+==================
+
+- Configure user name and email
+  - same as github account
+
+- Check email, username and password in git bash
+  - $ git config user.email
+  - $ git config user.name
+  - $ git config user.password
+
+
+- Change email, username and password in git bash
+  - $ git config --global user.email "abc@email.com"
+  - $ git config --global user.name "ShadowSword"
+  - $ git config --global user.password "ShadowSword@1111"
+
+
+
+
+
+
+
+

@@ -12,9 +12,6 @@ Virtualenv:
   OR
   $ py -m pip install --user virtualenv
 
-- Install for linux:
-  $ apt-get install python3-virtualenv
-
 - Use vemv or virtualenv
   $ python3 -m venv env   
   or
@@ -22,6 +19,11 @@ Virtualenv:
 
 - Activating
   $ .\env\Scripts\activate   
+  
+- Install for linux:
+  $ apt-get install python3-virtualenv
+- Acivate in Linux
+  $ source .\env\Scripts\activate   
 
 - You can confirm you’re in the virtual environment by checking the location of your Python interpreter, 
   it should point to the env directory.
