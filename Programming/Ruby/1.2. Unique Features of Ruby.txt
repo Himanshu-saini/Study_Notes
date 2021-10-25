@@ -1,0 +1,149 @@
+========================
+Unique Features of Ruby
+========================
+
+- The universal truth
+  --------------------
+  - In Ruby, everything except "nil" and "false" is considered true.
+  
+- Everything has a value
+  ----------------------
+  - There’s no difference between an expression and a statement. 
+  - Everything has a value, even if that value is nil
+  - Ex.
+    z = if x < y
+        true
+      else
+        false
+      end
+    # z => true
+
+- Everything is an Object
+  -------------------------
+  - Even classes and integers are objects
+  - Ex.
+     MyClass = Class.new do
+      attr_accessor :instance_var
+    end
+    # This is the same as
+    class MyClass
+      attr_accessor :instance_var
+    end
+   
+- Symbels
+  -------
+  - Ex
+    > :Himanshu
+  - any Symbol with the same characters references the same Object in memory
+    - :Himanshu.object_id == :Himanshu.object_id  # true
+  - If you’re in doubt whether to use a Symbol or a String, 
+    consider what’s more important: 
+    the identity of an object (i.e. a Hash key), 
+    or the contents (value, “Himanshu”).
+
+- Variable Constants
+  ------------------
+  - Constants are not really constant. 
+  - If you modify an already initialized constant, 
+    it will trigger a warning, but not halt your program
+
+- Naming conventions
+  ------------------
+  - Ruby enforces some naming conventions. 
+  - Constant : Starts with Capital Letter
+  - Global variable : starts with a dollar sign ($) 
+  - Instance valriable : starts with @ 
+  - Class variable : starts with @@
+
+  - Method names, are allowed to start with capital letters.
+  - This can lead to confusion
+    Constant = 10
+    def Constant
+      11
+    end
+    # Now Constant is 10, but Constant() is 11.
+
+- Operators are syntactic sugar
+  -----------------------------
+  - Operatos are syntax for calling methods having precedence rule
+  - Can override operators
+    class Integer
+      def +(other)
+        self - other
+      end
+    end
+  - To define the unary + and -, 
+    you must define the +@ and -@ methods
+  - Operators that cannot be redefined
+    - =, .., ..., not, &&, and, ||, or, ::
+    - +=, *= etc. are just abbreviations, therefore cannot be redefined.
+    
+- Classes are open
+  ----------------
+  - You can open them up, add to them, and change them at any time
+  - Even core classes, like Integer or Object (the parent of all objects)
+
+- Singleton methods
+  -----------------
+  - Singleton methods are per-object methods. 
+  - They are only available on the Object you defined it on.
+  - Ex.
+    porsche = Car.new
+    def porsche.inspect
+      "Expensive car"
+    end
+    > porsche.inspect # => Expensive car
+    - inspect function is only available to porsche
+
+- Blocks are Objects, they just don’t know it yet
+  ------------------------------------------------
+  -  To call a block, you can either use yield, 
+     or make it a Proc by appending a special argument to the argument list
+  - Ex
+    def block(&the_block)  # the_block is the block passed to the method
+      the_block # return the block
+    end
+    adder = block { |a, b| a + b } # adder is now a Proc object
+    adder.class  # => Proc
+  - can also create block by
+    - calling Proc.new with a block 
+    - calling the lambda method.
+
+- Methods are also Objects in the making
+  --------------------------------------
+  - method(:puts).call "puts is an object!"  # => puts is an object!
+ 
+- Keyword arguments
+  -----------------
+  - Like in Python, since Ruby 2.0 methods can be defined using keyword arguments:
+  - Ex. 
+    func(arg: "value")  # uses default value for other arguments, if any
+    
+- Funny method names
+  ------------------
+  - methods are allowed to end with question marks or exclamation marks
+  - convention
+    - methods that answer questions end in question marks 
+    - Potentially “dangerous” methods end with exclamation marks
+
+- Missing methods
+  ---------------
+  - If a method is not found, method_missing method is called 
+    with the name and arguments of the method
+  - By default, method_missing raises a NameError exception, 
+    but you can redefine it
+  - Ex
+    def method_missing(id, *arguments)
+      puts "Method #{id} was called, but not found. It has " +
+           "these arguments: #{arguments.join(", ")}"
+    end
+
+- Message passing, not function calls
+  -----------------------------------
+  - A method call is really a message to another object
+  - Ex.
+    - 1 + 2
+    - 1.+(2)
+    - 1.send "+", 2
+    # All are same
+

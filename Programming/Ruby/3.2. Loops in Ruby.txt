@@ -1,0 +1,21 @@
+==============
+Loops in Ruby
+==============
+
+- using "each" method
+  - takes a block of code and run it for each item in a iterable list
+  - Ex
+    nameList.each do |name|
+      puts "Hello #{name}"
+    end
+
+  - do ... end is a block of code
+    - A block is like an anonymous function or "lambda"
+    -  The variable between pipe characters is the parameter for this block.
+
+  - Internally, the each method will essentially call yield <value>
+
+- 3.times do
+    print 'Welcome '
+  end
+

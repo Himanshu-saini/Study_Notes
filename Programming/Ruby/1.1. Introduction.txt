@@ -1,0 +1,46 @@
+==================
+Ruby Instroduction
+==================
+
+- file extension: ".rb"
+- run
+  > ruby file.rb
+
+- 1st line in program file tells 
+  Unix-like OS how to run the file
+  - #!/usr/bin/env ruby
+
+- Import library
+  - use "require" keyword
+  
+- if __FILE__ == $0
+  - check “If this is the main file being used…”
+  
+- read docs on the command line
+  > ri 
+
+- no special line terminators, except the usual newline
+
+- Only One type of list : Arrays []
+- Hashes {} : like python dict
+
+- There’s no way to unset a variable once set (like Python’s del)
+  - reset a variable to nil, allowing the old contents to be garbage collected, 
+    but the variable will remain in the symbol table as long as it is in scope.
+
+Comments in Ruby 
+=================
+- Single line Comment
+  -------------------
+  - every line followed by "#"
+  - Ex. # This is a comment in ruby
+
+- Multiline comment
+  -----------------
+  - using =begin and =end
+  - The =begin and =end must be at the beginning of the line 
+  - Ex.
+    =begin
+    this is a comment
+    =end
+

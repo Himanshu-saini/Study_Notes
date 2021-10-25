@@ -1,0 +1,59 @@
+=================
+Usefull Methods
+=================
+
+- __FILE__ 
+  --------
+  - magic variable that contains the name of the current file.
+
+- $0 
+  ----
+  - name of the file used to start the program
+  
+- object_id 
+  ----------
+  - returns the identity of an Object.
+  - Same object_id means point to the same Object in memory
+  - Ex: 
+    > name.object_id
+    > "Himanshu".object_id
+  
+- instance_methods
+  -----------------
+  - List all methods of a class
+  - Ex. Person.instance_methods
+    - Also include methods of ancestor classes
+  - Ex. Person.instance_methods(false) 
+    - Do not list methods of ancestor class
+  
+- respond_to?
+  -----------
+  - checks whether a method is available/reposnds to
+    an object
+  - return true/false
+  - Ex. p1.responds_to?("printDetails")  // true
+    - access class method
+  - Ex. p1.responds_to?("name")  // false
+    - access instance variable
+  - Ex. p1.responds_to?("name=")  // false
+    - check if the instance variable can be changed/set or not
+
+- mil?
+  ----
+  - checks if a variable has nil value
+  - return true/false
+  - Ex: var.nil?
+  
+- to_s
+  -----
+  - convert object to string
+  - defined by default for every object
+  - Ex. obj.to_s
+
+- join
+  -----
+  - join each value in a list with a string
+  - returns a Sring
+  - Ex.
+    - nameList.join(". ")  // return a string having all name
+

@@ -1,0 +1,6 @@
+==================
+Data Types in Ruby
+==================
+
+- nil
+  - absolutely positively nothing

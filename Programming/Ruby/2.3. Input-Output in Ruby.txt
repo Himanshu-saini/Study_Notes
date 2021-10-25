@@ -1,0 +1,21 @@
+=====================
+Input/Output in Ruby
+=====================
+
+Output Statement
+================
+
+- puts
+  -----
+  - Syntax : puts "Print this"
+  - Return type : nil
+  
+  - Inserting variable in string
+    - use #{var}
+    - var is converted to string and the inserted into outer string
+    - Ex
+      - puts "Hi, i am #{name.captalize}.My age is #{age}"
+    - name.captalize : string var property 
+
+
+

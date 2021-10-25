@@ -1,0 +1,95 @@
+==============
+Creating Class
+==============
+
+- use "class" keyword
+- In ruby, we can repoen a class and modify it
+  - The changes will be available in all new/old objects
+- Instance variable
+  - declare/access using "@" symbol
+  - Ex: @var1 = 123
+  - acessible to all methods of class
+  - Can not be accessed outside class
+
+- Ex:
+  class Person
+    def initialize(name="NA")
+      @name = name
+    end
+    def printDetails
+      puts "Name = #{@name}"
+    end
+  end
+
+- Get Class/Object info
+  ----------------------
+  - Person.instance_methods
+    - Get list of all instance variable of a class
+  
+  - p1.responds_to?("name")
+    - Check if a method responds to an object
+  
+- Creating object
+  ---------------
+  - p1 = Person.new("Himanshu")
+  
+- Calling function
+  ----------------
+  - p1.printDetails
+
+- Calling variable
+  ----------------
+  - p1.name : Error/Not possible
+  - p1.@name : Error/Not possible
+  
+  - can modify this default property to allow 
+    access of variable outside the class
+  - class Person
+      attr_accessor :name
+    end
+  - p1.name  // Now possible, print the name value
+
+- Access modifier
+  ---------------
+  - public
+    - default 
+    - like public
+  - private
+    - method(s) are accessible only when 
+      they can be called without an explicit receiver. 
+    - Only self is allowed to be the receiver 
+      of a private method call.
+  - protected
+    - A protected method can be called from a class 
+      or descendant class instances, 
+      but also with another instance as its receiver. 
+  - public, private and protected are really methods, so they can take parameters
+  - Access modifiers apply until the end of scope, 
+    or until another access modifier pops up
+  - Ex 
+    class MyClass
+      private
+      def a_method; true; end
+      def another_method; false; end
+    end
+    # a_method, another_method both are private
+
+
+- Classes are open
+  ----------------
+  - You can open them up, add to them, and change them at any time
+  - Even core classes, like Integer or Object (the parent of all objects)
+
+- Singleton methods
+  -----------------
+  - Singleton methods are per-object methods. 
+  - They are only available on the Object you defined it on.
+  - Ex.
+    porsche = Car.new
+    def porsche.inspect
+      "Expensive car"
+    end
+    
+    porsche.inspect # => Expensive car
+    - inspect function is only available to porsche
+

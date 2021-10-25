@@ -1,0 +1,48 @@
+===================
+Defining functions
+===================
+
+- using "def" keyword
+- Ex:
+  def sayHi()
+  puts "Hello World!"
+  end
+
+- Can use Default argunent
+  - Ex:
+  - def sayHi(name = "world")
+    puts "Hello #{name}!"
+    end
+  
+- Function call
+  -------------
+  - use only name of function if no argumant is needed
+  - Ex: 
+    > sayHi
+    > sayhi() 
+  - Passing paraments 
+  - Ex:
+    > sayHi("Himanshu")
+    > sayHi "Himanshu"
+      - Paraments can be passed withour parentheses
+      - comma seperated values
+
+- Funny method names
+  ------------------
+  - methods are allowed to end with question marks or exclamation marks
+  - convention
+    - methods that answer questions end in question marks 
+    - Potentially “dangerous” methods end with exclamation marks
+
+- Missing methods
+  ---------------
+  - If a method is not found, method_missing method is called 
+    with the name and arguments of the method
+  - By default, method_missing raises a NameError exception, 
+    but you can redefine it
+  - Ex
+    def method_missing(id, *arguments)
+      puts "Method #{id} was called, but not found. It has " +
+           "these arguments: #{arguments.join(", ")}"
+    end
+
