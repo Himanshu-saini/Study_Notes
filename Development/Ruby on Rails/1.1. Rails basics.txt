@@ -1,0 +1,29 @@
+===============
+Rails Basics
+==============
+
+
+- Install project requirements
+  - $ bundle install
+    - bundler package requirer
+
+- Run server
+  - $ rails server
+
+- Check routes
+  - $ rails routes
+
+- Get console 
+  - $ rails console 
+
+
+File Structure
+===============
+
+- apps
+- cofig
+  - database.yml
+  - routes.rb
+  
+
+
