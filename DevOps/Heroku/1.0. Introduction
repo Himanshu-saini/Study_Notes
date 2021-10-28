@@ -1,0 +1,6 @@
+=============
+Introduction
+=============
+
+- By default, new applications are deployed to a free dyno. 
+- Free apps will “sleep” to conserve resources.
