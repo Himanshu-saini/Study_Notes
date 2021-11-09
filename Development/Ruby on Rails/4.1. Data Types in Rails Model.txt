@@ -1,0 +1,30 @@
+===================
+Data Type in Rails
+===================
+
+- :string
+- :text 
+  - Longer String, i.e., paragraphs
+  
+- :integer
+- :float
+- :decimal 
+  - more precise than float
+  
+- :boolean
+- :binary 
+  - stores data such as images, audio, or movies
+
+- :date 
+  - stores the date only
+- :datetime (
+  - stores the date AND time in a column and can handle time zones 
+  — Format: YYYY-MM-DD HH:MM:SS 
+  - range: 1000–01–01 00:00:00 to 9999:12–31 23–59–59
+- :timestamp 
+  - same as datetime, 
+  - Specific to Coordinated Universal Time (UTC) 
+  - Limited range: 1970–01–01 00:00:01 UTC to 2038–01–09 3:14:07 UTC
+- :time 
+
+- :primary_key

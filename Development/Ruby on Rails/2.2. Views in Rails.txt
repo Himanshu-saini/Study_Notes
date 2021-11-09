@@ -1,0 +1,33 @@
+======
+Views
+======
+
+- contains HTML pages
+- saved as <name>.html.erb
+  - erb : embedded ruby
+
+- views/layouts/   # contains template code
+  - applicaition.html.erb  # base template for each page 
+
+
+- Each major section has its own dir
+  - views/home/  # for home page
+  - we can have multiple pages here 
+	that comes under same route
+
+- Tags for embedded ruby 
+  - <% %>   # run ruby code here (ex. loop,conditions,..)
+  - <%= %>   # when we want to output this on screen (ex. partials)
+    
+  - <%= yield %>
+    - embedd our main page code here 
+
+Partials
+=========
+- subsection code to be included in a page template 
+- name starts with underscore
+  - Ex. _header.html.erb
+
+- To display partials in application template 
+  - <%= render '<location_in_views>' %>
+    <%= render 'home/header' %>  # no need to write underscore and extentions

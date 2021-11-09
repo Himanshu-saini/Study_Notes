@@ -1,0 +1,25 @@
+=======
+Routes
+=======
+
+- config/routes.rb 
+- $ rails routes   # list all routes for our project
+  - Output
+    - prefix 
+	  - variable name for internal linking
+	- verb
+	  - Type of URI (get/post/put)
+	- URI pattern
+	  - Web URI/API 
+	- Controller#Action
+	  - hit location of link (which file to open)
+	  
+- routes url matches with the file having same path
+
+- For root route 
+  - root '<app_name>#<page_name>'
+    root 'home#index'
+ 
+- For other routes 
+  - get '<app_name>/<page_name>'
+    get 'home/about'

@@ -1,0 +1,20 @@
+===============
+Links in Rails
+===============
+
+- Links are created using 'link_to' tag
+- <%= link_to "<Display Name>", <prefix_path>, class:"<class_name>" %>
+  <%= link_to "My Home", home_path, class:"nav-link" %>
+  
+- <prefix_path> is obtain from prefix column of 
+  $ rails routes command
+  - add '_path' at the end of prefix name
+  - Ex.
+    root_path # for root link 
+	home_about_path  # for home_about link 
+
+
+- For adding method to our link use method attribute
+  - Ex 
+    <%= link_to "Sign Out", destroy_user_session_path, 
+    method: :delete, class:"nav-link" %>

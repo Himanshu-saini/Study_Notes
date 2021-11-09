@@ -1,0 +1,67 @@
+============================
+Authentication Gem - devise 
+============================
+
+- Gem Name 
+  - devise
+
+- Repo
+  - https://github.com/heartcombo/devise
+
+Setup
+-------
+- Add Gem link to Gemfile 
+- $ bundle install
+- $ rails generate devise:install
+- Complete the steps provided
+  - Add default mailer link in environment file
+  - Add root url in routes.rb 
+  - Add flash msg in application.html.erb file
+  - Generate Devise views
+    - $ rails g devise:views 
+
+- Create Model
+  - $ rails generate devise <model_name>
+    $ rails generate devise user
+- Push Migrations
+  - $ rails db:migrate
+
+- Read documentation to know more about its uses
+
+  
+Controller filters and helpers
+==============================
+- If your devise model is something other than User, 
+  replace "_user" with "_yourmodel"
+
+- Sign out - Destroy Session
+  ---------------------------
+  <%= link_to "Sign Out", destroy_user_session_path, 
+  method: :delete, class:"nav-link" %>
+  
+- Authentication 
+  --------------
+  - For checking user login before running any function in the class 
+  - before_action: authenticate_user!
+  - Adding exception
+    - before_action: authenticate_user!,except [:show,:<function_name>]
+  - Adding specific functions
+    - before_action: authenticate_user!,only [:show,:<function_name>]
+
+- Accessing user specific data 
+  -----------------------------
+  - create a function in controller where CRUD function are defined
+  - def correct_user
+      @userdata = current_user.data.find_by(id: params[:id])
+	  redirect_to userdata_path, notice: "Not Authorized" if @userdata.nil?
+    end
+	
+  - Add this function as before_action 
+    before_action :correct_user, only: [:edit, :update, :destoy]
+
+- Helpers
+  ---------
+  - user_signed_in?  # verify if a user is signed in
+  - current_user  # Get current signed-in user
+  - user_session  # access the session for this scope
+ 

@@ -1,0 +1,15 @@
+=======================
+Adding Gems in Project
+=======================
+
+- Central Repo for Gems 
+  - rubygems.org
+
+
+Adding Gems to project
+-----------------------
+- Search for required gem on rubygems.org 
+- Copy Gem link for Gemfile 
+- Add Gem to the Gemfile and save it
+- Run $ bundle install
+- Read 'Documentation' for instruction on how to use the gem 

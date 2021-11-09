@@ -1,0 +1,33 @@
+==================
+Project Structure
+==================
+
+- apps/  # Core application (app) code, including models, views, controllers, and helpers
+  - assets/  # includes assest like CSS and images
+  - chennels/
+  - controlers/
+  - helpers/
+  - javascript/
+  - jobs/
+  - mailers/
+  - models/
+  - views/
+- bin/  # Binary executable files
+  - rails # A program for generating code or starting a local server
+- cofig/  # Application configuration
+  - config.ru  # A configuration file for Rack middleware
+  - database.yml
+  - routes.rb
+- db/  # Database files
+  - Gemfile  # Gem requirements for this app (dependencies)
+  - gemfile.lock  # ensure that all copies of the app use the same gem versions
+- doc/  # Documentation for the application
+- lib/  # Library modules
+- log/  # Application log files
+- node_modules/
+- public/  # Data accessible to the public (e.g., via web browsers), such as error pages
+- test/  # Application tests
+- tmp/  # Temporary files
+- Rakefile
+- README.md  # A brief description of the application
+- .gitignore

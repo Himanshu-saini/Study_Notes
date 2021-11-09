@@ -1,0 +1,32 @@
+==========
+Generator
+==========
+
+- rails generate <...>
+  rals g <...>
+
+- Creating Webpage
+  ----------------
+  $ rails g controller home index
+  - Creates
+    - page in views 
+    - controller
+    - route 
+
+- Scaffold
+  ---------
+  $ rails g scaffold <model_name> <field1>:<type> <field2>:<type> ...
+  
+  - Creats a basic structure for our Model 
+    to use CRUD functions
+
+  $ rails g scaffold person name:string age:integer
+  - Creates 
+    - A 'person' model
+    - A 'person' controller
+    - A new route 'resources :person' that was added to config/routes.rb.
+    - Views inside app/views.person
+    - Some testing files
+
+- Undo this using 'destroy' command
+  $ rails destroy scaffold person

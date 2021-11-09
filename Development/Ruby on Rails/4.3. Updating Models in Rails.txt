@@ -1,0 +1,10 @@
+=========================
+Updating Models in Rails
+=========================
+
+- Addng a new field in an existing table 
+  $ rails g migration add_<field_name>_to_<table_name> <field_name>:<data_type>[:<options0>]
+  $ rails g migration add_user_id_to_friends user_id:integer:index
+
+- Push migration 
+  $ rails db:migrate 

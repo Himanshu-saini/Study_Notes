@@ -2,13 +2,13 @@
 Rails Basics
 ==============
 
-
 - Install project requirements
   - $ bundle install
     - bundler package requirer
 
 - Run server
   - $ rails server
+    $ rails s
 
 - Check routes
   - $ rails routes
@@ -16,14 +16,6 @@ Rails Basics
 - Get console 
   - $ rails console 
 
-
-File Structure
-===============
-
-- apps
-- cofig
-  - database.yml
-  - routes.rb
-  
-
-
+- Version manager
+  - rbenv
+  - rvm (prefered)

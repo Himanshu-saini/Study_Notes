@@ -1,0 +1,7 @@
+================
+Getting Started
+================
+
+- Create New Rails App
+  - $ rails new <app name>
+  

@@ -1,0 +1,34 @@
+===========
+Controller
+===========
+
+- logic/backend code function comes in controller file 
+- We can have multiple controllers
+
+- Example Controller:
+  --------------------
+  class <controller_name> < ApplicationController
+	def index 
+	end
+
+	def page2
+    end
+  end 
+
+- Instance Variable
+  -----------------
+  - We can use instance vairable in controller to send data
+    the corresponding views
+  - Ex.
+    Comntrollers/home_controller.rb
+	------------
+	def home
+	  @userName = current_user.name
+	end
+	
+	home/index.html.erb
+	------------
+	<h1> <%= @userName %> <h1>
+
+
+

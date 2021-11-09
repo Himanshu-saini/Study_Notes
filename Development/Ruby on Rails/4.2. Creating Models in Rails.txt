@@ -1,0 +1,57 @@
+=================
+Models in Rails
+=================
+
+- Using Scaffold
+  ---------------
+  $ rails g scaffold <model_name> <field1>:<type> <field2>:<type> ...
+  
+  - Creats a basic structure for our Model 
+    to use CRUD functions
+
+  $ rails g scaffold person name:string age:integer
+  - Creates 
+    - A 'person' model in 'db' dir
+    - A 'person' controller
+    - A new route 'resources :person' that was added to config/routes.rb
+	  - 'resurces' defines CRUD routes for our model 
+	  - for create, show, edit, destroy
+    - Views inside 'app/views.person'
+    - Some testing files
+
+- Undo this using 'destroy' command
+  $ rails destroy scaffold person
+
+- pushing Migration in DB
+  $  rails db:migrate
+  - Create 'db/schema.rb' file
+  - 'created_at' and 'updaed_at' are added to the table by default
+
+- Check Table Details
+  --------------------
+  - Go to db/schema.rb to check all the models/tables of the project
+
+- Check CRUD function creaed by Rails
+  ------------------------------------
+  - Go to 'Controllers/<table_name>_controller.rb'
+    - Various function for our Model are created here
+  
+  - params
+    ------
+    - form fields 
+	  - parameters that are accepted to create a new row
+	- function name: <table_name>_params
+	  - params.permit(<list of variables>)
+
+- before_action
+  ---------------
+  - defines an action that is taken before any other function
+    in the class
+  - Ex
+  - before_action: authenticate_user! # check for user authentication 
+
+  - Adding exception
+    - before_action: authenticate_user!,except [:show,:<function_name>]
+  - Adding specific functions
+    - before_action: authenticate_user!,only [:show,:<function_name>]
+

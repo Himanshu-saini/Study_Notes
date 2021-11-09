@@ -1,0 +1,37 @@
+==================
+Rails Association
+==================
+
+- connection between two Active Record models
+
+
+Types of Asociation
+--------------------
+- belongs_to
+- has_one
+- has_many
+- has_many :through
+- has_one :through
+- has_and_belongs_to_many
+
+Using Association
+------------------
+- Note
+  - Delete any old data before adding association to an existing table
+
+- Go to the model file 
+- Add <assocaiton_type> :<model_name>
+- Remeber to add association to both the Models
+
+- Changes in Controller 
+  ----------------------
+  - Change in CRUD function to save data with association 
+  - def new 
+      @friend = current_user.friends.build
+	end 
+	
+  - def create  
+      @friend = current_user.friends.build(friend_params)
+	  ...
+	end 
+	
