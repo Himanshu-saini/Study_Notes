@@ -32,3 +32,5 @@ Deploy Ruby-on-rails project
 - Run the Rails console
   - $ heroku run rails console
 
+- Send Master Key to heroku (For DB Connection)
+  - $ heroku config:set RAILS_MASTER_KEY="$(< config/master.key)"
