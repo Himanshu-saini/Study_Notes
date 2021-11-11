@@ -18,42 +18,9 @@ Linux
   - $ heroku run bash
 - Any commands after the heroku run are executed on a Heroku dyno
 
-Deploy Ruby-on-rails project
------------------------------
-- Go to rials app dir
-- Pre-requisite 
-  - Create gemfile
-  - Setup config/database.yml
-  - Setup config/environments/production.rb
-  - Install GIT
-
-- Create app on heroku 
-  - $ heroku create
-
-- Verify
-  - $ git config --list --local | grep heroku
-
-- Deploy
-  - $ git push heroku <branch_name>:main
-    - if branch_name == "main", use only <branch_name> 
-
-- Migrate DB
-  - $ heroku run rake db:migrate
-    - For new rails app 
-  
-- Ensure that dyno is running the web process type
-  - $ heroku ps:scale web=1
-
-- visit the app in our browser
-  - $ heroku open
-
-- Run the Rails console
-  - $ heroku run rails console
-
-- View logs
-  ---------
-  - $ heroku logs
-  - $ heroku logs --tail
-    - full stream of logs
-
-  
+View logs
+---------
+- $ heroku logs
+- $ heroku logs --tail
+  - full stream of logs
+ 
