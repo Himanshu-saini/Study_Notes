@@ -5,3 +5,5 @@ Getting Started
 - Create New Rails App
   - $ rails new <app name>
   
+- Create new API 
+  - $ rails new <app name> --api

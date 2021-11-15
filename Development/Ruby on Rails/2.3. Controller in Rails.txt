@@ -30,5 +30,16 @@ Controller
 	------------
 	<h1> <%= @userName %> <h1>
 
-
+- Create Cnntrollers
+  -----------------
+  - $ rails generate controller <controllerName> <actionName> --skip-routes
+    - controllerName : fileName/className of controller
+    - actionName : name of function/route
+	- --skip-routed : not create a seperate route for this controller 
+	- Create 
+	  - controller file 
+	  - views file 
+	  - scss file 
+	  - route 
+	  - test files
 

@@ -2,8 +2,21 @@
 Models in Rails
 =================
 
+- Using Model command
+  ====================
+  $ rails g model <model_name> <field1>:<type>:<constraint> <field2>:<type> ...
+  
+  - <constraint>
+    - uniq : to make column unique
+  
+- Pushing Migration in DB
+  -------------------------
+  $  rails db:migrate
+  - Create 'db/schema.rb' file
+  - 'created_at' and 'updaed_at' are added to the table by default
+
 - Using Scaffold
-  ---------------
+  ===============
   $ rails g scaffold <model_name> <field1>:<type> <field2>:<type> ...
   
   - Creats a basic structure for our Model 
@@ -20,12 +33,9 @@ Models in Rails
     - Some testing files
 
 - Undo this using 'destroy' command
+  -----------------
   $ rails destroy scaffold person
 
-- pushing Migration in DB
-  $  rails db:migrate
-  - Create 'db/schema.rb' file
-  - 'created_at' and 'updaed_at' are added to the table by default
 
 - Check Table Details
   --------------------

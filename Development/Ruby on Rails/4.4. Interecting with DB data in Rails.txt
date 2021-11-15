@@ -1,0 +1,22 @@
+=================================
+Interecting with DB data in Rails
+=================================
+
+- Inserting data in table
+  ------------------------
+  - obj = <modelName>.new(<columnName>:<value>,...)
+  
+  - This will only initialize a model object
+  - Save it to push changes to DB
+
+- Push changes into DB 
+  ---------------------
+  - <modelObjectName>.save
+
+- Find Data
+  -----------
+  - <modelName>.find(<id>)
+
+- Fetch all data from table 
+  ------------------------
+  - <modelName>.all 
