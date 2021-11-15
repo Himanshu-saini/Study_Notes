@@ -1,0 +1,19 @@
+============
+Git Commands
+============
+
+- Reverting Untracked Changes
+  ---------------------------
+  - $ git clean -df
+  - $ git checkout -- .
+
+- Removing New Untraced File
+  --------------------------
+  - $ git clean -df
+    - Do not remove modified changes
+
+- Move to last commit state
+  -------------------------
+  - $ git checkout -- .
+    - Do not delete untraced files
+	- Undo only changes in modified files
