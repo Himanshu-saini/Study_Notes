@@ -92,6 +92,9 @@ Git Commands
   - Switch to branch where code is to be merged (MASTER)
   - git merge testing
 
+- Merge Selective file from one branch to current branch 
+  - $ git checkout <source_branch> <file_path>
+
 - Ignore file from tracking (.gitignore)
   - special configuration hidden file 
   - For listing private files info
