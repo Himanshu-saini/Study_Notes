@@ -13,7 +13,9 @@ Models in Rails
   -------------------------
   $  rails db:migrate
   - Create 'db/schema.rb' file
-  - 'created_at' and 'updaed_at' are added to the table by default
+  - 'created_at' and 'updated_at' are added to the table by default
+  - should only be used for incremental migrations
+    - To dot use when changing db
 
 - Using Scaffold
   ===============
@@ -33,35 +35,18 @@ Models in Rails
     - Some testing files
 
 - Undo this using 'destroy' command
-  -----------------
+  --------------------------------
   $ rails destroy scaffold person
 
+
+Check Details 
+=============
 
 - Check Table Details
   --------------------
   - Go to db/schema.rb to check all the models/tables of the project
 
-- Check CRUD function creaed by Rails
+- Check CRUD function created by Rails
   ------------------------------------
   - Go to 'Controllers/<table_name>_controller.rb'
     - Various function for our Model are created here
-  
-  - params
-    ------
-    - form fields 
-	  - parameters that are accepted to create a new row
-	- function name: <table_name>_params
-	  - params.permit(<list of variables>)
-
-- before_action
-  ---------------
-  - defines an action that is taken before any other function
-    in the class
-  - Ex
-  - before_action: authenticate_user! # check for user authentication 
-
-  - Adding exception
-    - before_action: authenticate_user!,except [:show,:<function_name>]
-  - Adding specific functions
-    - before_action: authenticate_user!,only [:show,:<function_name>]
-

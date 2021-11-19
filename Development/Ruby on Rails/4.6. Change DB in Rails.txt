@@ -1,0 +1,55 @@
+==================
+Change DB in Rails
+==================
+
+- https://stackoverflow.com/questions/1670154/convert-a-ruby-on-rails-app-from-sqlite-to-mysql
+
+- Backup your Data
+  ----------------
+  - Using yaml_DB gem
+    ------------------
+    - Add to Gemfile
+	  $ gem 'yaml_db'
+	- Dump contents of Rails database to db/data.yml
+	  $ rake db:data:dump
+	  $ rake db:dump
+	- Dump contents of database to 
+	  curr_dir_name/tablename.extension (defaults to yaml)
+      $ rake db:data:dump_dir
+	  
+	- Load contents of db/data.yml into the database
+	  $ rake db:data:load
+	  $ rake db:load
+	- Load contents of db/#{dir} into database 
+	  (where dir is ENV['dir'] || 'base')
+	  $ rake db:data:load_dir
+	  
+  - Run bundle command to install gem
+    $ bundle / $ bundle install
+	
+- Update your config/database.yml file
+  -----------------------------------
+  - Change development/production DB config 
+  - Ex.
+    production:
+      adapter: mysql
+      encoding: utf8
+      reconnect: false
+      database: **myapp_production**  # custom
+      pool: 5
+      username: **root**  # custom
+      password: **supersecretpassword**  # custom
+
+- Install DB gem 
+  ---------------
+  - For mysql
+    $ sudo gem install mysql2
+
+- Create your database
+  ---------------------
+  - $ rake db:create
+    $ rake db:schema:load
+
+- Use YamlDb to reload your data
+  ------------------------------
+  - $ rake db:load

@@ -7,3 +7,5 @@ Getting Started
   
 - Create new API 
   - $ rails new <app name> --api
+  
+  - https://guides.rubyonrails.org/v5.0/api_app.html

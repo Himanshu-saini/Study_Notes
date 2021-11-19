@@ -1,0 +1,45 @@
+=================================
+Interecting with DB data in Rails
+=================================
+
+- Inserting data in table
+  ------------------------
+  - obj = <modelName>.new(<columnName>:<value>,...)
+  
+  - This will only initialize a model object
+  - Save it to push changes to DB
+
+- Push changes into DB 
+  ---------------------
+  - <modelObjectName>.save
+
+- Find Data
+  -----------
+  - <modelName>.find(<id>)
+
+- Fetch all data from table 
+  ------------------------
+  - <modelName>.all 
+
+Adding Features
+================
+
+- before_action
+  ---------------
+  - defines an action that is taken before any other function
+    in the class
+  - Ex.
+    before_action: authenticate_user! # check for user authentication 
+
+  - Adding exception
+    - before_action: authenticate_user!,except [:show,:<function_name>]
+  - Adding specific functions
+    - before_action: authenticate_user!,only [:show,:<function_name>]
+	
+- Adding Validations
+  ------------------
+  - Use "validates" in the top of required Model class
+    validate <column_name>, [<validations>...]
+  - Ex.
+	validates :mobile, :presence => true,
+	:length => {is: 10}, format: {with: /[0,6-9]{1}[0-9]{9}/ }

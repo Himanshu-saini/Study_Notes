@@ -30,16 +30,32 @@ Controller
 	------------
 	<h1> <%= @userName %> <h1>
 
-- Create Cnntrollers
+- params
+  ------
+  - form fields/parameters that are accepted by controller api
+  - Defination: 
+    def <table_name>_params
+      params.permit(<list of variables>)
+	end
+
+- Create Controllers
   -----------------
-  - $ rails generate controller <controllerName> <actionName> --skip-routes
-    - controllerName : fileName/className of controller
-    - actionName : name of function/route
-	- --skip-routed : not create a seperate route for this controller 
+  - $ rails generate controller <controllerName> <actionName> [:options]
 	- Create 
 	  - controller file 
 	  - views file 
 	  - scss file 
 	  - route 
 	  - test files
-
+    - controllerName : fileName/className of controller
+    - actionName : name of function/route
+	- Options (--skip or --no are alias)
+  	  --no-routes : not create a seperate route for this controller 
+	  --no-stylesheets 
+	  --no-javascripts
+	  --no-helper 
+	  --no-assets 
+	  --no-template-engine
+    - Create Namespace
+	  - use <namespace>/<controllerName> 
+	  - Ex. api/v1/newController
