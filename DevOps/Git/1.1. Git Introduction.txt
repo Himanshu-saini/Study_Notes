@@ -1,0 +1,28 @@
+=================
+Git Introduction
+=================
+
+- distributed Verision control system
+- Version control systems allow to keep all the 
+  historical versions of your software for easy tracking
+- In addition, it can be used as a data center, making build automation 
+  and continous integration possible.
+
+- git keep track of changes in this folder, and subfolders 
+  by creating a .git hidden folder containing the git skeleton.
+  
+- Github
+  -------
+  - Github is a git hosting platform that provide 
+    free git repository for all opensource softwares.
+
+- Git maintains 3 sections on a local system
+  - Workspace/Wroking Dir
+    - where the code is created
+    - untracked files
+  - Stagging Area
+    - intermediated buffer zone of git
+    - Here files are called indexed files
+  - Local Repository
+    - location where version controlling happens
+    - Files present here are called commited files
