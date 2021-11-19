@@ -1,0 +1,65 @@
+=========
+CORS gem
+=========
+
+- Cross-origin resource sharing (CORS)
+- HTTP-header based security mechanism that defines 
+  who’s allowed to interact with your API.
+
+Need
+-----
+- Modern browsers block cross-origin requests by default.
+  - Cross-origin : Code executed on different domains, protocols, 
+    or ports have different origins
+
+- You’ll need to configure CORS only when you’re using Rails as an API. 
+- Not neeed If you build traditional Ruby on Rails monolith application
+  - frontend and backend in same rails project
+
+
+Adding to Project
+-----------------
+- Installing from terminal
+  $ gem install rack-cors
+- Adding Gem to Gemfile
+  gem 'rack-cors'
+
+
+Configure
+---------
+- You need to inform Rails which origin it should allow.
+
+- Create file : config/initializers/cors.rb
+  Rails.application.config.middleware.insert_before 0, Rack::Cors do
+    allow do
+      origins 'http://example.com:80'
+      resource '*', headers: :any, methods: [:get, :post]
+    end
+  end
+  - Add methods accourding to requirement
+  - Add origin url
+
+- configure separate CORS rules per endpoint
+  Rails.application.config.middleware.insert_before 0, Rack::Cors do
+    allow do
+      origins 'http://example.com:80'
+      resource '/orders',
+        :headers => :any,
+        :methods => [:post]
+      resource '/users',
+        headers: :any,
+        methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    end
+  end
+
+Middleware Positioning
+----------------------
+- Rack::Cors middleware
+- implement CORS middleware above any other middleware
+- Putting it after certain caching or authentication middlewares 
+  can lead to issues. 
+
+Serving Static Files
+---------------------
+- static files (such as assets), aren’t usually served by Rails
+- you can implement CORS separately in your web browser
