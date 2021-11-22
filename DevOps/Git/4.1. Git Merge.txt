@@ -1,0 +1,49 @@
+==========
+Git Merge
+==========
+
+Merge 2 or More commits together
+================================
+
+- Commits should not be pushed into remote branch 
+  - otherwise, there will be merge conflict
+  
+Option 1:
+---------
+- $ git rebase -i <commitHash>~
+  - <commitHash> : hash of commit you want to merge into
+  - ~ : tells every commit after this commit 
+
+- Merge all commit after <commitHash> into one  
+- In the editor opened
+  - use "fixup" or "sqaush" in front of commits you want to merge 
+  - fixup : commit message erased
+  - sqaush : commit message added into commit message of <commitHash>
+- Save and Exit file
+
+Option 2:
+----------
+- Reset HEAD to old commit and create a new commit with all current changes
+- $ git reset --hard HEAD~5
+  - git HEAD goes to commit before 5 resent commits i.e. last 6th commit 
+- Save all changes done till now
+  - $ git add .
+  - $ git commit -m "New Commit message"
+
+Merge one branch to current 
+=============================
+- $ git merge <branchName>
+  - $ copy all changes and commits
+
+- Merge Selective file from one branch to current branch 
+  - $ git checkout <source_branch> <file_path>
+  - $ git add .
+  - $ git commit -m "New Commit"
+
+Merge Conflict solutions
+=========================
+- $ git checkout --our <path/fileName>
+  - use local file changes to the branch 
+  
+- $ git checkout --theirs <path/fileName>
+  - use to-be-merge branch file changes
