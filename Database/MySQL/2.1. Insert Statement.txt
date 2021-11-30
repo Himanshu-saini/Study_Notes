@@ -1,0 +1,66 @@
+================
+INSERT in MySQL
+================
+
+
+INSERT IGNORE Statement
+------------------------
+- row with invalid data that cause the error are ignored
+
+- In Batch Statement,
+  the rows with invalid data that cause the error are ignored 
+  and the rows with valid data are inserted into the table.
+
+- INSERT IGNORE INTO table(column_list)
+  VALUES( value_list),
+    ( value_list),
+    ...
+
+- In INSERT IGNORE statement, instead of issuing an error, 
+  MySQL issued a warning in case an error occurs.
+- In addition, it will try to adjust the values 
+  to make them valid before adding the value to the table.
+
+- View warning using
+  - SHOW WARNINGS
+
+- Case 1:
+  - While inserting duplicate data for a unique field
+  - The row is ignored, and precess moves to next row
+
+- Case 2:
+  - If a longer string is added to field with set length
+  - String is truncated to fit into the column
+
+  
+INSERT ... ON DUPLICATE KEY UPDATE
+----------------------------------
+
+- INSERT INTO users_partners (uid,pid) VALUES (1,1) 
+  ON DUPLICATE KEY UPDATE uid=uid
+
+
+- Side-effects:
+  - new auto-increment ID is generated, but it is not used in the changed row.
+  - Same as REPLACE
+  
+- NOTE: REPLACE and INSERT...ON DUPLICATE KEY UPDATE are non-standard, 
+  proprietary inventions specific to MySQL
+- NOTE: ANSI SQL 2003 defines a MERGE statement that can solve the 
+  same need (and more), but MySQL does not support the MERGE statement.
+
+REPLACE
+--------
+- REPLACE works exactly like INSERT, 
+  except for a duplicate value for UNIQUE column 
+  it performs a replace
+
+- Side-effects:
+  - A new auto-increment ID is allocated to the PRIMARY KEY ID.
+  - Dependent rows with foreign keys may be deleted 
+    (if you use cascading foreign keys) or else prevent the REPLACE.
+  - Triggers that fire on DELETE are executed unnecessarily.
+  - Side effects are propagated to replicas too.
+
+- NOTE: REPLACE and INSERT...ON DUPLICATE KEY UPDATE are non-standard, 
+  proprietary inventions specific to MySQL
