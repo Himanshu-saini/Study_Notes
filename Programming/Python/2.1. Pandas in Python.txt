@@ -1,0 +1,14 @@
+========
+Pandas
+========
+
+- Library
+  - import pandas
+  
+- Iterate rows
+  - for index, row in df.iterrows() 
+    - row contails each column data
+	- refer using column name
+	  - row["col1"],row["col2"],..
+
+

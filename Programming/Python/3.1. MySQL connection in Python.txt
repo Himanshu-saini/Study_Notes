@@ -1,0 +1,71 @@
+==========================
+MySQL connection in Python 
+==========================
+
+- Library
+  - import MySQLdb
+
+Connect to DB server
+----------------------
+-	self.db = MySQLdb.connect(host=<Server Endpoint>, user=<username>,
+						passwd=<user password>, db=>DB name>
+						use_unicode=True, charset='utf8mb4')
+    - DB name is optional
+	self.cursor = self.db.cursor()
+	self.cursor.connection.open
+
+
+Run Command
+============
+
+Single Command 
+--------------
+- execute()
+
+
+Batch Execution
+-----------------
+
+- For Oracle DB:
+  https://blogs.oracle.com/opal/post/efficient-and-scalable-batch-statement-execution-in-python-cx_oracle
+
+- executemany()
+  - Better incase of batch operation
+  - cursor.executemany("""
+        insert into ParentTable (ParentId, Description)
+        values (:1, :2)""", data)
+  - determining how many rows are affected
+    - cursor.rowcount
+
+- Handling Bad Data
+  -----------------
+  - Using executemany(), execution stops at 
+    the first error that is encountered
+
+- Variable Data lengths
+  ---------------------
+  - When data is not uniform in type and size in batch
+  - type determination is deferred until a value that is not None is found
+  - adjust the size of the buffers used to store strings and bytes 
+    when a longer value is encountered in the data
+  - It will incur overhead as program reallocate memory 
+    and copy all of the data that has been processed thus far.
+	
+  - Solution: cursor.setinputsizes(<type>,<Size>) 
+    - tell about the type and size of the data
+	- Since program allocates memory for each row based on this value 
+	  it is best not to oversize it.
+	
+Commit and Rollback
+====================
+
+- In both the execute() and executemany() cases, 
+  rows that were inserted successfully open a transaction 
+  which will need to be either committed or rolled back 
+  with connection.commit() or connection.rollback(), 
+  depending on the needs of your application.
+  
+- Note that if you use autocommit mode, 
+  the transaction is committed only when no errors are returned; 
+  otherwise, a transaction is left open and will need to be 
+  explicitly committed or rolled back.
