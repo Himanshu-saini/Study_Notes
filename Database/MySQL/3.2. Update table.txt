@@ -1,0 +1,15 @@
+===============
+Update Table
+===============
+
+
+- Extract data from 1 column and insert into another column
+  --------------------------------
+UPDATE Instagram_Scraping.test_insta t
+INNER JOIN 
+(select id,substring_index(link_to_post, '/', -1) shortname 
+from Instagram_Scraping.test_insta) temp
+on t.id = temp.id
+SET t.post_id = temp.shortname;
+
+

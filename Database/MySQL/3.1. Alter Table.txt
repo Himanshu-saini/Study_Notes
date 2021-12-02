@@ -1,0 +1,23 @@
+==============
+Alter Table
+=============
+
+- ALTER IGNORE TABLE mytbl ADD UNIQUE (columnName);
+
+- ALTER TABLE Persons
+  ADD PRIMARY KEY (ID);
+
+
+- ALTER TABLE Persons
+  ADD CONSTRAINT PK_Person PRIMARY KEY (ID,LastName);
+
+
+- ALTER TABLE Persons
+  DROP PRIMARY KEY;
+
+
+- Rearrange column 
+  -----------------
+  ALTER TABLE Person 
+  MODIFY col1 varchar(10)
+  AFTER col4;
