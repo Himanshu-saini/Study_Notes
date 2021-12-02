@@ -1,0 +1,105 @@
+=================
+Logging in python
+=================
+
+- Library
+  - import logging
+
+- Default level: warning
+- Default filenode: 'a'
+- By default logging is printed in console (sys.stderr)
+
+- Levels (In order of Severity)
+  -------
+  - DEBUG : Details info 
+  - INFO : Short msg (function check)
+  - WARNING : unexpected happen but program working
+  - ERROR : Program not able to perform properly
+  - CRITICAL : Program stop
+  
+  - All logs above the severity level are printed
+  
+- Log to a file
+  --------------
+  - logging.basicConfig(filename='example.log',filemode='a',
+    encoding='utf-8', level=logging.DEBUG)
+  - The call to basicConfig() should come before 
+    any calls to debug(), info() etc
+
+- Changing the format of displayed messages
+  -----------------------------------------
+  - logging.basicConfig(format='%(levelname)s:%(message)s')
+  - Attributes
+    - %(asctime)s : Human readable time
+	- %(created)f : time.time()
+	- %(filename)s
+	- %(funcName)s
+	- %(levelname)s
+	- %(lineno)d : Source line number where the logging call was issued
+	- %(message)s
+	- %(module)s
+	- %(thread)d : Thread ID (if available).
+	- %(threadName)s : Thread name (if available).
+
+  - formatting of the date/time
+    - basicConfig(format='%(asctime)s %(message)s', 
+	  datefmt='%m/%d/%Y %I:%M:%S %p')
+	- same as supported by time.strftime()
+
+- Loggers object
+  --------------
+  - Logger.setLevel()
+    - specifies the lowest-severity log message
+  - Logger.addHandler()/Logger.removeHandler() 
+    - add and remove handler objects
+  - Logger.addFilter()/Logger.removeFilter() 
+    - add and remove filter objects
+  - Logger.debug(), Logger.info(), Logger.warning(), 
+    Logger.error(), and Logger.critical()
+    - create log messages
+  - Logger.exception() 
+    - Same as Logger.error()
+    - dumps a stack trace along with it
+  - Logger.log() takes a log level as an explicit argument
+
+  - getLogger() 
+    - returns a reference to a logger instance with 
+	  the specified name , or root if not
+
+Handlers
+=========
+- Send different log messages to different locations
+- NullHandler, StreamHandler and FileHandler classes 
+  - defined in the core logging package
+- For others 
+  - sub-module : logging.handlers
+- Builtin Handlers
+  -----------------
+  - StreamHandler 
+    - instances send messages to streams (file-like objects).
+  - FileHandler 
+	- instances send messages to disk files.
+  - HTTPHandler 
+	- instances send messages to an HTTP server using GET/POST.
+  - SMTPHandler 
+	- instances send messages to a designated email address.
+  - NullHandler 
+	- instances do nothing with error messages.
+- Methods
+  -------
+  - setLevel()
+  - setFormatter()
+  - addFilter() and removeFilter() 
+
+- Ex
+  - self.logger = logging.getLogger(__name__)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    l1 = logging.FileHandler(filename="l1_log.log",mode='a')
+	l2 = logging.FileHandler(filename="l2_log.log",mode='a')
+    l1.setLevel(logging.DEBUG)
+	l2.setLevel(logging.WARN)
+	l1.setFormatter(formatter)
+	l2.setFormatter(formatter)
+	self.logger.addHandler(l1)
+	self.logger.addHandler(l2)
+  
