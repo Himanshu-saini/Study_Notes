@@ -47,3 +47,7 @@ Merge Conflict solutions
   
 - $ git checkout --theirs <path/fileName>
   - use to-be-merge branch file changes
+
+- $ git merge -s recursive -X theirs <branch1>
+  - merge with branch1 using "recursive" strategy and 
+    using "theirs" option to resolve conflicts
