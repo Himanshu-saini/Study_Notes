@@ -1,0 +1,103 @@
+=========================
+Multithreading in Python 
+=========================
+
+- A thread is an entity within a process that can be scheduled for execution
+
+- Thread Control Block (TCB)
+  --------------------------
+  - Thread Identifier (TID) 
+  - Stack pointer: Points to thread’s stack(Thread's local variables) in the process 
+  - Program counter
+  - Thread state: can be running, ready, waiting, start or done.
+  - Thread’s register set
+  - Parent process Pointer: A pointer to PCB of the process that the thread lives on.
+
+- In Multithreading
+  - Each thread contains its own register set and local variables
+  - All thread of a process share global variables (stored in heap) and the program code
+
+- Module 
+  - import threading
+
+Usage
+-----
+
+- Create Thread
+  - threading.Thread(target=print_square, args=(10,))
+    - target: function to be executed by thread
+    - args: arguments to target function
+- Start Thread
+  - t1.start()
+
+- Once the threads start, the current program 
+  (main thread) also keeps on executing. 
+  In order to wait until a thread is complete, we use join method.
+  - t1.join()  # synchronus exectuction
+
+- Current Thread Object:
+  - threading.current_thread()
+- Main Thread Object
+  - threading.main_thread()
+
+- Get thread Name:
+  - threading.current_thread().name
+  - threading.main_thread().Name
+
+- Get Process ID:
+  - os.getpid()
+
+Syncronization in Multithreading
+================================
+
+- Critical section 
+  - parts of the program where the shared resource is accessed.
+  - Concurrent accesses to shared resource can lead to race condition
+
+- Race condition 
+  - when two or more threads can access shared data 
+    and they try to change it at the same time. 
+  - As a result, the values of variables may be unpredictable 
+    and vary depending on the timings of context switches of the processes.
+
+Lock class
+============
+- deal with the race conditions
+- implemented using a Semaphore object 
+  - provided by the Operating System
+  - controls access by multiple processes/threads 
+    to a common resource in a parallel programming environment
+  - can be binary (0 or 1) or can have additional values
+  - Depending on the value
+    - the process/thread can use the resource
+    - wait for some period before trying again
+
+- Types of Lock
+  - blocking 
+    - calling thread execution is blocked until the lock is unlocked, 
+      then lock is set to locked and return True
+  - non-blocking
+    - callingthread execution is not blocked
+    - If lock is unlocked, then set it to locked and return True 
+      else return False immediately.
+  
+
+- Usage
+  ------
+  - create 
+    - lock = threading.Lock()
+  - Pass lock in argument
+    - threading.Thread(target=thread_task, args=(lock,))
+  - acquire([blocking])
+    - lock.acquire()
+    - blocking: True/False corresponding to type of lock used
+  - release()
+    - lock.release()
+    - When the lock is locked, reset it to unlocked
+    - If any other threads are blocked waiting for the lock to 
+      become unlocked, allow exactly one of them to proceed
+    - If lock is already unlocked, a ThreadError is raised.
+  
+
+
+

@@ -1,0 +1,34 @@
+==========================
+Multiprocessing in Python
+==========================
+
+- Module 
+  - import multiprocessing
+
+- ability of a system to support more than one processor at the same time
+- Multiprocessing system are broken to smaller routines, OS then allocates 
+  these threads to different processors improving performance of the system.
+- Each process runs independently and has its own memory space.
+- As soon as the execution of target function is finished, the processes get terminated
+
+- Multiprocessing system
+  ----------------------
+  - multiprocessor
+    - a computer with more than one central processor.
+  - multi-core processor
+    - a single computing component with two or more 
+      independent actual processing units (called “cores”).
+
+Usage
+-----
+- Creating
+  - multiprocessing.Process(target=print_square, args=(10, ))
+- Start
+  - p1.start()
+- stop execution of current program until a process is complete
+  - p1.join()
+
+- Get ID
+  - os.getpid()
+- Check if process active
+  - p1.is_alive()
