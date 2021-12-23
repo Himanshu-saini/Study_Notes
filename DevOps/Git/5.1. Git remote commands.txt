@@ -1,0 +1,25 @@
+===========
+Git Remote
+===========
+
+- Delete Local Branch
+  - $ git branch -d <branch-name>
+  - git branch -D <branch-name> ## Force
+
+- Delete remote branch
+  - $ git push <remote_name> --delete <branch_name>	
+  - $ git push <remote_name> -d <branch_name>	
+    $ git push <remote_name> :<branch_name>
+
+- List all remote servers
+  - $ git remote -v
+
+- Check remote default branch
+  - $ cat .git/refs/remotes/origin/HEAD
+
+- Set local default branch same as remote 
+  - $ git remote set-head origin -a
+
+- Add Remote server
+  - $ git remote add <remote-name> <url>
+  - $ git remote set-url <remote-name> <url>  # change URL
