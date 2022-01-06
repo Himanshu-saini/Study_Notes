@@ -1,0 +1,10 @@
+===============
+Tagging in SQL
+===============
+
+- Article
+  - http://howto.philippkeller.com/2005/04/24/Tags-Database-schemas/  (2005)
+  - http://howto.philippkeller.com/2005/06/19/Tagsystems-performance-tests/  (2005)
+  - http://howto.philippkeller.com/2005/05/05/Tags-with-MySQL-fulltext/
+  
+  - https://dev.mysql.com/doc/refman/8.0/en/fulltext-search.html
