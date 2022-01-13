@@ -73,3 +73,7 @@ Rake Commandes
   - $ rake db:reset 
   - $ rake db:truncate_all
     - Delete data without droping table
+
+- Rollback Migration 
+  -------------------
+  - $ rake db:rollback STEP=1

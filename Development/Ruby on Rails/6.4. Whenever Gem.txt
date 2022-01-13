@@ -1,0 +1,7 @@
+=============
+Whenever Gem
+=============
+
+- Whenever is a gem that helps you set up cron jobs
+  - job scheduler that lets you execute recurring tasks at fixed times
+

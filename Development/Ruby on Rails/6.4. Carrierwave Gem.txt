@@ -1,0 +1,16 @@
+===========
+Carrierwave
+===========
+
+- For uploading images to srtorage
+  - like AWS S3
+
+Configure
+=========
+
+- Add gem to GEmfile
+- Add settings in config/initializares/carrierwave.rb
+- Create app/uplader/<uploader_name>.rb 
+- Add this uploader in models file 
+  - mount_uploader: :<column_name> :<uploader_name>
+

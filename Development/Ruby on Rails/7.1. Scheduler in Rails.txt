@@ -1,0 +1,51 @@
+==================
+Scheduler in Rails
+==================
+
+- cron jobs
+  - job scheduler that lets you execute recurring tasks at fixed times
+  - Jobs are written in a file called the crontab (short for “cron table”)
+  - Typically, saved in: /usr/bin/
+
+- Gem: 
+  - Whenever
+    - helps you set up cron jobs
+	- whenever update the crontab for you by writing your jobs in Ruby code\
+	- use "schedule.rb" to make edits
+
+- Note: the actual task itself (like, sending out batch messages periodically) 
+  should not be written in the crontab, or in schedule.rb. 
+  - The task itself should be written separately as a Rake task. 
+  - You can then schedule that Rake task on a regular basis as a cron job.
+
+
+Configure
+=========
+- Add to Gem File
+  - gem 'whenever', require: false
+
+- create config/schedule.rb file
+  $ bundle exec wheneverize
+
+- Config file: config/schedule.rb
+  - Specify when to execute the job, 
+  - and the name of the Rake task
+  - Ex. if you want to execute the Rake task batch:send_messages every minute
+    every 1.minute do
+      rake 'batch:send_messages'
+    end
+
+- Write the whenever task to your crontab
+  - bundle exec whenever --update-crontab
+    - Default env is production
+	- Use --set environment='development' for dev environment
+
+Other Commands
+==============
+- Display crontab: 
+  $ crontab -l
+- Clear crontab of your whenever task: 
+  $ bundle exec whenever --clear-crontab
+
+
+
