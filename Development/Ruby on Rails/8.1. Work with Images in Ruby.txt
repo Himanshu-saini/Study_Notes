@@ -1,0 +1,89 @@
+========================
+Work with Images in ruby
+========================
+
+- Pre-requirement
+  - ImageMagick or GraphicsMagick command-line tool has to be installed on OS (linux/windows/Mac)
+    - $ sudo apt-get install imagemagick
+  - Check: $ convert -version
+  - https://imagemagick.org/index.php
+
+- Gem
+  - Rmagic
+  - Minimagic
+    - https://github.com/minimagick/minimagick
+	- https://www.rubydoc.info/github/minimagick/minimagick/
+
+- Unlike RMagick, MiniMagick is a much thinner wrapper around ImageMagick.
+
+Usage
+=======
+
+Open Copy of file 
+-----------------
+- From URL 
+  - image = MiniMagick::Image.open("http://example.com/image.jpg")
+- From Local
+  - image = MiniMagick::Image.open("local/input.jpg")
+
+Modify original File
+---------------------
+- image = MiniMagick::Image.new("local/input.jpg")
+- Further changes are reflected in original file
+
+Save image in file 
+------------------
+- image.write("local/path/image.jpg")
+
+Attributes
+-----------
+- image.type        #=> "JPEG"
+- image.mime_type   #=> "image/jpeg"
+- image.width       #=> 250
+- image.height      #=> 300
+- image.dimensions  #=> [250, 300]
+- image.size        #=> 3451 (in bytes)
+- image.colorspace  #=> "DirectClass sRGB"
+- image.exif        #=> {"DateTimeOriginal" => "2013:09:04 08:03:39", ...}
+- image.resolution  #=> [75, 75]
+- image.signature   #=> "60a7848c4ca6e36b8e2c5dea632ecdc29e9637791d2c59ebf7a54c0c6a74ef7e"
+
+Combine options
+---------------
+- MiniMagick::Image#combine_options takes multiple options 
+  and from them builds one single command.
+  image.combine_options do |b|
+    b.resize "250x200>"
+    b.rotate "-90"
+    b.flip
+  end # the command gets executed
+
+- MiniMagick::Image.new also accepts an optional block which is used to combine_options
+  image = MiniMagick::Image.new("input.jpg") do |b|
+    b.resize "250x200>"
+    b.rotate "-90"
+    b.flip
+  end # the command gets executed
+
+Image validation
+----------------
+- image.valid?  # return true/false
+- image.validate! # raises MiniMagick::Invalid if image is invalid
+
+Example
+--------
+require "mini_magick"
+
+image = MiniMagick::Image.open("input.jpg") # Open a copy of file, also accepts URLs
+image.path #=> "/var/folders/k7/6zx6dx6x7ys3rv3srh0nyfj00000gn/T/magick20140921-75881-1yho3zc.jpg"
+image.resize "100x100"  # resize image 
+image.format "png"  # change format 
+image.write "output.png"  # create new file and dump image data in it
+
+Logging
+--------
+- log MiniMagick commands and their execution times:
+  - MiniMagick.logger.level = Logger::DEBUG
+- In Rails
+  - MiniMagick.logger = Rails.logger
+  - Can Mention in config/initializers/mini_magic.rb 
