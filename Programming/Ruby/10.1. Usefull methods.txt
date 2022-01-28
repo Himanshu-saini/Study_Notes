@@ -57,3 +57,33 @@ Usefull Methods
   - Ex.
     - nameList.join(". ")  // return a string having all name
 
+- to_proc
+  --------
+  - convert a ruby symbol to a procedure(method) object 
+  - Ex.
+    :upcase.to_proc.call("hello") # => "HELLO"
+	[:upcase,:downcase,:capitalize].map{ |x| x.to_proc.call("hello")} # => apply each procedure to string
+
+- seriazable_hash
+  ----------------
+  - Converts a class object to a hash
+    - "attributes" hash must be defined and should contain any attributes you need to be serialized.
+  - Ex 
+    class Person
+	  include ActiveModel::Serialization
+	  attr_accessor :name, :age
+	  def attributes
+		{'name' => nil, 'age' => nil}
+	  end
+	end
+	
+	person = Person.new
+	person.name = 'bob'
+	person.age  = 22
+	person.serializable_hash                # => {"name"=>"bob", "age"=>22}
+	person.serializable_hash(only: :name)   # => {"name"=>"bob"}
+	person.serializable_hash(except: :name) # => {"age"=>22}
+	person.serializable_hash(methods: :capitalized_name)
+	# => {"name"=>"bob", "age"=>22, "capitalized_name"=>"Bob"}
+	person.serializable_hash(include: :address)
+	person.serializable_hash(include: { address: { only: 'city' }})
