@@ -1,0 +1,9 @@
+====================
+Powershell commands
+====================
+
+- $ Get-Service
+  - Get list of all windows services
+  
+- $ net start/stop/restart/status <service_name>
+  - Interect with windows services
