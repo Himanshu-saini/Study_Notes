@@ -77,3 +77,13 @@ Rake Commandes
 - Rollback Migration 
   -------------------
   - $ rake db:rollback STEP=1
+  - $ rake db:migrate VERSION=20100905201547
+    - rollback all migartion after specified version
+  - $ rake db:migrate:down VERSION=20100905201547
+    - rollback one specific migration (out of order)
+  - $ rake db:migrate:up VERSION=20100905201547
+    - migrate one specific migration (out of order)
+
+- Check migration status
+  ----------------------
+  - $ rake db:migrate:status
