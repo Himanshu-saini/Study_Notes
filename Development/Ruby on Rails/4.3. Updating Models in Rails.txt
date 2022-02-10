@@ -87,3 +87,7 @@ Rake Commandes
 - Check migration status
   ----------------------
   - $ rake db:migrate:status
+
+- Push migration in Prod DB
+  ------------------------
+  - $ rake db:migrate RAILS_ENV=production
