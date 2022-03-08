@@ -1,0 +1,54 @@
+========================
+Git Checkout and Remote 
+========================
+
+Git Checkout
+============
+- $ git checkout <branch1>
+  - change branch 
+
+- $ git checkout -b <new-branch>
+  - create and change branch
+
+- $ git checkout <branch1> <file-path>
+  - Creates patch 
+  - Take content from file of branch1 and paste it into current branch
+  
+Git switch 
+==========
+- $ git switch <branch>
+  - change branch
+
+Git branch 
+==========
+- $ git branch -a
+  - List all branch (local+remote)
+  
+- create a new branch
+  - $ git branch testing
+  
+- Delete branch
+  - git branch -d testing
+  - git branch -D <branch-name> ## Force
+
+Git Remote
+===========
+
+- Add Remote server
+  - $ git remote add <remote-name> <url>
+  - $ git remote set-url <remote-name> <url>  # change URL
+  
+- Delete remote branch
+  - $ git push <remote_name> --delete <branch_name>	
+  - $ git push <remote_name> -d <branch_name>	
+    $ git push <remote_name> :<branch_name>
+
+- $ git remote -v
+  - List all remote servers
+
+- Check remote default branch
+  - $ cat .git/refs/remotes/origin/HEAD
+
+- Set local default branch same as remote 
+  - $ git remote set-head origin -a
+

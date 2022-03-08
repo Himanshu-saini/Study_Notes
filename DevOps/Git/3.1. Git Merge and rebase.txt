@@ -1,0 +1,38 @@
+==========
+Git Merge
+==========
+
+Merge one branch to current 
+=============================
+- $ git merge <branchName>
+  - $ copy all changes and commits
+
+- Merge Selective file from one branch to current branch 
+  - $ git checkout <source_branch> <file_path>
+  - $ git add .
+  - $ git commit -m "New Commit"
+
+Merge Conflict solutions
+=========================
+- $ git checkout --our <path/fileName>
+  - use local file changes to the branch 
+  
+- $ git checkout --theirs <path/fileName>
+  - use to-be-merge branch file changes
+
+- $ git merge -s recursive -X theirs <branch1>
+  - merge with branch1 using "recursive" strategy and 
+    using "theirs" option to resolve conflicts
+
+
+Git Rebase
+===========
+- reapplies commits on top of another base branch
+
+- $ git rebase branch2 branch1
+  OR 
+  $ git switch branch1 && $ git rebase branch2
+  
+- When two branches (branch1 and branch2) are diverged after a common commit,
+  it takes commit from after the divergence (in branch2) and
+  rewrite them on top of current HEAD on branch1

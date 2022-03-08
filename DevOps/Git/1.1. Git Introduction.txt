@@ -26,3 +26,6 @@ Git Introduction
   - Local Repository
     - location where version controlling happens
     - Files present here are called commited files
+	
+- To initialize a git directory
+  - $ git init

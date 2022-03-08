@@ -1,12 +1,43 @@
-==========
-Git Merge
-==========
+=====================
+Git commits and logs
+=====================
 
+Git Add 
+========
+- Add files to Staged area
+  - $ git add <file name>
+  - $ git add .
+    - Track all files
+
+Git Commit 
+===========
+- Commit file (Save changes to our tree)
+  - $ git commit -m "MESSAGE"
+
+Git Status
+===========
+- check the status of each file in your directory 
+  - $ git status
+
+Git Diff
+========
+- $ git diff
+  - look at the changes you’ve made to a modified file
+- $ git diff --cached
+  - If compare files in staged area
+
+Git Log 
+=========
+- $ git log
+  - View detailed commit history 
+- $ git log --oneline
+  - Commit history in oneline with commit hash
+  
 Merge 2 or More commits together
 ================================
 
-- Commits should not be pushed into remote branch 
-  - otherwise, there will be merge conflict
+** Commits should not be pushed into remote branch 
+   otherwise, there will be merge conflict
   
 Option 1:
 ---------
@@ -29,25 +60,3 @@ Option 2:
 - Save all changes done till now
   - $ git add .
   - $ git commit -m "New Commit message"
-
-Merge one branch to current 
-=============================
-- $ git merge <branchName>
-  - $ copy all changes and commits
-
-- Merge Selective file from one branch to current branch 
-  - $ git checkout <source_branch> <file_path>
-  - $ git add .
-  - $ git commit -m "New Commit"
-
-Merge Conflict solutions
-=========================
-- $ git checkout --our <path/fileName>
-  - use local file changes to the branch 
-  
-- $ git checkout --theirs <path/fileName>
-  - use to-be-merge branch file changes
-
-- $ git merge -s recursive -X theirs <branch1>
-  - merge with branch1 using "recursive" strategy and 
-    using "theirs" option to resolve conflicts

@@ -1,0 +1,30 @@
+=================
+Git pull and push
+=================
+
+Git Clone 
+==========
+- Copy an existing repository from Github
+  - $ git clone <repo-link>
+- Create a new dir with the name of remote repo name
+
+Git Fetch 
+==========
+- $ git fetch <remote-name> <branch-name>
+  - if branch-name is not given fetch all changed/new branches
+  - saves the remote-tracking metadata
+
+Git Pull
+==========
+- $ git pull <remote-name> <branch-name>
+  - run fetch then merge
+  - if branch-name is not given pull all branches
+
+Git Push
+=========
+- $ git push <remote-name> <branch-name>
+  - Push changes to remote repo
+  - if branch-name is not given push all branches
+
+
+

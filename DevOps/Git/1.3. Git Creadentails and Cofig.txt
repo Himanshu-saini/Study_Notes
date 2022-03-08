@@ -1,0 +1,48 @@
+=================
+Git Creadentails
+=================
+
+- Remove Creadentials
+  -------------------
+  $ git credential reject
+  protocol=https
+  host=github.com
+  <Empty line here>
+
+- Fill Creadentails
+  ------------------
+  $ git credential fill
+  protocol=https
+  host=github.com
+  <empty line here>
+
+==================
+Git Bash Cofigure
+==================
+
+- Configure user name and email
+  - same as github account
+
+- check your configuration with:
+  - git config --list
+
+- Check email, username and password in git bash
+  - $ git config user.email
+  - $ git config user.name
+  - $ git config user.password
+
+- Change email, username and password in git bash
+  - $ git config --global user.email "abc@email.com"
+  - $ git config --global user.name "ShadowSword"
+  - $ git config --global user.password "ShadowSword@1111"
+
+  --global option corresponds to a user-wide configuration
+  configure each git repository individually by removing this option
+  For system-wide configuration use --system
+  
+
+
+
+
+
+
