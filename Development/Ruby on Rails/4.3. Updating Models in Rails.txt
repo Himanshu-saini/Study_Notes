@@ -25,32 +25,6 @@ Empty Migartions
 - Do not change migration class name in migration file 
   - Rails keep track of which migration is not completed using this name
 
-- Add Foreign Key
-  ------------------
-  def change
-    add_foreign_key :forms, :localities
-    add_foreign_key :forms, :categories
-  end
-  
-- Change Column type 
-  -------------------
-  def change
-    change_table :forms do |t|
-      t.change :locality_id, :bigint
-      t.change :category_id, :bigint
-    end
-  end
-
-- Change Column name 
-  -------------------
-  def change
-    change_table :forms do |t|
-      t.rename :locality, :locality_id
-      t.rename :category, :category_id
-    end
-  end
-
-
 Rake Commandes
 ===============
 
