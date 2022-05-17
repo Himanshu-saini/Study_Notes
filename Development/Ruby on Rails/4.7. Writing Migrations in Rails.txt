@@ -22,12 +22,20 @@ Updating Table
 ==============
 
 - Add Foreign Key
-  ------------------
+  ----------------
   def change
     add_foreign_key :forms, :localities
     add_foreign_key :forms, :categories
   end
   
+- Add foreign key while creating table
+  --------------
+  - t.references :state, null: false, foreign_key: true, :default => 0
+
+- Set ON DELETE and ON UPDATE propertty
+  ----------
+  - t.column :customer_id, :integer, :on_delete => :set_null, :on_update => :cascade
+
 - Change Column type 
   -------------------
   def change
@@ -45,3 +53,24 @@ Updating Table
       t.rename :category, :category_id
     end
   end
+  
+  - rename_column :table, :old_column, :new_column
+
+- Remove column 
+  -------
+  - remove_column :table_name, :column_name
+  
+- Adding Index
+  ------------
+  - After column created
+    - add_index :<table>, :<column_name>, :unique => true
+    - add_index :<table>, [:<column_name>,...], :unique => true ## Multiple column index
+  - During creating table 
+    - t.string :col_name, index: {unique: true}  ## compact
+	OR
+    - t.string :col_name
+	- t.index :col_name, unique: true
+	
+	- t.index ['state_id','mapping_id', 'mapped_to'], name: 'uniq_state_mapping_per_item', unique: true
+
+  

@@ -1,0 +1,5 @@
+==========================================
+Authentication and Authorization in Rails
+==========================================
+
+- https://railsapps.github.io/rails-authorization.html
