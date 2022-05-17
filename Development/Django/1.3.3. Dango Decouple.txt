@@ -1,0 +1,22 @@
+================
+Python Decouple
+================
+
+- https://pypi.org/project/python-decouple/
+- Decouple helps you to organize your settings so that you can change parameters without having to redeploy your app
+- Decouple supports both .ini and .env files
+- If KEY is not present in the .env, decouple will raise an UndefinedValueError
+
+- Advantage over env var
+  - os.environ only returns strings so different data types are difficult to handle
+
+- Install
+  $ pip install python-decouple
+
+- Usage 
+  # Import in settings.py
+  from decouple import config
+  SECRET_KEY = config('SECRET_KEY')
+  DEBUG = config('DEBUG', default=False, cast=bool)
+  EMAIL_HOST = config('EMAIL_HOST', default='localhost')
+  EMAIL_PORT = config('EMAIL_PORT', default=25, cast=int)
