@@ -1,0 +1,34 @@
+============
+DRF Routers
+============
+
+- https://www.django-rest-framework.org/api-guide/routers/
+- quickly declare all of the common routes for a given resourceful controller.
+- Ex.
+	from rest_framework import routers
+
+	router = routers.SimpleRouter() 
+	router.register(r'users', UserViewSet)
+	router.register(r'accounts', AccountViewSet)
+	urlpatterns = router.urls
+	OR
+	api_router.register(r'tag', TagViewSet, 'tag')
+
+	urlpatterns = [
+	  url(r'^v1/', include(api_router.urls, namespace='v1'))
+	]
+
+- A viewset may mark extra actions for routing by decorating a method with the @action decorator
+  - @action(methods=['post'], detail=True, permission_classes=[IsAdminOrIsSelf])
+
+- For a more restrictive (or lenient) lookup pattern, 
+  set the lookup_value_regex attribute on the viewset.
+- class MyModelViewSet():
+  lookup_value_regex = '[0-9a-f]{32}'
+
+- DefaultRouter
+  -------------
+- Same as SimpleRouter
+- additionally includes a default API root view
+  that returns a response containing hyperlinks to all the list views
+- also generates routes for optional .json style format suffixes

@@ -1,0 +1,86 @@
+==================
+Pagination in DRF
+==================
+
+- https://www.django-rest-framework.org/api-guide/pagination/
+
+- The pagination API can support either:
+  - Pagination links that are provided as part of the content of the response. (Defualt)
+  - Pagination links that are included in response headers, such as Content-Range or Link
+
+- performed automatically if you're using the Generic views or viewsets
+- In regular APIView, you'll need to call into the pagination API yourself
+
+- Setting Global Pagination 
+  - using the DEFAULT_PAGINATION_CLASS and PAGE_SIZE setting keys
+  - REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 100
+	}
+
+Custom Pagination classes
+------
+- to modify particular aspects of the pagination style, you'll want to override one of the pagination classes
+- class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 100
+    page_size_query_param = 'page_size'
+    max_page_size = 1000
+	
+  class CustomPagination(pagination.PageNumberPagination):
+    def get_paginated_response(self, data):
+        return Response({
+            'links': {
+                'next': self.get_next_link(),
+                'previous': self.get_previous_link()
+            },
+            'count': self.page.paginator.count,
+            'results': data
+        })
+
+- class BillingRecordsView(generics.ListAPIView):
+    queryset = Billing.objects.all()
+    serializer_class = BillingRecordsSerializer
+    pagination_class = StandardResultsSetPagination
+
+OR 
+- 'DEFAULT_PAGINATION_CLASS': 'apps.core.pagination.StandardResultsSetPagination'
+
+PageNumberPagination
+----------
+
+- Ex: {
+    "count": 1023,
+    "next": "https://api.example.org/accounts/?page=5",
+    "previous": "https://api.example.org/accounts/?page=3",
+    "results": [
+       …
+    ]}
+
+- 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+OR
+- pagination_class = PageNumberPagination in GenericAPIView subclasses
+
+LimitOffsetPagination
+-------
+- Ex: {
+    "count": 1023,
+    "next": "https://api.example.org/accounts/?limit=100&offset=500",
+    "previous": "https://api.example.org/accounts/?limit=100&offset=300",
+    "results": [
+       …
+    ]}
+- Drawbacks:
+  - With extremely large datasets pagination using offset-based pagination styles may become inefficient or unusable.
+
+CursorPagination
+-----
+- presents an opaque "cursor" indicator that the client may use to page through the result set
+- only presents forward and reverse controls, 
+  and does not allow the client to navigate to arbitrary positions.
+- requires unique, unchanging ordering of items in the result set. 
+- Advantages
+  - CursorPagination ensures that the client will never see the same item twice 
+    when paging through records, even when new items are being inserted
+  - Supports usage with very large datasets.
+  - Cursor based pagination schemes instead have fixed-time properties, 
+    and do not slow down as the dataset size increases.

@@ -1,0 +1,99 @@
+
+- Handling multiple creates/updates/deletes in nested serializers
+  - little tricky when you have to support multiple creates, updates and deletes 
+    in nested serializers within one high-level serializer
+  - trade-off: there is a smaller number of requests to process at the cost of a longer processing time
+  - By default, DRF doesn’t support multiple updates at all.
+  
+  - two paths
+    - quite popular, third party library
+      https://github.com/beda-software/drf-writable-nested
+    - do it on your own 
+  
+  - Create own 
+    - Assumptions:
+	  - all items that should be updated have id,
+	  - all items that should be created don’t have id,
+	  - all items that should be deleted are present in data storage (eg. database), but are missing in the incoming request.data
+	- Ex 
+	class CUDNestedMixin(object):
+    @staticmethod
+    def cud_nested(
+        queryset: QuerySet,
+        data: List[Dict],
+        serializer: Type[Serializer],
+        context: Dict
+    ):
+    """
+    Logic for handling multiple updates, creates and deletes on nested resources
+    :param queryset: queryset for objects existing in DB
+    :param data: initial data to validate passed from higher level serializer to nested serializer
+    :param serializer: nested serializer to use
+    :param context: context passed from higher level serializer
+    :return N/A
+    """
+    updated_ids = list()
+    for_create = list()
+    for item in data:
+        item_id = item.get('id')
+        if item_id:
+            instance = queryset.get(id=item_id)
+            update_serializer = serializer(
+                instance=instance,
+                data=item,
+                context=context
+            )
+            update_serializer.is_valid(raise_exception=True)
+            update_serializer.save()
+            updated_ids.append(instance.id)
+        else:
+            for_create.append(item)
+
+    delete_queryset = queryset.exclude(id__in=updated_ids)
+    delete_queryset.delete()
+
+    create_serializer = serializer(
+        data=for_create,
+        many=True,
+        context=context
+    )
+    create_serializer.is_valid(raise_exception=True)
+    create_serializer.save()
+	-----
+	from rest_framework import serializers
+
+	class AccountSerializer(serializers.ModelSerializer, CUDNestedMixin):
+	  phone_numbers = PhoneSerializer(
+		many=True,
+		source='phone_set',
+	  )
+
+	  class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'phone_numbers')
+
+      def update(self, instance, validated_data):
+        self.cud_nested(
+            queryset=instance.phone_set.all(),
+            data=self.initial_data['phone_numbers'],
+            serializer=PhoneSerializer,
+            context=self.context
+        )
+        ...
+        return instance
+	---
+	- nested objects should consume initial_data instead of validated_data
+	  That’s because running validation calls field.to_internal_value() on each of a serializer’s fields, 
+	  which may modify data stored by a particular field (eg. by changing primary key to model instance).
+
+- Override data to force ordering
+  - By default, Django querysets are not ordered at all.
+  - Commonly achieved by adding ordering to the view’s queryset
+    - but nested rources are not odered
+    - For read-only fields, it can be done within SerializerMethodField
+  - To get ordered writable nested field,  serializer’s data property can be overridden
+    @property
+    def data(self):
+      data = super().data
+      data['phone_numbers'].sort(key=lambda p: p['id'])
+      return data
