@@ -1,0 +1,16 @@
+===============
+Database setup
+===============
+- By default, the configuration uses SQLite.
+- Following keys in the DATABASES 'default' item to match your database connection settings::
+- ENGINE 
+  – Either 'django.db.backends.sqlite3', 'django.db.backends.postgresql'
+- NAME 
+  should be the full absolute path, including filename, of that file. 
+  The default value, os.path.join(BASE_DIR, 'db.sqlite3'), 
+- If you are not using SQLite as your database, 
+  additional settings such as USER, PASSWORD, and HOST must be added.
+
+- set TIME_ZONE to your time zone :  
+  Default: 'America/Chicago'
+

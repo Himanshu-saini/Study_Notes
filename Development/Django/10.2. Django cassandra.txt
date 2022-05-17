@@ -1,0 +1,51 @@
+Features
+integration with latest python-driver and optionally dse-driver from DataStax
+working flush, migrate, sync_cassandra, inspectdb and dbshell commands
+support for creating/destroying test database
+accepts all Cqlengine and cassandra.cluster.Cluster connection options
+automatic connection/disconnection handling
+works well along with relational databases (as secondary DB)
+storing sessions in Cassandra
+working django forms
+usable admin panel with Cassandra models
+
+
+install:
+pip install django-cassandra-engine
+
+
+setting.py:
+INSTALLED_APPS = ('django_cassandra_engine',) + INSTALLED_APPS
+
+DATABASE setting:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django_cassandra_engine',
+        'NAME': 'db',
+        'TEST_NAME': 'test_db',
+        'HOST': 'db1.example.com,db2.example.com',
+        'OPTIONS': {
+            'replication': {
+                'strategy_class': 'SimpleStrategy',
+                'replication_factor': 1
+            }
+        }
+    }
+}
+
+Define some model:
+
+# myapp/models.py
+
+import uuid
+from cassandra.cqlengine import columns
+from django_cassandra_engine.models import DjangoCassandraModel
+
+class ExampleModel(DjangoCassandraModel):
+    example_id    = columns.UUID(primary_key=True, default=uuid.uuid4)
+    example_type  = columns.Integer(index=True)
+    created_at    = columns.DateTime()
+    description   = columns.Text(required=False)
+
+Run ./manage.py sync_cassandra
+
