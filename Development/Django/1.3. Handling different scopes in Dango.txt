@@ -1,0 +1,22 @@
+==================================
+Handling different scopes in Dango
+==================================
+
+- Different project scopes 
+  - Development
+  - Testing
+  - Production
+
+- Things to take care
+  - Reuirements file
+  - settings file 
+  - logs file
+
+- https://stackoverflow.com/questions/10664244/django-how-to-manage-development-and-production-settings
+- https://djangostars.com/blog/configuring-django-settings-best-practices/
+
+- Methods
+  - Creating different settings files (Not recommended)
+  - Creating setttings directory having different settings files (Preferred)
+  - Using environment (.env) file 
+  - Using 3rd party library (python-decouple)

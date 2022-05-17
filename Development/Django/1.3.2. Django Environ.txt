@@ -1,0 +1,38 @@
+========
+ENVIRON 
+========
+
+- https://django-environ.readthedocs.io/en/latest/
+
+- unify a lot of packages
+  - envparse
+  - honcho
+  - dj-database-url
+  - dj-search-url
+  - dj-config-url
+  - django-cache-url
+- Take a string from os.environ, parse and cast it to some of useful python typed variables.
+- use the 12 factor approach (https://www.12factor.net/)
+
+- Install 
+  $ pip install django-environ
+
+- Usage
+  import environ
+  import os
+
+  env = environ.Env(DEBUG=(bool, False))
+
+  # Set the project base directory
+  BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+  environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+  # False if not in os.environ because of casting above
+  DEBUG = env('DEBUG')
+  SECRET_KEY = env('SECRET_KEY')
+  DATABASES = {
+      # read os.environ['DATABASE_URL'] and raises
+      # ImproperlyConfigured exception if not found
+      # The db() method is an alias for db_url().
+      'default': env.db()
+  }
