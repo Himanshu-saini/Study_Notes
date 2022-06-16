@@ -1,0 +1,45 @@
+===============
+Database setup
+===============
+- By default, the configuration uses SQLite.
+- Following keys in the DATABASES 'default' item to match your database connection settings
+
+Properties
+---------
+- ENGINE 
+  – Ex. 'django.db.backends.sqlite3', 'django.db.backends.postgresql'
+- NAME 
+  - DB name in case HOST is given
+  - In case of file based DB, should be the full absolute path, including filename, of that file. 
+- If you are not using SQLite as your database, 
+  additional settings such as USER, PASSWORD, and HOST must be added.
+
+- set TIME_ZONE to your time zone :  
+  Default: 'America/Chicago'
+
+Connecting with MYSQL 
+-----------------
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'djangodatabase',
+        'USER': 'dbadmin',
+        'PASSWORD': '12345',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+Taking values frm env variables
+------------------------
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': config('MQSQL_DBNAME', default='production'),
+        'USER': config('MYSQL_USERNAME', default='production'),
+        'PASSWORD': config('MYSQL_PASSWORD', default='production'),
+        'HOST': config('MYSQL_HOST', default='production'),
+        'PORT': '3306',
+    }
+}

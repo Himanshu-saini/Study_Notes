@@ -1,0 +1,25 @@
+Creating the Polls app
+==========================
+- An app is a Web application that does something
+- $ python manage.py startapp polls
+  OR
+  $ django-admin startapp projectApp
+  
+- That’ll create a directory polls, 
+  polls/
+    __init__.py
+    admin.py
+    apps.py
+    migrations/
+        __init__.py
+    models.py
+    tests.py
+    views.py
+
+- other optional files: 
+  - urls.py
+  - templates
+  - static
+
+- Added created app in INSTALLED_APPS in settings.py
+- And include url path to in in urls.py of main project

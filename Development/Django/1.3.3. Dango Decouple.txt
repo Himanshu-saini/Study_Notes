@@ -20,3 +20,29 @@ Python Decouple
   DEBUG = config('DEBUG', default=False, cast=bool)
   EMAIL_HOST = config('EMAIL_HOST', default='localhost')
   EMAIL_PORT = config('EMAIL_PORT', default=25, cast=int)
+
+- How does it work
+  - Decouple always searches for Options in this order:
+    - Environment variables;
+    - Repository: ini or .env file;
+    - Default argument passed to config.
+
+- 4 classes doing the magic
+  - Config 
+  - RepositoryIni
+  - RepositoryEnv
+  - AutoConfig
+
+- CAST Argument 
+  - transform the string value received from file(ini/env) into something else
+  - Values
+    - bool 
+    - int 
+    - db_url 
+    - Csv
+      - receive argument that convert values in list
+        - Csv(int)
+        - Csv(cast=lambda s: s.upper(), delimiter='\t', strip=' %*')
+      - By default Csv returns a list, but you can get a tuple or whatever you want using the post_process argument
+        - Csv(post_process=tuple)
+    - custom: cast=lambda v: [s.strip() for s in v.split(',')]

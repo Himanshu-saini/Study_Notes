@@ -1,0 +1,44 @@
+=====================
+Django Rest Framework
+=====================
+
+API 
+----
+- Application User Interface
+- A method using which one application interacts with another application
+  - Ex. Phone camera, Web Application, Class/library functions, etc...
+
+- REST API
+  -------
+  - Representational state transfer
+  - Web API
+  - JSON/XML 
+   
+- HTTP verbs
+  ---------
+  - GET, POST, PUT, DELETE
+
+Read Request Object in views 
+---------------------------
+- request.GET - Get querry Params 
+- request.POST - Get querry Params 
+- request.body - Get form/json body 
+- request.headers - Get request headers # Also request.META 
+- request.query_params - Immutable
+
+
+Send Responses 
+--------------
+from django.http import JsonResponse, HttpResponse 
+
+- JsonResponse 
+  - serialize data into json 
+  - require dict as param 
+- HttpResponse 
+  - require string as param 
+  - return HTTP reponse 
+
+from rest_framework.response import Response 
+- Like JsonResponse from django
+
+

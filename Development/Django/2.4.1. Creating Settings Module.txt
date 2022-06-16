@@ -1,0 +1,24 @@
+========================
+Creating Settigns Module
+========================
+
+- Settings module is used when we want to use different settings for different project environments
+
+- Create a "settings" dir in project/project dir 
+- Add following files to the dir 
+  - __init__.py 
+  - base.py 
+  - development.py 
+  - production.py 
+
+- import base file in __init__.py 
+  from decouple import config
+  from .base import *
+
+  projEnv = config('ENVIRONMENT', default='production')
+  if projEnv == 'development':
+      from .development import *
+  elif projEnv == 'production':
+      from .production import *
+
+- Add config which are required in respective environment

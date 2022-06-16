@@ -1,0 +1,49 @@
+==================
+Model Field Types 
+==================
+
+- https://docs.djangoproject.com/en/4.0/ref/models/fields/#field-types
+
+- UUIDField
+  - stores in a uuid datatype in PostgreSQL, otherwise in a char(32).\
+- AutoField
+  - An IntegerField that automatically increments according to available IDs
+- BigAutoField
+
+- IntegerField
+- BigIntegerField
+- SmallIntegerField
+  - Values from -32768 to 32767
+- SmallAutoField
+- FloatField
+- DecimalField
+  - two required arguments
+    - max_digits
+    - decimal_places
+- BooleanField
+- NullBooleanField
+  - BooleanField, but allows NULL
+
+- CharField
+- TextField
+- SlugField
+- EmailField
+  - CharField that checks that the value is a valid email address
+- URLField
+  - CharField for a URL, validated by URLValidator
+- GenericIPAddressField
+  - IPv4 or IPv6 address, in string format
+
+- JSONField
+  - storing JSON encoded data
+
+- DateField
+- DateTimeField
+- TimeField
+
+- BinaryField
+  - store raw binary data
+- FileField
+  - file-upload field.
+- ImageField
+  - validates that the uploaded object is a valid image

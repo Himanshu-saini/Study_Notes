@@ -1,0 +1,46 @@
+==========================================
+Session Authentication & Permissions in DRF 
+===========================================
+
+
+Set Permissions 
+==========
+
+- add permission_classes variable in API view class 
+- https://www.django-rest-framework.org/api-guide/permissions/
+
+Ex.
+-----
+from rest_framework import permissions
+
+class ProductListCreateAPIView(generics.ListCreatedAPIView):
+  # Get all data from model 
+  queryset = Product.object.all()
+  serilizer_class = ProductSerializer
+  permission_classes = [permissions.IsAuthenticated]
+
+- Permission classes available 
+  - AllowAny 
+  - IsAuthenticated
+  - IsAdminUser 
+  - IsAuthenticatedOrReadOnly 
+    - Can use the Get method method but not Post method
+
+Set Aothentication
+==============
+- add authentication_classes variable in API view class 
+
+
+Ex.
+-----
+from rest_framework import authentication
+
+class ProductListCreateAPIView(generics.ListCreatedAPIView):
+  # Get all data from model 
+  queryset = Product.object.all()
+  serilizer_class = ProductSerializer
+  authentication_classes = [authentication.SessionAuthentication]
+  permission_classes = [permissions.IsAuthenticated]
+
+
+- Can add in function api view by adding @authentication_classes and @permission_classes decorators

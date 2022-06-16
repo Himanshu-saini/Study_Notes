@@ -1,0 +1,101 @@
+
+
+GeneraicAPIView
+------------
+
+from rest_framework import generics
+
+- https://www.django-rest-framework.org/api-guide/generic-views/
+
+Get view
+-----
+class ProductDetailsAPIView(generics.RetiveAPIView):
+  # Inherit RetriveAPIView to tell this is used to only GET data 
+  # Detail View is used to get a single data using a lookup_field
+  queryset = Product.object.all()
+  serilizer_class = ProductSerializer
+  lookup_field = 'pk'  # name of a Model column, ex. priority,ref_key, default = pk 
+
+  def get_queryset():  # method used to change queryset
+    pass 
+
+Create View 
+------
+class ProductCreateAPIView(generics.CreateAPIView):
+  # used to save data in Model
+  queryset = Product.object.all()
+  serilizer_class = ProductSerializer
+  
+  def perform_create(self, serializer):  # available for CreateAPIView
+    # here we can change value during saving data in Model 
+    # serializer.save(user=self.request.user)
+    print(serializer)
+    serializer.save()
+
+List view 
+--------
+
+class ProductListAPIView(generics.ListAPIView):
+  # Get all data from model 
+  queryset = Product.object.all()
+  serilizer_class = ProductSerializer
+
+ListCreate view 
+--------
+
+class ProductListCreateAPIView(generics.ListCreateAPIView):
+  # Get all data from model or create new row in model 
+  queryset = Product.object.all()
+  serilizer_class = ProductSerializer
+
+Update view
+-----
+class ProductUpdateAPIView(generics.UpdateAPIView):
+  # Update a single data using a lookup_field
+  queryset = Product.object.all()
+  serilizer_class = ProductSerializer
+  lookup_field = 'pk'  # name of a Model column, ex. priority,ref_key, default = pk 
+
+  def perform_update(self,serializer):  # method used to update data  
+    instance = serializer.save()
+    if not instance.content :  # if content  field is empty
+      instance.content = instance.title 
+    pass 
+
+Delete view
+-----
+class ProductDestoryAPIView(generics.DestoryAPIView):
+  # Update a single data using a lookup_field
+  queryset = Product.object.all()
+  serilizer_class = ProductSerializer
+  lookup_field = 'pk'  # name of a Model column, ex. priority,ref_key, default = pk 
+
+  def perform_destroy(self,instance):  # method used to update data
+    super().perform_destroy(instance)  
+    pass 
+
+
+Combine View 
+----------
+
+from rest_framework import mixinx,generics 
+
+classs ProductMixinView(
+  mixins.CreateModelMixin,
+  mixins.RetrieveModelMixin,
+  mixins.ListModeMixin,
+  generics.GenericAPIView):
+  queryset = Product.object.all()
+  serializer = ProductSerializer
+
+  def get(self,request,*args,**kwargs):  # use post function here to change HTTP method of list details frmo GET to POST
+    return self.list(request,*args,**kwargs)  # Mixin Method
+    
+  def post(self,request,*args,**kwargs):
+    return self.create(request,*args,**kwargs)  
+
+- https://www.django-rest-framework.org/api-guide/generic-views/#mixins
+- mixins is there is by default present in generics classes
+- Can apply same change get,post,... methods in generic class also
+- We can use perform_create, perform_update methods here also
+

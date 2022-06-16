@@ -20,3 +20,6 @@ Handling different scopes in Dango
   - Creating setttings directory having different settings files (Preferred)
   - Using environment (.env) file 
   - Using 3rd party library (python-decouple)
+
+- Create a .env file and Setup ENV variables (Added to gitignore)
+- Create .env.exmple to clearify required env variables to others (Not Added to gitignore)

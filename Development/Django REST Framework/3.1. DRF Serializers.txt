@@ -1,0 +1,192 @@
+=================
+Serializer in DRF
+=================
+
+- Serializers allow complex data such as querysets and model instances to be 
+  converted to native Python datatypes that can then be easily rendered into 
+  JSON, XML or other content types.
+- Work on Model propery field in django also 
+
+- Model.object.all().order_by("?")  - Get random data from table
+
+Declaring serializer
+---------------------
+
+- from rest_framework import serializers
+  class CommentSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    content = serializers.CharField(max_length=200)
+    created = serializers.DateTimeField()
+
+Serializing Object 
+----------------
+- serializer = CommentSerializer(comment)  # Convert python class data into JSON 
+- serializer.data # Get Data
+
+Deserializing objects
+---------------
+- serializer = CommentSerializer(data=data)  # convert JSON to python class/model type
+  serializer.is_valid() # True
+  serializer.validated_data
+
+Saving instances
+--------------
+- To return complete object instances based on the validated data we need to implement 
+  .create() and .update() methods
+
+- def create(self, validated_data):
+    return Comment.objects.create(**validated_data)
+
+  def update(self, instance, validated_data):
+    instance.email = validated_data.get('email', instance.email)
+    instance.content = validated_data.get('content', instance.content)
+    instance.created = validated_data.get('created', instance.created)
+    instance.save()
+    return instance
+
+- Calling .save() will either create a new instance, or update an existing instance (Based on Overloading)
+  - # .save() will create a new instance.
+    serializer = CommentSerializer(data=data)
+
+  - # .save() will update the existing `comment` instance.
+    serializer = CommentSerializer(comment, data=data)
+
+- Passing additional attributes to .save()
+  ---------
+  - to pass a value from outside of a serializer directly to its save() method
+  - take arguments that can be equated with serialized objects
+  - Values passed this way won’t be validated
+  - Ex 
+    serializer = EmailSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    serializer.save(owner_id=request.user.id)
+
+- Overriding .save() directly
+  --------
+  class ContactForm(serializers.Serializer):
+    email = serializers.EmailField()
+    message = serializers.CharField()
+
+    def save(self):
+        email = self.validated_data['email']
+        message = self.validated_data['message']
+        send_email(from=email, message=message)
+
+Validation
+---------
+- When deserializing data, you always need to call is_valid() 
+  before attempting to access the validated data, or save an object
+- optional raise_exception flag that will cause it to raise a 
+  serializers.ValidationError exception if there are validation errors
+  - serializer.is_valid(raise_exception=True)
+
+- If any validation errors occur, the .errors property will contain a dictionary having message 
+
+- Ex.
+  serializer = CommentSerializer(data={'email': 'foobar', 'content': 'baz'})
+  serializer.is_valid()
+  # False
+  serializer.errors
+  # {'email': ['Enter a valid e-mail address.'], 'created': ['This field is required.']}
+
+- non_field_errors
+  -  list any general validation errors
+
+- Field-level validation
+  ---------
+  - decouples different checks that are related only to a particular field
+  -  adding .validate_<field_name> methods to your Serializer
+  -  return the validated value or raise a serializers.ValidationError
+  - Ex.
+    def validate_title(self, value):
+        if 'django' not in value.lower():
+            raise serializers.ValidationError("Blog post is not about Django")
+        return value
+    OR 
+    class GameRecord(serializers.Serializer):
+      score = IntegerField(validators=[multiple_of_ten])
+    OR 
+    Can declare in Meta class in serializer
+
+- Object-level validation
+  --------
+  - requires access to multiple fields
+  - add a method called .validate() to your Serializer
+  - Ex.
+    def validate(self, data):
+        # Check that start is before finish.
+        if data['start'] > data['finish']:
+            raise serializers.ValidationError("finish must occur after start")
+        return data
+
+- Using SerializerMethodField
+  --------------
+  - read only field that computes its value at request processing time
+    by calling a method on the serializer class it is attached to.
+  - SerializerMethodField accepts method_name, defualt = get_<field_name> (prefered)
+  - Change the way a field is represented in API response
+  - Ex 
+  class TagSerializer(serializers.ModelSerializer):
+    created = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Tag
+        fields = ('label', 'created')
+
+    def get_created(self, obj):
+      return round(obj.created.timestamp())
+
+- source parameter
+  --------
+  - rename field name in API response 
+  - job_type = serializers.CharField(source='task_type')
+    - task_type in Model will be represented as job_type in API 
+  - fetch data from related objects using dotted notation
+    owner_email = serializers.CharField(source='owner.email')
+	
+- Serializer field validation
+  -------------
+  - generates well formatted error responses
+  - method naming convention: def validate_<field_name>
+  - Ex  
+    class TransactionSerializer(serializers.ModelSerializer):
+      bid = serializers.IntegerField()
+
+	  def validate_bid(self, bid: int) -> int:
+        if bid > self.context['request'].user.available_balance:
+            raise serializers.ValidationError(
+                _('Bid is greater than your balance')
+            )
+      return bid
+  - Validation methods must always return a value
+  - field level validation is invoked by serializer.to_internal_value(), 
+    which takes place before calling serializer.validate().
+
+
+- Using CurrentUserDefault
+  - automatically setting a user as a resource owner
+  - CurrentUserDefault class, which doesn’t require any override of views.
+  - class EmailSerializer(serializers.ModelSerializer):
+    owner = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+	# Owner = field name 
+
+  - user authenticated in the request object will be set as default
+  - because of using HiddenField, any incoming data is not taken into account
+    so it’s impossible to set another user as an owner
+
+- Serializers initial data
+  - data before modified by running serializer.is_valid()
+  - before validated_data is available 
+  - serializer.initial_data which stores raw input as a Dict
+  - Ex 
+    class SignupSerializer(serializers.ModelSerializer):
+      password1 = serializers.CharField()
+      password2 = serializers.CharField()
+
+	  def validate_password1(self, password1):
+      if password1 != self.initial_data['password2']:
+        raise serializers.ValidationError(
+            'Passwords do not match'
+        )

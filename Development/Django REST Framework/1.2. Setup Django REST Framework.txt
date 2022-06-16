@@ -1,0 +1,68 @@
+===========================
+Setup Django REST Framework
+===========================
+
+- Project Clone:
+  $ git clone https://github.com/encode/django-rest-framework
+
+- https://stackabuse.com/creating-a-rest-api-with-django-rest-framework/
+
+Quickstart
+=========
+- Setup virtual Environment
+- Install django and DRF 
+- Create new project and app
+- Add DRF project settings 
+- Add drf in urls.py 
+- Create serializer for the drf app
+- Create API view for the app 
+- Create url/routes for the app
+  
+
+- Install Django and DRF
+  ----------
+  $ pip install django
+  $ pip install djangorestframework
+  
+  Optional
+  ----
+  $ pip install markdown       # Markdown support for the browsable API.
+  $ pip install django-filter  # Filtering support
+
+- Create Django project and app
+  ---------------
+  $ django-admin startproject my_project
+  $ cd my_project # Project contains app
+  $ python3 manage.py startapp api_app
+
+- Add DRF project settings 
+  ------------------
+  - Open project/settings.py and 
+    add 'rest_framework','api_app' in INSTALLED_APPS
+
+  - Add Rest frameofrk related settings in settigns.py
+    REST_FRAMEWORK = {
+      # Use Django's standard `django.contrib.auth` permissions,
+      # or allow read-only access for unauthenticated users.
+      'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+      ]
+    }
+
+- Add drf in urls.py 
+  -------------
+  - To add REST framework's login and logout views
+    add path('api-auth/', include('rest_framework.urls'))
+    in project urls.py file
+
+- App serializaer
+  -----------
+  Create serializers.py in app and write ModelSerializer
+  - import serializers
+    from rest_framework import serializers
+  - import Models 
+  - create ModelSerializer class
+    - Reference Model in Meta class 
+
+- Create APIView Class
+

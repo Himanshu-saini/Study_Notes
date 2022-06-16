@@ -2,7 +2,6 @@
 DOTENV 
 =======
 
-- Create a .env file and Setup ENV variables 
 - https://pypi.org/project/python-dotenv/
 
 - Install

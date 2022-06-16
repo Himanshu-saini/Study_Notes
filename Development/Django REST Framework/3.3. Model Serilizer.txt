@@ -1,0 +1,24 @@
+=================
+Model Serializer
+=================
+
+Ex 
+---
+def ProductSerializer(Serializers.ModelSerializer):
+    my_field = serializers.SerializerMethodField(read_only=True)  # curstom field 
+    
+    def get_my_field(self,obj):
+      if not isinstance(obj,Product):  # Check if Model instance is created or not 
+        return None
+      return obj.get_model_fieldvalue()  # custom property defined in Product Model class 
+    
+    class Meta:
+      model = product 
+      field = ['title','price','my_field']
+
+- In API View 
+  serializer = ProductSerializer(data=request.data)
+  if serializer.is_valid(raise_exception=True):  # validate data and raise detailed error msg when validation failed
+    print(serializer.data)  # serializer is object having model data before commiting to DB 
+    intance = serializer.save()  # save data to DB and create an instance reference to that data 
+    return instance

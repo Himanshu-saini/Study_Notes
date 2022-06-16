@@ -12,3 +12,20 @@ To change a field name in django 1.7+
   to the operations list.
 - Apply the migration  
   $ python manage.py migrate myApp
+
+Rollback migrations
+===========
+
+- show the names of all the migrations
+  $ manage.py showmigrations my_app
+  
+- Find the migration you want to go to, then
+  $ python manage.py migrate <app_name? <migration_name> 
+  - Ex.
+    $ manage.py migrate my_app 0010_previous_migration 
+    OR 
+    $ manage.py migrate my_app 0010 
+
+- reverse all migrations for an app
+  $ manage.py migrate my_app zero
+

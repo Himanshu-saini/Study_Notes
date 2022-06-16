@@ -1,0 +1,25 @@
+=========================
+Connect to SSH from VS code
+=========================
+
+- Install extension in VS code 
+  - Remote - SSH 
+  OR
+  - Remote Development
+
+
+- Create new file at C:\Users\<User>\.ssh named 
+  - config
+    ---------
+	# Read more about SSH config files: https://linux.die.net/man/5/ssh_config
+
+	Host <custom name>
+		HostName <ip/ssh server link/ec2 link>
+		User <username>
+		IdentityFile <pem file location>
+
+- A new option "Remote Explorer" is added to VS Code right nav panel 
+- Open Remote Explorer and select the <custom name> server 
+- Click on "Connect to Host"
+
+

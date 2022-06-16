@@ -1,3 +1,6 @@
+==================
+Nested Serializers 
+==================
 
 - Handling multiple creates/updates/deletes in nested serializers
   - little tricky when you have to support multiple creates, updates and deletes 
@@ -15,6 +18,55 @@
 	  - all items that should be updated have id,
 	  - all items that should be created don’t have id,
 	  - all items that should be deleted are present in data storage (eg. database), but are missing in the incoming request.data
+
+Writable nested representations
+----------------------
+
+- Writing .create() method
+  - class UserSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer()
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'profile']
+
+    def create(self, validated_data):
+        profile_data = validated_data.pop('profile')
+        user = User.objects.create(**validated_data)
+        Profile.objects.create(user=user, **profile_data)
+        return user
+
+- Writing .update() method
+  - if the data for the relationship is None, or not provided, which of the following should occur?
+    - Set the relationship to NULL in the database.
+    - Delete the associated instance.
+    - Ignore the data and leave the instance as it is.
+    - Raise a validation error.
+  
+  - Ex.
+    def update(self, instance, validated_data):
+        profile_data = validated_data.pop('profile')
+        profile = instance.profile
+
+        instance.username = validated_data.get('username', instance.username)
+        instance.email = validated_data.get('email', instance.email)
+        instance.save()
+
+        profile.is_premium_member = profile_data.get(
+            'is_premium_member',
+            profile.is_premium_member
+        )
+        profile.has_support_contract = profile_data.get(
+            'has_support_contract',
+            profile.has_support_contract
+         )
+        profile.save()
+
+        return instance
+
+
+Using Mixin 
+--------
 	- Ex 
 	class CUDNestedMixin(object):
     @staticmethod

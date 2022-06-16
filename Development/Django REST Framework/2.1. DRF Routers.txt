@@ -12,8 +12,8 @@ DRF Routers
 	router.register(r'accounts', AccountViewSet)
 	urlpatterns = router.urls
 	OR
-	api_router.register(r'tag', TagViewSet, 'tag')
 
+	api_router.register(r'tag', TagViewSet, 'tag')
 	urlpatterns = [
 	  url(r'^v1/', include(api_router.urls, namespace='v1'))
 	]
@@ -32,3 +32,30 @@ DRF Routers
 - additionally includes a default API root view
   that returns a response containing hyperlinks to all the list views
 - also generates routes for optional .json style format suffixes
+
+Register the viewset with a router
+------------------------
+-  default routers provide routes for a standard set of create/retrieve/update/destroy action 
+
+
+Get the URL of an action
+---------------
+- use the .reverse_action() method
+- This is a convenience wrapper for reverse(), automatically passing the view's 
+  request object and prepending the url_name with the .basename attribute.
+- Note that the basename is provided by the router during ViewSet registration. 
+  If you are not using a router, then you must provide the basename argument to the .as_view() method.
+
+- Ex.
+  >>> view.reverse_action('set-password', args=['1'])
+  'http://localhost:8000/api/users/1/set_password'
+
+
+Wothout Router
+=========
+
+urlpatterns = [
+  path('',view.ProductCreateAPIView.as_view()),
+  path('<int:pk>',view.ProductDetailsAPIView.as_view())
+]
+
