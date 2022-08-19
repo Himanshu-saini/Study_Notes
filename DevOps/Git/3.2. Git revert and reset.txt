@@ -7,6 +7,10 @@ Git revert and reset
   - $ git clean -df
   - $ git checkout -- .
 
+- Move to previous commit 
+  ----------------
+  - $ git reset --hard <commit hash>
+
 - Removing New Untraced File
   --------------------------
   - $ git clean -df

@@ -31,6 +31,9 @@ Git Bash Cofigure
   - $ git config user.name
   - $ git config user.password
 
+- Save credentails in github credentails helper
+  - $ git config --global credential.helper store
+
 - Change email, username and password in git bash
   - $ git config --global user.email "abc@email.com"
   - $ git config --global user.name "ShadowSword"
