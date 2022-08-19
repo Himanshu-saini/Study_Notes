@@ -1,0 +1,21 @@
+=========================================
+Rails eager_load_paths vs autoload_paths
+=========================================
+
+autoload_paths
+--------------
+- In rails, we need not to add require for each controller/models/uploaders/etc..
+  as rails load the files in them using autoload_paths
+- Whenever, a class/module is not found in a file it checks for it in autoload_paths
+- Get the list using config.autoload_paths
+
+eager_load_paths
+----------------
+
+- In production, loading file when required (autoload) can be time consuming.
+  eager load loads all the file during project startup, this result in slower startup time 
+  but faster API response time
+- eager_load_paths provide list of directory whose files are to be eager loaded
+
+- Get the value using config.eager_load_paths
+

@@ -1,0 +1,39 @@
+=======================
+Writing Module in lib
+=======================
+
+- Add class/module in lib which do not belong in controller/model
+  and which is to be used at multiple places
+
+- Import that module in file whenever required
+
+- Add the lib file path in config/application.rb
+  to load that file during project building
+  - # config/application.rb
+    ------------------
+	module MyApp
+	  class Application < Rails::Application
+		config.eager_load_paths << "#{config.root}/lib"  # incase files are inside lib folder
+		config.eager_load_paths += Dir.glob "#{config.root}/lib/*/"  # incase files are in floders inside lib
+		OR
+		config.autoload_paths << Rails.root.join('lib')  
+	  end
+	end
+	
+	- config.root and Rails.root are same
+
+- Create module as
+  # /lib/foo.rb
+  -------------
+  module Foo
+    def hello
+      "hello"
+    end
+  end
+
+- include in model as 
+  # app/models/customer.rb
+  -----------------
+  class Customer < ActiveRecord::Base
+    include Foo
+  end

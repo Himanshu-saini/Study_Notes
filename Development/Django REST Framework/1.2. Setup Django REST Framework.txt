@@ -66,3 +66,10 @@ Quickstart
 
 - Create APIView Class
 
+Using existing DB
+----------------
+https://djangoadventures.com/how-to-integrate-django-with-existing-database/#:~:text=In%20order%20to%20use%20an,to%20solve%20this%20exact%20problem.
+
+Using multiple DB 
+--------------
+https://docs.djangoproject.com/en/4.0/topics/db/multi-db/
