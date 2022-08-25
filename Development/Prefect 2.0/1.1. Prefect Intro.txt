@@ -1,0 +1,76 @@
+Prefect Introduction
+====================
+- air traffic control for the modern data stack
+- Monitor, coordinate, and orchestrate dataflows
+- Build pipelines, deploy them anywhere, and configure them remotely.
+- Helps in 
+  ---------
+  - schedules
+  - retries
+  - logging
+  - caching
+  - notifications
+  - observability
+  ...
+
+- Prefect Tasks can
+  - run concurently
+    - by submitting task to a worker
+  - Parallelization with Dask
+  - Async concurrency
+    - have native aync supprt 
+    - asyncio.run(<task>)
+
+Basic Component
+-------------
+- Workflow
+  - how to program will execute
+- flow
+  - Decorator: @flow 
+  - Entrypoint of workflow 
+  - Contain call to tasks
+  - can also call another workflow, called "sub-workflow"
+- task 
+  - Decorator: @task
+  - Piece of code to be executed in a flow 
+
+- Installation
+  - $ pip install -U prefect
+
+- Start Local Orion UI
+  - $ prefect orion start
+
+
+- Import prefect in python scriptimport requests
+from prefect import flow, task
+
+@task
+def call_api(url):
+    response = requests.get(url)
+    print(response.status_code)
+    return response.json()
+
+@task
+def call_test(out="This is a test output"):
+    print(out)
+    return out
+
+@flow
+def api_flow(url):
+    fact_json = call_api(url)
+    test = call_test("Testing 123")
+    return fact_json
+
+print(api_flow("https://catfact.ninja/fact"))
+
+- run Script 
+
+
+
+Prefect Deployment
+====================
+
+
+
+
+
