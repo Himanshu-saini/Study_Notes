@@ -1,0 +1,26 @@
+==========================
+Run Prefect Server Locally
+==========================
+- https://docs-v1.prefect.io/orchestration/server/deploy-local.html#ui-configuration
+
+- requires both docker-compose >= 1.18.0 and docker to be installed
+  - $ pip install docker-compose
+  - Install docket dektop client
+- PostgreSQL server should be installed 
+
+- By default, Prefect is configured to use Prefect Cloud as the backend.
+- Reconfigure prefect to use local server 
+  - $ prefect backend server
+
+- Start Server 
+  - $ prefect server start
+  - $ prefect server start --expose
+    - if you want to expose prefect server to outsite world
+
+- Create docker-compose file to customize
+  - $ prefect server config  # prints in stdout
+  - $ prefect server config > docker-compose.yaml  # prints to file 
+
+  - PostgreSQL server shoulkd be stopped so that post 5432 is free 
+    for prefect postgres service to start 
+

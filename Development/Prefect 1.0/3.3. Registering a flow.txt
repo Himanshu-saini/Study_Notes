@@ -1,0 +1,14 @@
+================
+Register a Flow 
+================
+- Flow must be registered so it is managed by the backend
+- Add this command after creating a flow
+  - flow.register(project_name="tutorial")
+
+- When a flow is registered
+  - flow is validated to catch common errors.
+  - The flow's source is serialized and stored in the flow's Storage on your infrastructure( Docker image,S3 bucket, or GitHub repository).
+  - The flow's metadata is packaged up and sent to the Prefect backend. 
+    - code itself remains safe and secure on your infrastructure
+
+- https://docs-v1.prefect.io/orchestration/concepts/flows.html#versioning

@@ -1,0 +1,9 @@
+=========================
+Creating Prefect project
+=========================
+
+- Similar to a directory in a filesystem, Prefect organizes flows into projects
+- A prefect project is needed, before deploying a flow to prefect backend
+- Each flow belongs to exactly one project 
+- Creating project using Prefect CLI
+  - $ prefect create project "tutorial"

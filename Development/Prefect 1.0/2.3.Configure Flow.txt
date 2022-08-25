@@ -1,0 +1,20 @@
+Configure Flow
+===============
+- https://docs-v1.prefect.io/orchestration/getting-started/flow-configs.html#configure-environment-variables
+
+- Run configuration before flow register
+
+Configurable params
+-------
+- Storage
+  - where the flow should be stored to and loaded from during execution
+  - default = local 
+- Run Configuration
+  - where and how a flow run should be executed
+  - default = UniversalRun (works with any Agent)
+- Executor
+  - where and how tasks in a flow run should be executed
+  - Default = LocalExecutor (executes tasks serially in a single thread)
+  - flow.executor = LocalDaskExecutor()
+    - unlimited parallel execution 
+- 

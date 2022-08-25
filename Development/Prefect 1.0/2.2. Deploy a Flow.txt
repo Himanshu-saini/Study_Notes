@@ -1,0 +1,28 @@
+=============
+Deploy a Flow 
+=============
+- https://docs-v1.prefect.io/orchestration/getting-started/registering-and-running-a-flow.html#register-a-flow
+
+Creating Prefect project
+=========================
+
+- Each flow belongs to exactly one project 
+- Creating project using Prefect CLI
+  - $ prefect create project "tutorial"
+
+Register a Flow 
+================
+- Flow must be registered so it is managed by the backend
+- Add this command after creating a flow
+  - flow.register(project_name="tutorial")
+
+Start an Agent
+===============
+- Start via the CLI
+  - $ prefect agent local start
+
+Execute a Flow Run
+===================
+- On the Flow page click Quick Run in the upper-right corner.
+OR 
+- use flow.run() in python script

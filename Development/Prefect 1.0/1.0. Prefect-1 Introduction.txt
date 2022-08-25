@@ -1,0 +1,22 @@
+===========================
+Introduction to prefect 1.0
+===========================
+
+- 3rd party library that helps in managing a piece of code 
+- It is responsible for running task, logging, retring, error handling, caching, scheduling, ...
+
+Installation
+------------
+- pip install "prefect==1.*"
+
+Components
+---------
+- flow 
+  - Container of task
+- task 
+  - task are a peice of code
+- flow_run 
+- flow_group
+
+
+

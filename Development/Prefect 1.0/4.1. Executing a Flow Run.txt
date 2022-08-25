@@ -1,0 +1,46 @@
+===================
+Execute a Flow Run
+===================
+- https://docs-v1.prefect.io/orchestration/ui/flow-run.html
+
+- When a flow is run with Prefect Core, it executes locally and its state is not persisted.
+- When a flow is run with a Prefect backend i.e. Prefect Cloud, information about the flow's execution is streamed to the backend for live inspection of your flow's status.
+
+- In the Prefect backend, a flow run represents the full picture of your flow's execution from scheduling to completion
+
+Creating a Flow Run 
+--------------------  
+- https://docs-v1.prefect.io/orchestration/flow-runs/creation.html#cli
+from prefect import Client
+flow_run_id = client.create_flow_run(flow_id)  # Create a flow run for a flow
+
+Inspecting a flow Run 
+----------------------
+- https://docs-v1.prefect.io/orchestration/flow-runs/inspection.html#python
+from prefect.backend import FlowRunView
+flow_run_view = FlowRunView.from_flow_run_id(flow_run_id)  # Create a interactive view for flow run to extract required detials
+
+
+- FlowRunView object is created at the time of flow Run and will not retrieve lated=st info when queried.
+- to get newest data, use 
+  - flow_run = flow_run.get_latest()
+
+- Commands
+  ---------
+  - flow_run.state
+  - flow_run.state.is_finished()
+  - flow_run.state.is_running()
+  - flow_run.state.message
+  - flow_run.get_logs()
+  - flow_run.get_flow_metadata()
+    - Flow metadata is lazily loaded by request then cached
+    - want to force the FlowView to be reloaded, pass no_cache=True
+
+
+  - task_run = flow_run.get_task_run(task_slug='say_hello-1')
+    - return TaskRunView
+    - get task by task_run_id or slug
+    - if it is in a finished state, it will be cached in the FlowRunView
+    - flow_run.get_latest() to get latest data
+    - https://docs-v1.prefect.io/orchestration/flow-runs/task-runs.html#python
+  - flow_run.task_run_ids

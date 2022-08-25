@@ -1,0 +1,63 @@
+===============
+Task in prefect 
+===============
+
+Passing parameter in prefect task 
+------------------------------------
+
+@task
+def extract_live_data(airport, radius, ref_data):
+  ...
+
+- Pass parameter to task using prefect.Parameter
+
+with Flow("Aircraft-ETL") as flow:
+    airport = Parameter("airport", default="IAD")
+    radius = Parameter("radius", default=200)
+
+    reference_data = extract_reference_data()
+    live_data = extract_live_data(airport, radius, reference_data)
+
+# Run the Flow with default airport=IAD & radius=200
+flow.run()
+
+- Just like Tasks, Parameters are not evaluated until flow.run() is called, 
+  using default values if provided, or overridden values passed into run()
+
+# using default radius and a different airport!
+flow.run(airport="DCA")
+
+
+Scheduling Task 
+------------------
+- Prefect provides Schedule objects that can be attached to Flows
+
+from datetime import timedelta, datetime
+from prefect.schedules import IntervalSchedule
+
+# ... task definitions ...
+
+schedule = IntervalSchedule(
+    start_date=datetime.utcnow() + timedelta(seconds=1),
+    interval=timedelta(minutes=1),
+)
+
+with Flow("Aircraft-ETL", schedule=schedule) as flow:
+
+- invoking flow.run() will run our flow forever at the interval of 1 minute 
+
+
+Logging in Prefect Tasks
+------------------------
+- there is already a Logger object made available to you within Tasks
+
+@task
+def load_reference_data(ref_data):
+    logger = prefect.context.get("logger")
+    logger.info("saving reference data...")
+
+
+Prefect task library
+--------------------
+- Common task that are used to connect to 3rd party 
+- https://docs-v1.prefect.io/core/task_library/overview.html#task-library-in-action

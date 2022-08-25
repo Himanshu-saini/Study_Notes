@@ -1,0 +1,53 @@
+===============
+Start an Agent
+===============
+
+- https://docs-v1.prefect.io/orchestration/agents/overview.html
+
+- lightweight processes for orchestrating flow runs.
+- responsible for starting and monitoring flow runs.
+- both Prefect Agents (and flow runs) only send requests out to the Prefect API, and never receive requests themselves
+- A single agent can manage many concurrent flow runs
+- have multiple active agents if you need to support flow runs on different deployment platforms.
+
+Agent Types
+-----------
+- Local: The Local Agent executes flow runs as local processes.
+- Docker
+- Kubernetes
+- GCP Vertex
+- AWS ECS
+
+- Start via the CLI
+  -----------
+  - $ prefect agent <AGENT TYPE> start
+- Python API
+  --------
+  from prefect.agent.local import LocalAgent
+  LocalAgent().start()
+
+
+Authentication
+-------------
+- Prefect agents rely on the use of an API key from Prefect Cloud.
+- pass an API key via CLI to an agent
+  - $ prefect agent <agent-type> start --key "API_KEY"
+
+Change Prefect API address
+------------------
+- Prefect agents query the API for any pending flow runs.
+- Change defaiult prefect APi address from CLI using 
+  - prefect agent <AGENT TYPE> start --api <API ADDRESS>
+
+- Prefect API Address
+  - https://api.prefect.io for Prefect Cloud
+  - http://localhost:4200 for Prefect Server
+
+
+Lables
+------
+- Agents have an optional labels argument which allows for separation of execution when using multiple agents
+- By default, agents have no set labels and will only pick up runs from flows with no specified labels.
+
+- provide Lable
+  - prefect agent <AGENT TYPE> start --label dev --label staging

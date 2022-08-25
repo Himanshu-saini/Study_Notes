@@ -1,0 +1,16 @@
+==============
+Scaling Out
+==============
+
+- adjust our Flow to distribute its Tasks onto a Dask Cluster, parallelizing its execution
+
+from prefect.executors import DaskExecutor
+# ...flow definition...
+if __name__=="__main__":
+    flow.run(executor=DaskExecutor())
+
+- This will spin up a Local Dask Cluster on your system to parallelize the tasks.
+- specifying the address in the DaskExecutor constructor
+  - executor=DaskExecutor(
+        address='some-ip:port/to-your-dask-scheduler'
+    )

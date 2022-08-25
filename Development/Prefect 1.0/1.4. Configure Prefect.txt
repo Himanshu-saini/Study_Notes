@@ -1,0 +1,15 @@
+==================
+Configure Prefect
+==================
+
+- Configure Prefect to use the Prefect Cloud
+  - $ prefect backend cloud
+- Configure Prefect to use the Local prefect server 
+  - $ prefect backend server 
+
+- If using prefect Cloud, you require prefect API key to use prefect Cloud
+  - Create an API key in prefect cloud account
+  - Log in with the Prefect CLI by running
+    - $ prefect auth login --key <YOUR-KEY>
+  - https://docs-v1.prefect.io/orchestration/concepts/api_keys.html
+- 

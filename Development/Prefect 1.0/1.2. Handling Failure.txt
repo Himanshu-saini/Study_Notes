@@ -1,0 +1,15 @@
+================
+Handling Failure
+================
+- Prefect Tasks can be retried on failure
+
+@task(max_retries=3, retry_delay=timedelta(seconds=10))
+def extract_reference_data():
+    # same as before ...
+    ...
+
+- https://docs-v1.prefect.io/core/tutorial/04-handling-failure.html
+- More Ways to Handle Failures
+  - Task Triggers: selectively execute Tasks based on the states from upstream Task runs.
+  - State Handlers: provide a Python function that is invoked whenever a Flow or Task changes state
+  - Notifications: Get Slack notifications upon state changes of interest or use the EmailTask in combination with Task Triggers.
