@@ -1,0 +1,32 @@
+=========================
+Connect to the PostgreSQL
+=========================
+
+PSQL
+----
+– A terminal-based front-end to PostgreSQL database server.
+- Open SQL shell (psql)
+- enter all the information such as Server, Database, Port, Username, and Password
+- If an information is not provided, it will take default value,
+  like defualt host = localhost
+
+
+pgAdmin
+---------
+– a web-based front-end to PostgreSQL database server.
+- Open pgAdmin 
+- Go To Create > Server...
+- Select server name, host, password
+- Run Query tool via 
+  - Tool > Query Tool or click the lightning icon
+
+Terminal/Powershell
+---------------------
+- $ psql -h host -d database -U user -W
+
+
+Restart postgres
+----------------
+- open RUn (ctrl+R)
+- Entre services.msc
+- Find postgres service and restart it 

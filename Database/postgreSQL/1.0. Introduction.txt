@@ -1,0 +1,22 @@
+=========================
+PostgreSQL Introduction
+=========================
+
+- advanced, enterprise-class, and open-source relational database system
+- PostgreSQL supports both SQL (relational) and JSON (non-relational) querying
+- PostgreSQL feature highlights
+  - User-defined types
+  - Table inheritance
+  - Sophisticated locking mechanism
+  - Foreign key referential integrity
+  - Views, rules, subquery
+  - Nested transactions (savepoints)
+  - Multi-version concurrency control (MVCC)
+  - Asynchronous replication
+  - Native Microsoft Windows Server version
+  - Tablespaces
+  - Point-in-time recovery
+
+- PostgreSQL allows you to define your own data types, index types, functional languages, etc.
+
+
